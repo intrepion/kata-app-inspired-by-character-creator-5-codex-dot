@@ -8,7 +8,7 @@
   "tagline": "A character, from the inside out.",
   "description": "A character, from the inside out.",
   "entryPoint": "index.html",
-  "status": "local-prototype",
+  "status": "live",
   "toolShedUrl": "https://intrepion.github.io/tools/",
   "screenshots": [
     "docs/screenshots/desktop.png",
@@ -30,5 +30,6 @@
     "PNG preview export",
     "Editable project import and export",
     "Best-effort browser autosave"
-  ]
+  ],
+  "launchUrl": "https://intrepion.github.io/kata-app-inspired-by-character-creator-5-codex-dot/"
 }

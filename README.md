@@ -73,3 +73,8 @@ Project imports are limited to 100 KB and validate schema, parameter ranges, col
 MIT, see [LICENSE](LICENSE). Original code, design and procedural assets. [Character Creator 5](https://www.reallusion.com/character-creator/) is by Reallusion; this project has no affiliation, endorsement or file-format compatibility. No proprietary artwork, logos or code were copied. Combined Windows, macOS and Linux/Unix `.gitignore` also covers editor files, build outputs and local secrets.
 
 This is an independent educational kata. See the QA notes for verification scope and limitations.
+
+
+## Published app
+
+Open [Kata Persona Forge](https://intrepion.github.io/kata-app-inspired-by-character-creator-5-codex-dot/). The public repository uses GitHub Actions to verify and deploy `dist/` from `main`. See [QA notes](docs/QA.md) for local verification and known limits.

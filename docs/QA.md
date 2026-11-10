@@ -24,3 +24,8 @@ Short test settling delays initially produced false failures under background-ta
 ## Scope
 
 See README for deliberately limited modeling/texturing scope. The previews use custom Canvas renderers, not production 3D engines. Downstream professional 3D application compatibility has not been tested. Screenshots are actual localhost app captures.
+
+
+## Publication
+
+The tested runtime commit `b6ed1a3a64bc1b9dad4e9f924dfa6d94e5b245cb` was pushed to [the public repository](https://github.com/intrepion/kata-app-inspired-by-character-creator-5-codex-dot). Its checks, build, and GitHub Pages deployment succeeded in [run 42748710341](https://github.com/intrepion/kata-app-inspired-by-character-creator-5-codex-dot/actions/runs/42748710341) on 2026-11-10. The app is available at [Kata Persona Forge](https://intrepion.github.io/kata-app-inspired-by-character-creator-5-codex-dot/). This publication record does not expand the local device, accessibility or file-dialog verification described above.
