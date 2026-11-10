@@ -1,6 +1,6 @@
-# Original auxiliary skirt rig: local milestone
+# Original auxiliary skirt rig
 
-This milestone is **not published**. It starts from the published distinct-face baseline `d5e31df0d2f030ab1d15534d981a72dabdd4a5dc` and adds a separately authored optional garment. No TailorRig dataset, model, source code, learned skin weights, demo assets, or restricted material is used.
+This release starts from the published distinct-face baseline `d5e31df0d2f030ab1d15534d981a72dabdd4a5dc` and adds a separately authored optional garment. No TailorRig dataset, model, source code, learned skin weights, demo assets, or restricted material is used.
 
 ## Try it
 

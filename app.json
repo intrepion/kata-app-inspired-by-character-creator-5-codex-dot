@@ -6,11 +6,12 @@
   "section": "Kata Tool Shed",
   "category": "3D & Animation",
   "tagline": "A character, from the inside out.",
-  "description": "A local-first character workshop with distinct adult face presets, fitted facial controls, textured hair, weighted posing and editable GLB export.",
+  "description": "A local-first character workshop with distinct adult face presets, an optional A-line skirt with garment-only bones and hem sway, weighted posing and editable GLB export.",
   "entryPoint": "index.html",
   "status": "live",
   "toolShedUrl": "https://intrepion.github.io/tools/",
   "screenshots": [
+    "docs/screenshots/persona-skirt-comparison.png",
     "docs/screenshots/persona-distinct-faces.png",
     "docs/screenshots/persona-portrait-workspace.jpg",
     "docs/screenshots/persona-portrait-face.jpg"
@@ -28,6 +29,8 @@
     "Fitted brows and lashes with facial morphs",
     "Textured swept short crop and bald option",
     "53-bone weighted skeleton and four static bone-driven poses",
+    "Optional original A-line skirt with nine garment-only auxiliary bones",
+    "Hem-sway control, body-build fit morphs and editable garment export",
     "Twenty-eight editable appearance morph targets plus pose correctives",
     "Height scaling and preserved garment/pose fixes",
     "Locally bundled Three.js and labeled software preview",
@@ -42,6 +45,7 @@
   "limitations": [
     "Stylized procedural hair, not photorealistic or a production groom",
     "Synthetic skin detail and tinting of one diffuse skin source",
-    "No facial animation or cloth simulation"
+    "No facial animation or cloth simulation",
+    "Skirt fit is checked across supported static poses; arbitrary bone edits may clip"
   ]
 }

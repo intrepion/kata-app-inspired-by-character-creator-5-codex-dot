@@ -1,6 +1,6 @@
-# Distinct adult faces: local milestone
+# Distinct adult faces
 
-Local, unpublished implementation based on portrait commit `3a5fb77`. All visual testing uses a localhost HTTP server. No browser file URLs or directly opened artifacts are used.
+Published in commit `d5e31df`, based on portrait commit `3a5fb77`. All visual testing uses a localhost HTTP server. No browser file URLs or directly opened artifacts are used.
 
 ## Changes
 

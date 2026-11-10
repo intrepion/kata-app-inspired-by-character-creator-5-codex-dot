@@ -2,7 +2,7 @@
 
 **A character, from the inside out.** A local-first human character workshop inspired by character-creation workflows. This **version 2 human foundation** replaces the procedural mannequin with a licensed MakeHuman/MPFB anatomical adult.
 
-[Open Persona Forge](https://intrepion.github.io/kata-app-inspired-by-character-creator-5-codex-dot/). The human foundation was first published from commit `e4bcb71`. The local distinct-faces milestone adds nine facial controls and three adult presets while preserving the portrait and waist/pose work. It is not published yet. See [distinct-faces verification and limits](docs/QA-DISTINCT-FACES.md).
+[Open Persona Forge](https://intrepion.github.io/kata-app-inspired-by-character-creator-5-codex-dot/). The human foundation was first published from commit `e4bcb71`. The distinct-faces milestone was published from `d5e31df`; it adds nine facial controls and three adult presets while preserving the portrait and waist/pose work. See [distinct-faces verification and limits](docs/QA-DISTINCT-FACES.md).
 
 ![Original and three distinct adult faces on Mac WebGL, identical styling and three angles](docs/screenshots/persona-distinct-faces.png)
 
@@ -10,9 +10,9 @@
 
 ![Actual Mac hardware WebGL face view](docs/screenshots/persona-portrait-face.jpg)
 
-## Local skirt-rig milestone (unpublished)
+## Original skirt-rig milestone
 
-The working tree adds an original optional A-line skirt with nine garment-only auxiliary bones, editable fit morphs and a Hem sway control. The original 53-bone human, distinct faces and earlier garment fixes are preserved. Choose **A-line skirt** in Appearance → Outfit, then try Stride or Hem sway. This is bone posing, not cloth simulation. Existing projects still open with trousers. See [construction, verification and limits](docs/QA-SKIRT.md).
+This release adds an original optional A-line skirt with nine garment-only auxiliary bones, editable fit morphs and a Hem sway control. The original 53-bone human, distinct faces and earlier garment fixes are preserved. Choose **A-line skirt** in Appearance → Outfit, then try Stride or Hem sway. This is bone posing, not cloth simulation. Existing projects still open with trousers. See [construction, verification and limits](docs/QA-SKIRT.md).
 
 ![Actual localhost skirt comparison](docs/screenshots/persona-skirt-comparison.png)
 
@@ -35,18 +35,18 @@ Always run an HTTP server and visit localhost. Never open a `file://` URL. Produ
 - Original pore-normal and roughness maps, neutral studio lighting and reflected eye highlights.
 - A weighted 53-bone skeleton. Neutral, T-pose, Hello and Stride are bone-driven static poses, not walking animation.
 - Fourteen paired morph controls: body build, shoulders, jaw, nose, eyes, head width/height, cheeks, chin, nose width/projection, eye spacing, brow height and lips. Twenty-eight appearance shape keys and three pose correctives stay editable. Overall height scales the whole character from 90–110%.
-- Separate fitted top, trousers and a textured short crop with tapered ribbon fibers, with no-hair option. Brows/lashes follow face morphs. No simulated cloth or groom simulation.
+- Separate fitted top, a choice of trousers or an original A-line skirt, and a textured short crop with tapered ribbon fibers, with no-hair option. Brows/lashes follow face morphs. No simulated cloth or groom simulation.
 - Separate iris color keeps the sclera neutral; skin and hair colors remain tints.
 - Original Explorer/Juniper, Pilot/Orion and Botanist/Fern preserved, plus three adult face presets: Angular/Vale, Rounded/Marlowe and Long/Ellis. The new presets use identical styling so their geometry differences are visible. All share one anatomical foundation.
 - Body/face inspection, front/side/back views and drag/keyboard orbit.
 - Forty-edit undo/redo, best-effort browser autosave, editable `.persona` projects and PNG snapshots.
-- **GLB export** retains the current shape, color, height, selected pose, UV textures, skin weights, bones and pose clips. Hidden hair is omitted. Open and edit it in Blender.
+- **GLB export** retains the current shape, color, height, selected pose, UV textures, skin weights, bones and pose clips. Hidden hair and the unselected lower garment are omitted. Skirt export includes its nine auxiliary bones; trousers retain only the original body rig. Open and edit it in Blender.
 
 The normal renderer is locally bundled Three.js 0.180.0 with WebGL 2. Where WebGL is unavailable, the labeled **software preview** rasterizes the same textured, morphed, skinned human, with reduced lighting and resolution. Export remains the full asset. If neither WebGL nor Canvas 2D can be created, the app reports the problem and leaves project saving/editing available. It never substitutes a different mannequin.
 
 ## Existing projects
 
-Existing version 2 files without `eyeColor` load with the neutral iris default. Omitted new facial controls load at their unchanged neutral value of 0.5. Invalid supplied values remain errors. New saves retain every face control; older app builds reject these new fields. The version 1 legacy payload is unchanged.
+Existing version 2 files without `eyeColor` load with the neutral iris default. Omitted new facial controls load at their unchanged neutral value of 0.5. Omitted garment fields default to trousers and neutral sway. Invalid supplied values remain errors. New saves retain every face control; older app builds reject these new fields. The version 1 legacy payload is unchanged.
 
 Version 1 projects migrate explicitly to version 2. The original validated parameters are retained as `legacySource` in the downloaded project, and the old `kata-persona-v1` autosave key is not overwritten. The new key is `kata-persona-v2`.
 
