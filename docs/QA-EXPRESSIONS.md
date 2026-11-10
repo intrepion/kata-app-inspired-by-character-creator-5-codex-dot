@@ -1,6 +1,6 @@
-# Local expression prototype
+# Expression prototype
 
-Implemented locally on top of published main `7f578af` on 2026-11-10. Not pushed, merged or deployed. The existing foundation GLB and packed Blender source remain byte-identical.
+Implementation `d54d407`, based on published main `7f578af`, was approved for publication on 2026-11-10. The existing foundation GLB and packed Blender source remain byte-identical.
 
 ## Behavior
 
@@ -15,7 +15,7 @@ No new external assets were used. All new code and fields are original MIT addit
 
 ## Verification
 
-- TDD: expression project tests failed before implementation, and the geometry tests initially failed because the expression module did not exist. New tests cover defaults, invalid input, save/open, history, neutral preservation, original channel names, local finite deformations, mouth/cheek directions and brows. The complete syntax and Node suite passes 105 tests.
+- TDD: expression project tests failed before implementation, and the geometry tests initially failed because the expression module did not exist. New tests cover defaults, invalid input, save/open, history, neutral preservation, original channel names, local finite deformations, mouth/cheek directions and brows. The complete syntax and Node suite passes 106 tests, including the publication manifest regression.
 - Endpoint combinations across neutral, the three distinct adult face presets, all-low and all-high appearance values preserve nondegenerate front-face triangles. This is a sampled regression check, not an exhaustive collision proof.
 - Mac hardware WebGL: ANGLE Metal / Apple M1. Reviewed nine basic comparisons including 50% and 100% smile, frown, brow endpoints, profile, three-quarter, wink and diagonal gaze; nine preset comparisons; and six appearance/garment/pose extremes.
 - The same nine basic views were reviewed in the explicitly forced software fallback. Its lower resolution and flatter lighting are expected.

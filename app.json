@@ -6,11 +6,13 @@
   "section": "Kata Tool Shed",
   "category": "3D & Animation",
   "tagline": "A character, from the inside out.",
-  "description": "A local-first character workshop with distinct adult faces, independent blink and gaze controls, an optional rigged A-line skirt, weighted posing and editable GLB export.",
+  "description": "A local-first character workshop with distinct adult faces, adjustable smile, frown and brow expressions, independent blink and gaze, an optional rigged A-line skirt, weighted posing and editable GLB export.",
   "entryPoint": "index.html",
   "status": "live",
   "toolShedUrl": "https://intrepion.github.io/tools/",
   "screenshots": [
+    "docs/screenshots/persona-expressions.png",
+    "docs/screenshots/persona-expression-presets.png",
     "docs/screenshots/persona-blink-gaze.png",
     "docs/screenshots/persona-skirt-comparison.png",
     "docs/screenshots/persona-distinct-faces.png",
@@ -23,6 +25,9 @@
   },
   "license": "MIT",
   "features": [
+    "Adjustable closed-mouth smile, frown and brow expressions with neutral reset",
+    "Coherent cheek movement and gentle smile squint alongside independent blink and gaze",
+    "Four original editable expression targets on the human and fitted brows",
     "Independent anatomical left/right blink controls with neutral reset",
     "Bounded horizontal/vertical gaze with fitted lids, lashes, iris and cornea",
     "Ten original editable eye targets and blink/gaze interaction correctives",
@@ -49,9 +54,11 @@
   "limitations": [
     "Stylized procedural hair, not photorealistic or a production groom",
     "Synthetic skin detail and tinting of one diffuse skin source",
-    "No mouth expressions, lip-sync, automatic blink timing or cloth simulation; eye-only morph posing",
+    "No mouth interior, jaw controls, lip-sync, automatic blink timing or cloth simulation; closed-mouth expression posing",
     "Skirt fit is checked across supported static poses; arbitrary bone edits may clip",
     "Eyelids can look heavy or stretched at extreme identity combinations",
-    "Exported eye targets fit the saved identity; changing identity in Blender may require refitting"
+    "Exported eye targets fit the saved identity; changing identity in Blender may require refitting",
+    "Strong expressions are stylized, not a production muscle or wrinkle system",
+    "Blender expression edits do not automatically update smile squint or opposing-key cancellation"
   ]
 }
