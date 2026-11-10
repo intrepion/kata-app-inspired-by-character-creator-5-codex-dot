@@ -53,3 +53,7 @@ Neutral source shape weights are explicitly zero. The added controls preserve th
 `src/skirt-rig.js` authors an original parametric A-line surface, UVs, build-fit morphs, auxiliary bone placements and normalized garment-only weights. The fit references the existing CC0 trousers contour without changing it. The new generator, garment topology and auxiliary pose/weight data are MIT under this repository's license. No TailorRig dataset, model, code, output or demo asset is included or used. No new third-party asset, texture, scan or likeness is downloaded. Existing human/portrait asset licenses are unchanged.
 
 The optional skirt is built locally in the runtime and retained in GLB exports; the existing `foundation.glb` and `foundation.blend` are byte-identical to the distinct-face baseline. See `docs/QA-SKIRT.md` for independent body-rig preservation and Blender editing evidence.
+
+## Original blink and gaze controls
+
+`src/eye-rig.js` adds original MIT runtime deformation code and fitted export targets. No new external or Reallusion assets are used. The retained `assets/human/foundation.glb` and `assets/source/foundation.blend` remain byte-identical to the prior milestone; their original licenses above still apply.

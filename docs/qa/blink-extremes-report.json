@@ -1,0 +1,335 @@
+{
+  "mode": "extremes",
+  "checks": [
+    {
+      "passed": true,
+      "label": "Renderer webgl / ANGLE (Apple, ANGLE Metal Renderer: Apple M1, Unspecified Version)"
+    },
+    {
+      "passed": true,
+      "label": "Minimum identity closed retains body rig"
+    },
+    {
+      "passed": true,
+      "label": "Maximum identity closed retains body rig"
+    },
+    {
+      "passed": true,
+      "label": "Mixed identity wink retains body rig"
+    },
+    {
+      "passed": true,
+      "label": "Broad crop, gaze down retains body rig"
+    },
+    {
+      "passed": true,
+      "label": "Skirt stride, blink retains body rig"
+    },
+    {
+      "passed": true,
+      "label": "Trousers wave, gaze retains body rig"
+    }
+  ],
+  "views": [
+    {
+      "label": "Minimum identity closed",
+      "project": {
+        "version": 2,
+        "name": "Juniper",
+        "height": 1,
+        "build": 0.5,
+        "shoulders": 0.5,
+        "jaw": 0.5,
+        "nose": 0.5,
+        "eyes": 0,
+        "headWidth": 0,
+        "headHeight": 0,
+        "cheeks": 0,
+        "chin": 0.5,
+        "noseWidth": 0.5,
+        "noseProjection": 0.5,
+        "eyeSpacing": 0,
+        "browHeight": 0,
+        "lips": 0.5,
+        "blinkLeft": 1,
+        "blinkRight": 1,
+        "gazeHorizontal": 0,
+        "gazeVertical": 0,
+        "lowerGarment": "trousers",
+        "skirtSwing": 0,
+        "skin": "#ba805e",
+        "outfit": "#d97842",
+        "pants": "#3b5550",
+        "hairColor": "#493226",
+        "eyeColor": "#786448",
+        "hair": "none",
+        "pose": "relaxed",
+        "yaw": 0.32
+      },
+      "yaw": 0,
+      "focus": "face"
+    },
+    {
+      "label": "Maximum identity closed",
+      "project": {
+        "version": 2,
+        "name": "Juniper",
+        "height": 1,
+        "build": 0.5,
+        "shoulders": 0.5,
+        "jaw": 0.5,
+        "nose": 0.5,
+        "eyes": 1,
+        "headWidth": 1,
+        "headHeight": 1,
+        "cheeks": 1,
+        "chin": 0.5,
+        "noseWidth": 0.5,
+        "noseProjection": 0.5,
+        "eyeSpacing": 1,
+        "browHeight": 1,
+        "lips": 0.5,
+        "blinkLeft": 1,
+        "blinkRight": 1,
+        "gazeHorizontal": 0,
+        "gazeVertical": 0,
+        "lowerGarment": "trousers",
+        "skirtSwing": 0,
+        "skin": "#ba805e",
+        "outfit": "#d97842",
+        "pants": "#3b5550",
+        "hairColor": "#493226",
+        "eyeColor": "#786448",
+        "hair": "none",
+        "pose": "relaxed",
+        "yaw": 0.32
+      },
+      "yaw": 0,
+      "focus": "face"
+    },
+    {
+      "label": "Mixed identity wink",
+      "project": {
+        "version": 2,
+        "name": "Juniper",
+        "height": 1,
+        "build": 0.5,
+        "shoulders": 0.5,
+        "jaw": 0.5,
+        "nose": 0.5,
+        "eyes": 1,
+        "headWidth": 0,
+        "headHeight": 1,
+        "cheeks": 0.5,
+        "chin": 0.5,
+        "noseWidth": 0.5,
+        "noseProjection": 0.5,
+        "eyeSpacing": 0,
+        "browHeight": 1,
+        "lips": 0.5,
+        "blinkLeft": 1,
+        "blinkRight": 0,
+        "gazeHorizontal": 1,
+        "gazeVertical": 1,
+        "lowerGarment": "trousers",
+        "skirtSwing": 0,
+        "skin": "#ba805e",
+        "outfit": "#d97842",
+        "pants": "#3b5550",
+        "hairColor": "#493226",
+        "eyeColor": "#786448",
+        "hair": "none",
+        "pose": "relaxed",
+        "yaw": 0.32
+      },
+      "yaw": 0.65,
+      "focus": "face"
+    },
+    {
+      "label": "Broad crop, gaze down",
+      "project": {
+        "version": 2,
+        "name": "Juniper",
+        "height": 1,
+        "build": 0.5,
+        "shoulders": 0.5,
+        "jaw": 0.5,
+        "nose": 0.5,
+        "eyes": 0,
+        "headWidth": 1,
+        "headHeight": 0,
+        "cheeks": 0.5,
+        "chin": 0.5,
+        "noseWidth": 0.5,
+        "noseProjection": 0.5,
+        "eyeSpacing": 1,
+        "browHeight": 0,
+        "lips": 0.5,
+        "blinkLeft": 0,
+        "blinkRight": 0,
+        "gazeHorizontal": -1,
+        "gazeVertical": -1,
+        "lowerGarment": "trousers",
+        "skirtSwing": 0,
+        "skin": "#ba805e",
+        "outfit": "#d97842",
+        "pants": "#3b5550",
+        "hairColor": "#493226",
+        "eyeColor": "#786448",
+        "hair": "crop",
+        "pose": "relaxed",
+        "yaw": 0.32
+      },
+      "yaw": 0.65,
+      "focus": "face"
+    },
+    {
+      "label": "Skirt stride, blink",
+      "project": {
+        "version": 2,
+        "name": "Juniper",
+        "height": 1,
+        "build": 1,
+        "shoulders": 1,
+        "jaw": 0.5,
+        "nose": 0.5,
+        "eyes": 0.5,
+        "headWidth": 0.5,
+        "headHeight": 0.5,
+        "cheeks": 0.5,
+        "chin": 0.5,
+        "noseWidth": 0.5,
+        "noseProjection": 0.5,
+        "eyeSpacing": 0.5,
+        "browHeight": 0.5,
+        "lips": 0.5,
+        "blinkLeft": 0,
+        "blinkRight": 1,
+        "gazeHorizontal": -1,
+        "gazeVertical": 0,
+        "lowerGarment": "skirt",
+        "skirtSwing": 0,
+        "skin": "#ba805e",
+        "outfit": "#d97842",
+        "pants": "#3b5550",
+        "hairColor": "#493226",
+        "eyeColor": "#786448",
+        "hair": "none",
+        "pose": "stride",
+        "yaw": 0.32
+      },
+      "yaw": 0,
+      "focus": "body"
+    },
+    {
+      "label": "Trousers wave, gaze",
+      "project": {
+        "version": 2,
+        "name": "Juniper",
+        "height": 0.9,
+        "build": 0,
+        "shoulders": 0,
+        "jaw": 0.5,
+        "nose": 0.5,
+        "eyes": 0.5,
+        "headWidth": 0.5,
+        "headHeight": 0.5,
+        "cheeks": 0.5,
+        "chin": 0.5,
+        "noseWidth": 0.5,
+        "noseProjection": 0.5,
+        "eyeSpacing": 0.5,
+        "browHeight": 0.5,
+        "lips": 0.5,
+        "blinkLeft": 0,
+        "blinkRight": 0,
+        "gazeHorizontal": 1,
+        "gazeVertical": 1,
+        "lowerGarment": "trousers",
+        "skirtSwing": 0,
+        "skin": "#ba805e",
+        "outfit": "#d97842",
+        "pants": "#3b5550",
+        "hairColor": "#493226",
+        "eyeColor": "#786448",
+        "hair": "none",
+        "pose": "wave",
+        "yaw": 0.32
+      },
+      "yaw": 3.141592653589793,
+      "focus": "body"
+    }
+  ],
+  "exports": [],
+  "renderer": {
+    "mode": "webgl",
+    "boneCount": 53,
+    "auxiliaryBoneCount": 0,
+    "morphs": {
+      "build": [
+        "BuildNarrow",
+        "BuildBroad"
+      ],
+      "shoulders": [
+        "ShouldersNarrow",
+        "ShouldersBroad"
+      ],
+      "jaw": [
+        "JawNarrow",
+        "JawBroad"
+      ],
+      "nose": [
+        "NoseNarrow",
+        "NoseBroad"
+      ],
+      "eyes": [
+        "EyesSmall",
+        "EyesLarge"
+      ],
+      "headWidth": [
+        "HeadNarrow",
+        "HeadWide"
+      ],
+      "headHeight": [
+        "HeadShort",
+        "HeadLong"
+      ],
+      "cheeks": [
+        "CheeksLean",
+        "CheeksFull"
+      ],
+      "chin": [
+        "ChinShort",
+        "ChinLong"
+      ],
+      "noseWidth": [
+        "NoseWingsNarrow",
+        "NoseWingsWide"
+      ],
+      "noseProjection": [
+        "NoseRetracted",
+        "NoseProjected"
+      ],
+      "eyeSpacing": [
+        "EyesClose",
+        "EyesWide"
+      ],
+      "browHeight": [
+        "BrowsLow",
+        "BrowsHigh"
+      ],
+      "lips": [
+        "LipsThin",
+        "LipsFull"
+      ]
+    },
+    "license": "CC0-1.0 foundation + MIT original portrait additions (see docs/ASSET-LICENSES.md)",
+    "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1, Unspecified Version)"
+  },
+  "passed": true,
+  "capture": {
+    "name": "blink-extremes.png",
+    "bytes": 832595,
+    "sha256": "4bb09a183121af374de0ac91c2209b8ad2110478e28c625d49674e40a0360ab6"
+  }
+}

@@ -10,6 +10,12 @@
 
 ![Actual Mac hardware WebGL face view](docs/screenshots/persona-portrait-face.jpg)
 
+## Local blink-and-gaze prototype
+
+This unpublished prototype adds independent left/right blinks and bounded horizontal/vertical gaze in a new **Eyes** panel. Neutral eyes reset, undo/redo, project save/open and editable GLB targets are included. Older projects remain neutral. This is eye-only posing, without mouth expressions or lip-sync. See [verification, Blender editing and limits](docs/QA-BLINK-GAZE.md).
+
+![Actual Mac WebGL blink and gaze comparisons](docs/screenshots/persona-blink-gaze.png)
+
 ## Original skirt-rig milestone
 
 This release adds an original optional A-line skirt with nine garment-only auxiliary bones, editable fit morphs and a Hem sway control. The original 53-bone human, distinct faces and earlier garment fixes are preserved. Choose **A-line skirt** in Appearance → Outfit, then try Stride or Hem sway. This is bone posing, not cloth simulation. Existing projects still open with trousers. See [construction, verification and limits](docs/QA-SKIRT.md).
@@ -46,7 +52,7 @@ The normal renderer is locally bundled Three.js 0.180.0 with WebGL 2. Where WebG
 
 ## Existing projects
 
-Existing version 2 files without `eyeColor` load with the neutral iris default. Omitted new facial controls load at their unchanged neutral value of 0.5. Omitted garment fields default to trousers and neutral sway. Invalid supplied values remain errors. New saves retain every face control; older app builds reject these new fields. The version 1 legacy payload is unchanged.
+Existing version 2 files without `eyeColor` load with the neutral iris default. Omitted new facial controls load at their unchanged neutral value of 0.5. Omitted garment fields default to trousers and neutral sway. Omitted blink/gaze fields default to zero (open eyes and straight gaze). Invalid supplied values remain errors. New saves retain every face control; older app builds reject these new fields. The version 1 legacy payload is unchanged.
 
 Version 1 projects migrate explicitly to version 2. The original validated parameters are retained as `legacySource` in the downloaded project, and the old `kata-persona-v1` autosave key is not overwritten. The new key is `kata-persona-v2`.
 
@@ -79,7 +85,7 @@ The retained packed source is `assets/source/foundation.blend`. Runtime assets a
 
 ## Scope and licenses
 
-This is a small human foundation, **not Character Creator 5 parity or a photorealistic production character system**. There is no demographic library, facial animation, facial rig, rig editing UI, external mesh import, clothing simulation, subdivision editing or texture authoring. Skin tint is a multiplicative tint, not a new skin scan. Pose corrections preserve joint volume and exported weights, but remain an approximation at extreme appearance combinations; see [pose deformation](docs/POSE-DEFORMATION.md). Extreme combinations still need collision/rig-fit review. Bare feet and the stylized procedural crop are prototype limits. The crop adds original texture, tapered fibers and a faded edge, but is not a scanned or production strand-groom hairstyle.
+This is a small human foundation, **not Character Creator 5 parity or a photorealistic production character system**. The local blink/gaze prototype adds eye-only morph posing. There is no demographic library, mouth/expression system, lip-sync, facial animation timeline, rig editing UI, external mesh import, clothing simulation, subdivision editing or texture authoring. Skin tint is a multiplicative tint, not a new skin scan. Pose corrections preserve joint volume and exported weights, but remain an approximation at extreme appearance combinations; see [pose deformation](docs/POSE-DEFORMATION.md). Extreme combinations still need collision/rig-fit review. Bare feet and the stylized procedural crop are prototype limits. The crop adds original texture, tapered fibers and a faded edge, but is not a scanned or production strand-groom hairstyle.
 
 Application code is MIT. Three.js is MIT. The original procedural portrait additions are MIT. The retained foundation human assets are CC0 1.0, with individually verified source/material headers, pinned references and retained evidence in [asset provenance](docs/ASSET-LICENSES.md). MakeHuman/MPFB source code is GPLv3 and is used only as an external build-time dependency; it is not bundled into the browser app. The retained/exported human assets have their own CC0 grant.
 

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blink and gaze controls browser checks</title>
+<style>
+body{font:14px/1.5 system-ui;margin:20px;color:#293d36;background:#f8f7f0}h1{font-size:24px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#fff;padding:16px;border:1px solid #ccd3c6}iframe{display:block;width:min(1100px,100%);height:850px;border:1px solid #ccd3c6}button{padding:8px 12px;margin:0 0 15px}body[data-result="fail"] pre{border-color:#ad493a}body[data-result="pass"] pre{border-color:#53794a}
+</style>
+<h1>Blink and gaze controls browser checks</h1>
+<p>Localhost-only UI regression checks. This page temporarily uses the QA autosave key and restores its previous contents when finished. It never reads a local file or opens a file dialog.</p>
+<pre id="results" role="status">Running…</pre>
+<button id="download-report" disabled>Download test report</button>
+<iframe id="app" title="Persona Forge eye controls test application"></iframe>
+<script type="module">
+import {defaults,parseProject} from '../src/project.js';
+
+const output=document.querySelector('#results'),frame=document.querySelector('#app');
+const key='kata-persona-v2-qa',started=performance.now(),checks=[];
+let doc,win,prior,storageChanged=false;
+const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+const report={suite:'blink-controls',url:location.href,checks,passed:false};
+window.blinkControlsReport=report;
+function check(value,label){checks.push({passed:!!value,label});output.textContent=checks.map(item=>(item.passed?'PASS ':'FAIL ')+item.label).join('\n');if(!value)throw Error(label);}
+async function ready(){
+  doc=frame.contentDocument;win=frame.contentWindow;
+  for(let n=0;n<160&&doc.querySelector('#export')?.disabled;n++){
+    if(doc.querySelector('#load-state')?.classList.contains('error'))throw Error(doc.querySelector('#load-state').textContent);
+    await sleep(125);
+  }
+  check(doc.querySelector('#export')&&!doc.querySelector('#export').disabled,'Human renderer is ready');
+}
+const value=id=>doc.getElementById(id).value;
+const saved=()=>JSON.parse(localStorage.getItem(key));
+function change(id,next){const input=doc.getElementById(id);input.value=String(next);input.dispatchEvent(new win.Event('input',{bubbles:true}));input.dispatchEvent(new win.Event('change',{bubbles:true}));}
+function click(id){doc.getElementById(id).click();}
+async function saveProject(){
+  const originalURL=win.URL.createObjectURL,originalClick=win.HTMLAnchorElement.prototype.click;
+  let capture,filename;
+  try{
+    win.URL.createObjectURL=function(blob){capture=blob;return originalURL.call(this,blob);};
+    win.HTMLAnchorElement.prototype.click=function(){if(this.download.endsWith('.persona')){filename=this.download;return;}return originalClick.call(this);};
+    click('save');
+  }finally{win.URL.createObjectURL=originalURL;win.HTMLAnchorElement.prototype.click=originalClick;}
+  check(!!capture&&filename.endsWith('.persona'),'Save project produces an editable .persona download');
+  return parseProject(await capture.text()).project;
+}
+async function openGeneratedProject(project,accept){
+  const originalConfirm=win.confirm;
+  let confirmed=false;
+  try{
+    win.confirm=()=>{confirmed=true;return accept;};
+    const transfer=new win.DataTransfer();
+    transfer.items.add(new win.File([JSON.stringify(project)],'generated-test.persona',{type:'application/json'}));
+    doc.getElementById('file').files=transfer.files;
+    await doc.getElementById('file').onchange({target:doc.getElementById('file')});
+    check(doc.getElementById('file').value==='','Import clears its file input for repeated opening');
+    return confirmed;
+  }finally{win.confirm=originalConfirm;}
+}
+
+try{
+  check(['127.0.0.1','localhost','[::1]'].includes(location.hostname)&&location.protocol==='http:','Checks run through a localhost HTTP server');
+  prior=localStorage.getItem(key);
+  const eyeKeys=['blinkLeft','blinkRight','gazeHorizontal','gazeVertical'];
+  const matches=expected=>eyeKeys.every(k=>Number(value(k))===expected[k]);
+  const neutral={blinkLeft:0,blinkRight:0,gazeHorizontal:0,gazeVertical:0};
+  const old={...defaults,name:'Blink UI QA',headWidth:.72,chin:.61,eyeSpacing:.31};for(const k of eyeKeys)delete old[k];
+  localStorage.setItem(key,JSON.stringify(old));storageChanged=true;
+  const loaded=new Promise(resolve=>frame.onload=resolve);frame.src='../?qa';await loaded;await ready();
+  report.renderMode=doc.querySelector('#stage').dataset.mode;
+  check(matches(neutral),'Older v2 autosave normalizes all omitted eye fields to neutral');
+  check(Number(value('headWidth'))===.72,'Old autosave preserves face identity');
+  check(doc.querySelectorAll('#eye-sliders input').length===4&&doc.querySelectorAll('#sliders input').length===15,'Four eye controls remain separate from fifteen shape controls');
+  for(const k of eyeKeys){
+    const input=doc.getElementById(k);
+    check(input.min===(k.startsWith('blink')?'0':'-1')&&input.max==='1'&&input.step==='0.01',k+' exposes correct bounds and step');
+  }
+  check(doc.getElementById('blinkLeft').labels[0].textContent.includes('anatomical left')&&doc.getElementById('blinkRight').labels[0].textContent.includes('anatomical right'),'Blink labels identify anatomical sides');
+  check(doc.getElementById('eyes-note').textContent.includes('not the viewer’s')&&doc.getElementById('eyes-note').textContent.includes('positive looks right or up'),'Eye help distinguishes character sides and signed gaze directions');
+  change('blinkLeft',1);check(matches({...neutral,blinkLeft:1}),'Left blink does not change right blink or gaze');
+  change('blinkRight',.37);check(matches({...neutral,blinkLeft:1,blinkRight:.37}),'Right blink stays independent');
+  change('gazeHorizontal',-1);change('gazeVertical',1);
+  const edited={blinkLeft:1,blinkRight:.37,gazeHorizontal:-1,gazeVertical:1};
+  check(matches(edited)&&eyeKeys.every(k=>saved()[k]===edited[k]),'Independent eye edits and gaze endpoints autosave');
+  for(const k of eyeKeys)check(doc.getElementById(k+'-value').textContent===Math.round(edited[k]*100)+'%',k+' readout shows signed percentage');
+  click('reset-eyes');check(matches(neutral),'Neutral eyes resets all four controls');
+  click('undo');check(matches(edited),'Undo neutral reset restores all independent values');
+  click('redo');check(matches(neutral),'Redo restores neutral eyes');click('undo');
+  const roundtrip=await saveProject();
+  check(eyeKeys.every(k=>roundtrip[k]===edited[k])&&roundtrip.headWidth===.72,'Captured .persona download preserves eyes and identity');
+  change('blinkLeft',.2);await openGeneratedProject(roundtrip,true);
+  check(matches(edited),'Opening captured .persona restores all eyes without file dialog');
+  const invalid=[null,'0',false,{},[],2,-2];
+  for(const k of eyeKeys)for(const bad of invalid){
+    const before=localStorage.getItem(key);
+    await openGeneratedProject({...roundtrip,[k]:bad},true);
+    check(matches(edited)&&localStorage.getItem(key)===before&&doc.getElementById('status').textContent.includes('Invalid '+k+' value'),k+' rejects '+JSON.stringify(bad)+' without changing state');
+  }
+  await openGeneratedProject({...old,name:'Old neutral eyes'},true);
+  check(matches(neutral)&&Number(value('headWidth'))===.72,'Opening old v2 normalizes omitted eye controls neutral');
+  click('undo');check(matches(edited),'Undo old import restores independent eye values');
+  click('redo');check(matches(neutral),'Redo old import restores neutral values');click('undo');
+  click('randomize');check(matches(edited),'Randomize leaves eye expression unchanged');click('undo');
+  const reloaded=new Promise(resolve=>frame.onload=resolve);win.location.reload();await reloaded;await ready();
+  check(matches(edited),'Reload restores independent blink and signed gaze autosave');
+  check(doc.getElementById('undo').disabled&&doc.getElementById('redo').disabled,'Reload begins clean undo history');
+  frame.style.width='390px';await new Promise(resolve=>win.requestAnimationFrame(()=>win.requestAnimationFrame(resolve)));
+  check(doc.documentElement.scrollWidth<=390,'390px mobile layout has no horizontal overflow');
+  for(const k of eyeKeys){const r=doc.getElementById(k).getBoundingClientRect();check(r.width>100&&r.left>=0&&r.right<=390,k+' fits narrow layout');}
+  report.passed=true;
+}catch(error){report.error=error.message;output.textContent+='\nERROR '+error.message;}
+finally{
+  if(storageChanged){try{if(prior===null)localStorage.removeItem(key);else localStorage.setItem(key,prior);report.qaStorageRestored=true;}catch(error){report.passed=false;report.qaStorageRestored=false;report.error='Could not restore the QA autosave: '+error.message;}}
+  report.elapsedMs=Math.round(performance.now()-started);report.total=checks.length;report.failures=checks.filter(item=>!item.passed).length;
+  document.body.dataset.result=report.passed?'pass':'fail';
+  output.textContent+='\n'+(report.passed?'DONE':'FAILED')+' · '+report.total+' checks · '+report.elapsedMs+' ms';
+  output.textContent+='\nQA autosave '+(report.qaStorageRestored?'restored.':'not restored.');
+  document.querySelector('#download-report').disabled=false;
+}
+if(new URLSearchParams(location.search).has('capture')){const response=await fetch('/__qa/capture/blink-controls-report.json',{method:'POST',body:new Blob([JSON.stringify(report,null,2)],{type:'application/json'})});output.textContent+='\nReport capture: HTTP '+response.status;}
+document.querySelector('#download-report').onclick=()=>{const link=document.createElement('a');link.href=URL.createObjectURL(new Blob([JSON.stringify(report,null,2)],{type:'application/json'}));link.download='blink-controls-report.json';link.click();setTimeout(()=>URL.revokeObjectURL(link.href),5000);};
+</script>
+</html>

@@ -1,0 +1,461 @@
+{
+  "mode": "presets",
+  "checks": [
+    {
+      "passed": true,
+      "label": "Renderer webgl / ANGLE (Apple, ANGLE Metal Renderer: Apple M1, Unspecified Version)"
+    },
+    {
+      "passed": true,
+      "label": "angular closed front retains body rig"
+    },
+    {
+      "passed": true,
+      "label": "angular wink + up retains body rig"
+    },
+    {
+      "passed": true,
+      "label": "angular gaze profile retains body rig"
+    },
+    {
+      "passed": true,
+      "label": "rounded closed front retains body rig"
+    },
+    {
+      "passed": true,
+      "label": "rounded wink + up retains body rig"
+    },
+    {
+      "passed": true,
+      "label": "rounded gaze profile retains body rig"
+    },
+    {
+      "passed": true,
+      "label": "long closed front retains body rig"
+    },
+    {
+      "passed": true,
+      "label": "long wink + up retains body rig"
+    },
+    {
+      "passed": true,
+      "label": "long gaze profile retains body rig"
+    }
+  ],
+  "views": [
+    {
+      "label": "angular closed front",
+      "project": {
+        "version": 2,
+        "name": "Vale",
+        "height": 1,
+        "build": 0.5,
+        "shoulders": 0.5,
+        "jaw": 0.82,
+        "nose": 0.5,
+        "eyes": 0.5,
+        "headWidth": 0.3,
+        "headHeight": 0.58,
+        "cheeks": 0.16,
+        "chin": 0.76,
+        "noseWidth": 0.28,
+        "noseProjection": 0.82,
+        "eyeSpacing": 0.38,
+        "browHeight": 0.28,
+        "lips": 0.22,
+        "blinkLeft": 1,
+        "blinkRight": 1,
+        "gazeHorizontal": 0,
+        "gazeVertical": 0,
+        "lowerGarment": "trousers",
+        "skirtSwing": 0,
+        "skin": "#ba805e",
+        "outfit": "#d97842",
+        "pants": "#3b5550",
+        "hairColor": "#493226",
+        "eyeColor": "#786448",
+        "hair": "none",
+        "pose": "relaxed",
+        "yaw": 0.32
+      },
+      "yaw": 0,
+      "focus": "face"
+    },
+    {
+      "label": "angular wink + up",
+      "project": {
+        "version": 2,
+        "name": "Vale",
+        "height": 1,
+        "build": 0.5,
+        "shoulders": 0.5,
+        "jaw": 0.82,
+        "nose": 0.5,
+        "eyes": 0.5,
+        "headWidth": 0.3,
+        "headHeight": 0.58,
+        "cheeks": 0.16,
+        "chin": 0.76,
+        "noseWidth": 0.28,
+        "noseProjection": 0.82,
+        "eyeSpacing": 0.38,
+        "browHeight": 0.28,
+        "lips": 0.22,
+        "blinkLeft": 1,
+        "blinkRight": 0,
+        "gazeHorizontal": 1,
+        "gazeVertical": 1,
+        "lowerGarment": "trousers",
+        "skirtSwing": 0,
+        "skin": "#ba805e",
+        "outfit": "#d97842",
+        "pants": "#3b5550",
+        "hairColor": "#493226",
+        "eyeColor": "#786448",
+        "hair": "none",
+        "pose": "relaxed",
+        "yaw": 0.32
+      },
+      "yaw": 0.65,
+      "focus": "face"
+    },
+    {
+      "label": "angular gaze profile",
+      "project": {
+        "version": 2,
+        "name": "Vale",
+        "height": 1,
+        "build": 0.5,
+        "shoulders": 0.5,
+        "jaw": 0.82,
+        "nose": 0.5,
+        "eyes": 0.5,
+        "headWidth": 0.3,
+        "headHeight": 0.58,
+        "cheeks": 0.16,
+        "chin": 0.76,
+        "noseWidth": 0.28,
+        "noseProjection": 0.82,
+        "eyeSpacing": 0.38,
+        "browHeight": 0.28,
+        "lips": 0.22,
+        "blinkLeft": 0,
+        "blinkRight": 0,
+        "gazeHorizontal": -1,
+        "gazeVertical": -1,
+        "lowerGarment": "trousers",
+        "skirtSwing": 0,
+        "skin": "#ba805e",
+        "outfit": "#d97842",
+        "pants": "#3b5550",
+        "hairColor": "#493226",
+        "eyeColor": "#786448",
+        "hair": "none",
+        "pose": "relaxed",
+        "yaw": 0.32
+      },
+      "yaw": 1.5707963267948966,
+      "focus": "face"
+    },
+    {
+      "label": "rounded closed front",
+      "project": {
+        "version": 2,
+        "name": "Marlowe",
+        "height": 1,
+        "build": 0.5,
+        "shoulders": 0.5,
+        "jaw": 0.2,
+        "nose": 0.5,
+        "eyes": 0.5,
+        "headWidth": 0.82,
+        "headHeight": 0.22,
+        "cheeks": 0.86,
+        "chin": 0.24,
+        "noseWidth": 0.7,
+        "noseProjection": 0.3,
+        "eyeSpacing": 0.7,
+        "browHeight": 0.64,
+        "lips": 0.8,
+        "blinkLeft": 1,
+        "blinkRight": 1,
+        "gazeHorizontal": 0,
+        "gazeVertical": 0,
+        "lowerGarment": "trousers",
+        "skirtSwing": 0,
+        "skin": "#ba805e",
+        "outfit": "#d97842",
+        "pants": "#3b5550",
+        "hairColor": "#493226",
+        "eyeColor": "#786448",
+        "hair": "none",
+        "pose": "relaxed",
+        "yaw": 0.32
+      },
+      "yaw": 0,
+      "focus": "face"
+    },
+    {
+      "label": "rounded wink + up",
+      "project": {
+        "version": 2,
+        "name": "Marlowe",
+        "height": 1,
+        "build": 0.5,
+        "shoulders": 0.5,
+        "jaw": 0.2,
+        "nose": 0.5,
+        "eyes": 0.5,
+        "headWidth": 0.82,
+        "headHeight": 0.22,
+        "cheeks": 0.86,
+        "chin": 0.24,
+        "noseWidth": 0.7,
+        "noseProjection": 0.3,
+        "eyeSpacing": 0.7,
+        "browHeight": 0.64,
+        "lips": 0.8,
+        "blinkLeft": 1,
+        "blinkRight": 0,
+        "gazeHorizontal": 1,
+        "gazeVertical": 1,
+        "lowerGarment": "trousers",
+        "skirtSwing": 0,
+        "skin": "#ba805e",
+        "outfit": "#d97842",
+        "pants": "#3b5550",
+        "hairColor": "#493226",
+        "eyeColor": "#786448",
+        "hair": "none",
+        "pose": "relaxed",
+        "yaw": 0.32
+      },
+      "yaw": 0.65,
+      "focus": "face"
+    },
+    {
+      "label": "rounded gaze profile",
+      "project": {
+        "version": 2,
+        "name": "Marlowe",
+        "height": 1,
+        "build": 0.5,
+        "shoulders": 0.5,
+        "jaw": 0.2,
+        "nose": 0.5,
+        "eyes": 0.5,
+        "headWidth": 0.82,
+        "headHeight": 0.22,
+        "cheeks": 0.86,
+        "chin": 0.24,
+        "noseWidth": 0.7,
+        "noseProjection": 0.3,
+        "eyeSpacing": 0.7,
+        "browHeight": 0.64,
+        "lips": 0.8,
+        "blinkLeft": 0,
+        "blinkRight": 0,
+        "gazeHorizontal": -1,
+        "gazeVertical": -1,
+        "lowerGarment": "trousers",
+        "skirtSwing": 0,
+        "skin": "#ba805e",
+        "outfit": "#d97842",
+        "pants": "#3b5550",
+        "hairColor": "#493226",
+        "eyeColor": "#786448",
+        "hair": "none",
+        "pose": "relaxed",
+        "yaw": 0.32
+      },
+      "yaw": 1.5707963267948966,
+      "focus": "face"
+    },
+    {
+      "label": "long closed front",
+      "project": {
+        "version": 2,
+        "name": "Ellis",
+        "height": 1,
+        "build": 0.5,
+        "shoulders": 0.5,
+        "jaw": 0.38,
+        "nose": 0.5,
+        "eyes": 0.5,
+        "headWidth": 0.2,
+        "headHeight": 0.88,
+        "cheeks": 0.4,
+        "chin": 0.82,
+        "noseWidth": 0.4,
+        "noseProjection": 0.68,
+        "eyeSpacing": 0.28,
+        "browHeight": 0.82,
+        "lips": 0.42,
+        "blinkLeft": 1,
+        "blinkRight": 1,
+        "gazeHorizontal": 0,
+        "gazeVertical": 0,
+        "lowerGarment": "trousers",
+        "skirtSwing": 0,
+        "skin": "#ba805e",
+        "outfit": "#d97842",
+        "pants": "#3b5550",
+        "hairColor": "#493226",
+        "eyeColor": "#786448",
+        "hair": "none",
+        "pose": "relaxed",
+        "yaw": 0.32
+      },
+      "yaw": 0,
+      "focus": "face"
+    },
+    {
+      "label": "long wink + up",
+      "project": {
+        "version": 2,
+        "name": "Ellis",
+        "height": 1,
+        "build": 0.5,
+        "shoulders": 0.5,
+        "jaw": 0.38,
+        "nose": 0.5,
+        "eyes": 0.5,
+        "headWidth": 0.2,
+        "headHeight": 0.88,
+        "cheeks": 0.4,
+        "chin": 0.82,
+        "noseWidth": 0.4,
+        "noseProjection": 0.68,
+        "eyeSpacing": 0.28,
+        "browHeight": 0.82,
+        "lips": 0.42,
+        "blinkLeft": 1,
+        "blinkRight": 0,
+        "gazeHorizontal": 1,
+        "gazeVertical": 1,
+        "lowerGarment": "trousers",
+        "skirtSwing": 0,
+        "skin": "#ba805e",
+        "outfit": "#d97842",
+        "pants": "#3b5550",
+        "hairColor": "#493226",
+        "eyeColor": "#786448",
+        "hair": "none",
+        "pose": "relaxed",
+        "yaw": 0.32
+      },
+      "yaw": 0.65,
+      "focus": "face"
+    },
+    {
+      "label": "long gaze profile",
+      "project": {
+        "version": 2,
+        "name": "Ellis",
+        "height": 1,
+        "build": 0.5,
+        "shoulders": 0.5,
+        "jaw": 0.38,
+        "nose": 0.5,
+        "eyes": 0.5,
+        "headWidth": 0.2,
+        "headHeight": 0.88,
+        "cheeks": 0.4,
+        "chin": 0.82,
+        "noseWidth": 0.4,
+        "noseProjection": 0.68,
+        "eyeSpacing": 0.28,
+        "browHeight": 0.82,
+        "lips": 0.42,
+        "blinkLeft": 0,
+        "blinkRight": 0,
+        "gazeHorizontal": -1,
+        "gazeVertical": -1,
+        "lowerGarment": "trousers",
+        "skirtSwing": 0,
+        "skin": "#ba805e",
+        "outfit": "#d97842",
+        "pants": "#3b5550",
+        "hairColor": "#493226",
+        "eyeColor": "#786448",
+        "hair": "none",
+        "pose": "relaxed",
+        "yaw": 0.32
+      },
+      "yaw": 1.5707963267948966,
+      "focus": "face"
+    }
+  ],
+  "exports": [],
+  "renderer": {
+    "mode": "webgl",
+    "boneCount": 53,
+    "auxiliaryBoneCount": 0,
+    "morphs": {
+      "build": [
+        "BuildNarrow",
+        "BuildBroad"
+      ],
+      "shoulders": [
+        "ShouldersNarrow",
+        "ShouldersBroad"
+      ],
+      "jaw": [
+        "JawNarrow",
+        "JawBroad"
+      ],
+      "nose": [
+        "NoseNarrow",
+        "NoseBroad"
+      ],
+      "eyes": [
+        "EyesSmall",
+        "EyesLarge"
+      ],
+      "headWidth": [
+        "HeadNarrow",
+        "HeadWide"
+      ],
+      "headHeight": [
+        "HeadShort",
+        "HeadLong"
+      ],
+      "cheeks": [
+        "CheeksLean",
+        "CheeksFull"
+      ],
+      "chin": [
+        "ChinShort",
+        "ChinLong"
+      ],
+      "noseWidth": [
+        "NoseWingsNarrow",
+        "NoseWingsWide"
+      ],
+      "noseProjection": [
+        "NoseRetracted",
+        "NoseProjected"
+      ],
+      "eyeSpacing": [
+        "EyesClose",
+        "EyesWide"
+      ],
+      "browHeight": [
+        "BrowsLow",
+        "BrowsHigh"
+      ],
+      "lips": [
+        "LipsThin",
+        "LipsFull"
+      ]
+    },
+    "license": "CC0-1.0 foundation + MIT original portrait additions (see docs/ASSET-LICENSES.md)",
+    "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1, Unspecified Version)"
+  },
+  "passed": true,
+  "capture": {
+    "name": "blink-presets.png",
+    "bytes": 1600262,
+    "sha256": "cf18153c93e5714051c5415a27409408d1bf23defd22b9be577254897eebd51f"
+  }
+}

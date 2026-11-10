@@ -11,7 +11,7 @@ test('existing defaults and all presets remain trousers with neutral skirt bones
     assert.deepEqual(validate(p),p);
   }
   assert.equal(Object.hasOwn(ranges,'skirtSwing'),false,'garment bones are not body or face controls');
-  assert.equal(Object.keys(ranges).length,15);
+  assert.equal(Object.keys(ranges).filter(key=>!Object.hasOwn(project.eyeControlDefaults,key)).length,15);
 });
 
 test('missing optional garment fields normalize independently without mutating old projects',()=>{
