@@ -1,0 +1,408 @@
+{
+  "suite": "expression-controls",
+  "url": "http://127.0.0.1:4194/tests/expression-controls.html?capture",
+  "checks": [
+    {
+      "passed": true,
+      "label": "Checks run through a localhost HTTP server"
+    },
+    {
+      "passed": true,
+      "label": "Human renderer is ready"
+    },
+    {
+      "passed": true,
+      "label": "Older v2 autosave normalizes all omitted expression fields to neutral"
+    },
+    {
+      "passed": true,
+      "label": "Old autosave preserves face identity"
+    },
+    {
+      "passed": true,
+      "label": "Four expression controls remain separate from fifteen shape controls"
+    },
+    {
+      "passed": true,
+      "label": "smile exposes correct bounds and step"
+    },
+    {
+      "passed": true,
+      "label": "frown exposes correct bounds and step"
+    },
+    {
+      "passed": true,
+      "label": "browRaise exposes correct bounds and step"
+    },
+    {
+      "passed": true,
+      "label": "browFurrow exposes correct bounds and step"
+    },
+    {
+      "passed": true,
+      "label": "Help explains opposing expression blend"
+    },
+    {
+      "passed": true,
+      "label": "Smile stays independent of other expression sliders"
+    },
+    {
+      "passed": true,
+      "label": "All expression intensities autosave"
+    },
+    {
+      "passed": true,
+      "label": "Expressions preserve manual blink and gaze values"
+    },
+    {
+      "passed": true,
+      "label": "smile readout shows percentage"
+    },
+    {
+      "passed": true,
+      "label": "frown readout shows percentage"
+    },
+    {
+      "passed": true,
+      "label": "browRaise readout shows percentage"
+    },
+    {
+      "passed": true,
+      "label": "browFurrow readout shows percentage"
+    },
+    {
+      "passed": true,
+      "label": "Neutral expressions resets all four controls"
+    },
+    {
+      "passed": true,
+      "label": "Reset expressions preserves manual eyes and gaze"
+    },
+    {
+      "passed": true,
+      "label": "Undo neutral reset restores all independent values"
+    },
+    {
+      "passed": true,
+      "label": "Redo restores neutral expressions"
+    },
+    {
+      "passed": true,
+      "label": "Neutral eyes keeps the expression sliders unchanged"
+    },
+    {
+      "passed": true,
+      "label": "Repeated neutral clicks add no duplicate undo state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "Dirty import asks before replacing project"
+    },
+    {
+      "passed": true,
+      "label": "Cancelling project replacement leaves expressions and saved state unchanged"
+    },
+    {
+      "passed": true,
+      "label": "Save project produces an editable .persona download"
+    },
+    {
+      "passed": true,
+      "label": "Captured .persona download preserves expressions and identity"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "Opening captured .persona restores all expressions without file dialog"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "smile rejects null without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "smile rejects \"0\" without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "smile rejects false without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "smile rejects {} without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "smile rejects [] without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "smile rejects 2 without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "smile rejects -2 without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "frown rejects null without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "frown rejects \"0\" without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "frown rejects false without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "frown rejects {} without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "frown rejects [] without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "frown rejects 2 without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "frown rejects -2 without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "browRaise rejects null without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "browRaise rejects \"0\" without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "browRaise rejects false without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "browRaise rejects {} without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "browRaise rejects [] without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "browRaise rejects 2 without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "browRaise rejects -2 without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "browFurrow rejects null without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "browFurrow rejects \"0\" without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "browFurrow rejects false without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "browFurrow rejects {} without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "browFurrow rejects [] without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "browFurrow rejects 2 without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "browFurrow rejects -2 without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "Opening old v2 normalizes omitted expression controls neutral"
+    },
+    {
+      "passed": true,
+      "label": "Undo old import restores independent expression values"
+    },
+    {
+      "passed": true,
+      "label": "Redo old import restores neutral values"
+    },
+    {
+      "passed": true,
+      "label": "Randomize leaves expression state unchanged"
+    },
+    {
+      "passed": true,
+      "label": "Human renderer is ready"
+    },
+    {
+      "passed": true,
+      "label": "Reload restores expression autosave"
+    },
+    {
+      "passed": true,
+      "label": "Reload begins clean undo history"
+    },
+    {
+      "passed": true,
+      "label": "390px mobile layout has no horizontal overflow"
+    },
+    {
+      "passed": true,
+      "label": "smile fits narrow layout"
+    },
+    {
+      "passed": true,
+      "label": "frown fits narrow layout"
+    },
+    {
+      "passed": true,
+      "label": "browRaise fits narrow layout"
+    },
+    {
+      "passed": true,
+      "label": "browFurrow fits narrow layout"
+    }
+  ],
+  "passed": true,
+  "renderMode": "webgl",
+  "qaStorageRestored": true,
+  "elapsedMs": 130025,
+  "total": 99,
+  "failures": 0
+}

@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "resolution": [
+    2048,
+    2048
+  ],
+  "seed": 701126,
+  "source": "Existing CC0 MakeHuman skin.png; original MIT procedural region details",
+  "sourceGLBSha256": "642dc95643eca689266fce489bc87ac65377529af77c2e522c0326d87a9d79ab",
+  "portable": [
+    "baseColor",
+    "normal",
+    "roughness"
+  ],
+  "webOnly": [
+    "thin-tissue backlight approximation; not volumetric SSS"
+  ],
+  "files": {
+    "skin-color.png": "010806a6bf9b3f34d50d4b9b4ca271fadf94e1750aaefa62e0988faf2aed05ac",
+    "skin-normal.png": "8b31b36a42a7ee528f6e88da952111c981b467fc739c3079af22d67da576341f",
+    "skin-roughness.png": "570eadcb3ca30e1b8e1ac3bb261cb32e0f64cff9cf140bbacfd94e1fc66e06a7",
+    "skin-thin.png": "b3eade71479359aeb2abef4f8fb31b42f450aebec9e22bb7674282119bc5223d"
+  },
+  "regions": {
+    "nose": {
+      "pixels": 20582,
+      "meanRoughness": 0.5341706871986389
+    },
+    "cheeks": {
+      "pixels": 77146,
+      "meanRoughness": 0.6493271589279175
+    },
+    "forehead": {
+      "pixels": 133276,
+      "meanRoughness": 0.5800121426582336
+    },
+    "lips": {
+      "pixels": 18618,
+      "meanRoughness": 0.5565210580825806
+    },
+    "ears": {
+      "pixels": 73600,
+      "meanRoughness": 0.6279988884925842
+    }
+  }
+}

@@ -61,3 +61,9 @@ The optional skirt is built locally in the runtime and retained in GLB exports; 
 ## Original expression prototype
 
 The expression deformation fields in `src/expression-rig.js`, tests and interface additions are original MIT application code. No external assets were added. The retained CC0 foundation GLB and packed Blender source are unchanged; only runtime/exported meshes receive new named targets. No proprietary facial poses, textures or topology were copied.
+
+## Original regional skin pass (local prototype, November 2026)
+
+`tools/build-skin.py` creates four 2048px maps in `assets/human/skin/` from the retained CC0 skin and neutral UV geometry. It rasterizes actual UV triangles into anatomical coordinates and authors smooth cheek, forehead, nose, lip, under-eye and ear regions. Seeded pore depressions, subtle color modulation, varying roughness and a thin-tissue mask are original MIT additions. No new third-party photograph, scan, model, likeness, texture, service or proprietary Character Creator asset was downloaded. The exact retained skin material header still explicitly grants CC0; `assets/source/licenses/skin.mhmat`, `CC0.txt` and the MPFB license explanation remain bundled.
+
+The derived diffuse combines CC0 source pixels with original MIT processing. Normal, roughness and thin-tissue maps and their generator are original MIT. `assets/human/skin/provenance.json` records the seed, image hashes and unchanged foundation GLB hash. The packed foundation `.blend` and `.glb` were not rewritten. GLB exports embed the new PBR maps; the browser shader itself is not portable glTF SSS. See [skin verification and transfer limits](QA-SKIN.md).

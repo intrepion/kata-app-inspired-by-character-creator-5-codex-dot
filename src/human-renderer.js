@@ -8,6 +8,7 @@ import {ranges} from './project.js';
 import {createSkirtRig} from './skirt-rig.js';
 import {createEyeRig} from './eye-rig.js';
 import {createExpressionRig,expressionEyeControls} from './expression-rig.js';
+import {createSkinMaterial,SKIN_TRANSFER_LIMIT} from './skin-material.js';
 
 /** A locally bundled CC0 foundation with original MIT portrait and skirt additions. No network/CDN fallback. */
 export async function createHumanRenderer(canvas) {
@@ -30,7 +31,7 @@ export async function createHumanRenderer(canvas) {
   const camera = new THREE.PerspectiveCamera(29, 1, .01, 40);
   const orbit = new THREE.Group();
   scene.add(orbit);
-  scene.add(new THREE.HemisphereLight(0xffffff, 0x777777, .85));
+  const ambient=new THREE.HemisphereLight(0xffffff, 0x777777, .85);scene.add(ambient);
   const key = new THREE.DirectionalLight(0xffffff, 2.5);
   key.position.set(-2.8, 4.8, 4.2); key.castShadow=true;
   key.shadow.mapSize.set(1024,1024);
@@ -78,6 +79,20 @@ export async function createHumanRenderer(canvas) {
     }
   });
   if(!meshes.some(mesh=>mesh.isSkinnedMesh) || !bones.size){renderer.dispose();throw new Error('The bundled model is missing its editable skin and skeleton.');}
+  const skinMesh=meshes.find(mesh=>mesh.material?.name==='Skin');
+  const baselineSkin=skinMesh.material;
+  const regionalSkin=await createSkinMaterial(baselineSkin,Math.min(renderer.capabilities.getMaxAnisotropy(),8));
+  skinMesh.material=regionalSkin.material;
+  function setSkinPreview(mode){
+    if(!['baseline','regional'].includes(mode))throw Error('Unknown skin preview');
+    skinMesh.material=mode==='baseline'?baselineSkin:regionalSkin.material;
+    if(current)update(current);
+  }
+  function setLighting(name){
+    const lights={studio:[[-2.8,4.8,4.2],2.5,[3,2,3],.9,.85],side:[[-3,2,1],3,[3,2,2],.3,.45],rim:[[2,2,-3],3.5,[-2,2,3],.65,.4]};
+    if(!lights[name])throw Error('Unknown lighting rig');
+    const [kp,ki,fp,fi,ai]=lights[name];key.position.set(...kp);key.intensity=ki;fill.position.set(...fp);fill.intensity=fi;ambient.intensity=ai;
+  }
   const skirt=createSkirtRig({human,pants:human.getObjectByName('Pants'),pelvis:bones.get('pelvis')});
   meshes.push(skirt.mesh);
   const eyeRig=createEyeRig({human,manifest});
@@ -178,5 +193,19 @@ export async function createHumanRenderer(canvas) {
     try{return await new GLTFExporter().parseAsync(human,{binary:true,onlyVisible:true,trs:true,animations,includeCustomExtensions:false});}
     finally{human.name=previous;}
   }
-  return {update,render,exportGLB,get triangleCount(){return visibleTriangleCount();},info:{mode:rendererMode,boneCount:bones.size,get auxiliaryBoneCount(){return current?.lowerGarment==='skirt'?skirt.bones.length:0;},morphs:manifest.morphs,license:manifest.license||'See asset license manifest',gpu:rendererMode==='webgl'?renderer.getContext().getParameter(renderer.getContext().getExtension('WEBGL_debug_renderer_info')?.UNMASKED_RENDERER_WEBGL||renderer.getContext().RENDERER):'CPU'},dispose(){studioEnvironment?.dispose();mixer.stopAllAction();const textures=new Set(),materials=new Set(),skeletons=new Set();meshes.forEach(mesh=>{if(mesh.skeleton)skeletons.add(mesh.skeleton);mesh.geometry.dispose();for(const material of Array.isArray(mesh.material)?mesh.material:[mesh.material]){materials.add(material);for(const value of Object.values(material))if(value?.isTexture)textures.add(value);}});textures.forEach(texture=>texture.dispose());materials.forEach(material=>material.dispose());skeletons.forEach(skeleton=>skeleton.dispose());renderer.dispose();}};
+  // QA/export-review utility: render the actual reimported bytes under the same camera/lights.
+  async function renderExportPreview(data,yaw=lastYaw,focus=lastFocus){
+    const imported=(await new GLTFLoader().parseAsync(data,'')).scene;
+    const wasVisible=human.visible;human.visible=false;orbit.add(imported);
+    try{
+      imported.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true;o.frustumCulled=false;for(const m of Array.isArray(o.material)?o.material:[o.material]){m.envMapIntensity=m.name==='Skin'?.5:.65;if(m.name==='Cornea')m.depthWrite=false;for(const t of Object.values(m))if(t?.isTexture)t.anisotropy=Math.min(renderer.capabilities.getMaxAnisotropy(),8);}}});
+      orbit.updateMatrixWorld(true);imported.traverse(o=>o.skeleton?.update());render(yaw,focus);
+    }finally{
+      orbit.remove(imported);human.visible=wasVisible;
+      const textures=new Set(),materials=new Set(),skeletons=new Set();
+      imported.traverse(o=>{o.geometry?.dispose();if(o.skeleton)skeletons.add(o.skeleton);for(const m of o.material?(Array.isArray(o.material)?o.material:[o.material]):[]){materials.add(m);for(const t of Object.values(m))if(t?.isTexture)textures.add(t);}});
+      textures.forEach(t=>t.dispose());materials.forEach(m=>m.dispose());skeletons.forEach(s=>s.dispose());
+    }
+  }
+  return {update,render,exportGLB,setSkinPreview,setLighting,renderExportPreview,get triangleCount(){return visibleTriangleCount();},info:{skinTransferLimit:SKIN_TRANSFER_LIMIT,mode:rendererMode,boneCount:bones.size,get auxiliaryBoneCount(){return current?.lowerGarment==='skirt'?skirt.bones.length:0;},morphs:manifest.morphs,license:manifest.license||'See asset license manifest',gpu:rendererMode==='webgl'?renderer.getContext().getParameter(renderer.getContext().getExtension('WEBGL_debug_renderer_info')?.UNMASKED_RENDERER_WEBGL||renderer.getContext().RENDERER):'CPU'},dispose(){regionalSkin.dispose();baselineSkin.dispose();studioEnvironment?.dispose();mixer.stopAllAction();const textures=new Set(Object.values(baselineSkin).filter(t=>t?.isTexture)),materials=new Set(),skeletons=new Set();meshes.forEach(mesh=>{if(mesh.skeleton)skeletons.add(mesh.skeleton);mesh.geometry.dispose();for(const material of Array.isArray(mesh.material)?mesh.material:[mesh.material]){materials.add(material);for(const value of Object.values(material))if(value?.isTexture)textures.add(value);}});textures.forEach(texture=>texture.dispose());materials.forEach(material=>material.dispose());skeletons.forEach(skeleton=>skeleton.dispose());renderer.dispose();}};
 }

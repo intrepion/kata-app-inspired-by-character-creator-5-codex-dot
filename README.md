@@ -10,6 +10,12 @@
 
 ![Actual Mac hardware WebGL face view](docs/screenshots/persona-portrait-face.jpg)
 
+## Regional skin prototype
+
+The local skin pass adds original 2048px region-aware color, pore detail and roughness over the licensed foundation skin. It also adds restrained ear/backlight response in the browser. **GLB retains the PBR textures, but not the browser-only light-scattering approximation.** Geometry, expressions and the editable rig remain intact. This is a step toward realism, not a new skin scan or fully photorealistic character. See [matched comparisons, Blender verification and limits](docs/QA-SKIN.md).
+
+![Matched original and regional skin on Mac hardware WebGL](docs/screenshots/persona-skin-closeup.png)
+
 ## Expression prototype
 
 The **Expressions** panel adds adjustable Smile, Frown, Raise brows and Furrow brows, a neutral reset, undo/redo and saved-project compatibility. Smile lifts the cheeks and adds a slight eye squeeze while manual blink and gaze remain adjustable. GLB exports retain editable named expression targets. These are closed-mouth expressions; jaw controls, mouth interior and speech are a later milestone. See [expression verification and limits](docs/QA-EXPRESSIONS.md).

@@ -1,0 +1,89 @@
+{
+  "passed": true,
+  "comparisons": [
+    {
+      "label": "Three-quarter rim",
+      "maxChannelDelta": 89,
+      "meanChannelDelta": 0.29429173333333336,
+      "changedChannels": 500546
+    },
+    {
+      "label": "Profile rim",
+      "maxChannelDelta": 73,
+      "meanChannelDelta": 0.29252693333333335,
+      "changedChannels": 539042
+    },
+    {
+      "label": "Smile side",
+      "maxChannelDelta": 40,
+      "meanChannelDelta": 0.2815301333333333,
+      "changedChannels": 434783
+    }
+  ],
+  "renderer": {
+    "skinTransferLimit": "Base color, normal and roughness export as glTF PBR textures. The browser thin-tissue backlight approximation is not exported and is not volumetric subsurface scattering.",
+    "mode": "webgl",
+    "boneCount": 53,
+    "auxiliaryBoneCount": 0,
+    "morphs": {
+      "build": [
+        "BuildNarrow",
+        "BuildBroad"
+      ],
+      "shoulders": [
+        "ShouldersNarrow",
+        "ShouldersBroad"
+      ],
+      "jaw": [
+        "JawNarrow",
+        "JawBroad"
+      ],
+      "nose": [
+        "NoseNarrow",
+        "NoseBroad"
+      ],
+      "eyes": [
+        "EyesSmall",
+        "EyesLarge"
+      ],
+      "headWidth": [
+        "HeadNarrow",
+        "HeadWide"
+      ],
+      "headHeight": [
+        "HeadShort",
+        "HeadLong"
+      ],
+      "cheeks": [
+        "CheeksLean",
+        "CheeksFull"
+      ],
+      "chin": [
+        "ChinShort",
+        "ChinLong"
+      ],
+      "noseWidth": [
+        "NoseWingsNarrow",
+        "NoseWingsWide"
+      ],
+      "noseProjection": [
+        "NoseRetracted",
+        "NoseProjected"
+      ],
+      "eyeSpacing": [
+        "EyesClose",
+        "EyesWide"
+      ],
+      "browHeight": [
+        "BrowsLow",
+        "BrowsHigh"
+      ],
+      "lips": [
+        "LipsThin",
+        "LipsFull"
+      ]
+    },
+    "license": "CC0-1.0 foundation + MIT original portrait additions (see docs/ASSET-LICENSES.md)",
+    "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1, Unspecified Version)"
+  }
+}
