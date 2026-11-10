@@ -8,11 +8,11 @@ Part of [Kata Tool Shed](https://intrepion.github.io/tools/). Repository: `kata-
 
 Genuine browser captures of the running HTTP app, not mockups.
 
-![Persona Forge desktop workspace](docs/screenshots/desktop.png)
+![Persona Forge desktop workspace](docs/screenshots/anatomy-desktop.jpg)
 
 <details><summary>390-pixel narrow layout</summary>
 
-![Persona Forge narrow layout](docs/screenshots/narrow.png)
+![Persona Forge narrow layout](docs/screenshots/anatomy-narrow.jpg)
 
 </details>
 
@@ -47,7 +47,7 @@ On narrow screens the interactive preview appears first, followed by presets and
 
 ## Scope
 
-This is a small, functional **stylized character generator**, not a replacement for Character Creator 5. The 3D preview is a custom Canvas 2D triangle renderer with orbiting and directional lighting, not a WebGL engine. The model is composed from ellipsoids and capsule-like limb segments. Pose changes directly reposition geometry.
+This is a small, functional **stylized character generator**, not a replacement for Character Creator 5. The revised preview uses smooth vertex lighting and depth testing, with WebGL where available and a Canvas 2D software depth-buffer fallback. The default silhouette is 7.525 heads tall, with a shaped jaw, smaller eyes, a scalp-following hairline, tapered limbs, palms, fingers and thumbs. Body and Face views inspect the same editable geometry. The model uses original lofted surfaces and detail meshes. Pose changes directly reposition geometry. It remains visibly stylized, not photorealistic or anatomy-grade.
 
 It does not support production rigging, facial animation, skinning, body scans, clothing simulation, skeletal animation, texture authoring, HD morphs, subdivision, anatomy-grade realism, external mesh import, or Reallusion file formats. Stride is a static pose, not a walking animation.
 
@@ -59,7 +59,7 @@ Project imports are limited to 100 KB and validate schema, parameter ranges, col
 
 ## Verification
 
-`npm run check` runs syntax checks and nine Node tests covering validation, geometry, morphs, history, OBJ output and HTTP serving. Open `/tests/browser.html` through the running server for interaction/export/import checks. These browser test harnesses are excluded from `dist/`. See [QA notes](docs/QA.md) for the actual browser verification and limits.
+`npm run check` runs syntax checks and 17 Node tests covering validation, anatomy, smooth normals, parameter extremes, camera framing, depth-buffer occlusion, morphs, history, OBJ output and HTTP serving. Open `/tests/browser.html` through the running server for interaction/export/import checks. The browser harness has 19 assertions. These browser test harnesses are excluded from `dist/`. See [QA notes](docs/QA.md) for the actual browser verification and limits.
 
 ## Structure
 
@@ -74,6 +74,10 @@ MIT, see [LICENSE](LICENSE). Original code, design and procedural assets. [Chara
 
 This is an independent educational kata. See the QA notes for verification scope and limitations.
 
+
+## Revision status
+
+The anatomy revision shown above improves the procedural human model and preview renderer. Existing version-1 projects and autosave keys are preserved; the same saved parameters now generate the revised anatomy. See [anatomy QA](docs/QA-ANATOMY.md) for current verification and limits.
 
 ## Published app
 

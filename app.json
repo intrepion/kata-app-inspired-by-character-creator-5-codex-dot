@@ -11,8 +11,8 @@
   "status": "live",
   "toolShedUrl": "https://intrepion.github.io/tools/",
   "screenshots": [
-    "docs/screenshots/desktop.png",
-    "docs/screenshots/narrow.png"
+    "docs/screenshots/anatomy-desktop.jpg",
+    "docs/screenshots/anatomy-face.jpg"
   ],
   "inspiration": {
     "name": "Character Creator 5",
@@ -20,7 +20,9 @@
   },
   "license": "MIT",
   "features": [
-    "Original procedural 3D character mesh",
+    "Adult-proportioned procedural human with shaped face and individual fingers",
+    "Smooth depth-tested rendering with a software fallback",
+    "Body and face inspection views",
     "Six proportion controls",
     "Three archetypes and hairstyles",
     "Four static poses",

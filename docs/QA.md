@@ -1,5 +1,7 @@
 # Persona Forge release QA
 
+For the newer anatomy revision, see [Anatomy revision QA](QA-ANATOMY.md). The publication record below describes the previous version.
+
 Verified 2026-11-10 in Chrome using a running localhost HTTP server. No files were opened as `file://` pages.
 
 ## Results

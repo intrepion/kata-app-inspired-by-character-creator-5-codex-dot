@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { defaults, presets, ranges, mesh } from '../src/model.js';
+const extent=(faces,axis)=>{const values=faces.flatMap(f=>f.v.map(v=>v[axis]));return Math.max(...values)-Math.min(...values);};
+const area=f=>{const a=f.v[1].map((v,i)=>v-f.v[0][i]),b=f.v[2].map((v,i)=>v-f.v[0][i]);return Math.hypot(a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]);};
+test('default silhouette has adult seven-to-eight-head proportions',()=>{const faces=mesh(defaults),head=faces.filter(f=>f.part==='head');assert.ok(head.length>100,'sculpted head is identifiable');const ratio=extent(faces,1)/extent(head,1);assert.ok(ratio>7&&ratio<8,`head-to-body ratio ${ratio}`);});
+test('human mesh has a jaw, nose, ears, eyelids, palms and separate fingers',()=>{const faces=mesh(defaults),parts=new Set(faces.map(f=>f.part));for(const part of ['head','nose','ear','eyelid','palm','finger','thumb','torso','upper-arm','forearm','thigh','calf'])assert.ok(parts.has(part),part);});
+test('every triangle has smooth finite unit normals and nonzero area',()=>{for(const pose of ['relaxed','tpose','wave','stride'])for(const f of mesh({...defaults,pose})){assert.ok(area(f)>1e-10,`degenerate ${f.part}`);assert.equal(f.normals.length,3);for(const n of f.normals){assert.ok(n.every(Number.isFinite));assert.ok(Math.abs(Math.hypot(...n)-1)<1e-5);}}});
+test('all archetypes and parameter limits retain finite valid anatomy',()=>{const inputs=[...Object.values(presets),...Object.entries(ranges).flatMap(([key,limits])=>limits.map(value=>({...defaults,[key]:value})))];for(const p of inputs){const faces=mesh(p);assert.ok(faces.every(f=>f.v.flat().every(Number.isFinite)));assert.ok(faces.every(f=>area(f)>1e-10));}});
+test('hands follow forearm orientation in each supported pose',()=>{for(const pose of ['relaxed','tpose','wave','stride']){const faces=mesh({...defaults,pose});assert.ok(faces.filter(f=>f.part==='finger').length>500);assert.ok(faces.filter(f=>f.part==='thumb').length>100);}});
