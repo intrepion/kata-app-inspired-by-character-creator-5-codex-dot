@@ -2,9 +2,9 @@
 
 **A character, from the inside out.** A local-first human character workshop inspired by character-creation workflows. This **version 2 human foundation** replaces the procedural mannequin with a licensed MakeHuman/MPFB anatomical adult.
 
-This revision is local and has not been published. The existing public GitHub Pages app remains the earlier revision until deployment is authorized.
+[Open Persona Forge](https://intrepion.github.io/kata-app-inspired-by-character-creator-5-codex-dot/). The human foundation was published on 2026-11-10 from commit `e4bcb71`, with the build and GitHub Pages deployment verified successful.
 
-![Actual localhost browser preview](docs/screenshots/persona-foundation-desktop.png)
+![Actual localhost browser preview](docs/screenshots/persona-foundation-desktop.jpg)
 
 ## Run
 

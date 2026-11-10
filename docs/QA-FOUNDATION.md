@@ -1,13 +1,20 @@
 # Human foundation verification
 
-Date: 2026-11-10. Local source revision only; no push or deployment.
+Date: 2026-11-10. Foundation commit `e4bcb71a217f293876c03c95ab98d7e09e81d02d` published to GitHub Pages.
+
+## Publication verification
+
+- [Workflow run 42769111188](https://github.com/intrepion/kata-app-inspired-by-character-creator-5-codex-dot/actions/runs/42769111188): `check-and-build` and `deploy` both completed successfully for the exact foundation commit.
+- The published `index.html`, `src/human-renderer.js` and 6,667,684-byte `assets/human/foundation.glb` byte-match the locally tested distribution.
+- Runtime GLB SHA-256: `24fa24c10cc28cc6516c1a883c56fa0384081ef3f7fb89646fd85a7e3cae0675`.
+- [Live application](https://intrepion.github.io/kata-app-inspired-by-character-creator-5-codex-dot/). Browser visual QA described below was performed through localhost; hardware WebGL remains unverified.
 
 ## Verified
 
 - `npm run check`: 31 Node tests pass, with syntax checks. Seventeen legacy procedural tests remain as regression history; the new human has separate asset, schema and software-renderer coverage.
 - `npm run build`: static distribution built and smoke-tested through `/dist/?qa=1`, with local vendor files, runtime GLB and license notes. No CDN dependency or Blender source in the production folder.
 - Chromium, running HTTP at `http://127.0.0.1:4186`: **20/20** browser harness checks pass. They cover loaded human/exports, v1 storage preservation, approximate migration, undo/redo, pose/focus, actual `.persona` input, cancelled replacement, undoable import, future/oversized rejection, and 375px horizontal-overflow checks.
-- Same localhost browser: genuine body/face visual review, including actual skeletal Hello pose and clear textured brown eyes. Screenshots are `docs/screenshots/persona-foundation-*.png`, not mockups.
+- Same localhost browser: genuine body/face visual review, including actual skeletal Hello pose and clear textured brown eyes. Screenshots are `docs/screenshots/persona-foundation-*.jpg`, not mockups.
 - The runtime exporter harness passes 13 checks for GLB2, 53-joint skinning, UVs, ten morph targets, non-neutral morph values, embedded skin/eye images, four pose clips, selected-pose ordering, current bone transforms, omitted hair and current height.
 - Exact app UI export `artifacts/Fern-app-export.glb` imported into Blender **4.3.2**. The tested project is Botanist with Hello pose and no hair. All eleven checks pass in `docs/BLENDER-ROUNDTRIP.json`. Bone count 53; expected morph weights .2; effective height factor 0.970000059; posed world bounds match the source reference exactly. Editing jaw and forearm after import deforms the skin by 5.08 mm and 13.45 cm. The imported source is retained as `artifacts/Fern-roundtrip.blend`.
 - Khronos glTF Validator 2.0.0-dev.3.10: **zero errors**, four warnings and two informational notices for that exact UI export. The warnings identify skinned meshes nested under a parent. Their skeleton also inherits the character transform; the measured Blender pose/height roundtrip confirms the result. The informational notices identify unused UVs on flat-color garments. Full report: `docs/GLTF-VALIDATION.json`.
