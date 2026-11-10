@@ -2,7 +2,7 @@
 
 **A character, from the inside out.** A local-first human character workshop inspired by character-creation workflows. This **version 2 human foundation** replaces the procedural mannequin with a licensed MakeHuman/MPFB anatomical adult.
 
-[Open Persona Forge](https://intrepion.github.io/kata-app-inspired-by-character-creator-5-codex-dot/). The human foundation was published on 2026-11-10 from commit `e4bcb71`, with the build and GitHub Pages deployment verified successful.
+[Open Persona Forge](https://intrepion.github.io/kata-app-inspired-by-character-creator-5-codex-dot/). The human foundation was first published from commit `e4bcb71`. This maintenance update fixes visible height scaling, waist clearance and pose deformation; see the [verification record](docs/QA-DEFORMATION.md).
 
 ![Actual localhost browser preview](docs/screenshots/persona-foundation-desktop.jpg)
 
@@ -48,17 +48,18 @@ Controls are labeled, keyboard focus is visible, selection states are exposed an
 
 - `npm run check`: syntax checks and Node regression tests, including project migration, GLB structure, skinning/morph references, software rendering and HTTP serving. Legacy procedural tests are retained separately as regression history; they do not validate the new anatomy.
 - `/tests/browser-foundation.html`: actual local app loading, migration, undo/redo, focus, pose and narrow layout checks.
+- `/tests/deformation.html`: visible height/foot-anchor checks and front/back pose/build comparisons, with a separate corrective export check. Use `?software=1` to force the CPU preview when WebGL is unavailable.
 - `/tests/roundtrip.html`: actual renderer GLB export checks and downloadable customized test asset.
 - `/tests/unsupported.html`: explicit unavailable-canvas error path.
 - `/tests/asset-review.html`: genuine Blender reference renders served over HTTP.
 - `tools/rebuild-human.sh`: rebuild the source asset from pinned official upstream sources with Blender 4.3+ and git. This downloads build dependencies only.
 - `blender -b --python tools/validate-human.py -- input.glb report.json`: import the GLB and test editable bones/shape keys.
 
-The retained packed source is `assets/source/foundation.blend`. Runtime assets are in `assets/human/`. The Blender source and build dependencies are not copied into `dist/`. See [verified QA and limits](docs/QA-FOUNDATION.md).
+The retained packed source is `assets/source/foundation.blend`. Runtime assets are in `assets/human/`. The Blender source and build dependencies are not copied into `dist/`. See [verified QA and limits](docs/QA-FOUNDATION.md) and [local deformation-fix QA](docs/QA-DEFORMATION.md).
 
 ## Scope and licenses
 
-This is a small human foundation, **not Character Creator 5 parity or a photorealistic production character system**. There is no demographic library, facial animation, facial rig, rig editing UI, external mesh import, clothing simulation, subdivision editing or texture authoring. Skin tint is a multiplicative tint, not a new skin scan. Extreme combinations need collision/rig-fit review. Bare feet and the solid scalp are intentional prototype limits.
+This is a small human foundation, **not Character Creator 5 parity or a photorealistic production character system**. There is no demographic library, facial animation, facial rig, rig editing UI, external mesh import, clothing simulation, subdivision editing or texture authoring. Skin tint is a multiplicative tint, not a new skin scan. Pose corrections preserve joint volume and exported weights, but remain an approximation at extreme appearance combinations; see [pose deformation](docs/POSE-DEFORMATION.md). Extreme combinations still need collision/rig-fit review. Bare feet and the solid scalp are intentional prototype limits.
 
 Application code is MIT. Three.js is MIT. Human assets are CC0 1.0, with individually verified source/material headers, pinned references and retained evidence in [asset provenance](docs/ASSET-LICENSES.md). MakeHuman/MPFB source code is GPLv3 and is used only as an external build-time dependency; it is not bundled into the browser app. The retained/exported human assets have their own CC0 grant.
 

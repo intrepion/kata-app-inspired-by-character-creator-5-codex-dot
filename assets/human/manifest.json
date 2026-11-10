@@ -42,6 +42,11 @@
     "wave",
     "stride"
   ],
+  "poseCorrectives": {
+    "tpose": "PoseTpose",
+    "wave": "PoseWave",
+    "stride": "PoseStride"
+  },
   "source": "../source/foundation.blend",
   "license": "CC0-1.0 (see docs/ASSET-LICENSES.md)"
 }

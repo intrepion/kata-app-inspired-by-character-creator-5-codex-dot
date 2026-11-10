@@ -1,0 +1,165 @@
+{
+  "blender": "4.3.2",
+  "source": "persona-deformation-roundtrip.glb",
+  "bones": 53,
+  "meshes": {
+    "Eyes": {
+      "vertices": 1076,
+      "faces": 2040,
+      "uvLayers": 1,
+      "morphs": [],
+      "unweightedVertices": 0,
+      "materials": [
+        "Eyes"
+      ]
+    },
+    "Mesh_1": {
+      "vertices": 258,
+      "faces": 428,
+      "uvLayers": 1,
+      "morphs": [
+        "Basis",
+        "BuildNarrow",
+        "BuildBroad",
+        "ShouldersNarrow",
+        "ShouldersBroad",
+        "JawNarrow",
+        "JawBroad",
+        "NoseNarrow",
+        "NoseBroad",
+        "EyesSmall",
+        "EyesLarge"
+      ],
+      "unweightedVertices": 0,
+      "materials": [
+        "Hair"
+      ],
+      "connectedSurfaceSizes": [
+        248
+      ]
+    },
+    "Mesh_2": {
+      "vertices": 14517,
+      "faces": 26756,
+      "uvLayers": 1,
+      "morphs": [
+        "Basis",
+        "BuildNarrow",
+        "BuildBroad",
+        "ShouldersNarrow",
+        "ShouldersBroad",
+        "JawNarrow",
+        "JawBroad",
+        "NoseNarrow",
+        "NoseBroad",
+        "EyesSmall",
+        "EyesLarge",
+        "PoseTpose",
+        "PoseWave",
+        "PoseStride"
+      ],
+      "unweightedVertices": 0,
+      "materials": [
+        "Skin"
+      ]
+    },
+    "Mesh_3": {
+      "vertices": 1097,
+      "faces": 1976,
+      "uvLayers": 1,
+      "morphs": [
+        "Basis",
+        "BuildNarrow",
+        "BuildBroad",
+        "ShouldersNarrow",
+        "ShouldersBroad",
+        "JawNarrow",
+        "JawBroad",
+        "NoseNarrow",
+        "NoseBroad",
+        "EyesSmall",
+        "EyesLarge",
+        "PoseTpose",
+        "PoseWave",
+        "PoseStride"
+      ],
+      "unweightedVertices": 0,
+      "materials": [
+        "Outfit"
+      ],
+      "connectedSurfaceSizes": [
+        1038
+      ]
+    },
+    "Mesh_4": {
+      "vertices": 1077,
+      "faces": 1968,
+      "uvLayers": 1,
+      "morphs": [
+        "Basis",
+        "BuildNarrow",
+        "BuildBroad",
+        "ShouldersNarrow",
+        "ShouldersBroad",
+        "JawNarrow",
+        "JawBroad",
+        "NoseNarrow",
+        "NoseBroad",
+        "EyesSmall",
+        "EyesLarge",
+        "PoseTpose",
+        "PoseWave",
+        "PoseStride"
+      ],
+      "unweightedVertices": 0,
+      "materials": [
+        "Pants"
+      ],
+      "connectedSurfaceSizes": [
+        1020
+      ]
+    }
+  },
+  "animations": [
+    "relaxed_FoundationRig",
+    "relaxed_Mesh_1",
+    "relaxed_Mesh_2",
+    "relaxed_Mesh_3",
+    "relaxed_Mesh_4",
+    "stride_FoundationRig",
+    "stride_Mesh_1",
+    "stride_Mesh_2",
+    "stride_Mesh_3",
+    "stride_Mesh_4",
+    "tpose_FoundationRig",
+    "tpose_Mesh_1",
+    "tpose_Mesh_2",
+    "tpose_Mesh_3",
+    "tpose_Mesh_4",
+    "wave_FoundationRig",
+    "wave_Mesh_1",
+    "wave_Mesh_2",
+    "wave_Mesh_3",
+    "wave_Mesh_4"
+  ],
+  "morphEditMaxDelta": 0.00654707892570975,
+  "boneEditMaxDelta": 0.1934431064953057,
+  "embeddedImages": [
+    {
+      "name": "Image_0",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "name": "Image_1",
+      "width": 2048,
+      "height": 2048
+    },
+    {
+      "name": "Viewer Node",
+      "width": 256,
+      "height": 256
+    }
+  ],
+  "passed": true
+}

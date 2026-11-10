@@ -6,7 +6,11 @@ args=sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else []
 input_path=pathlib.Path(args[0]) if args else OUT/'foundation.glb'
 report_path=pathlib.Path(args[1]) if len(args)>1 else OUT/'qa.json'
 bpy.ops.import_scene.gltf(filepath=str(input_path))
-rig=next(o for o in bpy.context.scene.objects if o.type=='ARMATURE');body=bpy.data.objects['HumanBody'];meshes=[o for o in bpy.context.scene.objects if o.type=='MESH' and any(m.type=='ARMATURE' for m in o.modifiers)]
+# Three.js names mesh nodes, while Blender may name their animated mesh data Mesh_N.
+# Materials retain stable semantic names in both the source GLB and browser export.
+def role(o):
+ return next((name for material,name in [('Skin','HumanBody'),('Outfit','Outfit'),('Pants','Pants'),('Hair','HairCrop')] if any(m and m.name.split('.')[0]==material for m in o.data.materials)),o.data.name)
+rig=next(o for o in bpy.context.scene.objects if o.type=='ARMATURE');body=next(o for o in bpy.context.scene.objects if o.type=='MESH' and role(o)=='HumanBody');meshes=[o for o in bpy.context.scene.objects if o.type=='MESH' and any(m.type=='ARMATURE' for m in o.modifiers)]
 report={'blender':bpy.app.version_string,'source':input_path.name,'bones':len(rig.data.bones),'meshes':{},'animations':[a.name for a in bpy.data.actions]}
 for o in meshes:
  sums=[sum(g.weight for g in v.groups) for v in o.data.vertices]
@@ -17,7 +21,7 @@ rig.animation_data_clear();base=vertices();body.data.shape_keys.key_blocks['JawB
 base=vertices();b=rig.pose.bones['lowerarm_l'];b.rotation_mode='XYZ';b.rotation_euler.x+=.5;changed=vertices();report['boneEditMaxDelta']=max((a-b).length for a,b in zip(base,changed));b.rotation_euler.x-=.5
 # glTF UV seam splits are welded by position for connected-surface checks.
 for o in meshes:
- if o.name not in ['HairCrop','Outfit','Pants']:continue
+ if role(o) not in ['HairCrop','Outfit','Pants']:continue
  groups={};index=[]
  for v in o.data.vertices:
   key=tuple(round(x,5) for x in v.co);index.append(groups.setdefault(key,len(groups)))

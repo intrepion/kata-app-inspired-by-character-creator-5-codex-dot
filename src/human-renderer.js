@@ -1,7 +1,10 @@
 import * as THREE from '../vendor/three.module.min.js';
 import {GLTFLoader} from '../vendor/loaders/GLTFLoader.js';
+import {applyPoseCorrectives,exportPoseClips} from './pose-morphs.js';
 import {createHumanSoftwareRenderer} from './human-software-renderer.js';
 import {GLTFExporter} from '../vendor/exporters/GLTFExporter.js';
+import {measureBodyEnvelope,bodyCameraFrame} from './human-framing.js';
+import {ranges} from './project.js';
 
 /** A single, locally bundled CC0 character. No network/CDN fallback. */
 export async function createHumanRenderer(canvas) {
@@ -63,6 +66,7 @@ export async function createHumanRenderer(canvas) {
   const triangleCount=meshes.reduce((count,mesh)=>count+(mesh.geometry.index?.count||mesh.geometry.attributes.position.count)/3,0);
   const mixer=new THREE.AnimationMixer(human);
   const clips=new Map(gltf.animations.map(clip=>[clip.name.toLowerCase(),clip]));
+  const bodyEnvelopes=new Map();
   let current, lost=false, lastYaw=.32,lastFocus='body';
   canvas.addEventListener('webglcontextlost',event=>{event.preventDefault();lost=true;canvas.dispatchEvent(new CustomEvent('previewerror',{detail:'The graphics context was lost. Save your project, then reload to restore the preview.'}));});
   function applyPose(name){
@@ -97,6 +101,7 @@ export async function createHumanRenderer(canvas) {
           }
         }
       }
+      applyPoseCorrectives(mesh,manifest.poseCorrectives,project.pose);
       const isHair=(manifest.hairMeshes || ['Hair']).includes(mesh.name)||mesh.userData.role==='hair';
       if(isHair)mesh.visible=project.hair!=='none';
       for(const material of Array.isArray(mesh.material)?mesh.material:[mesh.material]){
@@ -110,7 +115,16 @@ export async function createHumanRenderer(canvas) {
         }
       }
     }
-    human.updateMatrixWorld(true);
+    // Cache a reference for this pose, never the current height/body shape.
+    if(!bodyEnvelopes.has(project.pose)){
+      const savedYaw=orbit.rotation.y;
+      human.scale.setScalar(1);orbit.rotation.y=0;
+      orbit.updateMatrixWorld(true);
+      meshes.forEach(mesh=>mesh.skeleton?.update());
+      try{bodyEnvelopes.set(project.pose,measureBodyEnvelope(meshes,manifest.morphs||{},ranges.height[1]));}
+      finally{human.scale.setScalar(project.height);orbit.rotation.y=savedYaw;}
+    }
+    orbit.updateMatrixWorld(true);
   }
   function render(yaw=lastYaw,focus=lastFocus){
     if(lost)throw new Error('Graphics context lost. Save your project and reload.');
@@ -119,28 +133,25 @@ export async function createHumanRenderer(canvas) {
     if(canvas.width!==Math.round(width*renderer.getPixelRatio())||canvas.height!==Math.round(height*renderer.getPixelRatio()))renderer.setSize(width,height,false);
     camera.aspect=width/height;
     const scale=current?.height||1;
-    // Frame the actual posed mesh, including raised hands; fixed face framing stays steady while morphing.
+    // Body framing stays fixed while height, shape and orbit change.
     orbit.rotation.y=yaw;
-    human.updateMatrixWorld(true);
+    orbit.updateMatrixWorld(true);
     meshes.forEach(mesh=>mesh.skeleton?.update());
-    const bounds=new THREE.Box3().setFromObject(human,true),size=bounds.getSize(new THREE.Vector3());
     let targetY, distance;
     if(focus==='face'){
       targetY=(manifest.faceTargetY || 1.44)*scale;
       distance=Math.max(.18/camera.aspect,.25)/Math.tan(THREE.MathUtils.degToRad(camera.fov/2));
     }else{
-      targetY=(bounds.min.y+bounds.max.y)/2;
-      const framing=Math.max(size.y*1.32,size.x/camera.aspect*1.16);
-      distance=framing/2/Math.tan(THREE.MathUtils.degToRad(camera.fov/2));
+      ({targetY,distance}=bodyCameraFrame(bodyEnvelopes.get(current.pose),camera.aspect,camera.fov));
     }
     camera.position.set(0,targetY+.04,distance);camera.lookAt(0,targetY,0);camera.updateProjectionMatrix();
     renderer.render(scene,camera);
   }
   async function exportGLB(name){
     if(!current)throw new Error('The character has not finished loading.');
-    human.updateMatrixWorld(true);
+    orbit.updateMatrixWorld(true);
     const previous=human.name;human.name=name||previous;
-    try{return await new GLTFExporter().parseAsync(human,{binary:true,onlyVisible:true,trs:true,animations:[...gltf.animations].sort((a,b)=>Number(b.name===current.pose)-Number(a.name===current.pose)),includeCustomExtensions:false});}
+    try{return await new GLTFExporter().parseAsync(human,{binary:true,onlyVisible:true,trs:true,animations:exportPoseClips(gltf.animations,meshes,manifest.poseCorrectives).sort((a,b)=>Number(b.name===current.pose)-Number(a.name===current.pose)),includeCustomExtensions:false});}
     finally{human.name=previous;}
   }
   return {update,render,exportGLB,triangleCount,info:{mode:rendererMode,boneCount:bones.size,morphs:manifest.morphs,license:manifest.license||'See asset license manifest'},dispose(){mixer.stopAllAction();meshes.forEach(mesh=>{mesh.geometry.dispose();for(const material of Array.isArray(mesh.material)?mesh.material:[mesh.material])material.dispose();});renderer.dispose();}};

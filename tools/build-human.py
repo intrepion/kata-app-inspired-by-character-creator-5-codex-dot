@@ -1,5 +1,5 @@
 """Build the Persona foundation using pinned MPFB CC0 assets. Run through rebuild-human.sh."""
-import bpy,sys,os,json,gzip,math,pathlib
+import bpy,sys,os,json,gzip,math,pathlib,runpy
 from mathutils import Vector,Quaternion
 ROOT=pathlib.Path(__file__).resolve().parents[1]; OUT=ROOT/'assets/human'; SOURCE=ROOT/'assets/source'
 OUT.mkdir(parents=True,exist_ok=True);SOURCE.mkdir(parents=True,exist_ok=True)
@@ -80,6 +80,7 @@ for sk in shirt.data.shape_keys.key_blocks:
  for v in sk.data:
   if v.co.z<.985:v.co.z=.955
 for v,k in zip(shirt.data.vertices,shirt.data.shape_keys.key_blocks[0].data):v.co=k.co
+runpy.run_path(str(ROOT/'tools/fit-garments.py'))['fit_waist'](shirt,pants)
 bpy.data.objects.remove(h,do_unlink=True)
 def material(name,color,rough=.65,texture=None):
  m=bpy.data.materials.new(name);m.use_nodes=True;n=m.node_tree.nodes.get('Principled BSDF');n.inputs['Base Color'].default_value=(*color,1);n.inputs['Roughness'].default_value=rough
@@ -89,30 +90,19 @@ def material(name,color,rough=.65,texture=None):
 skinpath=SOURCE/'skin.png'
 body.data.materials.append(material('Skin',(.65,.42,.29),.62,skinpath if skinpath.exists() else None))
 shirt.data.materials.append(material('Outfit',(.045,.17,.18),.85));pants.data.materials.append(material('Pants',(.035,.045,.065),.9));hair.data.materials.append(material('Hair',(.035,.018,.012),.85))
-# Pose bones by world-axis rotations mapped into each bone's local rest basis.
-def rotate(name,axis,degrees):
- bone=rig.pose.bones[name];local=bone.bone.matrix_local.to_3x3().inverted()@Vector(axis);bone.rotation_mode='QUATERNION';bone.rotation_quaternion=Quaternion(local,math.radians(degrees))
-poses={'relaxed':{},'tpose':{'upperarm_l':((0,1,0),-45),'upperarm_r':((0,1,0),45),'lowerarm_l':((0,0,1),-35),'lowerarm_r':((0,0,1),35)},'wave':{'upperarm_l':((0,1,0),-105),'lowerarm_l':((1,0,0),-65),'hand_l':((0,1,0),12)},'stride':{'thigh_l':((1,0,0),-20),'thigh_r':((1,0,0),18),'calf_r':((1,0,0),-18),'upperarm_l':((1,0,0),20),'upperarm_r':((1,0,0),-20)}}
-def aim(name,direction):
- bpy.context.view_layer.update();b=rig.pose.bones[name]
- q=(b.tail-b.head).rotation_difference(Vector(direction));m=(q.to_matrix().to_4x4()@b.matrix);m.translation=b.head;b.matrix=m
- bpy.context.view_layer.update()
-for name,changes in poses.items():
- rig.animation_data_clear()
- for b in rig.pose.bones:b.rotation_mode='QUATERNION';b.rotation_quaternion=(1,0,0,0)
- for bone,(axis,deg) in changes.items():rotate(bone,axis,deg)
- if name=='tpose':
-  for suffix,sign in [('l',1),('r',-1)]:
-   aim('upperarm_'+suffix,(sign,0,0));aim('lowerarm_'+suffix,(sign,0,0));aim('hand_'+suffix,(sign,0,0))
- if name=='wave':
-  aim('upperarm_l',(.8,0,.5));aim('lowerarm_l',(0,0,1));aim('hand_l',(0,0,1))
- for frame in [0,1]:
-  for b in rig.pose.bones:b.keyframe_insert('rotation_quaternion',frame=frame,group=b.name)
- action=rig.animation_data.action;action.name=name;action.use_fake_user=True
- track=rig.animation_data.nla_tracks.new();track.name=name;strip=track.strips.new(name,0,action);track.mute=True
-rig.animation_data.action=None
-for b in rig.pose.bones:b.rotation_quaternion=(1,0,0,0)
-bpy.context.scene.frame_set(0);bpy.context.view_layer.update()
+# Our glTF/WebGL export path keeps four skin influences. Bake against exactly those normalized
+# weights, so source DQ corrections remain exact after portable GLB export.
+for ob in [body,shirt,pants,hair,eyes]:
+ for vertex in ob.data.vertices:
+  weights=sorted(((g.group,g.weight) for g in vertex.groups if ob.vertex_groups[g.group].name in rig.data.bones and g.weight>0),key=lambda item:(-item[1],item[0]))
+  retained=weights[:4];total=sum(weight for _,weight in retained)
+  if not total:raise ValueError(f'Unweighted vertex {ob.name}/{vertex.index}')
+  for group,weight in weights[4:]:ob.vertex_groups[group].remove([vertex.index])
+  for group,weight in retained:ob.vertex_groups[group].add([vertex.index],weight/total,'REPLACE')
+# Anatomical elbow planes and portable preserve-volume corrections.
+pose_tools=runpy.run_path(str(ROOT/'tools/pose-human.py'))
+correction_report=pose_tools['bake_pose_correctives'](rig,[body,shirt,pants])
+poses=pose_tools['build_poses'](rig)
 bpy.ops.object.select_all(action='DESELECT')
 for ob in [rig,body,eyes,shirt,pants,hair]:ob.select_set(True)
 bpy.context.view_layer.objects.active=rig
@@ -120,6 +110,7 @@ for im in bpy.data.images:
  if im.source=='FILE':im.pack()
 bpy.ops.wm.save_as_mainfile(filepath=str(SOURCE/'foundation.blend'))
 bpy.ops.export_scene.gltf(filepath=str(OUT/'foundation.glb'),export_format='GLB',use_selection=True,export_apply=False,export_animations=True,export_animation_mode='ACTIONS',export_frame_range=False,export_force_sampling=True,export_skins=True,export_morph=True,export_yup=True)
-manifest={'model':'foundation.glb','units':'meters','up':'+Y','front':'+Z','morphs':morphs,'materials':{'skin':'Skin','outfit':'Outfit','pants':'Pants','hairColor':'Hair'},'hairMeshes':['HairCrop'],'skinReference':'#b88a6a','faceTargetY':round(body_height-.105,3),'poses':list(poses),'source':'../source/foundation.blend','license':'CC0-1.0 (see docs/ASSET-LICENSES.md)'}
+runpy.run_path(str(ROOT/'tools/pack-pose-tracks.py'))['pack_pose_tracks'](OUT/'foundation.glb',pose_tools['POSE_CORRECTIVES'])
+manifest={'model':'foundation.glb','units':'meters','up':'+Y','front':'+Z','morphs':morphs,'materials':{'skin':'Skin','outfit':'Outfit','pants':'Pants','hairColor':'Hair'},'hairMeshes':['HairCrop'],'skinReference':'#b88a6a','faceTargetY':round(body_height-.105,3),'poses':list(poses),'poseCorrectives':pose_tools['POSE_CORRECTIVES'],'source':'../source/foundation.blend','license':'CC0-1.0 (see docs/ASSET-LICENSES.md)'}
 (OUT/'manifest.json').write_text(json.dumps(manifest,indent=2))
 print('FOUNDATION_BUILD_DONE',[(o.name,len(o.data.vertices)) for o in [body,eyes,shirt,pants,hair]])

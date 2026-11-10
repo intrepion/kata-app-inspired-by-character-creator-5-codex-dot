@@ -44,11 +44,16 @@ export function createHumanSoftwareRenderer(canvas) {
     viewProjection.multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse);
     depth.fill(Infinity);
     const pixels = output.data;
+    // Ground is a world-space anchor, not a fixed screen-space oval.
+    projected.set(0,0,0,1).applyMatrix4(viewProjection);
+    const groundX=(projected.x/projected.w*.5+.5)*width;
+    const groundY=(.5-projected.y/projected.w*.5)*height;
+    const shadowWidth=Math.max(1,Math.abs(camera.projectionMatrix.elements[0]*.26/projected.w*width/2));
     for (let y = 0; y < height; y++) {
       const gradient = y / height;
       for (let x = 0; x < width; x++) {
         const i = (y * width + x) * 4;
-        const shadow = Math.exp(-Math.pow((x - width * .5) / (width * .2), 2) - Math.pow((y - height * .88) / (height * .018), 2)) * 16;
+        const shadow = Math.exp(-Math.pow((x - groundX) / shadowWidth, 2) - Math.pow((y - groundY) / (height * .012), 2)) * 16;
         pixels[i] = 239 - 8 * gradient - shadow; pixels[i+1] = 240 - 7 * gradient - shadow; pixels[i+2] = 232 - 8 * gradient - shadow; pixels[i+3] = 255;
       }
     }

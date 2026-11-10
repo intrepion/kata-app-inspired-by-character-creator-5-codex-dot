@@ -1,0 +1,140 @@
+{
+  "scope": "Historical review of the interrupted work before the top-four skin-weight export correction. Findings below are baseline evidence, not current failures. Superseded by source-glb-pose-roundtrip.json and pose-deformation.json.",
+  "nodeTests": {
+    "defaultConcurrency": "Intermittent SIGKILL in model/renderer worker processes on three runs; no assertion failure reported.",
+    "concurrency1": "38/38 pass",
+    "concurrency2": "38/38 pass",
+    "copiedHead": "31/31 pass"
+  },
+  "waistBaseline": {
+    "copiedHead": "New garment test fails: -0.00037 m minimum clearance at build=0, shoulders=0, y=.959, angle=270 degrees",
+    "workingAsset": "Passes all sampled build/shoulder combinations with at least 0.002 m clearance"
+  },
+  "savedCorrectives": {
+    "hingeTwistDegrees": {
+      "tpose": 9.362069478790712e-07,
+      "wave": 2.9505437424343205e-07
+    },
+    "correctiveErrorMeters": {
+      "HumanBody/tpose": 2.497889789080651e-07,
+      "Outfit/tpose": 2.4027400458748785e-07,
+      "Pants/tpose": 1.666000468656264e-08,
+      "HumanBody/wave": 2.6151431761360534e-07,
+      "Outfit/wave": 1.9647374926227142e-07,
+      "Pants/wave": 1.666000468656264e-08,
+      "HumanBody/stride": 2.4027400458748785e-07,
+      "Outfit/stride": 2.4286635755115076e-07,
+      "Pants/stride": 1.2128666487410446e-07
+    },
+    "bake": "Skipped: validating saved corrective keys, not regenerating them",
+    "extremeShapeErrorMeters": {
+      "HumanBody/tpose/BuildNarrow/ShouldersNarrow": 0.0021178010234435747,
+      "HumanBody/tpose/BuildNarrow/ShouldersBroad": 0.0005758037585572928,
+      "HumanBody/tpose/BuildBroad/ShouldersNarrow": 0.0009447049923392955,
+      "HumanBody/tpose/BuildBroad/ShouldersBroad": 0.0026966937409495183,
+      "Outfit/tpose/BuildNarrow/ShouldersNarrow": 0.002253161951674577,
+      "Outfit/tpose/BuildNarrow/ShouldersBroad": 0.0006050651688556229,
+      "Outfit/tpose/BuildBroad/ShouldersNarrow": 0.0009245127226944257,
+      "Outfit/tpose/BuildBroad/ShouldersBroad": 0.0026669939271968725,
+      "Pants/tpose/BuildNarrow/ShouldersNarrow": 1.666000468656264e-08,
+      "Pants/tpose/BuildNarrow/ShouldersBroad": 1.666000468656264e-08,
+      "Pants/tpose/BuildBroad/ShouldersNarrow": 1.666000468656264e-08,
+      "Pants/tpose/BuildBroad/ShouldersBroad": 1.666000468656264e-08,
+      "HumanBody/wave/BuildNarrow/ShouldersNarrow": 0.00583555784499215,
+      "HumanBody/wave/BuildNarrow/ShouldersBroad": 0.002984175438520342,
+      "HumanBody/wave/BuildBroad/ShouldersNarrow": 0.003475882166568492,
+      "HumanBody/wave/BuildBroad/ShouldersBroad": 0.006733296570003442,
+      "Outfit/wave/BuildNarrow/ShouldersNarrow": 0.006277915663514026,
+      "Outfit/wave/BuildNarrow/ShouldersBroad": 0.003033658724321023,
+      "Outfit/wave/BuildBroad/ShouldersNarrow": 0.0035736202690823614,
+      "Outfit/wave/BuildBroad/ShouldersBroad": 0.007199803838021628,
+      "Pants/wave/BuildNarrow/ShouldersNarrow": 1.666000468656264e-08,
+      "Pants/wave/BuildNarrow/ShouldersBroad": 1.666000468656264e-08,
+      "Pants/wave/BuildBroad/ShouldersNarrow": 1.666000468656264e-08,
+      "Pants/wave/BuildBroad/ShouldersBroad": 1.666000468656264e-08,
+      "HumanBody/stride/BuildNarrow/ShouldersNarrow": 0.00010427365521015002,
+      "HumanBody/stride/BuildNarrow/ShouldersBroad": 0.00010427365521015002,
+      "HumanBody/stride/BuildBroad/ShouldersNarrow": 0.00019620496502213217,
+      "HumanBody/stride/BuildBroad/ShouldersBroad": 0.00019620496502213217,
+      "Outfit/stride/BuildNarrow/ShouldersNarrow": 0.00010377924063707384,
+      "Outfit/stride/BuildNarrow/ShouldersBroad": 0.00010377924063707384,
+      "Outfit/stride/BuildBroad/ShouldersNarrow": 0.00017905298784044355,
+      "Outfit/stride/BuildBroad/ShouldersBroad": 0.00017905298846049634,
+      "Pants/stride/BuildNarrow/ShouldersNarrow": 6.283098295221007e-06,
+      "Pants/stride/BuildNarrow/ShouldersBroad": 6.283098295221007e-06,
+      "Pants/stride/BuildBroad/ShouldersNarrow": 2.9950963321688443e-06,
+      "Pants/stride/BuildBroad/ShouldersBroad": 2.9950963321688443e-06
+    },
+    "passed": true
+  },
+  "sourceToGlbDeformation": {
+    "HumanBody": {
+      "baseMax": 6.690604550385615e-07,
+      "relaxed": {
+        "max": 5.997601687162551e-07,
+        "countOver1mm": 0
+      },
+      "tpose": {
+        "max": 0.002358217919152274,
+        "countOver1mm": 24
+      },
+      "wave": {
+        "max": 0.0023962504861012902,
+        "countOver1mm": 15
+      },
+      "stride": {
+        "max": 0.0014199200378734382,
+        "countOver1mm": 6
+      }
+    },
+    "Outfit": {
+      "baseMax": 4.863038043367851e-07,
+      "relaxed": {
+        "max": 4.915124923727108e-07,
+        "countOver1mm": 0
+      },
+      "tpose": {
+        "max": 0.002407512233746872,
+        "countOver1mm": 12
+      },
+      "wave": {
+        "max": 0.0039967539951373315,
+        "countOver1mm": 5
+      },
+      "stride": {
+        "max": 0.0010210433411478937,
+        "countOver1mm": 2
+      }
+    },
+    "Pants": {
+      "baseMax": 3.993538939539576e-07,
+      "relaxed": {
+        "max": 3.579381748874281e-07,
+        "countOver1mm": 0
+      },
+      "tpose": {
+        "max": 3.579381748874281e-07,
+        "countOver1mm": 0
+      },
+      "wave": {
+        "max": 3.579381748874281e-07,
+        "countOver1mm": 0
+      },
+      "stride": {
+        "max": 0.002176465842717145,
+        "countOver1mm": 7
+      }
+    }
+  },
+  "rebuild": {
+    "result": "Independent copy rebuild byte-identical to working foundation.glb, manifest identical; all 38 serial tests pass",
+    "sha256": "ab4f09dbbc33f669bfa4c1066dac03ca7c0c524b45a006e1abdb9a50990da639"
+  },
+  "remainingConcerns": [
+    "Default node test concurrency can exceed available resources; cap concurrency to 2.",
+    "Source validator re-bakes corrections before checking them, so alone cannot detect stale saved correctives. An independent no-rebake test passed this review.",
+    "Source-to-GLB posed vertices differ up to 0.003997 m at the shirt wave. glTF exporter warns >4 joint influences are truncated and normalized, whereas source corrective bake uses all influences. Prune and normalize before baking for exact source/export agreement, or document measured tolerance and validate GLB too.",
+    "Visual inspection and exact UI-exported GLB roundtrip belong to the parent browser review."
+  ],
+  "resolution": "All listed code concerns fixed: npm concurrency capped at 2; saved correctives validated without re-baking; weights normalized before baking; source/export max pose error is now 0.00116 mm. Browser visual sign-off is tracked separately."
+}

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Deformation regression review</title>
+<style>
+  body{font:14px system-ui;margin:20px;color:#263730;background:#f6f4ed}
+  button,a{padding:8px;margin:4px}nav{margin-bottom:18px}
+  #grid{display:grid;grid-template-columns:repeat(5,minmax(170px,1fr));gap:10px}
+  figure{margin:0}img{width:100%;height:auto}figcaption{min-height:38px}
+  pre{white-space:pre-wrap}#working{position:fixed;right:0;bottom:0;width:360px;height:480px;visibility:hidden}
+</style>
+<h1>Human deformation review</h1>
+<p>Actual local renderer. Review one pose at a time to keep memory bounded. Front/back, five build values and shoulder endpoints.</p>
+<nav><a href="?pose=height">Height</a><a href="?pose=relaxed">Neutral</a><a href="?pose=tpose">T-pose</a><a href="?pose=wave">Hello</a><a href="?pose=stride">Stride</a></nav>
+<button id="run">Run visual checks</button><button id="export" disabled>Check and export narrow wave</button>
+<a id="download" hidden>Download tested narrow wave GLB</a>
+<pre id="results">Ready</pre><div id="grid"></div><canvas id="working"></canvas>
+<script type="module">
+import {createHumanRenderer} from '../src/human-renderer.js';
+import {defaults} from '../src/project.js';
+const out=document.querySelector('#results'),grid=document.querySelector('#grid'),button=document.querySelector('#run'),canvas=document.querySelector('canvas'),exportButton=document.querySelector('#export');
+const params=new URL(location).searchParams,pose=params.get('pose')||'height';
+if(params.has('large'))grid.style.gridTemplateColumns='repeat(2,minmax(240px,1fr))';
+if(params.has('software'))document.querySelectorAll('nav a').forEach(a=>a.href+='&software=1'+(params.has('large')?'&large=1':''));
+if(params.has('software')){const original=canvas.getContext.bind(canvas);canvas.getContext=(type,...args)=>type==='webgl2'?null:original(type,...args);}
+let renderer,downloadURL;
+const lines=[];
+function check(ok,label){lines.push((ok?'PASS ':'FAIL ')+label);out.textContent=lines.join('\n');if(!ok)throw Error(label);}
+function json(b){return JSON.parse(new TextDecoder().decode(new Uint8Array(b,20,new DataView(b).getUint32(12,true))));}
+async function capture(project,yaw,label){
+  renderer.update(project);renderer.render(yaw,'body');
+  const figure=document.createElement('figure'),caption=document.createElement('figcaption'),image=new Image();
+  caption.textContent=label;image.src=canvas.toDataURL();image.alt=label;figure.append(caption,image);grid.append(figure);
+  await new Promise(requestAnimationFrame);
+  // Read the actual canvas through a separate 2D surface, including in WebGL.
+  const copy=document.createElement('canvas');copy.width=canvas.width;copy.height=canvas.height;
+  const context=copy.getContext('2d');context.drawImage(canvas,0,0);
+  const pixels=context.getImageData(0,0,copy.width,copy.height).data;
+  let top=copy.height,bottom=-1;
+  for(let y=0;y<copy.height;y++)for(let x=0;x<copy.width;x++){
+    const i=(y*copy.width+x)*4,channels=[pixels[i],pixels[i+1],pixels[i+2]];
+    if(Math.max(...channels)-Math.min(...channels)>30){top=Math.min(top,y);bottom=Math.max(bottom,y);}
+  }
+  return {top,bottom,height:bottom-top+1};
+}
+button.onclick=async()=>{button.disabled=true;exportButton.disabled=true;lines.length=0;grid.replaceChildren();try{
+  check(location.hostname==='127.0.0.1'||location.hostname==='localhost','Loopback HTTP only');
+  renderer?.dispose();renderer=await createHumanRenderer(canvas);check(true,'Renderer mode: '+renderer.info.mode);
+  if(pose==='height'){
+    const bounds=[];
+    for(const height of [.9,1,1.1])bounds.push(await capture({...defaults,height},0,'Height '+Math.round(height*100)+'%'));
+    check(bounds[2].height/bounds[0].height>1.18,'110% height is visibly taller than 90% at a fixed camera');
+    check(Math.abs(bounds[2].bottom-bounds[0].bottom)<5,'Feet remain anchored while height changes');
+    check(true,'Visible character heights: '+bounds.map(b=>b.height+' px').join(', '));
+  }else{
+    if(!['relaxed','tpose','wave','stride'].includes(pose))throw Error('Unknown pose');
+    for(const yaw of [0,Math.PI])for(const build of [0,.25,.5,.75,1]){
+      const shoulders=build===0?0:build===1?1:.5;
+      const bounds=await capture({...defaults,pose,build,shoulders},yaw,pose+' '+(yaw?'back':'front')+'; build '+build+'; shoulders '+shoulders);
+      check(bounds.top>0&&bounds.bottom<canvas.height-1,'Contained '+(yaw?'back':'front')+' build '+build);
+    }
+  }
+  check(true,grid.children.length+' rendered comparisons ready for visual inspection');out.textContent+='\nDONE';exportButton.disabled=false;
+}catch(e){out.textContent+='\nERROR '+e.stack;}finally{button.disabled=false;}};
+exportButton.onclick=async()=>{exportButton.disabled=true;try{
+  renderer.update({...defaults,build:0,shoulders:0,pose:'wave',height:.9});renderer.render(.3,'body');
+  const data=await renderer.exportGLB('Narrow Wave'),gltf=json(data);
+  check(gltf.animations.every(a=>a.channels.some(c=>c.target.path==='weights')),'Every exported pose contains corrective weight tracks');
+  const corrected=gltf.meshes.filter(m=>m.extras?.targetNames?.includes('PoseWave'));
+  check(corrected.length===3,'Body, shirt and trousers retain editable pose correctives');
+  for(const m of corrected){
+    const name=gltf.nodes.find(n=>n.mesh===gltf.meshes.indexOf(m))?.name||m.name||'Mesh';
+    check(m.weights[m.extras.targetNames.indexOf('PoseWave')]===1,name+' retains active wave corrective');
+    check(m.weights[m.extras.targetNames.indexOf('BuildNarrow')]===1,name+' retains narrow build');
+  }
+  if(downloadURL)URL.revokeObjectURL(downloadURL);
+  const a=document.querySelector('#download');a.href=downloadURL=URL.createObjectURL(new Blob([data],{type:'model/gltf-binary'}));a.download='persona-deformation-roundtrip.glb';a.hidden=false;out.textContent+='\nEXPORT DONE';
+}catch(e){out.textContent+='\nERROR '+e.stack;}finally{exportButton.disabled=false;}};
+window.addEventListener('pagehide',()=>{renderer?.dispose();if(downloadURL)URL.revokeObjectURL(downloadURL);});
+</script></html>

@@ -38,7 +38,7 @@
         248
       ]
     },
-    "HumanBody": {
+    "HumanBody.001": {
       "vertices": 14517,
       "faces": 26756,
       "uvLayers": 1,
@@ -53,14 +53,17 @@
         "NoseNarrow",
         "NoseBroad",
         "EyesSmall",
-        "EyesLarge"
+        "EyesLarge",
+        "PoseTpose",
+        "PoseWave",
+        "PoseStride"
       ],
       "unweightedVertices": 0,
       "materials": [
         "Skin"
       ]
     },
-    "Outfit": {
+    "Outfit.001": {
       "vertices": 1097,
       "faces": 1976,
       "uvLayers": 1,
@@ -75,17 +78,20 @@
         "NoseNarrow",
         "NoseBroad",
         "EyesSmall",
-        "EyesLarge"
+        "EyesLarge",
+        "PoseTpose",
+        "PoseWave",
+        "PoseStride"
       ],
       "unweightedVertices": 0,
       "materials": [
         "Outfit"
       ],
       "connectedSurfaceSizes": [
-        1040
+        1038
       ]
     },
-    "Pants": {
+    "Pants.001": {
       "vertices": 1077,
       "faces": 1968,
       "uvLayers": 1,
@@ -100,7 +106,10 @@
         "NoseNarrow",
         "NoseBroad",
         "EyesSmall",
-        "EyesLarge"
+        "EyesLarge",
+        "PoseTpose",
+        "PoseWave",
+        "PoseStride"
       ],
       "unweightedVertices": 0,
       "materials": [
@@ -113,9 +122,21 @@
   },
   "animations": [
     "relaxed_FoundationRig",
+    "relaxed_HumanBody.001",
+    "relaxed_Outfit.001",
+    "relaxed_Pants.001",
     "stride_FoundationRig",
+    "stride_HumanBody.001",
+    "stride_Outfit.001",
+    "stride_Pants.001",
     "tpose_FoundationRig",
-    "wave_FoundationRig"
+    "tpose_HumanBody.001",
+    "tpose_Outfit.001",
+    "tpose_Pants.001",
+    "wave_FoundationRig",
+    "wave_HumanBody.001",
+    "wave_Outfit.001",
+    "wave_Pants.001"
   ],
   "morphEditMaxDelta": 0.00654707892570975,
   "boneEditMaxDelta": 0.19701606478321704,
