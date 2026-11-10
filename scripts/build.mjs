@@ -6,4 +6,5 @@ await cp('assets/human','dist/assets/human',{recursive:true,filter:source=>!sour
 await cp('assets/source/licenses','dist/licenses',{recursive:true});
 await mkdir('dist/docs',{recursive:true});
 await copyFile('docs/ASSET-LICENSES.md','dist/docs/ASSET-LICENSES.md');
+await cp('docs/screenshots','dist/docs/screenshots',{recursive:true});
 console.log('Built static app in dist/');
