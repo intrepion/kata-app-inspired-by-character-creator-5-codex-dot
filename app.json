@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "kind": "app",
+  "title": "Kata Persona Forge",
+  "repository": "kata-app-inspired-by-character-creator-5-codex-dot",
+  "section": "Kata Tool Shed",
+  "category": "3D & Animation",
+  "tagline": "A character, from the inside out.",
+  "description": "A character, from the inside out.",
+  "entryPoint": "index.html",
+  "status": "local-prototype",
+  "toolShedUrl": "https://intrepion.github.io/tools/",
+  "screenshots": [
+    "docs/screenshots/desktop.png",
+    "docs/screenshots/narrow.png"
+  ],
+  "inspiration": {
+    "name": "Character Creator 5",
+    "url": "https://www.reallusion.com/character-creator/"
+  },
+  "license": "MIT",
+  "features": [
+    "Original procedural 3D character mesh",
+    "Six proportion controls",
+    "Three archetypes and hairstyles",
+    "Four static poses",
+    "Orbit camera",
+    "Forty-edit undo and redo",
+    "OBJ vertex-color geometry export",
+    "PNG preview export",
+    "Editable project import and export",
+    "Best-effort browser autosave"
+  ]
+}
