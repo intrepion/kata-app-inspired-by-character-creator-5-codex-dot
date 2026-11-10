@@ -10,6 +10,12 @@
 
 ![Actual Mac hardware WebGL face view](docs/screenshots/persona-portrait-face.jpg)
 
+## Static short crop prototype
+
+The local hair pass groups fine fibers into small clumps, varies growth around the head, refines the hairline and adds sparse flyaways with portable directional highlights. It remains a static procedural crop, not a production groom. Existing projects and editable GLB export are preserved. This prototype has **not been published**. See [hardware views, Blender round trip and limits](docs/QA-HAIR.md).
+
+![Actual matched original and clumped crop on Mac hardware WebGL](docs/screenshots/persona-hair-closeup.png)
+
 ## Regional skin prototype
 
 The skin pass adds original 2048px region-aware color, pore detail and roughness over the licensed foundation skin. It also adds restrained ear/backlight response in the browser. **GLB retains the PBR textures, but not the browser-only light-scattering approximation.** Geometry, expressions and the editable rig remain intact. This is a step toward realism, not a new skin scan or fully photorealistic character. See [matched comparisons, Blender verification and limits](docs/QA-SKIN.md).

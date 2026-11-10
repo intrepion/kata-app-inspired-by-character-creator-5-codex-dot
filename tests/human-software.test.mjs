@@ -102,3 +102,7 @@ test('skinned authored normals match shader-order bone, bind, and nonuniform wor
   f.renderer.render(f.scene,f.camera);
   assert.ok(Math.abs(actual[0]-f.pixel()[0])>=3,'Fixture must distinguish transformed and untransformed normals');
 });
+
+test('software preview preserves generated data textures and linear vertex color',()=>{const f=fixture();f.mesh.material.color.set(0xffffff);f.mesh.material.vertexColors=true;f.mesh.geometry.setAttribute('color',new THREE.Float32BufferAttribute([.25,1,.5,.25,1,.5,.25,1,.5],3));f.mesh.geometry.setAttribute('uv',new THREE.Float32BufferAttribute([0,0,1,0,.5,1],2));f.mesh.material.map=new THREE.DataTexture(new Uint8Array([255,255,255,255]),1,1,THREE.RGBAFormat);f.mesh.material.map.needsUpdate=true;f.renderer.render(f.scene,f.camera);assert.deepEqual(f.pixel(),[137,255,188]);});
+
+test('software repeat wrapping occurs after UV interpolation across an atlas seam',()=>{const f=fixture();f.mesh.material.color.set(0xffffff);f.mesh.geometry.setAttribute('uv',new THREE.Float32BufferAttribute([.9,0,1.1,0,1.1,1],2));const texture=new THREE.DataTexture(new Uint8Array([255,0,0,255,0,255,0,255,0,0,255,255,0,0,255,255]),4,1,THREE.RGBAFormat);texture.wrapS=THREE.RepeatWrapping;texture.needsUpdate=true;f.mesh.material.map=texture;f.renderer.render(f.scene,f.camera);assert.deepEqual(f.pixel(),[255,0,0]);});

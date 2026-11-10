@@ -14,6 +14,7 @@ export function createHumanSoftwareRenderer(canvas) {
   const srgb = value => Math.round(255 * (value <= .0031308 ? value * 12.92 : 1.055 * Math.pow(value, 1 / 2.4) - .055));
   const linear = new Float32Array(256);
   for (let i = 0; i < 256; i++) linear[i] = i / 255 <= .04045 ? i / 255 / 12.92 : Math.pow((i / 255 + .055) / 1.055, 2.4);
+  function wrapUV(value,mode){if(mode===THREE.RepeatWrapping)return value-Math.floor(value);if(mode===THREE.MirroredRepeatWrapping){const phase=((value%2)+2)%2;return phase>1?2-phase:phase;}return Math.min(1,Math.max(0,value));}
   function textureData(texture) {
     if (!texture?.image) return null;
     const cached = textures.get(texture);
@@ -21,6 +22,7 @@ export function createHumanSoftwareRenderer(canvas) {
     const image = texture.image;
     const w = image.width || image.videoWidth, h = image.height || image.videoHeight;
     if (!w || !h) return null;
+    if(image.data instanceof Uint8Array){const result={data:image.data,width:w,height:h,version:texture.version};textures.set(texture,result);return result;}
     // Reading only locally loaded asset images; never bypass a canvas taint.
     const scratch = document.createElement('canvas');
     scratch.width = w; scratch.height = h;
@@ -139,9 +141,9 @@ export function createHumanSoftwareRenderer(canvas) {
         const uv = tex && uvAttribute ? new Float32Array(count*2) : null;
         if (uv) {
           if (map.matrixAutoUpdate) map.updateMatrix();
-          for(let i=0;i<count;i++) {textureUV.fromBufferAttribute(uvAttribute,i);map.transformUv(textureUV);uv[i*2]=textureUV.x;uv[i*2+1]=textureUV.y;}
+          for(let i=0;i<count;i++) {textureUV.fromBufferAttribute(uvAttribute,i);textureUV.applyMatrix3(map.matrix);uv[i*2]=textureUV.x;uv[i*2+1]=textureUV.y;}
         }
-        const color=material.color || {r:1,g:1,b:1};
+        const color=material.color || {r:1,g:1,b:1},vertexColor=material.vertexColors?geometry.getAttribute('color'):null;
         const start=Math.max(group.start,geometry.drawRange.start), end=Math.min(indexCount,group.start+group.count,geometry.drawRange.start+geometry.drawRange.count);
         const triangles=[];
         for(let t=start;t+2<end;t+=3) triangles.push(t);
@@ -171,8 +173,10 @@ export function createHumanSoftwareRenderer(canvas) {
             const denominator=wa*screen[a+3]+wb*screen[b+3]+wc*screen[c+3];
             const pa=wa*screen[a+3]/denominator,pb=wb*screen[b+3]/denominator,pc=wc*screen[c+3]/denominator;
             let r=color.r,g=color.g,bl=color.b,alpha=material.opacity??1;
+            if(vertexColor){r*=pa*vertexColor.getX(ia)+pb*vertexColor.getX(ib)+pc*vertexColor.getX(ic);g*=pa*vertexColor.getY(ia)+pb*vertexColor.getY(ib)+pc*vertexColor.getY(ic);bl*=pa*vertexColor.getZ(ia)+pb*vertexColor.getZ(ib)+pc*vertexColor.getZ(ic);}
             if(uv) {
-              const u=pa*uv[ia*2]+pb*uv[ib*2]+pc*uv[ic*2],v=pa*uv[ia*2+1]+pb*uv[ib*2+1]+pc*uv[ic*2+1];
+              let u=pa*uv[ia*2]+pb*uv[ib*2]+pc*uv[ic*2],v=pa*uv[ia*2+1]+pb*uv[ib*2+1]+pc*uv[ic*2+1];
+              u=wrapUV(u,map.wrapS);v=wrapUV(v,map.wrapT);if(map.flipY)v=1-v;
               const tx=Math.min(tex.width-1,Math.max(0,Math.floor(u*tex.width))),ty=Math.min(tex.height-1,Math.max(0,Math.floor(v*tex.height))),k=(ty*tex.width+tx)*4;
               r*=linear[tex.data[k]];g*=linear[tex.data[k+1]];bl*=linear[tex.data[k+2]];alpha*=tex.data[k+3]/255;
             }

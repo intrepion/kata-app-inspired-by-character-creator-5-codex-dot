@@ -8,6 +8,7 @@ import {ranges} from './project.js';
 import {createSkirtRig} from './skirt-rig.js';
 import {createEyeRig} from './eye-rig.js';
 import {createExpressionRig,expressionEyeControls} from './expression-rig.js';
+import {createHairGroom,HAIR_LIMIT} from './hair-groom.js';
 import {createSkinMaterial,SKIN_TRANSFER_LIMIT} from './skin-material.js';
 
 /** A locally bundled CC0 foundation with original MIT portrait and skirt additions. No network/CDN fallback. */
@@ -93,6 +94,8 @@ export async function createHumanRenderer(canvas) {
     if(!lights[name])throw Error('Unknown lighting rig');
     const [kp,ki,fp,fi,ai]=lights[name];key.position.set(...kp);key.intensity=ki;fill.position.set(...fp);fill.intensity=fi;ambient.intensity=ai;
   }
+  const hair=createHairGroom({human});meshes.push(hair.mesh);
+  function setHairPreview(mode){hair.setPreview(mode);if(current)update(current);}
   const skirt=createSkirtRig({human,pants:human.getObjectByName('Pants'),pelvis:bones.get('pelvis')});
   meshes.push(skirt.mesh);
   const eyeRig=createEyeRig({human,manifest});
@@ -149,6 +152,7 @@ export async function createHumanRenderer(canvas) {
         }
       }
     }
+    hair.update(project);
     skirt.update(project);
     eyeRig.update(expressionEyeControls(project));
     expressionRig.update(project);
@@ -207,5 +211,5 @@ export async function createHumanRenderer(canvas) {
       textures.forEach(t=>t.dispose());materials.forEach(m=>m.dispose());skeletons.forEach(s=>s.dispose());
     }
   }
-  return {update,render,exportGLB,setSkinPreview,setLighting,renderExportPreview,get triangleCount(){return visibleTriangleCount();},info:{skinTransferLimit:SKIN_TRANSFER_LIMIT,mode:rendererMode,boneCount:bones.size,get auxiliaryBoneCount(){return current?.lowerGarment==='skirt'?skirt.bones.length:0;},morphs:manifest.morphs,license:manifest.license||'See asset license manifest',gpu:rendererMode==='webgl'?renderer.getContext().getParameter(renderer.getContext().getExtension('WEBGL_debug_renderer_info')?.UNMASKED_RENDERER_WEBGL||renderer.getContext().RENDERER):'CPU'},dispose(){regionalSkin.dispose();baselineSkin.dispose();studioEnvironment?.dispose();mixer.stopAllAction();const textures=new Set(Object.values(baselineSkin).filter(t=>t?.isTexture)),materials=new Set(),skeletons=new Set();meshes.forEach(mesh=>{if(mesh.skeleton)skeletons.add(mesh.skeleton);mesh.geometry.dispose();for(const material of Array.isArray(mesh.material)?mesh.material:[mesh.material]){materials.add(material);for(const value of Object.values(material))if(value?.isTexture)textures.add(value);}});textures.forEach(texture=>texture.dispose());materials.forEach(material=>material.dispose());skeletons.forEach(skeleton=>skeleton.dispose());renderer.dispose();}};
+  return {update,render,exportGLB,setSkinPreview,setHairPreview,setLighting,renderExportPreview,get triangleCount(){return visibleTriangleCount();},info:{hair:{...hair.stats,transferLimit:HAIR_LIMIT},skinTransferLimit:SKIN_TRANSFER_LIMIT,mode:rendererMode,boneCount:bones.size,get auxiliaryBoneCount(){return current?.lowerGarment==='skirt'?skirt.bones.length:0;},morphs:manifest.morphs,license:manifest.license||'See asset license manifest',gpu:rendererMode==='webgl'?renderer.getContext().getParameter(renderer.getContext().getExtension('WEBGL_debug_renderer_info')?.UNMASKED_RENDERER_WEBGL||renderer.getContext().RENDERER):'CPU'},dispose(){hair.dispose();regionalSkin.dispose();baselineSkin.dispose();studioEnvironment?.dispose();mixer.stopAllAction();const textures=new Set(Object.values(baselineSkin).filter(t=>t?.isTexture)),materials=new Set(),skeletons=new Set();meshes.forEach(mesh=>{if(mesh.skeleton)skeletons.add(mesh.skeleton);mesh.geometry.dispose();for(const material of Array.isArray(mesh.material)?mesh.material:[mesh.material]){materials.add(material);for(const value of Object.values(material))if(value?.isTexture)textures.add(value);}});textures.forEach(texture=>texture.dispose());materials.forEach(material=>material.dispose());skeletons.forEach(skeleton=>skeleton.dispose());renderer.dispose();}};
 }

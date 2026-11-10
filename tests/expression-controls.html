@@ -68,6 +68,8 @@ try{
   localStorage.setItem(key,JSON.stringify(old));storageChanged=true;
   const loaded=new Promise(resolve=>frame.onload=resolve);frame.src='../?qa';await loaded;await ready();
   report.renderMode=doc.querySelector('#stage').dataset.mode;
+  change('hair','none');check(saved().hair==='none','No-hair edit autosaves');change('hair','none');click('undo');check(value('hair')==='crop','Repeated no-hair changes add no duplicate undo state');click('redo');check(value('hair')==='none','Redo restores no hair');change('hair','crop');
+  change('hairColor','#d4b477');check(saved().hairColor==='#d4b477','Hair tint autosaves');click('undo');check(value('hairColor')===defaults.hairColor,'Undo restores hair tint');click('redo');check(value('hairColor')==='#d4b477','Redo restores hair tint');
   check(matches(neutral),'Older v2 autosave normalizes all omitted expression fields to neutral');
   check(Number(value('headWidth'))===.72,'Old autosave preserves face identity');
   check(doc.querySelectorAll('#expression-sliders input').length===4&&doc.querySelectorAll('#sliders input').length===15,'Four expression controls remain separate from fifteen shape controls');
@@ -92,7 +94,7 @@ try{
   const beforeCancel=localStorage.getItem(key);
   check(await openGeneratedProject({...defaults,name:'Cancelled expression import'},false),'Dirty import asks before replacing project');
   check(matches(edited)&&localStorage.getItem(key)===beforeCancel,'Cancelling project replacement leaves expressions and saved state unchanged');
-  const roundtrip=await saveProject();
+  const roundtrip=await saveProject();check(roundtrip.hair==='crop'&&roundtrip.hairColor==='#d4b477','Saved project retains the current crop and light tint');
   check(expressionKeys.every(k=>roundtrip[k]===edited[k])&&roundtrip.headWidth===.72,'Captured .persona download preserves expressions and identity');
   change('smile',.2);await openGeneratedProject(roundtrip,true);
   check(matches(edited),'Opening captured .persona restores all expressions without file dialog');
@@ -108,7 +110,7 @@ try{
   click('redo');check(matches(neutral),'Redo old import restores neutral values');click('undo');
   click('randomize');check(matches(edited),'Randomize leaves expression state unchanged');click('undo');
   const reloaded=new Promise(resolve=>frame.onload=resolve);win.location.reload();await reloaded;await ready();
-  check(matches(edited),'Reload restores expression autosave');
+  check(matches(edited),'Reload restores expression autosave');check(value('hair')==='crop'&&value('hairColor')==='#d4b477','Reload restores crop and light tint');
   check(doc.getElementById('undo').disabled&&doc.getElementById('redo').disabled,'Reload begins clean undo history');
   frame.style.width='390px';await new Promise(resolve=>win.requestAnimationFrame(()=>win.requestAnimationFrame(resolve)));
   check(doc.documentElement.scrollWidth<=390,'390px mobile layout has no horizontal overflow');
