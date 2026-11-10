@@ -1,6 +1,6 @@
 # Blink and gaze prototype
 
-Local prototype based on `599524f`. Not published. The retained foundation GLB and Blender source are byte-identical to the approved distinct-faces/skirt milestone.
+Prototype implementation `4ecfb22`, based on `599524f`, approved for publication on 2026-11-10. The retained foundation GLB and Blender source are byte-identical to the approved distinct-faces/skirt milestone.
 
 ## What is implemented
 

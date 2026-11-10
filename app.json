@@ -6,11 +6,12 @@
   "section": "Kata Tool Shed",
   "category": "3D & Animation",
   "tagline": "A character, from the inside out.",
-  "description": "A local-first character workshop with distinct adult face presets, an optional A-line skirt with garment-only bones and hem sway, weighted posing and editable GLB export.",
+  "description": "A local-first character workshop with distinct adult faces, independent blink and gaze controls, an optional rigged A-line skirt, weighted posing and editable GLB export.",
   "entryPoint": "index.html",
   "status": "live",
   "toolShedUrl": "https://intrepion.github.io/tools/",
   "screenshots": [
+    "docs/screenshots/persona-blink-gaze.png",
     "docs/screenshots/persona-skirt-comparison.png",
     "docs/screenshots/persona-distinct-faces.png",
     "docs/screenshots/persona-portrait-workspace.jpg",
@@ -22,6 +23,9 @@
   },
   "license": "MIT",
   "features": [
+    "Independent anatomical left/right blink controls with neutral reset",
+    "Bounded horizontal/vertical gaze with fitted lids, lashes, iris and cornea",
+    "Ten original editable eye targets and blink/gaze interaction correctives",
     "Three distinct adult face presets plus the preserved original three",
     "Nine additional fitted face controls, from head proportions to lips",
     "CC0 MakeHuman anatomical adult with original portrait detail maps",
@@ -45,7 +49,9 @@
   "limitations": [
     "Stylized procedural hair, not photorealistic or a production groom",
     "Synthetic skin detail and tinting of one diffuse skin source",
-    "No facial animation or cloth simulation",
-    "Skirt fit is checked across supported static poses; arbitrary bone edits may clip"
+    "No mouth expressions, lip-sync, automatic blink timing or cloth simulation; eye-only morph posing",
+    "Skirt fit is checked across supported static poses; arbitrary bone edits may clip",
+    "Eyelids can look heavy or stretched at extreme identity combinations",
+    "Exported eye targets fit the saved identity; changing identity in Blender may require refitting"
   ]
 }

@@ -10,9 +10,9 @@
 
 ![Actual Mac hardware WebGL face view](docs/screenshots/persona-portrait-face.jpg)
 
-## Local blink-and-gaze prototype
+## Blink-and-gaze prototype
 
-This unpublished prototype adds independent left/right blinks and bounded horizontal/vertical gaze in a new **Eyes** panel. Neutral eyes reset, undo/redo, project save/open and editable GLB targets are included. Older projects remain neutral. This is eye-only posing, without mouth expressions or lip-sync. See [verification, Blender editing and limits](docs/QA-BLINK-GAZE.md).
+This prototype adds independent left/right blinks and bounded horizontal/vertical gaze in a new **Eyes** panel. Neutral eyes reset, undo/redo, project save/open and editable GLB targets are included. Older projects remain neutral. This is eye-only posing, without mouth expressions or lip-sync. See [verification, Blender editing and limits](docs/QA-BLINK-GAZE.md).
 
 ![Actual Mac WebGL blink and gaze comparisons](docs/screenshots/persona-blink-gaze.png)
 
