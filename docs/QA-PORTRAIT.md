@@ -17,6 +17,7 @@ This is an unpublished local revision, not a claim that the public GitHub Pages 
 The initial portrait tests failed before implementation. Separate regression tests reproduced the profile clipping and duplicate animation clips before their fixes.
 
 - `npm run check`: syntax and 51 Node tests.
+- Final test-run note: one full-suite run terminated the legacy `renderer.test.mjs` process without an assertion diagnostic. An unchanged full-suite rerun passed all 51 tests, and the isolated legacy renderer suite passed all three. The cause was not established; this is not a claim of flake-free CI.
 - `npm run build`: standalone static build; all assets bundled, no runtime CDN.
 - `npm run test:garment-source`: unchanged source waist/sleeve constraints.
 - `tests/portrait-preservation.test.mjs`: all 93 decoded body/garment position, normal, UV, skin-weight, joint and morph buffers match approved commit `41c867f` exactly. Sparse accessors are decoded before comparing.
