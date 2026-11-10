@@ -1,5 +1,5 @@
 import test from 'node:test';import assert from 'node:assert/strict';import {readFile} from 'node:fs/promises';import {createHash} from 'node:crypto';
-// Hashes were decoded from the approved waist/pose baseline 41c867f, not from
+// Hashes were decoded from the approved waist/pose baseline d8a302a, not from
 // the portrait build. Sparse and interleaved accessors compare actual values.
 test('portrait preserves all 93 approved body, garment, weight and morph buffers',async()=>{
   const baseline=JSON.parse(await readFile(new URL('./foundation-preserved.json',import.meta.url))),file=await readFile(new URL('../assets/human/foundation.glb',import.meta.url));

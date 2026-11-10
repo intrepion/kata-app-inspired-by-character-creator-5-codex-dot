@@ -1,0 +1,19 @@
+{
+  "capturedAt": "2026-11-10T09:40:58.490660+00:00",
+  "url": "http://127.0.0.1:4189/?qa",
+  "renderer": "WebGL; ANGLE (Apple, ANGLE Metal Renderer: Apple M1, Unspecified Version)",
+  "rendererEvidence": "Same final asset and Chrome hardware WebGL verified by /tests/portrait.html in this QA session; application labels WebGL in both captures.",
+  "assetSha256": "cf82a4d2dbc41509d413662829e15246d574c45d7f4d33412ecf7bb053206b0b",
+  "scene": "Explorer / Juniper, default colors and 50% shapes, Neutral A-pose, Body then Face",
+  "capture": "Original unmodified JPEG bytes from browser full-page screenshot. No compositing, synthesis, or postprocessing. App page only; browser chrome excluded.",
+  "files": {
+    "persona-portrait-face.jpg": {
+      "bytes": 94499,
+      "sha256": "1f843aa76773f898a6b67d8d1b88126f283eeb9dab4e73b70639b709cfa68f79"
+    },
+    "persona-portrait-workspace.jpg": {
+      "bytes": 80879,
+      "sha256": "1023ca67d4673e076602fb98c36054ef3131aecd8e773c97d4e6b8b55fc1383f"
+    }
+  }
+}

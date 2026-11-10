@@ -2,11 +2,11 @@
 
 **A character, from the inside out.** A local-first human character workshop inspired by character-creation workflows. This **version 2 human foundation** replaces the procedural mannequin with a licensed MakeHuman/MPFB anatomical adult.
 
-[Open Persona Forge](https://intrepion.github.io/kata-app-inspired-by-character-creator-5-codex-dot/). The human foundation was first published from commit `e4bcb71`. The published build remains the waist/pose maintenance release. This unpublished portrait revision adds original material and grooming detail; see [portrait verification and limits](docs/QA-PORTRAIT.md).
+[Open Persona Forge](https://intrepion.github.io/kata-app-inspired-by-character-creator-5-codex-dot/). The human foundation was first published from commit `e4bcb71`. This portrait revision adds original material and grooming detail while preserving the waist/pose fixes; see [portrait verification and limits](docs/QA-PORTRAIT.md).
 
-The screenshot below shows the earlier foundation release; the portrait revision is documented separately.
+![Actual Mac hardware WebGL portrait workspace, captured on localhost](docs/screenshots/persona-portrait-workspace.jpg)
 
-![Foundation release localhost browser preview](docs/screenshots/persona-foundation-desktop.jpg)
+![Actual Mac hardware WebGL face view](docs/screenshots/persona-portrait-face.jpg)
 
 ## Run
 

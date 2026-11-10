@@ -33,6 +33,6 @@
     "Skin microdetail is synthetic; skin colors are tints of one diffuse source.",
     "CPU fallback omits normal-map response and reflection/clearcoat lighting."
   ],
-  "published": false,
-  "testRunNote": "One legacy renderer test process terminated without an assertion diagnostic; unchanged full-suite rerun passed 51/51 and isolated renderer suite passed 3/3. Cause unconfirmed."
+  "testRunNote": "Concurrent runs intermittently terminated the legacy renderer test process without an assertion diagnostic; unchanged reruns passed. Test files now run serially to reduce resource overlap, with full 51-test coverage retained. Original termination cause unconfirmed.",
+  "publicationStateAtVerification": "Local acceptance completed; user subsequently approved publication."
 }

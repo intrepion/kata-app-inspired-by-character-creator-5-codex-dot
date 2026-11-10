@@ -1,6 +1,6 @@
 # Portrait revision: verification and limits
 
-This is an unpublished local revision, not a claim that the public GitHub Pages app has changed.
+Pre-publication verification record for the portrait revision. The user approved publication after these checks; deployment status is verified separately.
 
 ## Implemented
 
@@ -17,10 +17,10 @@ This is an unpublished local revision, not a claim that the public GitHub Pages 
 The initial portrait tests failed before implementation. Separate regression tests reproduced the profile clipping and duplicate animation clips before their fixes.
 
 - `npm run check`: syntax and 51 Node tests.
-- Final test-run note: one full-suite run terminated the legacy `renderer.test.mjs` process without an assertion diagnostic. An unchanged full-suite rerun passed all 51 tests, and the isolated legacy renderer suite passed all three. The cause was not established; this is not a claim of flake-free CI.
+- Final test-run note: concurrent runs intermittently terminated the legacy `renderer.test.mjs` process without an assertion diagnostic; unchanged reruns and isolated tests passed. The test command now runs files serially to reduce peak resource overlap without reducing coverage. Serial full-suite checks pass all 51 tests. The original termination cause was not established.
 - `npm run build`: standalone static build; all assets bundled, no runtime CDN.
 - `npm run test:garment-source`: unchanged source waist/sleeve constraints.
-- `tests/portrait-preservation.test.mjs`: all 93 decoded body/garment position, normal, UV, skin-weight, joint and morph buffers match approved commit `41c867f` exactly. Sparse accessors are decoded before comparing.
+- `tests/portrait-preservation.test.mjs`: all 93 decoded body/garment position, normal, UV, skin-weight, joint and morph buffers match approved commit `d8a302a` exactly. Sparse accessors are decoded before comparing.
 - `tools/validate-human.py`: Blender import, 53 bones, UV/material/image retention, normalized weights, jaw and arm editing. The validator toggles an imported jaw value rather than assuming it starts at zero.
 - `tools/validate-pose-roundtrip.py`: source vs GLB default and four build/shoulder corners in every pose; maximum measured vertex error approximately 0.0000012 m.
 
@@ -49,3 +49,7 @@ This avoids relying on privileged browser internal pages or browser-download too
 This is a prototype improvement, not photorealism or Character Creator parity. Skin detail is synthetic, not a new scan, and tinting does not supply a range of skin scans. The eye is a fixed fitted iris/cornea approximation, not a full refractive anatomical eye. Hair is original procedural ribbon geometry over a textured scalp, not a production groom; the uniform cap-like appearance is reduced but styling remains simplified. There is no facial animation, expression rig, subsurface skin shader, cloth simulation or demographic asset library.
 
 The CPU fallback omits normal-map response, reflections and clearcoat. Node rasterizer tests and all 20 forced-software browser checks pass on the Mac. Hardware WebGL is the visual acceptance path; fallback rendering should not be used to judge portrait realism.
+
+## Publication screenshots
+
+`docs/screenshots/persona-portrait-workspace.jpg` and `persona-portrait-face.jpg` are unmodified app-only browser captures of the final localhost build on the Apple M1 Mac, using default Explorer/Juniper and the Neutral pose. Their original hashes, capture origin and renderer evidence are retained in `docs/screenshots/portrait-provenance.json`. They show the actual prototype, not generated marketing renders.
