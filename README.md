@@ -48,6 +48,8 @@ Controls are labeled, keyboard focus is visible, selection states are exposed an
 
 - `npm run check`: syntax checks and Node regression tests, including project migration, GLB structure, skinning/morph references, software rendering and HTTP serving. Legacy procedural tests are retained separately as regression history; they do not validate the new anatomy.
 - `/tests/browser-foundation.html`: actual local app loading, migration, undo/redo, focus, pose and narrow layout checks.
+- `/tests/waist.html`: close-up front/back/side garment review using authored GLB normals. See [waist repair evidence and limits](docs/QA-WAIST.md).
+- `npm run test:garment-source`: source boundary/sleeve regression (Python 3 + NumPy, no Blender required).
 - `/tests/deformation.html`: visible height/foot-anchor checks and front/back pose/build comparisons, with a separate corrective export check. Use `?software=1` to force the CPU preview when WebGL is unavailable.
 - `/tests/roundtrip.html`: actual renderer GLB export checks and downloadable customized test asset.
 - `/tests/unsupported.html`: explicit unavailable-canvas error path.

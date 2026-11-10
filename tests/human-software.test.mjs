@@ -42,3 +42,63 @@ test('draws alpha-blended eye-like surfaces after opaque skin even when listed f
   f.scene.add(body);f.renderer.render(f.scene,f.camera);
   const [red,green,blue]=f.pixel();assert.ok(red>100 && red<150);assert.equal(green,0);assert.ok(blue>100 && blue<150);
 });
+
+test('shading follows authored GLB normals instead of silently repairing them',()=>{
+  const f=fixture();f.mesh.material=new THREE.MeshStandardMaterial({color:0x808080});
+  const attribute=new THREE.Float32BufferAttribute([0,0,1,0,0,1,0,0,1],3);f.mesh.geometry.setAttribute('normal',attribute);
+  f.renderer.render(f.scene,f.camera);const forward=f.pixel()[0];
+  for(let i=0;i<3;i++)attribute.setXYZ(i,0,0,-1);
+  f.renderer.render(f.scene,f.camera);assert.ok(f.pixel()[0]<forward-15,'Authored inward normals must visibly darken the preview, like WebGL');
+});
+test('shading includes morph-target normal deltas',()=>{
+  const f=fixture();f.mesh.material=new THREE.MeshStandardMaterial({color:0x808080});
+  f.mesh.geometry.setAttribute('normal',new THREE.Float32BufferAttribute([0,0,1,0,0,1,0,0,1],3));
+  f.mesh.geometry.morphTargetsRelative=true;f.mesh.geometry.morphAttributes.normal=[new THREE.Float32BufferAttribute([0,0,-2,0,0,-2,0,0,-2],3)];f.mesh.updateMorphTargets();
+  f.renderer.render(f.scene,f.camera);const forward=f.pixel()[0];f.mesh.morphTargetInfluences[0]=1;
+  f.renderer.render(f.scene,f.camera);assert.ok(f.pixel()[0]<forward-15,'Normal morphs must influence shading even when positions stay fixed');
+});
+
+test('skinned authored normals match shader-order bone, bind, and nonuniform world transforms',()=>{
+  const f=fixture(),geometry=f.mesh.geometry;
+  const authored=new THREE.Vector3(.35,.2,1).normalize();
+  geometry.setAttribute('normal',new THREE.Float32BufferAttribute(Array(3).fill(authored.toArray()).flat(),3));
+  geometry.setAttribute('skinIndex',new THREE.Uint16BufferAttribute([0,1,0,0,0,1,0,0,0,1,0,0],4));
+  geometry.setAttribute('skinWeight',new THREE.Float32BufferAttribute([.65,.35,0,0,.65,.35,0,0,.65,.35,0,0],4));
+  const material=new THREE.MeshStandardMaterial({color:0x808080,side:THREE.DoubleSide});
+  const skinned=new THREE.SkinnedMesh(geometry,material),root=new THREE.Bone(),tip=new THREE.Bone();
+  root.add(tip);tip.position.y=.15;skinned.add(root);f.scene.remove(f.mesh);f.scene.add(skinned);
+  f.scene.updateMatrixWorld(true);skinned.bind(new THREE.Skeleton([root,tip]));
+  skinned.rotation.set(.1,.18,-.15);skinned.scale.set(1.2,.7,.85);skinned.position.set(.04,-.03,.08);
+  root.rotation.set(.12,.2,.08);tip.rotation.set(-.25,.3,-.18);
+  const parent=new THREE.Group();parent.rotation.z=.12;parent.scale.set(.85,1.1,1);f.scene.add(parent);parent.add(skinned);
+  f.scene.updateMatrixWorld(true);skinned.skeleton.update();
+  f.renderer.render(f.scene,f.camera);const actual=f.pixel();
+  const positions=[],normals=[];
+  for(let i=0;i<3;i++){
+    positions.push(...skinned.getVertexPosition(i,new THREE.Vector3()).applyMatrix4(skinned.matrixWorld).toArray());
+    // Independent shader reference: skinbase_vertex forms the weighted bone
+    // matrix; skinnormal_vertex sandwiches it between inverse bind and bind.
+    // A direction has w=0, so bone/mesh translation must not affect lighting.
+    const bound=new THREE.Vector4(...authored.toArray(),0).applyMatrix4(skinned.bindMatrix);
+    const sum=new THREE.Vector4(0,0,0,0);
+    for(const [index,weight] of [[0,.65],[1,.35]]){
+      const matrix=new THREE.Matrix4().fromArray(skinned.skeleton.boneMatrices,index*16);
+      sum.add(bound.clone().applyMatrix4(matrix).multiplyScalar(weight));
+    }
+    sum.applyMatrix4(skinned.bindMatrixInverse);
+    const expected=new THREE.Vector3(sum.x,sum.y,sum.z)
+      .applyMatrix3(new THREE.Matrix3().getNormalMatrix(skinned.matrixWorld)).normalize();
+    normals.push(...expected.toArray());
+  }
+  const referenceGeometry=new THREE.BufferGeometry();
+  referenceGeometry.setAttribute('position',new THREE.Float32BufferAttribute(positions,3));
+  referenceGeometry.setAttribute('normal',new THREE.Float32BufferAttribute(normals,3));
+  const reference=new THREE.Mesh(referenceGeometry,material);parent.visible=false;f.scene.add(reference);
+  f.renderer.render(f.scene,f.camera);
+  assert.deepEqual(actual,f.pixel(),'Skinned lighting must equal independently transformed authored normals');
+  // Ensure the reference is sensitive to omitting the normal transforms, rather
+  // than accidentally sampling background or an unchanged light direction.
+  referenceGeometry.setAttribute('normal',new THREE.Float32BufferAttribute(Array(3).fill(authored.toArray()).flat(),3));
+  f.renderer.render(f.scene,f.camera);
+  assert.ok(Math.abs(actual[0]-f.pixel()[0])>=3,'Fixture must distinguish transformed and untransformed normals');
+});

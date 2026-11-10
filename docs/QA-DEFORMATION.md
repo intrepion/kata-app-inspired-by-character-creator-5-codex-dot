@@ -1,5 +1,7 @@
 # Height, garment and pose correction verification
 
+**Correction:** the waist visual conclusions below were incomplete because the CPU fallback rebuilt normals. See [the reproduced defect and revised verification](QA-WAIST.md).
+
 Pre-publication verification record. These checks were completed locally before the user approved publication.
 
 ## Changes

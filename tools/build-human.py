@@ -75,12 +75,11 @@ def clean_boundary(ob,iterations=10):
  for v,k in zip(ob.data.vertices,ob.data.shape_keys.key_blocks[0].data):v.co=k.co
  ob.data.update()
 for ob in [shirt,pants,hair]:clean_boundary(ob)
-# A level overlapping waistband removes staircase cut edges.
-for sk in shirt.data.shape_keys.key_blocks:
- for v in sk.data:
-  if v.co.z<.985:v.co.z=.955
-for v,k in zip(shirt.data.vertices,shirt.data.shape_keys.key_blocks[0].data):v.co=k.co
-runpy.run_path(str(ROOT/'tools/fit-garments.py'))['fit_waist'](shirt,pants)
+# Level only the real hem boundary. Grade the interior rows instead of collapsing
+# them into a coplanar shelf, which corrupts the exported smooth vertex normals.
+garment_tools=runpy.run_path(str(ROOT/'tools/fit-garments.py'))
+garment_tools['level_hem'](shirt)
+garment_tools['fit_waist'](shirt,pants)
 bpy.data.objects.remove(h,do_unlink=True)
 def material(name,color,rough=.65,texture=None):
  m=bpy.data.materials.new(name);m.use_nodes=True;n=m.node_tree.nodes.get('Principled BSDF');n.inputs['Base Color'].default_value=(*color,1);n.inputs['Roughness'].default_value=rough

@@ -10,7 +10,8 @@
     "test": "node --test --test-concurrency=2 tests/*.test.mjs",
     "check": "node --check src/app.js && node --check src/project.js && node --check src/human-renderer.js && node --check src/human-framing.js && node --check src/pose-morphs.js && node --check src/human-software-renderer.js && node --check src/model.js && node --check src/renderer.js && npm test",
     "build": "node scripts/build.mjs",
-    "prepare-browser-qa": "node scripts/prepare-browser-qa.mjs"
+    "prepare-browser-qa": "node scripts/prepare-browser-qa.mjs",
+    "test:garment-source": "PYTHONDONTWRITEBYTECODE=1 python3 tests/garment-boundary.test.py"
   },
   "engines": {
     "node": ">=18"

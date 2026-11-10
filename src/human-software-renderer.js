@@ -88,14 +88,42 @@ export function createHumanSoftwareRenderer(canvas) {
         const inverseW = 1 / projected.w;
         screen.set([(projected.x * inverseW * .5 + .5) * width, (.5 - projected.y * inverseW * .5) * height, projected.z * inverseW, inverseW], i * 4);
       }
-      // Area-weighted smooth normals from the final morph + skin positions also
-      // follow poses correctly without assuming a particular skeleton layout.
-      for (let t = 0; t + 2 < indexCount; t += 3) {
-        const a = (indices ? indices[t] : t) * 3, b = (indices ? indices[t+1] : t+1) * 3, c = (indices ? indices[t+2] : t+2) * 3;
-        const ux = world[b]-world[a], uy = world[b+1]-world[a+1], uz = world[b+2]-world[a+2];
-        const vx = world[c]-world[a], vy = world[c+1]-world[a+1], vz = world[c+2]-world[a+2];
-        const nx = uy*vz-uz*vy, ny = uz*vx-ux*vz, nz = ux*vy-uy*vx;
-        for (const v of [a,b,c]) {normals[v]+=nx; normals[v+1]+=ny; normals[v+2]+=nz;}
+      // Use the authored GLB normals, including morph and skin deformation,
+      // just as WebGL does. Recomputing them hid malformed exported hem shading.
+      const normalAttribute=geometry.attributes.normal;
+      if(normalAttribute){
+        const normal=new THREE.Vector3(),base=new THREE.Vector3(),delta=new THREE.Vector3();
+        const skin=new THREE.Matrix4(),bone=new THREE.Matrix4(),normalMatrix=new THREE.Matrix3().getNormalMatrix(mesh.matrixWorld);
+        for(let i=0;i<count;i++){
+          base.fromBufferAttribute(normalAttribute,i);normal.copy(base);
+          for(let m=0;m<(geometry.morphAttributes.normal?.length||0);m++){
+            const weight=mesh.morphTargetInfluences?.[m]||0;if(!weight)continue;
+            delta.fromBufferAttribute(geometry.morphAttributes.normal[m],i);
+            if(!geometry.morphTargetsRelative)delta.sub(base);
+            normal.addScaledVector(delta,weight);
+          }
+          if(mesh.isSkinnedMesh){
+            skin.elements.fill(0);
+            const joint=geometry.attributes.skinIndex,weight=geometry.attributes.skinWeight;
+            for(let c=0;c<4;c++){
+              const w=weight.getComponent(i,c);if(!w)continue;
+              bone.fromArray(mesh.skeleton.boneMatrices,joint.getComponent(i,c)*16);
+              for(let n=0;n<16;n++)skin.elements[n]+=bone.elements[n]*w;
+            }
+            skin.premultiply(mesh.bindMatrixInverse).multiply(mesh.bindMatrix);
+            normal.transformDirection(skin);
+          }
+          normal.applyMatrix3(normalMatrix).normalize();normals.set(normal.toArray(),i*3);
+        }
+      }else{
+        // Procedural meshes without normals retain the geometric fallback.
+        for (let t = 0; t + 2 < indexCount; t += 3) {
+          const a = (indices ? indices[t] : t) * 3, b = (indices ? indices[t+1] : t+1) * 3, c = (indices ? indices[t+2] : t+2) * 3;
+          const ux = world[b]-world[a], uy = world[b+1]-world[a+1], uz = world[b+2]-world[a+2];
+          const vx = world[c]-world[a], vy = world[c+1]-world[a+1], vz = world[c+2]-world[a+2];
+          const nx = uy*vz-uz*vy, ny = uz*vx-ux*vz, nz = ux*vy-uy*vx;
+          for (const v of [a,b,c]) {normals[v]+=nx; normals[v+1]+=ny; normals[v+2]+=nz;}
+        }
       }
       const lighting = new Float32Array(count);
       for (let i=0; i<count; i++) {
