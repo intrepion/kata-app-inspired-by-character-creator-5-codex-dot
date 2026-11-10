@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Distinct adult faces acceptance</title>
+<style>
+  body { margin:24px; background:#eee; color:#24352e; font:15px system-ui; }
+  button, select, a { padding:9px; margin:4px; }
+  button:disabled { opacity:.5; }
+  nav { position:sticky; top:0; z-index:2; background:#eee; padding:8px 0; }
+  #stage { display:block; width:320px; height:400px; background:#e8e8e4; }
+  #views { display:flex; flex-wrap:wrap; gap:12px; }
+  figure { margin:0; max-width:240px; }
+  figure img { display:block; width:240px; height:300px; }
+  figcaption { padding:6px 0; font-size:13px; }
+  pre { white-space:pre-wrap; overflow-wrap:anywhere; max-height:560px; overflow:auto; }
+  iframe { width:min(1100px,100%); height:850px; border:1px solid #aaa; }
+  .workspace { display:grid; grid-template-columns:320px minmax(0,1fr); align-items:start; gap:20px; }
+  .workspace > div { min-width:0; }
+  #checks li, #timings li { margin:5px 0; }
+  #renderer-summary { font-weight:600; }
+  @media(max-width:700px) { .workspace { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<h1>Distinct adult faces acceptance</h1>
+<p>Localhost only. One reusable renderer produces image thumbnails sequentially. All comparisons use the same skin, clothing, eye color, lighting and neutral pose. Inspect contours and fitted eyes, brows, lashes and hair at every angle.</p>
+<nav aria-label="Acceptance runs">
+  <button id="front">Run front comparisons</button>
+  <button id="quarter">Run three-quarter comparisons</button>
+  <button id="profile">Run profile comparisons</button>
+  <button id="all">Run all preset angles</button>
+  <button id="crop">Run crop presets</button>
+  <button id="limits">Run control limits</button>
+  <button id="timing">Run edit timings</button>
+  <button id="ui">Run app checks</button>
+</nav>
+<p>
+  <label>Preview / export case <select id="preset"><option value="explorer">Juniper / Explorer</option><option value="angular">Vale / Angular</option><option value="rounded">Marlowe / Rounded</option><option value="long">Ellis / Long</option><option value="extreme">Edited extreme</option></select></label>
+  <label>Hair <select id="hair"><option value="none">Bald</option><option value="crop">Crop</option></select></label>
+  <label>Preview / export pose <select id="pose"><option value="relaxed">Relaxed</option><option value="tpose">T-pose</option><option value="wave">Wave</option><option value="stride">Stride</option></select></label>
+  <button id="preview">Run current preview</button>
+  <button id="export">Run current GLB export</button>
+  <a id="download" hidden>Download exact tested GLB</a>
+</p>
+<p id="status" role="status">Ready. Export capture is opt-in with ?capture and a server started with --qa-exports.</p>
+<p id="renderer-summary">Renderer: not initialized.</p>
+<a id="report-download" hidden>Download report JSON</a>
+<div class="workspace"><canvas id="stage" aria-label="Current face preview"></canvas><div>
+<h2>Acceptance checks</h2><p id="check-summary">No checks yet.</p><ul id="checks"></ul>
+<h2>Cold creation and first pose timings</h2><p id="creation-timing">Not measured yet.</p><ul id="cold-timings"></ul>
+<h2>Edit timing summaries</h2><p>CPU update + render submission only, not GPU completion or FPS.</p><ul id="timings"></ul>
+<details><summary>Full JSON report</summary><pre id="report">No runs yet.</pre></details>
+</div></div>
+<h2>Comparison thumbnails</h2><button id="sheet">Prepare comparison PNG</button><a id="sheet-download" hidden>Download comparison PNG</a><div id="views"></div>
+<div id="app-host"></div>
+<script type="module">
+import {createHumanRenderer} from '../src/human-renderer.js';
+import {defaults, faceDefaults, presets, ranges, parseProject} from '../src/project.js';
+
+const $ = id => document.getElementById(id);
+const params = new URLSearchParams(location.search);
+const forceSoftware = params.get('software') === '1';
+if (forceSoftware) {
+  const canvas = $('stage'), original = canvas.getContext.bind(canvas);
+  canvas.getContext = (type, ...args) => type === 'webgl2' ? null : original(type, ...args);
+}
+const faceKeys = Object.keys(faceDefaults);
+const presetKeys = ['explorer', 'angular', 'rounded', 'long'];
+const angles = [['Front', 0], ['Three-quarter', .55], ['Profile', Math.PI / 2]];
+const report = {checks:[], comparisons:[], coldPoseTimings:[], timings:[], exports:[]};
+const thumbnailURLs = new Set();
+let renderer, current, currentYaw = 0, downloadURL, reportURL;
+// requestAnimationFrame may stop in a background tab. Auto QA yields tasks instead.
+const autoMode=params.get('auto')==='1', taskYield=new MessageChannel();
+const pause = () => new Promise(resolve => {
+  if(autoMode){taskYield.port1.onmessage=()=>resolve();taskYield.port2.postMessage(null);}
+  else requestAnimationFrame(resolve);
+});
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+function show() {
+  $('report').textContent = JSON.stringify(report, null, 2);
+  const info = report.renderer;
+  $('renderer-summary').textContent = info
+    ? `Renderer: ${info.mode} | GPU: ${info.gpu} | Bones: ${info.boneCount} | Forced software: ${forceSoftware ? 'yes (fixture canvas only)' : 'no'}`
+    : 'Renderer: not initialized.';
+  $('creation-timing').textContent = report.creationMs === undefined ? 'Not measured yet.' : `Renderer creation: ${report.creationMs} ms (asset loading and renderer setup; browser cache may be warm).`;
+  $('cold-timings').replaceChildren(...report.coldPoseTimings.map(item => {
+    const row=document.createElement('li');
+    row.textContent=`${item.pose}: first update ${item.updateMs} ms; first render ${item.renderMs} ms; total ${item.totalMs} ms (face viewport ${item.width} × ${item.height} CSS px)`; return row;
+  }));
+  const passed = report.checks.filter(item => item.pass).length;
+  $('check-summary').textContent = `${passed} passed; ${report.checks.length-passed} failed${report.error ? '; run error: '+report.error.message : ''}.`;
+  $('checks').replaceChildren(...report.checks.map(item => {
+    const row = document.createElement('li'); row.textContent = `${item.pass ? 'PASS' : 'FAIL'} ${item.label}`; return row;
+  }));
+  $('timings').replaceChildren(...report.timings.map(item => {
+    const row = document.createElement('li');
+    row.textContent = `${item.label}: median ${item.medianMs} ms; P95 ${item.p95Ms} ms; max ${item.maxMs} ms (${item.samples} edits)`; return row;
+  }));
+}
+function updateReportDownload() {
+  if (reportURL) URL.revokeObjectURL(reportURL);
+  reportURL = URL.createObjectURL(new Blob([JSON.stringify(report,null,2)],{type:'application/json'}));
+  $('report-download').href = reportURL;
+  $('report-download').download = `distinct-faces-${report.renderer?.mode||'uninitialized'}-report.json`;
+  $('report-download').hidden = false;
+}
+function check(ok, label) {
+  report.checks.push({pass:Boolean(ok), label}); show();
+  if (!ok) throw new Error(label);
+}
+const extreme = {name:'Edited extreme',headWidth:1,headHeight:0,cheeks:1,chin:1,noseWidth:0,noseProjection:1,eyeSpacing:0,browHeight:1,lips:1,jaw:1,nose:0,eyes:1};
+function selectedProject() {
+  const key=$('preset').value;
+  return project(key==='extreme'?'explorer':key,$('hair').value,{...(key==='extreme'?extreme:{}),pose:$('pose').value});
+}
+function project(key, hair = 'none', extra = {}) {
+  return {...presets[key], skin:defaults.skin, eyeColor:defaults.eyeColor,
+    outfit:defaults.outfit, pants:defaults.pants, hairColor:defaults.hairColor,
+    pose:'relaxed', hair, ...extra};
+}
+async function ready() {
+  if (!['localhost', '127.0.0.1', '[::1]'].includes(location.hostname) || !/^https?:$/.test(location.protocol)) {
+    throw new Error('Serve this fixture on localhost, never open a file URL.');
+  }
+  if (!renderer) {
+    const start=performance.now(); renderer=await createHumanRenderer($('stage'));
+    report.creationMs=+(performance.now()-start).toFixed(2);
+    // First update per pose includes that pose's uncached envelope measurement.
+    // Rendering resources and caches may be shared after the first pose.
+    for(const pose of (forceSoftware&&autoMode?['relaxed']:['relaxed','tpose','wave','stride'])) { render(project('explorer','none',{pose}),.55); await pause(); }
+  }
+  report.renderer = renderer.info;
+  report.timingMethod = '20 synchronous update + render samples after 3 warmups. CPU submission time, not GPU completion or FPS; animation-frame yield between edits.';
+  show();
+}
+function render(p, yaw = 0) {
+  const first=!report.coldPoseTimings.some(item=>item.pose===p.pose), start=performance.now();
+  renderer.update(p); const updated=performance.now(); renderer.render(yaw, 'face'); const finished=performance.now();
+  if(first)report.coldPoseTimings.push({pose:p.pose,updateMs:+(updated-start).toFixed(2),renderMs:+(finished-updated).toFixed(2),totalMs:+(finished-start).toFixed(2),width:$('stage').clientWidth,height:$('stage').clientHeight,viewport:'face',note:'First update/render of this pose; other pose caches or GPU resources may already be warm.'});
+  current = structuredClone(p); currentYaw = yaw;
+}
+function clearViews() {
+  $('views').replaceChildren();
+  for (const url of thumbnailURLs) URL.revokeObjectURL(url);
+  thumbnailURLs.clear(); report.comparisons = [];
+}
+async function thumbnail(label) {
+  // Downsample into a short-lived 2D canvas; thumbnails allocate no WebGL contexts.
+  const small = document.createElement('canvas'); small.width = 240; small.height = 300;
+  small.getContext('2d').drawImage($('stage'), 0, 0, 240, 300);
+  const blob = await new Promise(resolve => small.toBlob(resolve, 'image/png'));
+  small.width = small.height = 1;
+  if (!blob) throw new Error('Thumbnail capture failed.');
+  const url = URL.createObjectURL(blob); thumbnailURLs.add(url);
+  const figure = document.createElement('figure'), image = document.createElement('img'), caption = document.createElement('figcaption');
+  image.src = url; image.alt = label; caption.textContent = label;
+  figure.append(image, caption); $('views').append(figure);
+  report.comparisons.push({label, project:structuredClone(current), yaw:currentYaw}); show();
+}
+async function compare(selectedAngles, hair = 'none') {
+  clearViews();
+  for (const [angle, yaw] of selectedAngles) for (const key of presetKeys) {
+    $('status').textContent = `${key}: ${angle}`;
+    render(project(key,hair), yaw); await thumbnail(`${presets[key].name} / ${key} · ${hair === 'none' ? 'bald' : 'crop'} · ${angle}`); await pause();
+  }
+}
+function limitCases() {
+  const limitKeys=[...faceKeys,'jaw','nose','eyes'];
+  const values = value => Object.fromEntries(limitKeys.map(key => [key, value]));
+  const cases = [['All low', values(0)], ['All high', values(1)],
+    ['Crossed A', Object.fromEntries(limitKeys.map((key,i) => [key,i%2]))],
+    ['Crossed B', Object.fromEntries(limitKeys.map((key,i) => [key,1-i%2]))]];
+  for (const key of limitKeys) for (const value of [0,1]) cases.push([`${key} ${value}`, {[key]:value}]);
+  return cases;
+}
+async function limits() {
+  clearViews();
+  for (const [label, delta] of limitCases()) {
+    render(project('explorer', 'none', delta), .55); await thumbnail(label + ' · bald'); await pause();
+  }
+  // Combined extremes additionally exercise crop fitting, with the same fixed view.
+  for (const [label, delta] of limitCases().slice(0,4)) {
+    render(project('explorer', 'crop', delta), .55); await thumbnail(label + ' · crop'); await pause();
+  }
+}
+async function timings() {
+  report.timings = [];
+  const cases = presetKeys.flatMap(key => ['none','crop'].map(hair => [`${key} / ${hair}`, project(key,hair)]));
+  for (const [label,delta] of limitCases()) cases.push([label,project('explorer','none',delta)]);
+  for (const [label,p] of cases) {
+    $('status').textContent = 'Measuring ' + label;
+    for (let i=0;i<3;i++) { render(p,.55); await pause(); }
+    const samples = [];
+    for (let i=0;i<20;i++) {
+      // Alternate a small actual edit around the requested case, including limits.
+      const key = faceKeys[i%faceKeys.length];
+      const edited = {...p,[key]:Math.min(1,Math.max(0,p[key]+(i%2?.01:-.01)))};
+      const start = performance.now(); render(edited,.55); samples.push(performance.now()-start); await pause();
+    }
+    samples.sort((a,b)=>a-b);
+    report.timings.push({label,samples:20,medianMs:+((samples[9]+samples[10])/2).toFixed(2),p95Ms:+samples[18].toFixed(2),maxMs:+samples[19].toFixed(2)}); show();
+  }
+  render(selectedProject(),.55);
+}
+function glbJSON(data) {
+  const view = new DataView(data);
+  if (view.getUint32(0,true)!==0x46546c67 || view.getUint32(4,true)!==2 || view.getUint32(16,true)!==0x4e4f534a) throw new Error('Invalid GLB header.');
+  return JSON.parse(new TextDecoder().decode(new Uint8Array(data,20,view.getUint32(12,true))));
+}
+function scalarAccessor(data,json,index) {
+  const accessor=json.accessors[index], view=json.bufferViews[accessor.bufferView];
+  if(accessor.type!=='SCALAR'||accessor.componentType!==5126||accessor.sparse||view.buffer!==0)throw new Error('Expected embedded FLOAT SCALAR animation accessor.');
+  const binary=new DataView(data);let offset=12,binOffset;
+  while(offset<data.byteLength){const length=binary.getUint32(offset,true),type=binary.getUint32(offset+4,true);if(type===0x004e4942){binOffset=offset+8;break;}offset+=8+length;}
+  if(binOffset===undefined)throw new Error('Missing GLB BIN chunk.');
+  const base=binOffset+(view.byteOffset||0)+(accessor.byteOffset||0),stride=view.byteStride||4;
+  return Array.from({length:accessor.count},(_,i)=>binary.getFloat32(base+i*stride,true));
+}
+async function exportCurrent() {
+  // Export the selectors explicitly, so a previous limits run cannot silently change the exported identity.
+  render(selectedProject(),currentYaw);
+  const data = await renderer.exportGLB(current.name), json = glbJSON(data);
+  const mappings = Object.fromEntries(faceKeys.map(key=>[key,renderer.info.morphs[key]]));
+  check(Object.values(mappings).every(pair=>Array.isArray(pair)&&pair.length===2),'Nine paired face mappings');
+  const targetNames = [...new Set(Object.values(mappings).flat())];
+  check(targetNames.length===18,'18 distinct new face targets');
+  const bones = new Set(json.skins.flatMap(skin=>skin.joints));
+  check(bones.size===53,'53 exported bones');
+  const expectedMeshes=['HumanBody','Eyes','Iris','Cornea','Brows','Lashes',...(current.hair==='crop'?['HairCrop','HairStrands']:[])];
+  const expectedWeights={};
+  for(const [key,mapping] of Object.entries(renderer.info.morphs)) {
+    if(Array.isArray(mapping))mapping.forEach((name,i)=>expectedWeights[name]=Math.max(0,(i?current[key]-.5:.5-current[key])*2));
+    else expectedWeights[mapping]=current[key];
+  }
+  const shapes=[];
+  for(const expectedName of expectedMeshes) {
+    const matches=json.nodes.map((node,index)=>({node,index,mesh:json.meshes[node.mesh]})).filter(({node,mesh})=>mesh&&(node.name===expectedName||mesh.name===expectedName));
+    check(matches.length>0,`${expectedName}: visible node and mesh exported`);
+    for(const {node,index,mesh} of matches) {
+      const names=mesh.extras?.targetNames||[], weights=node.weights||mesh.weights||[];
+      check(targetNames.every(name=>names.includes(name)),`${expectedName}: all 18 editable targets`);
+      check(mesh.primitives.every(primitive=>primitive.targets?.length===names.length),`${expectedName}: target geometry present on every primitive`);
+      check(targetNames.every(name=>Number.isFinite(weights[names.indexOf(name)])&&Math.abs(weights[names.indexOf(name)]-expectedWeights[name])<1e-6),`${expectedName}: all 18 current weights`);
+      shapes.push({node:node.name,nodeIndex:index,mesh:mesh.name,weights:Object.fromEntries(names.map((name,i)=>[name,weights[i]??0]))});
+    }
+  }
+  if(current.hair==='none')check(!json.nodes.some(node=>['HairCrop','HairStrands'].includes(node.name)),'Bald export omits both hair nodes');
+  const clips=[];
+  for(const pose of ['relaxed','tpose','wave','stride']) {
+    const clip=json.animations?.find(animation=>animation.name===pose);
+    check(Boolean(clip),`${pose}: pose animation present`);
+    for(const shape of shapes) {
+      const channel=clip.channels.find(channel=>channel.target.node===shape.nodeIndex&&channel.target.path==='weights');
+      check(Boolean(channel),`${pose} / ${shape.node}: appearance weight track present`);
+      const sampler=clip.samplers[channel.sampler], values=scalarAccessor(data,json,sampler.output);
+      const names=json.meshes[json.nodes[shape.nodeIndex].mesh].extras.targetNames;
+      const frames=json.accessors[sampler.input].count;
+      check(values.length===frames*names.length,`${pose} / ${shape.node}: complete weight samples`);
+      const appearance=names.map((name,index)=>({name,index})).filter(({name})=>Object.hasOwn(expectedWeights,name));
+      check(appearance.every(({name,index})=>Array.from({length:frames},(_,frame)=>values[frame*names.length+index]).every(value=>Math.abs(value-expectedWeights[name])<1e-6)),`${pose} / ${shape.node}: appearance preserved at every keyframe`);
+    }
+    clips.push({pose,checkedNodes:shapes.length});
+  }
+  check(json.images.every(image=>image.bufferView!==undefined),'Textures embedded');
+  const entry={name:current.name,project:structuredClone(current),bytes:data.byteLength,newTargets:targetNames,bones:bones.size,shapes,clips,
+    colors:json.materials.map(material=>({material:material.name,rgba:material.pbrMetallicRoughness?.baseColorFactor}))};
+  report.exports=[entry];
+  if (downloadURL) URL.revokeObjectURL(downloadURL);
+  downloadURL=URL.createObjectURL(new Blob([data],{type:'model/gltf-binary'}));
+  $('download').href=downloadURL; $('download').download=`${current.name}-distinct-faces.glb`; $('download').hidden=false;
+  if (new URLSearchParams(location.search).has('capture')) {
+    const response=await fetch('/__qa/export/portrait-extreme.glb',{method:'POST',body:data});
+    if (!response.ok) throw new Error('QA capture HTTP '+response.status+'; start server with --qa-exports.');
+    entry.capture=await response.json();
+  }
+  show();
+}
+async function appChecks() {
+  const keys=['kata-persona-v2-qa','kata-persona-v1-qa'];
+  const saved=keys.map(key=>localStorage.getItem(key));
+  const frame=document.createElement('iframe'); frame.title='Distinct faces app checks';
+  let win, originalCreate, originalClick;
+  try {
+    keys.forEach(key=>localStorage.removeItem(key));
+    $('app-host').replaceChildren(frame);
+    const loaded=new Promise(resolve=>frame.onload=resolve); frame.src='../?qa=distinct-faces'; await loaded;
+    win=frame.contentWindow; const doc=frame.contentDocument;
+    for(let i=0;i<100&&!doc.querySelector('#headWidth');i++) await sleep(50);
+    // Let the iframe finish asset loading before teardown can dispose its renderer.
+    for(let i=0;i<160&&!doc.querySelector('#load-state')?.hidden&&!doc.querySelector('#load-state')?.classList.contains('error');i++) await sleep(250);
+    check(doc.querySelector('#load-state')?.hidden,'App renderer loaded before UI checks');
+    check(doc.querySelectorAll('#sliders input').length===Object.keys(ranges).length,'App exposes all 15 controls');
+    check(doc.querySelectorAll('[data-preset]').length===Object.keys(presets).length,'App exposes all six presets');
+    for (const key of presetKeys) {
+      doc.querySelector(`[data-preset="${key}"]`).click();
+      const state=JSON.parse(localStorage.getItem(keys[0]));
+      check(state.name===presets[key].name&&faceKeys.every(field=>state[field]===presets[key][field]),`${key} app selection and autosave`);
+    }
+    const input=doc.querySelector('#headWidth'); input.value='.13';
+    input.dispatchEvent(new win.Event('input',{bubbles:true})); input.dispatchEvent(new win.Event('change',{bubbles:true}));
+    doc.querySelector('#undo').click(); check(Number(input.value)===presets.long.headWidth,'New facial edit undo');
+    doc.querySelector('#redo').click(); check(Number(input.value)===.13,'New facial edit redo');
+    // Capture the app's actual Save project Blob without creating a download.
+    let blob; originalCreate=win.URL.createObjectURL; originalClick=win.HTMLAnchorElement.prototype.click;
+    win.URL.createObjectURL=value=>{blob=value;return originalCreate.call(win.URL,value);};
+    win.HTMLAnchorElement.prototype.click=function(){};
+    doc.querySelector('#save').click();
+    const serialized=await blob.text(), parsed=parseProject(serialized).project;
+    check(parsed.headWidth===.13&&parsed.name===presets.long.name,'Actual Save project serializes facial values');
+    win.URL.createObjectURL=originalCreate; win.HTMLAnchorElement.prototype.click=originalClick;
+    originalCreate=originalClick=null;
+    async function importProject(p) {
+      const transfer=new win.DataTransfer(); transfer.items.add(new win.File([JSON.stringify(p)],'test.persona',{type:'application/json'}));
+      const file=doc.querySelector('#file'); file.files=transfer.files; file.dispatchEvent(new win.Event('change',{bubbles:true})); await sleep(100);
+    }
+    win.confirm=()=>true;
+    await importProject({...parsed,name:'Distinct import'});
+    check(doc.querySelector('#name').value==='Distinct import'&&Number(input.value)===.13,'Actual project import retains face values');
+    const old={...defaults,name:'Old v2'}; faceKeys.forEach(key=>delete old[key]); await importProject(old);
+    check(faceKeys.every(key=>Number(doc.getElementById(key).value)===.5),'Old v2 import defaults all new controls');
+    const before=localStorage.getItem(keys[0]); await importProject({...defaults,headWidth:2});
+    check(localStorage.getItem(keys[0])===before&&doc.querySelector('#status').textContent.includes('Could not open'),'Invalid face import preserves current autosave');
+  } finally {
+    if(originalCreate)win.URL.createObjectURL=originalCreate;
+    if(originalClick)win.HTMLAnchorElement.prototype.click=originalClick;
+    // Navigate away to dispose the app renderer, then remove its sole iframe.
+    frame.src='about:blank'; frame.remove();
+    keys.forEach((key,i)=>saved[i]===null?localStorage.removeItem(key):localStorage.setItem(key,saved[i]));
+  }
+}
+async function run(label, action) {
+  report.checks=[]; delete report.error; report.lastRun={label,startedAt:new Date().toISOString(),forcedSoftware:forceSoftware};
+  const controls=[...document.querySelectorAll('button,select')]; controls.forEach(control=>control.disabled=true);
+  $('status').textContent=label+'…';
+  try { await ready(); await action(); $('status').textContent='DONE: '+label; }
+  catch(error) { report.error={run:label,message:error.message,stack:error.stack}; show(); $('status').textContent='FAIL: '+error.message; }
+  finally { report.lastRun.finishedAt=new Date().toISOString(); report.lastRun.passed=!report.error; show(); updateReportDownload(); controls.forEach(control=>control.disabled=false); }
+}
+for(const [id,index] of [['front',0],['quarter',1],['profile',2]]) $(id).onclick=()=>run('preset '+angles[index][0],()=>compare([angles[index]]));
+$('all').onclick=()=>run('all preset angles',()=>compare(angles));
+$('crop').onclick=()=>run('crop preset three-quarter',()=>compare([angles[1]],'crop'));
+$('limits').onclick=()=>run('control limits',limits);
+$('timing').onclick=()=>run('edit timings',timings);
+$('ui').onclick=()=>run('app checks',appChecks);
+$('preview').onclick=()=>run('current preview',()=>render(selectedProject(),.55));
+$('export').onclick=()=>run('current GLB export',exportCurrent);
+window.addEventListener('pagehide',event=>{if(!event.persisted){renderer?.dispose();for(const url of thumbnailURLs)URL.revokeObjectURL(url);if(downloadURL)URL.revokeObjectURL(downloadURL);if(reportURL)URL.revokeObjectURL(reportURL);if(sheetURL)URL.revokeObjectURL(sheetURL);taskYield.port1.close();taskYield.port2.close();}});
+
+let sheetURL;
+async function comparisonPNG() {
+  const figures=[...$('views').querySelectorAll('figure')];if(!figures.length)throw Error('Run a comparison first.');
+  const cols=4,w=256,h=336,canvas=document.createElement('canvas');canvas.width=cols*w+32;canvas.height=Math.ceil(figures.length/cols)*h+88;
+  try {
+    const context=canvas.getContext('2d');context.fillStyle='#eee';context.fillRect(0,0,canvas.width,canvas.height);context.fillStyle='#24352e';context.font='bold 20px system-ui';context.fillText('Persona Forge · Actual Mac localhost render',16,30);context.font='12px system-ui';context.fillText(renderer.info.mode+' · '+renderer.info.gpu,16,52);
+    for(let i=0;i<figures.length;i++){const img=figures[i].querySelector('img');await img.decode();const x=16+(i%cols)*w,y=72+Math.floor(i/cols)*h;context.drawImage(img,x,y,240,300);context.fillText(figures[i].querySelector('figcaption').textContent,x,y+319,240);}
+    const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));if(!blob)throw Error('Contact sheet failed');return blob;
+  } finally { canvas.width=canvas.height=1; }
+}
+$('sheet').onclick=async()=>{
+  try {
+    const blob=await comparisonPNG();if(sheetURL)URL.revokeObjectURL(sheetURL);sheetURL=URL.createObjectURL(blob);$('sheet-download').href=sheetURL;$('sheet-download').download='persona-distinct-'+renderer.info.mode+'-comparisons.png';$('sheet-download').hidden=false;$('status').textContent='Comparison PNG ready.';
+  }catch(error){$('status').textContent='FAIL: '+error.message;}
+};
+async function captureEvidence(name,body) {
+  const response=await fetch('/__qa/capture/'+name,{method:'POST',body});
+  if(!response.ok)throw Error(`QA evidence ${name}: HTTP ${response.status}; server must use --qa-exports.`);
+  return response.json();
+}
+async function captureComparison(name) {
+  const receipt=await captureEvidence(name,await comparisonPNG());
+  (report.captures??=[]).push(receipt);
+}
+async function autoAcceptance() {
+  report.autoRun={startedAt:new Date().toISOString(),software:forceSoftware,steps:[],passed:false};
+  const controls=[...document.querySelectorAll('button,select')];controls.forEach(control=>control.disabled=true);
+  async function step(label,action) {
+    await run(label,action);
+    report.autoRun.steps.push({label,passed:!report.error,checks:structuredClone(report.checks),error:report.error?structuredClone(report.error):null,comparisons:structuredClone(report.comparisons)});
+    controls.forEach(control=>control.disabled=true);
+  }
+  try {
+    if(!params.has('capture'))throw Error('Automatic acceptance requires explicit ?auto=1&capture.');
+    if(forceSoftware) {
+      await step('software front presets',async()=>{
+        await compare([angles[0]]);
+        render(project('explorer','crop',{...Object.fromEntries([...faceKeys,'jaw','nose','eyes'].map((key,i)=>[key,i%2])),name:'Crossed software extreme'}),.55);
+        await thumbnail('Crossed extreme · crop · three-quarter');
+        await captureComparison('distinct-software.png');
+      });
+    } else {
+      await step('all preset angles',async()=>{await compare(angles);await captureComparison('distinct-presets.png');});
+      await step('crop preset comparisons',async()=>{await compare([angles[1]],'crop');await captureComparison('distinct-crop.png');});
+      await step('control limits',async()=>{await limits();await captureComparison('distinct-limits.png');});
+      await step('edit timings',timings);
+      await step('app checks',appChecks);
+    }
+    $('preset').value='extreme';$('hair').value='crop';$('pose').value='wave';
+    await step('edited extreme wave crop export',exportCurrent);
+  } catch(error) {
+    report.autoRun.steps.push({label:'automatic orchestration',passed:false,error:{message:error.message,stack:error.stack}});
+  } finally {
+    report.autoRun.finishedAt=new Date().toISOString();
+    report.autoRun.passed=report.autoRun.steps.length>0&&report.autoRun.steps.every(step=>step.passed);
+    report.checks=report.autoRun.steps.flatMap(step=>(step.checks||[]).map(check=>({...check,label:step.label+': '+check.label})));
+    const failed=report.autoRun.steps.filter(step=>!step.passed);
+    if(failed.length)report.error={run:'automatic acceptance',message:failed.map(step=>step.label+': '+(step.error?.message||'failed')).join('; ')};
+    else delete report.error;
+    // Save the report even when any render, check, export or PNG capture failed.
+    if(params.has('capture')) {
+      try {
+        const name=forceSoftware?'distinct-software-report.json':'distinct-report.json';
+        report.autoRun.reportFile=name;
+        await captureEvidence(name,new Blob([JSON.stringify(report,null,2)],{type:'application/json'}));
+      } catch(error) {
+        report.autoRun.passed=false;report.autoRun.reportCaptureError=error.message;
+        report.error={run:'report capture',message:error.message};
+      }
+    }
+    show();updateReportDownload();controls.forEach(control=>control.disabled=false);
+    $('status').textContent=(report.autoRun.passed?'DONE: ':'FAIL: ')+(forceSoftware?'software ':'')+'automatic acceptance'+(report.error?' · '+report.error.message:' · evidence saved to local artifacts');
+    document.documentElement.dataset.autoResult=report.autoRun.passed?'done':'failed';
+  }
+}
+if(autoMode)autoAcceptance();
+
+</script>
+</body>
+</html>

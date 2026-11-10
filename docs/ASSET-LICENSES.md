@@ -41,3 +41,9 @@ This is a foundational neutral adult with a small set of moderate morph ranges, 
 - Neutral reflection cards are generated in Three.js. No HDR environment photograph is bundled.
 
 Run `blender -b --python-exit-code 1 --python tools/portrait-human.py` to apply the repeatable portrait layer to the retained source. The full rebuild script runs it after regenerating the foundation. Four existing poses and all approved body/garment buffers are preserved.
+
+## Original distinct-face additions (November 2026)
+
+`tools/distinct-faces.py` creates nine paired geometric controls using original, deterministic shared-space deformation fields. The same fields deform the body head, sclera, iris, cornea, brows, lashes, scalp and hair fibers. All 18 new targets, three new preset recipes and their generator are MIT. The underlying CC0 anatomy, original MIT portrait textures and attachments retain their existing terms. No new third-party assets, image downloads or likenesses are used.
+
+Neutral source shape weights are explicitly zero. The added controls preserve the original geometry, UVs, skin weights, prior shape targets, materials and embedded image bytes from portrait commit `3a5fb77`; automated snapshot tests cover all ten meshes and eight embedded images. The roughness PNG post-process removes Blender-added color-profile metadata from linear data maps without changing compressed pixels.

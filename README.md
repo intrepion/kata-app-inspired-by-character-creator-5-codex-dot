@@ -2,7 +2,9 @@
 
 **A character, from the inside out.** A local-first human character workshop inspired by character-creation workflows. This **version 2 human foundation** replaces the procedural mannequin with a licensed MakeHuman/MPFB anatomical adult.
 
-[Open Persona Forge](https://intrepion.github.io/kata-app-inspired-by-character-creator-5-codex-dot/). The human foundation was first published from commit `e4bcb71`. This portrait revision adds original material and grooming detail while preserving the waist/pose fixes; see [portrait verification and limits](docs/QA-PORTRAIT.md).
+[Open Persona Forge](https://intrepion.github.io/kata-app-inspired-by-character-creator-5-codex-dot/). The human foundation was first published from commit `e4bcb71`. The local distinct-faces milestone adds nine facial controls and three adult presets while preserving the portrait and waist/pose work. It is not published yet. See [distinct-faces verification and limits](docs/QA-DISTINCT-FACES.md).
+
+![Original and three distinct adult faces on Mac WebGL, identical styling and three angles](docs/screenshots/persona-distinct-faces.png)
 
 ![Actual Mac hardware WebGL portrait workspace, captured on localhost](docs/screenshots/persona-portrait-workspace.jpg)
 
@@ -26,10 +28,10 @@ Always run an HTTP server and visit localhost. Never open a `file://` URL. Produ
 - One coherent anatomical adult with a UV-mapped 2048px skin texture and 1024px eye texture.
 - Original pore-normal and roughness maps, neutral studio lighting and reflected eye highlights.
 - A weighted 53-bone skeleton. Neutral, T-pose, Hello and Stride are bone-driven static poses, not walking animation.
-- Five paired morph controls: body build, shoulders, jaw, nose and eyes. Ten editable shape keys are retained. Overall height scales the whole character from 90–110%.
+- Fourteen paired morph controls: body build, shoulders, jaw, nose, eyes, head width/height, cheeks, chin, nose width/projection, eye spacing, brow height and lips. Twenty-eight appearance shape keys and three pose correctives stay editable. Overall height scales the whole character from 90–110%.
 - Separate fitted top, trousers and a textured short crop with tapered ribbon fibers, with no-hair option. Brows/lashes follow face morphs. No simulated cloth or groom simulation.
 - Separate iris color keeps the sclera neutral; skin and hair colors remain tints.
-- Three modest preset variations; they share the same base human.
+- Original Explorer/Juniper, Pilot/Orion and Botanist/Fern preserved, plus three adult face presets: Angular/Vale, Rounded/Marlowe and Long/Ellis. The new presets use identical styling so their geometry differences are visible. All share one anatomical foundation.
 - Body/face inspection, front/side/back views and drag/keyboard orbit.
 - Forty-edit undo/redo, best-effort browser autosave, editable `.persona` projects and PNG snapshots.
 - **GLB export** retains the current shape, color, height, selected pose, UV textures, skin weights, bones and pose clips. Hidden hair is omitted. Open and edit it in Blender.
@@ -38,7 +40,7 @@ The normal renderer is locally bundled Three.js 0.180.0 with WebGL 2. Where WebG
 
 ## Existing projects
 
-Existing version 2 files without `eyeColor` load with the new neutral iris default. New saves retain `eyeColor`; older app builds do not understand this additional field. The version 1 legacy payload is unchanged.
+Existing version 2 files without `eyeColor` load with the neutral iris default. Omitted new facial controls load at their unchanged neutral value of 0.5. Invalid supplied values remain errors. New saves retain every face control; older app builds reject these new fields. The version 1 legacy payload is unchanged.
 
 Version 1 projects migrate explicitly to version 2. The original validated parameters are retained as `legacySource` in the downloaded project, and the old `kata-persona-v1` autosave key is not overwritten. The new key is `kata-persona-v2`.
 
@@ -57,12 +59,15 @@ Controls are labeled, keyboard focus is visible, selection states are exposed an
 - `/tests/waist.html`: close-up front/back/side garment review using authored GLB normals. See [waist repair evidence and limits](docs/QA-WAIST.md).
 - `npm run test:garment-source`: source boundary/sleeve regression (Python 3 + NumPy, no Blender required).
 - `/tests/deformation.html`: visible height/foot-anchor checks and front/back pose/build comparisons, with a separate corrective export check. Use `?software=1` to force the CPU preview when WebGL is unavailable.
+- `/tests/distinct-faces.html`: matched bald front/profile/three-quarter comparisons, crop and combined extremes, timing/UI/export checks. `?software=1` tests the fallback.
 - `/tests/portrait.html`: front, three-quarter, profile, bald and extreme face/material comparisons, with renderer/GPU reporting.
 - `/tests/roundtrip.html`: actual renderer GLB export checks and downloadable customized test asset.
 - `/tests/unsupported.html`: explicit unavailable-canvas error path.
 - `/tests/asset-review.html`: genuine Blender reference renders served over HTTP.
 - `tools/rebuild-human.sh`: rebuild the source asset from pinned official upstream sources with Blender 4.3+ and git. This downloads build dependencies only.
 - `blender -b --python tools/validate-human.py -- input.glb report.json`: import the GLB and test editable bones/shape keys.
+
+`tools/distinct-faces.py` adds the original face layer after the portrait build. `tools/validate-distinct-faces.py` compares all 18 new editable targets across the eight fitted face meshes after Blender reimport.
 
 The retained packed source is `assets/source/foundation.blend`. Runtime assets are in `assets/human/`. The Blender source and build dependencies are not copied into `dist/`. See [verified QA and limits](docs/QA-FOUNDATION.md) and [local deformation-fix QA](docs/QA-DEFORMATION.md).
 

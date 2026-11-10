@@ -18,8 +18,10 @@ export MPFB_SOURCE="$CACHE/mpfb2" MH_SOURCE="$CACHE/makehuman"
 export XDG_CONFIG_HOME="$CACHE/config" BLENDER_USER_RESOURCES="$CACHE/blender"
 blender -b --python-exit-code 1 --python "$ROOT/tools/build-human.py"
 blender -b --python-exit-code 1 --python "$ROOT/tools/portrait-human.py"
+blender -b --python-exit-code 1 --python "$ROOT/tools/distinct-faces.py"
 blender -b --python-exit-code 1 --python "$ROOT/tools/validate-human.py"
 
 # Verify saved corrective keys and the actual portable skinning, not only topology.
+blender -b --python-exit-code 1 --python "$ROOT/tools/validate-distinct-faces.py"
 blender -b --python-exit-code 1 --python "$ROOT/tools/validate-poses.py"
 blender -b --python-exit-code 1 --python "$ROOT/tools/validate-pose-roundtrip.py"

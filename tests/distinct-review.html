@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Distinct faces · Captured visual review</title>
+<style>
+  :root { color-scheme:light; font:16px/1.5 system-ui,sans-serif; color:#24352e; background:#f5f4ee; }
+  body { max-width:1320px; margin:0 auto; padding:24px; }
+  h1 { margin:0 0 8px; font-size:30px; }
+  h2 { margin:0 0 8px; font-size:23px; }
+  p { max-width:1000px; }
+  nav { position:sticky; top:0; z-index:2; display:flex; flex-wrap:wrap; gap:8px; padding:12px 0; background:#f5f4eef5; border-bottom:1px solid #bec8bb; }
+  a { color:#26523c; text-underline-offset:3px; }
+  nav a { padding:6px 10px; background:#e6ecdf; border:1px solid #bdcbb6; border-radius:5px; text-decoration:none; }
+  section { margin:32px 0 52px; scroll-margin-top:90px; }
+  figure { position:relative; margin:16px 0; }
+  figure img { display:block; width:100%; height:auto; background:#eee; border:1px solid #cad1c4; }
+  figcaption { margin-top:8px; font-size:14px; }
+  .image-anchor { position:absolute; left:0; width:1px; height:1px; scroll-margin-top:90px; }
+  .legend { padding:12px 16px; background:#e8edde; border-left:4px solid #708968; }
+  .sources { display:flex; flex-wrap:wrap; gap:18px; }
+  @media(max-width:600px) { body {padding:12px;} nav {gap:5px;} nav a {font-size:13px;} h1 {font-size:25px;} section {scroll-margin-top:130px;} }
+</style>
+</head>
+<body>
+<header>
+<h1>Distinct adult faces: captured visual review</h1>
+<p>Static PNG evidence from the actual localhost acceptance run. This page creates no renderers, runs no tests and changes no project data. Open it through the local HTTP server.</p>
+<nav aria-label="Review sections">
+<a href="#front">Front comparison</a><a href="#preset-angles">All preset angles</a><a href="#crop">Crop fitting</a><a href="#combined-limits">Combined limits</a><a href="#individual-limits">Individual limits</a><a href="#crop-limits">Crop limits</a><a href="#software">Software preview</a>
+</nav>
+</header>
+<main>
+<section id="preset-angles" aria-labelledby="preset-heading">
+<h2 id="preset-heading">Original Explorer and three distinct adult presets</h2>
+<p class="legend">Columns, left to right: Juniper / Explorer (original), Vale / Angular, Marlowe / Rounded, Ellis / Long. Rows: front, three-quarter, profile. All four are bald, with the same skin, eyes, clothing, lighting and neutral pose.</p>
+<p>Compare head width and height, cheek and chin contours, nose width and projection, eye spacing, brow height and lips. Inspect eye, brow and lash attachment fitting rather than color differences.</p>
+<figure><span id="front" class="image-anchor" style="top:0" aria-label="Front preset row"></span><img src="../artifacts/distinct-presets.png" width="1056" height="1096" alt="Twelve captured portraits: original Juniper, angular Vale, rounded Marlowe and long Ellis, shown front-on, three-quarter and in profile."><figcaption>Actual WebGL preset matrix. <a href="../artifacts/distinct-presets.png">Full-resolution preset PNG</a></figcaption></figure>
+</section>
+<section id="crop" aria-labelledby="crop-heading">
+<h2 id="crop-heading">Crop hairstyle on every preset</h2>
+<p>Same four columns and three-quarter angle. Check the hairline, scalp coverage, temples and silhouette on the original and each altered head.</p>
+<figure><img loading="lazy" src="../artifacts/distinct-crop.png" width="1056" height="424" alt="Juniper, Vale, Marlowe and Ellis with the crop hairstyle, all at three-quarter view."><figcaption>Actual WebGL crop-fitting matrix. <a href="../artifacts/distinct-crop.png">Full-resolution crop PNG</a></figcaption></figure>
+</section>
+<section id="combined-limits" aria-labelledby="limits-heading">
+<h2 id="limits-heading">Combined and individual control limits</h2>
+<p class="legend">Row 1: all low, all high, crossed A, crossed B, bald. Rows 2–7: individual low/high endpoints, bald. Row 8: the four combined extremes with crop hair. Jaw, nose and eye-shape controls are included with all nine new facial controls.</p>
+<p>Individual endpoint order: head width, head height, cheeks, chin, nose width, nose projection, eye spacing, brow height, lips, jaw, nose shape, eye shape. Each control is shown low then high. The combined images intentionally stress the full allowed range rather than representing finished presets.</p>
+<figure>
+<span id="individual-limits" class="image-anchor" style="top:15.28%" aria-label="Individual endpoint rows"></span>
+<span id="crop-limits" class="image-anchor" style="top:87.90%" aria-label="Combined crop endpoint row"></span>
+<img loading="lazy" src="../artifacts/distinct-limits.png" width="1056" height="2776" alt="Thirty-two captured limit portraits: four combined bald extremes, twenty-four individual endpoint portraits and four combined crop extremes.">
+<figcaption>Actual WebGL limit matrix. <a href="../artifacts/distinct-limits.png">Full-resolution limits PNG</a></figcaption>
+</figure>
+</section>
+<section id="software" aria-labelledby="software-heading">
+<h2 id="software-heading">Forced software-rendered fallback</h2>
+<p>First row: the original and three new presets, bald and front-on. Second row: one crossed extreme with crop hair at three-quarter view. This is the actual CPU fallback, so lighting differs from WebGL; assess shape and attachment integrity separately.</p>
+<figure><img loading="lazy" src="../artifacts/distinct-software.png" width="1056" height="760" alt="Software-rendered front portraits of Juniper, Vale, Marlowe and Ellis, plus a crossed crop-hair extreme below."><figcaption>Actual software-renderer evidence. <a href="../artifacts/distinct-software.png">Full-resolution software PNG</a></figcaption></figure>
+</section>
+</main>
+<footer>
+<h2>Recorded checks and timings</h2>
+<p>These reports describe the captured runs. Visual quality still requires human inspection of the images above.</p>
+<div class="sources"><a href="../artifacts/distinct-report.json">WebGL report JSON</a><a href="../artifacts/distinct-software-report.json">Software report JSON</a><a href="#front">Back to front comparison</a></div>
+</footer>
+</body>
+</html>

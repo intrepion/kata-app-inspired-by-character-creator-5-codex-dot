@@ -1,0 +1,2289 @@
+{
+  "commit": "3a5fb77",
+  "source": "assets/human/foundation.glb",
+  "snapshot": {
+    "meshes": {
+      "Brows": {
+        "weights": {
+          "BuildNarrow": 0,
+          "BuildBroad": 0,
+          "ShouldersNarrow": 0,
+          "ShouldersBroad": 0,
+          "JawNarrow": 0,
+          "JawBroad": 0,
+          "NoseNarrow": 0,
+          "NoseBroad": 0,
+          "EyesSmall": 0,
+          "EyesLarge": 0,
+          "PoseTpose": 0,
+          "PoseWave": 0,
+          "PoseStride": 0
+        },
+        "primitives": [
+          {
+            "mode": 4,
+            "material": "Brows",
+            "indices": {
+              "type": "SCALAR",
+              "componentType": 5123,
+              "count": 7200,
+              "normalized": false,
+              "sha256": "bcedda9bfad9dfc6b54f8ddf71a6240c13a58937977221fa874ac5acac5c50a2"
+            },
+            "attributes": {
+              "POSITION": {
+                "type": "VEC3",
+                "componentType": 5126,
+                "count": 3200,
+                "normalized": false,
+                "sha256": "ee4798321ee81b6da7ba32af3a01370bb1f24a2b7395121a6a94f3cceb0adebb"
+              },
+              "NORMAL": {
+                "type": "VEC3",
+                "componentType": 5126,
+                "count": 3200,
+                "normalized": false,
+                "sha256": "ea313944b16ef6fd170a5caec29e2b22d6cbaf3a29ef065af9b537665ddc8834"
+              },
+              "TEXCOORD_0": {
+                "type": "VEC2",
+                "componentType": 5126,
+                "count": 3200,
+                "normalized": false,
+                "sha256": "4f863fdeb493a5b918a32036ccdc27a179d33058ffa8c4ac10d3df9ad40d470a"
+              },
+              "JOINTS_0": {
+                "type": "VEC4",
+                "componentType": 5121,
+                "count": 3200,
+                "normalized": false,
+                "sha256": "77ad53265ebdbb1a433c7be2dfd5620aeaef5258c2f247ce57c3a77b96dfed35"
+              },
+              "WEIGHTS_0": {
+                "type": "VEC4",
+                "componentType": 5126,
+                "count": 3200,
+                "normalized": false,
+                "sha256": "018da4185f3a1d34bcc6740fa4808a757ead1cc10bf2ee1c1dd4e4b965abbd73"
+              }
+            },
+            "targets": {
+              "BuildNarrow": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 3200,
+                  "normalized": false,
+                  "sha256": "e2c22318f8e4dbf740bfb22e6f902eb6f1fad9162a6edb76d91bc7b1c58bd966"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 3200,
+                  "normalized": false,
+                  "sha256": "f0a69a0f28292021f2766685a9ea968d015b795f89f3722bfb4a1984a1540c3a"
+                }
+              },
+              "BuildBroad": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 3200,
+                  "normalized": false,
+                  "sha256": "e2c22318f8e4dbf740bfb22e6f902eb6f1fad9162a6edb76d91bc7b1c58bd966"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 3200,
+                  "normalized": false,
+                  "sha256": "f0a69a0f28292021f2766685a9ea968d015b795f89f3722bfb4a1984a1540c3a"
+                }
+              },
+              "ShouldersNarrow": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 3200,
+                  "normalized": false,
+                  "sha256": "e2c22318f8e4dbf740bfb22e6f902eb6f1fad9162a6edb76d91bc7b1c58bd966"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 3200,
+                  "normalized": false,
+                  "sha256": "f0a69a0f28292021f2766685a9ea968d015b795f89f3722bfb4a1984a1540c3a"
+                }
+              },
+              "ShouldersBroad": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 3200,
+                  "normalized": false,
+                  "sha256": "e2c22318f8e4dbf740bfb22e6f902eb6f1fad9162a6edb76d91bc7b1c58bd966"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 3200,
+                  "normalized": false,
+                  "sha256": "f0a69a0f28292021f2766685a9ea968d015b795f89f3722bfb4a1984a1540c3a"
+                }
+              },
+              "JawNarrow": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 3200,
+                  "normalized": false,
+                  "sha256": "e2c22318f8e4dbf740bfb22e6f902eb6f1fad9162a6edb76d91bc7b1c58bd966"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 3200,
+                  "normalized": false,
+                  "sha256": "f0a69a0f28292021f2766685a9ea968d015b795f89f3722bfb4a1984a1540c3a"
+                }
+              },
+              "JawBroad": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 3200,
+                  "normalized": false,
+                  "sha256": "e2c22318f8e4dbf740bfb22e6f902eb6f1fad9162a6edb76d91bc7b1c58bd966"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 3200,
+                  "normalized": false,
+                  "sha256": "f0a69a0f28292021f2766685a9ea968d015b795f89f3722bfb4a1984a1540c3a"
+                }
+              },
+              "NoseNarrow": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 3200,
+                  "normalized": false,
+                  "sha256": "e2c22318f8e4dbf740bfb22e6f902eb6f1fad9162a6edb76d91bc7b1c58bd966"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 3200,
+                  "normalized": false,
+                  "sha256": "f0a69a0f28292021f2766685a9ea968d015b795f89f3722bfb4a1984a1540c3a"
+                }
+              },
+              "NoseBroad": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 3200,
+                  "normalized": false,
+                  "sha256": "e2c22318f8e4dbf740bfb22e6f902eb6f1fad9162a6edb76d91bc7b1c58bd966"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 3200,
+                  "normalized": false,
+                  "sha256": "f0a69a0f28292021f2766685a9ea968d015b795f89f3722bfb4a1984a1540c3a"
+                }
+              },
+              "EyesSmall": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 3200,
+                  "normalized": false,
+                  "sha256": "ed1ff2fe7df278a4bc2ae3a61f0ab43b68900ce9ec22f46378dfb9da37268268"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 3200,
+                  "normalized": false,
+                  "sha256": "eae58b02e0b9f3cea64b67b9e960651255ee7a9099d4b84087cf3a15cac88fc8"
+                }
+              },
+              "EyesLarge": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 3200,
+                  "normalized": false,
+                  "sha256": "423e8530ebc7a54966859c75d5db5a95de75ee21a9c12d720cab04f71a220da7"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 3200,
+                  "normalized": false,
+                  "sha256": "0d86766a1de3c0a06bf9c09a02d7a62029429da798e09ca38792674b585d2f92"
+                }
+              },
+              "PoseTpose": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 3200,
+                  "normalized": false,
+                  "sha256": "e2c22318f8e4dbf740bfb22e6f902eb6f1fad9162a6edb76d91bc7b1c58bd966"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 3200,
+                  "normalized": false,
+                  "sha256": "f0a69a0f28292021f2766685a9ea968d015b795f89f3722bfb4a1984a1540c3a"
+                }
+              },
+              "PoseWave": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 3200,
+                  "normalized": false,
+                  "sha256": "e2c22318f8e4dbf740bfb22e6f902eb6f1fad9162a6edb76d91bc7b1c58bd966"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 3200,
+                  "normalized": false,
+                  "sha256": "f0a69a0f28292021f2766685a9ea968d015b795f89f3722bfb4a1984a1540c3a"
+                }
+              },
+              "PoseStride": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 3200,
+                  "normalized": false,
+                  "sha256": "e2c22318f8e4dbf740bfb22e6f902eb6f1fad9162a6edb76d91bc7b1c58bd966"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 3200,
+                  "normalized": false,
+                  "sha256": "f0a69a0f28292021f2766685a9ea968d015b795f89f3722bfb4a1984a1540c3a"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "Cornea": {
+        "weights": {},
+        "primitives": [
+          {
+            "mode": 4,
+            "material": "Cornea",
+            "indices": {
+              "type": "SCALAR",
+              "componentType": 5123,
+              "count": 4320,
+              "normalized": false,
+              "sha256": "b305ae132bab8728a7dfa013784c408478866534a4b27ae8ded456ada9f726ec"
+            },
+            "attributes": {
+              "POSITION": {
+                "type": "VEC3",
+                "componentType": 5126,
+                "count": 770,
+                "normalized": false,
+                "sha256": "5d74608db44227fe1355d52d7615b4d66645c0d20febb0a705f7a4742aba0a26"
+              },
+              "NORMAL": {
+                "type": "VEC3",
+                "componentType": 5126,
+                "count": 770,
+                "normalized": false,
+                "sha256": "7cb07c1341682e92236d42d75fde77f3f93c8cfb79a356a983fa120bc6b24088"
+              },
+              "TEXCOORD_0": {
+                "type": "VEC2",
+                "componentType": 5126,
+                "count": 770,
+                "normalized": false,
+                "sha256": "7ead1c1aa909ae09be9a50d4d8127a7fd57a7f68023acd782b1ac185b213caa1"
+              },
+              "JOINTS_0": {
+                "type": "VEC4",
+                "componentType": 5121,
+                "count": 770,
+                "normalized": false,
+                "sha256": "81ce8816b5e92efd64ecabc93c2ddc316cfbd787768d087c251537dcf899490b"
+              },
+              "WEIGHTS_0": {
+                "type": "VEC4",
+                "componentType": 5126,
+                "count": 770,
+                "normalized": false,
+                "sha256": "9c9a35b7e2a916db9d3477e1aafb20b64a21473701f0ccbe0feaaf12fe988ea6"
+              }
+            },
+            "targets": {}
+          }
+        ]
+      },
+      "high-poly": {
+        "weights": {},
+        "primitives": [
+          {
+            "mode": 4,
+            "material": "Eyes",
+            "indices": {
+              "type": "SCALAR",
+              "componentType": 5123,
+              "count": 6120,
+              "normalized": false,
+              "sha256": "832135dade0c304b3293a6b7a566bb186806dc6b8c51e98648284b6b9d4c7b69"
+            },
+            "attributes": {
+              "POSITION": {
+                "type": "VEC3",
+                "componentType": 5126,
+                "count": 1076,
+                "normalized": false,
+                "sha256": "f57a8d7aa15e01ef7ef6bedd0d92b87ddd4d2f1ae5b58e1dbb97ffa94ccd9efe"
+              },
+              "NORMAL": {
+                "type": "VEC3",
+                "componentType": 5126,
+                "count": 1076,
+                "normalized": false,
+                "sha256": "8c30b4820674d33a63e4468ac814b593908fc36d09253c1178e398e2439fab1a"
+              },
+              "TEXCOORD_0": {
+                "type": "VEC2",
+                "componentType": 5126,
+                "count": 1076,
+                "normalized": false,
+                "sha256": "cd0faa6cb2be8770e76d02fdaebb6c0983b9202e3599190358d261effef586a8"
+              },
+              "JOINTS_0": {
+                "type": "VEC4",
+                "componentType": 5121,
+                "count": 1076,
+                "normalized": false,
+                "sha256": "5b87712bdb72e32c2b0d0e3266caeea627bd5c3d26a84a7317a528f3c46b41ae"
+              },
+              "WEIGHTS_0": {
+                "type": "VEC4",
+                "componentType": 5126,
+                "count": 1076,
+                "normalized": false,
+                "sha256": "e2a0c3816420f8a826e156457246bf20f4506488756274ece137e23b58338568"
+              }
+            },
+            "targets": {}
+          }
+        ]
+      },
+      "HairCrop": {
+        "weights": {
+          "BuildNarrow": 0,
+          "BuildBroad": 0,
+          "ShouldersNarrow": 0,
+          "ShouldersBroad": 0,
+          "JawNarrow": 0,
+          "JawBroad": 0,
+          "NoseNarrow": 0,
+          "NoseBroad": 0,
+          "EyesSmall": 0,
+          "EyesLarge": 0
+        },
+        "primitives": [
+          {
+            "mode": 4,
+            "material": "Hair",
+            "indices": {
+              "type": "SCALAR",
+              "componentType": 5123,
+              "count": 1284,
+              "normalized": false,
+              "sha256": "bd83f5a16353815debf563145c1f58ecffe14027b040994075009cf24c983768"
+            },
+            "attributes": {
+              "POSITION": {
+                "type": "VEC3",
+                "componentType": 5126,
+                "count": 248,
+                "normalized": false,
+                "sha256": "0f7e9c636aa21f698c9e838a058ac36b0db5e747e76b4b78ab59ff03f2908de7"
+              },
+              "NORMAL": {
+                "type": "VEC3",
+                "componentType": 5126,
+                "count": 248,
+                "normalized": false,
+                "sha256": "b8f1020ba3578f0c414ca83e000c9ce15a039c6af626648633ef188ad3b62e3c"
+              },
+              "TEXCOORD_0": {
+                "type": "VEC2",
+                "componentType": 5126,
+                "count": 248,
+                "normalized": false,
+                "sha256": "b28debd83e0c14693cabbdd9e5181d5d8de2064e2931a4f1a305c1455ecec8f9"
+              },
+              "JOINTS_0": {
+                "type": "VEC4",
+                "componentType": 5121,
+                "count": 248,
+                "normalized": false,
+                "sha256": "ff52216ad19ba0b4038c1ed0721b3d2129299a8ade07b810b69a32e3c1491dce"
+              },
+              "WEIGHTS_0": {
+                "type": "VEC4",
+                "componentType": 5126,
+                "count": 248,
+                "normalized": false,
+                "sha256": "480597d7476c19a8dc885b31fb911019f6d90721284fffdb3392b18141907c0a"
+              }
+            },
+            "targets": {
+              "BuildNarrow": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 248,
+                  "normalized": false,
+                  "sha256": "8779ee313853d50829586093abd38195a869ed13e0d591fc5f9b47061b7b67a9"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 248,
+                  "normalized": false,
+                  "sha256": "0c0b45d08a3200c7844ce9f89d533b682449897b47577000f279f087625a80e2"
+                }
+              },
+              "BuildBroad": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 248,
+                  "normalized": false,
+                  "sha256": "8779ee313853d50829586093abd38195a869ed13e0d591fc5f9b47061b7b67a9"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 248,
+                  "normalized": false,
+                  "sha256": "0c0b45d08a3200c7844ce9f89d533b682449897b47577000f279f087625a80e2"
+                }
+              },
+              "ShouldersNarrow": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 248,
+                  "normalized": false,
+                  "sha256": "8779ee313853d50829586093abd38195a869ed13e0d591fc5f9b47061b7b67a9"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 248,
+                  "normalized": false,
+                  "sha256": "0c0b45d08a3200c7844ce9f89d533b682449897b47577000f279f087625a80e2"
+                }
+              },
+              "ShouldersBroad": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 248,
+                  "normalized": false,
+                  "sha256": "8779ee313853d50829586093abd38195a869ed13e0d591fc5f9b47061b7b67a9"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 248,
+                  "normalized": false,
+                  "sha256": "0c0b45d08a3200c7844ce9f89d533b682449897b47577000f279f087625a80e2"
+                }
+              },
+              "JawNarrow": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 248,
+                  "normalized": false,
+                  "sha256": "8779ee313853d50829586093abd38195a869ed13e0d591fc5f9b47061b7b67a9"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 248,
+                  "normalized": false,
+                  "sha256": "0c0b45d08a3200c7844ce9f89d533b682449897b47577000f279f087625a80e2"
+                }
+              },
+              "JawBroad": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 248,
+                  "normalized": false,
+                  "sha256": "8779ee313853d50829586093abd38195a869ed13e0d591fc5f9b47061b7b67a9"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 248,
+                  "normalized": false,
+                  "sha256": "0c0b45d08a3200c7844ce9f89d533b682449897b47577000f279f087625a80e2"
+                }
+              },
+              "NoseNarrow": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 248,
+                  "normalized": false,
+                  "sha256": "8779ee313853d50829586093abd38195a869ed13e0d591fc5f9b47061b7b67a9"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 248,
+                  "normalized": false,
+                  "sha256": "0c0b45d08a3200c7844ce9f89d533b682449897b47577000f279f087625a80e2"
+                }
+              },
+              "NoseBroad": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 248,
+                  "normalized": false,
+                  "sha256": "8779ee313853d50829586093abd38195a869ed13e0d591fc5f9b47061b7b67a9"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 248,
+                  "normalized": false,
+                  "sha256": "0c0b45d08a3200c7844ce9f89d533b682449897b47577000f279f087625a80e2"
+                }
+              },
+              "EyesSmall": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 248,
+                  "normalized": false,
+                  "sha256": "8779ee313853d50829586093abd38195a869ed13e0d591fc5f9b47061b7b67a9"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 248,
+                  "normalized": false,
+                  "sha256": "0c0b45d08a3200c7844ce9f89d533b682449897b47577000f279f087625a80e2"
+                }
+              },
+              "EyesLarge": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 248,
+                  "normalized": false,
+                  "sha256": "8779ee313853d50829586093abd38195a869ed13e0d591fc5f9b47061b7b67a9"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 248,
+                  "normalized": false,
+                  "sha256": "0c0b45d08a3200c7844ce9f89d533b682449897b47577000f279f087625a80e2"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "HairStrands": {
+        "weights": {
+          "BuildNarrow": 0,
+          "BuildBroad": 0,
+          "ShouldersNarrow": 0,
+          "ShouldersBroad": 0,
+          "JawNarrow": 0,
+          "JawBroad": 0,
+          "NoseNarrow": 0,
+          "NoseBroad": 0,
+          "EyesSmall": 0,
+          "EyesLarge": 0
+        },
+        "primitives": [
+          {
+            "mode": 4,
+            "material": "HairStrands",
+            "indices": {
+              "type": "SCALAR",
+              "componentType": 5123,
+              "count": 72000,
+              "normalized": false,
+              "sha256": "03599118bdb7effeaa898bfbea481bd7dc56d6e69e072c8ba48bfd5bd0276f5c"
+            },
+            "attributes": {
+              "POSITION": {
+                "type": "VEC3",
+                "componentType": 5126,
+                "count": 30000,
+                "normalized": false,
+                "sha256": "3293f04ddb4a2f7fe799a82a80325a5fc414cce7894a68731eaca8bf717737da"
+              },
+              "NORMAL": {
+                "type": "VEC3",
+                "componentType": 5126,
+                "count": 30000,
+                "normalized": false,
+                "sha256": "25cc34e64e2ed132e1e299c688a1501bc7a6a7d5327881da2dbe61016741151f"
+              },
+              "TEXCOORD_0": {
+                "type": "VEC2",
+                "componentType": 5126,
+                "count": 30000,
+                "normalized": false,
+                "sha256": "4c65db50e96105c22a05bce9a64577e0560a5ca3b4604633a8d014bff8c46b70"
+              },
+              "JOINTS_0": {
+                "type": "VEC4",
+                "componentType": 5121,
+                "count": 30000,
+                "normalized": false,
+                "sha256": "a591249fdaa5fa55169b17041ba4aaea797eabb5728868124e7fc2e52d62d2e9"
+              },
+              "WEIGHTS_0": {
+                "type": "VEC4",
+                "componentType": 5126,
+                "count": 30000,
+                "normalized": false,
+                "sha256": "f099eb6d198a6617e6cd40666a23200092e33bc4524f0fae333ec6ade5d5c981"
+              }
+            },
+            "targets": {
+              "BuildNarrow": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 30000,
+                  "normalized": false,
+                  "sha256": "e471494e74a1bc3cb88a5aa7ec60c7611fd35ecc9b5d93baf6f8666b7732e748"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 30000,
+                  "normalized": false,
+                  "sha256": "7161629fdf87db0eb879dd1910595bffb399d6964611b91c12259d9fc674db26"
+                }
+              },
+              "BuildBroad": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 30000,
+                  "normalized": false,
+                  "sha256": "e471494e74a1bc3cb88a5aa7ec60c7611fd35ecc9b5d93baf6f8666b7732e748"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 30000,
+                  "normalized": false,
+                  "sha256": "7161629fdf87db0eb879dd1910595bffb399d6964611b91c12259d9fc674db26"
+                }
+              },
+              "ShouldersNarrow": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 30000,
+                  "normalized": false,
+                  "sha256": "e471494e74a1bc3cb88a5aa7ec60c7611fd35ecc9b5d93baf6f8666b7732e748"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 30000,
+                  "normalized": false,
+                  "sha256": "7161629fdf87db0eb879dd1910595bffb399d6964611b91c12259d9fc674db26"
+                }
+              },
+              "ShouldersBroad": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 30000,
+                  "normalized": false,
+                  "sha256": "e471494e74a1bc3cb88a5aa7ec60c7611fd35ecc9b5d93baf6f8666b7732e748"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 30000,
+                  "normalized": false,
+                  "sha256": "7161629fdf87db0eb879dd1910595bffb399d6964611b91c12259d9fc674db26"
+                }
+              },
+              "JawNarrow": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 30000,
+                  "normalized": false,
+                  "sha256": "e471494e74a1bc3cb88a5aa7ec60c7611fd35ecc9b5d93baf6f8666b7732e748"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 30000,
+                  "normalized": false,
+                  "sha256": "7161629fdf87db0eb879dd1910595bffb399d6964611b91c12259d9fc674db26"
+                }
+              },
+              "JawBroad": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 30000,
+                  "normalized": false,
+                  "sha256": "e471494e74a1bc3cb88a5aa7ec60c7611fd35ecc9b5d93baf6f8666b7732e748"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 30000,
+                  "normalized": false,
+                  "sha256": "7161629fdf87db0eb879dd1910595bffb399d6964611b91c12259d9fc674db26"
+                }
+              },
+              "NoseNarrow": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 30000,
+                  "normalized": false,
+                  "sha256": "e471494e74a1bc3cb88a5aa7ec60c7611fd35ecc9b5d93baf6f8666b7732e748"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 30000,
+                  "normalized": false,
+                  "sha256": "7161629fdf87db0eb879dd1910595bffb399d6964611b91c12259d9fc674db26"
+                }
+              },
+              "NoseBroad": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 30000,
+                  "normalized": false,
+                  "sha256": "e471494e74a1bc3cb88a5aa7ec60c7611fd35ecc9b5d93baf6f8666b7732e748"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 30000,
+                  "normalized": false,
+                  "sha256": "7161629fdf87db0eb879dd1910595bffb399d6964611b91c12259d9fc674db26"
+                }
+              },
+              "EyesSmall": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 30000,
+                  "normalized": false,
+                  "sha256": "e471494e74a1bc3cb88a5aa7ec60c7611fd35ecc9b5d93baf6f8666b7732e748"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 30000,
+                  "normalized": false,
+                  "sha256": "7161629fdf87db0eb879dd1910595bffb399d6964611b91c12259d9fc674db26"
+                }
+              },
+              "EyesLarge": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 30000,
+                  "normalized": false,
+                  "sha256": "e471494e74a1bc3cb88a5aa7ec60c7611fd35ecc9b5d93baf6f8666b7732e748"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 30000,
+                  "normalized": false,
+                  "sha256": "7161629fdf87db0eb879dd1910595bffb399d6964611b91c12259d9fc674db26"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "HumanBody": {
+        "weights": {
+          "BuildNarrow": 0,
+          "BuildBroad": 0,
+          "ShouldersNarrow": 0,
+          "ShouldersBroad": 0,
+          "JawNarrow": 0,
+          "JawBroad": 0,
+          "NoseNarrow": 0,
+          "NoseBroad": 0,
+          "EyesSmall": 0,
+          "EyesLarge": 0,
+          "PoseTpose": 0,
+          "PoseWave": 0,
+          "PoseStride": 0
+        },
+        "primitives": [
+          {
+            "mode": 4,
+            "material": "Skin",
+            "indices": {
+              "type": "SCALAR",
+              "componentType": 5123,
+              "count": 80268,
+              "normalized": false,
+              "sha256": "f6ef8105b08401c2706727e1482be39968f34374cbfb05de20aabe6ac3398aa3"
+            },
+            "attributes": {
+              "POSITION": {
+                "type": "VEC3",
+                "componentType": 5126,
+                "count": 14517,
+                "normalized": false,
+                "sha256": "7ae395bbeca8f2e4956975f8496e250c6e764a65f8c35eca4bc845d0a3eb9c0a"
+              },
+              "NORMAL": {
+                "type": "VEC3",
+                "componentType": 5126,
+                "count": 14517,
+                "normalized": false,
+                "sha256": "8748f6a8dc99d290eaca350cdc03f66e5e7cbc4a368a206f11e98c9605c38f29"
+              },
+              "TEXCOORD_0": {
+                "type": "VEC2",
+                "componentType": 5126,
+                "count": 14517,
+                "normalized": false,
+                "sha256": "f60fd8442a4fd04bb090f467838786d200fea99432d99a205eca74c846ef1ab6"
+              },
+              "JOINTS_0": {
+                "type": "VEC4",
+                "componentType": 5121,
+                "count": 14517,
+                "normalized": false,
+                "sha256": "8144214b3be786a9ba334cd1505a15e820f2d405ec86bd8bc714e05b792bea05"
+              },
+              "WEIGHTS_0": {
+                "type": "VEC4",
+                "componentType": 5126,
+                "count": 14517,
+                "normalized": false,
+                "sha256": "729147a30815dfad145dcc27ff0fd6a3550ab1474f50485c2f7860022752078e"
+              }
+            },
+            "targets": {
+              "BuildNarrow": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 14517,
+                  "normalized": false,
+                  "sha256": "b52c637988fd9ea537d2bef03675eb1b5e6be2bb89d8abd2aec5c7d7db9136bf"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 14517,
+                  "normalized": false,
+                  "sha256": "58a91465fa9fa5d0c50be7b43e5d841229903ce8449a92335283a847839de18e"
+                }
+              },
+              "BuildBroad": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 14517,
+                  "normalized": false,
+                  "sha256": "495e4811c19e5dcfa41dd5900af6b5a191888adb7bb3df9b50cea98a51c1df50"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 14517,
+                  "normalized": false,
+                  "sha256": "acb0f6fcef598007108662ef23e970a1eec496f00ab636931016b163891c3443"
+                }
+              },
+              "ShouldersNarrow": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 14517,
+                  "normalized": false,
+                  "sha256": "f44c652fd468434fe3e460e7b0911d17eb7834fbace9480b44e0f6bcdfecb99d"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 14517,
+                  "normalized": false,
+                  "sha256": "48ff8f07f567e19121c05d56a84b938ab533a2848f2cf50dc343f7a187c58896"
+                }
+              },
+              "ShouldersBroad": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 14517,
+                  "normalized": false,
+                  "sha256": "0d0a2f7919e3dd36cf24ef63d948ddf538df9372a4dd421e6152bac067b78fc5"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 14517,
+                  "normalized": false,
+                  "sha256": "0e84afc7016a8f9d72138b4b98514c99b6ff8b860f99a63c8f934104b5a7e211"
+                }
+              },
+              "JawNarrow": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 14517,
+                  "normalized": false,
+                  "sha256": "09424a396785b6d935a816268f02bee45bb3d1c576fcee34689e7d3902826b2c"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 14517,
+                  "normalized": false,
+                  "sha256": "c98d4647457df029449395c1ab1727ec05000794b21e2bfa0cc483a717802273"
+                }
+              },
+              "JawBroad": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 14517,
+                  "normalized": false,
+                  "sha256": "6ad649c4fd815150131d522742974cb216bc5e1a5f23e15da4cd6cf174f376dd"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 14517,
+                  "normalized": false,
+                  "sha256": "da8fc9f2b6f9ea5afb1662321f25f593b4ae716c9c517cb21c8955bb65ec3e94"
+                }
+              },
+              "NoseNarrow": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 14517,
+                  "normalized": false,
+                  "sha256": "f09b143993ca8f2c4f31b800d8da5ff5bb60ebe3f82bb11454ca753138125beb"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 14517,
+                  "normalized": false,
+                  "sha256": "ec330bb9e3844af4e9629b16778a796199ad850ce0f963162b2a5f673b7292d1"
+                }
+              },
+              "NoseBroad": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 14517,
+                  "normalized": false,
+                  "sha256": "17a39f1b3a08ecc3fa0734c6c91f1ee43664bf5eef84b0d3f02577a35c9b26c3"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 14517,
+                  "normalized": false,
+                  "sha256": "7ae56d833c342244cedf9ff0cf19619d94c556b489c7e3333574ca3b81a28519"
+                }
+              },
+              "EyesSmall": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 14517,
+                  "normalized": false,
+                  "sha256": "3b2e5a1d32dc4511125ca4bb14a6bf54150f10998d8c080884a1d184ca487e8b"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 14517,
+                  "normalized": false,
+                  "sha256": "ca60e9f0eac7e9c7e9676e1ac3481b6f74a6cae45af743e08a069520e876e559"
+                }
+              },
+              "EyesLarge": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 14517,
+                  "normalized": false,
+                  "sha256": "26b1f1861f1ed90fa60e476e2a433aa5f953967699063c889a4ff8288bcd6c25"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 14517,
+                  "normalized": false,
+                  "sha256": "15efb536ddf630bb9539b9ab7bf85d5928bc04fd08dbd03348dd8db5db59cc3f"
+                }
+              },
+              "PoseTpose": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 14517,
+                  "normalized": false,
+                  "sha256": "ed47c0d74c8324ef57e50159b61274de3cabe5a3bd08755c82535ebce2f4567a"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 14517,
+                  "normalized": false,
+                  "sha256": "fc3aee7c2282b99a968853fa5cd17f441b2009646b0558f34aa8146700439f15"
+                }
+              },
+              "PoseWave": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 14517,
+                  "normalized": false,
+                  "sha256": "23f3544f33d9052834a863542a4e16bc24bd151197fa338e7ed2a07fbf4b6e0c"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 14517,
+                  "normalized": false,
+                  "sha256": "f308c85d773572280c447f5ef375b80560d7b84e4cdf96ac9c31097f9c617df1"
+                }
+              },
+              "PoseStride": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 14517,
+                  "normalized": false,
+                  "sha256": "f22211dbe2b76b0f4ed2db46f0f69536d46109f4274aead92c6f4d112a4786d9"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 14517,
+                  "normalized": false,
+                  "sha256": "357bf25870f3efe9c4a535030fbc06073da03f98c02c827e33559bdd562e021a"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "Iris": {
+        "weights": {},
+        "primitives": [
+          {
+            "mode": 4,
+            "material": "Iris",
+            "indices": {
+              "type": "SCALAR",
+              "componentType": 5123,
+              "count": 4320,
+              "normalized": false,
+              "sha256": "b305ae132bab8728a7dfa013784c408478866534a4b27ae8ded456ada9f726ec"
+            },
+            "attributes": {
+              "POSITION": {
+                "type": "VEC3",
+                "componentType": 5126,
+                "count": 770,
+                "normalized": false,
+                "sha256": "6946949a0426c8297ec5a50ff791b940d994570ee551bfca3361d09abe3be753"
+              },
+              "NORMAL": {
+                "type": "VEC3",
+                "componentType": 5126,
+                "count": 770,
+                "normalized": false,
+                "sha256": "7fd43b0d2a5506b7cc774ad3b952e54ffd683d713918d7f55334883192fdd5e4"
+              },
+              "TEXCOORD_0": {
+                "type": "VEC2",
+                "componentType": 5126,
+                "count": 770,
+                "normalized": false,
+                "sha256": "7ead1c1aa909ae09be9a50d4d8127a7fd57a7f68023acd782b1ac185b213caa1"
+              },
+              "JOINTS_0": {
+                "type": "VEC4",
+                "componentType": 5121,
+                "count": 770,
+                "normalized": false,
+                "sha256": "81ce8816b5e92efd64ecabc93c2ddc316cfbd787768d087c251537dcf899490b"
+              },
+              "WEIGHTS_0": {
+                "type": "VEC4",
+                "componentType": 5126,
+                "count": 770,
+                "normalized": false,
+                "sha256": "9c9a35b7e2a916db9d3477e1aafb20b64a21473701f0ccbe0feaaf12fe988ea6"
+              }
+            },
+            "targets": {}
+          }
+        ]
+      },
+      "Lashes": {
+        "weights": {
+          "BuildNarrow": 0,
+          "BuildBroad": 0,
+          "ShouldersNarrow": 0,
+          "ShouldersBroad": 0,
+          "JawNarrow": 0,
+          "JawBroad": 0,
+          "NoseNarrow": 0,
+          "NoseBroad": 0,
+          "EyesSmall": 0,
+          "EyesLarge": 0,
+          "PoseTpose": 0,
+          "PoseWave": 0,
+          "PoseStride": 0
+        },
+        "primitives": [
+          {
+            "mode": 4,
+            "material": "Lashes",
+            "indices": {
+              "type": "SCALAR",
+              "componentType": 5123,
+              "count": 1980,
+              "normalized": false,
+              "sha256": "60cf32a6845b189e86d2ee23cc2fcd9cf2e482b37fcfacc17e3eed68695617e0"
+            },
+            "attributes": {
+              "POSITION": {
+                "type": "VEC3",
+                "componentType": 5126,
+                "count": 880,
+                "normalized": false,
+                "sha256": "f765a33195960151f7228834b52cf651e83853832a25f0a789e48cbe7e9e84a6"
+              },
+              "NORMAL": {
+                "type": "VEC3",
+                "componentType": 5126,
+                "count": 880,
+                "normalized": false,
+                "sha256": "04d1cf274e9de2f11a4b6d58fff5ae331324a3aa825acb044c0898bac725dcc3"
+              },
+              "TEXCOORD_0": {
+                "type": "VEC2",
+                "componentType": 5126,
+                "count": 880,
+                "normalized": false,
+                "sha256": "75312b9ead99b687e5fde5eb6aeaebaf3da56fbbe270c779fcac4e960252b625"
+              },
+              "JOINTS_0": {
+                "type": "VEC4",
+                "componentType": 5121,
+                "count": 880,
+                "normalized": false,
+                "sha256": "d6a1d6fa2b3779f6e33d2c2aaf1eb1b263f071d6f888cdb84e2698daa4e45510"
+              },
+              "WEIGHTS_0": {
+                "type": "VEC4",
+                "componentType": 5126,
+                "count": 880,
+                "normalized": false,
+                "sha256": "53051ccad0f2e4d89b3c0863b39ced5909dd1184a0c7a81c80e4828889657d08"
+              }
+            },
+            "targets": {
+              "BuildNarrow": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 880,
+                  "normalized": false,
+                  "sha256": "cfb5cf13f3e168ff9945d13da17f5593838e500c38569943c8054c1aa6f11d13"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 880,
+                  "normalized": false,
+                  "sha256": "a3be61fb343bd231acd1bdef302279ed886f6fbd9eed242d92a1cb8000f7a261"
+                }
+              },
+              "BuildBroad": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 880,
+                  "normalized": false,
+                  "sha256": "cfb5cf13f3e168ff9945d13da17f5593838e500c38569943c8054c1aa6f11d13"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 880,
+                  "normalized": false,
+                  "sha256": "a3be61fb343bd231acd1bdef302279ed886f6fbd9eed242d92a1cb8000f7a261"
+                }
+              },
+              "ShouldersNarrow": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 880,
+                  "normalized": false,
+                  "sha256": "cfb5cf13f3e168ff9945d13da17f5593838e500c38569943c8054c1aa6f11d13"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 880,
+                  "normalized": false,
+                  "sha256": "a3be61fb343bd231acd1bdef302279ed886f6fbd9eed242d92a1cb8000f7a261"
+                }
+              },
+              "ShouldersBroad": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 880,
+                  "normalized": false,
+                  "sha256": "cfb5cf13f3e168ff9945d13da17f5593838e500c38569943c8054c1aa6f11d13"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 880,
+                  "normalized": false,
+                  "sha256": "a3be61fb343bd231acd1bdef302279ed886f6fbd9eed242d92a1cb8000f7a261"
+                }
+              },
+              "JawNarrow": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 880,
+                  "normalized": false,
+                  "sha256": "cfb5cf13f3e168ff9945d13da17f5593838e500c38569943c8054c1aa6f11d13"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 880,
+                  "normalized": false,
+                  "sha256": "a3be61fb343bd231acd1bdef302279ed886f6fbd9eed242d92a1cb8000f7a261"
+                }
+              },
+              "JawBroad": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 880,
+                  "normalized": false,
+                  "sha256": "cfb5cf13f3e168ff9945d13da17f5593838e500c38569943c8054c1aa6f11d13"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 880,
+                  "normalized": false,
+                  "sha256": "a3be61fb343bd231acd1bdef302279ed886f6fbd9eed242d92a1cb8000f7a261"
+                }
+              },
+              "NoseNarrow": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 880,
+                  "normalized": false,
+                  "sha256": "cfb5cf13f3e168ff9945d13da17f5593838e500c38569943c8054c1aa6f11d13"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 880,
+                  "normalized": false,
+                  "sha256": "a3be61fb343bd231acd1bdef302279ed886f6fbd9eed242d92a1cb8000f7a261"
+                }
+              },
+              "NoseBroad": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 880,
+                  "normalized": false,
+                  "sha256": "cfb5cf13f3e168ff9945d13da17f5593838e500c38569943c8054c1aa6f11d13"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 880,
+                  "normalized": false,
+                  "sha256": "a3be61fb343bd231acd1bdef302279ed886f6fbd9eed242d92a1cb8000f7a261"
+                }
+              },
+              "EyesSmall": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 880,
+                  "normalized": false,
+                  "sha256": "81e4cb45b4a8a4ea22bc4e344c808a0b62d608056c6cdc2018e196c7f22dd320"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 880,
+                  "normalized": false,
+                  "sha256": "1053ad9821df57eebced3eeb901d752bc8c69b759d18fba542579fda68a8341c"
+                }
+              },
+              "EyesLarge": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 880,
+                  "normalized": false,
+                  "sha256": "f0b82ba75a9a817e8e54d6be3110904fbdf43329220326613a24f808df82e055"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 880,
+                  "normalized": false,
+                  "sha256": "d0289cd1454563cbb5bd7eb8c99d832f9d0f06130da64958b937d9ea06644396"
+                }
+              },
+              "PoseTpose": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 880,
+                  "normalized": false,
+                  "sha256": "cfb5cf13f3e168ff9945d13da17f5593838e500c38569943c8054c1aa6f11d13"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 880,
+                  "normalized": false,
+                  "sha256": "a3be61fb343bd231acd1bdef302279ed886f6fbd9eed242d92a1cb8000f7a261"
+                }
+              },
+              "PoseWave": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 880,
+                  "normalized": false,
+                  "sha256": "cfb5cf13f3e168ff9945d13da17f5593838e500c38569943c8054c1aa6f11d13"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 880,
+                  "normalized": false,
+                  "sha256": "a3be61fb343bd231acd1bdef302279ed886f6fbd9eed242d92a1cb8000f7a261"
+                }
+              },
+              "PoseStride": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 880,
+                  "normalized": false,
+                  "sha256": "cfb5cf13f3e168ff9945d13da17f5593838e500c38569943c8054c1aa6f11d13"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 880,
+                  "normalized": false,
+                  "sha256": "a3be61fb343bd231acd1bdef302279ed886f6fbd9eed242d92a1cb8000f7a261"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "Outfit": {
+        "weights": {
+          "BuildNarrow": 0,
+          "BuildBroad": 0,
+          "ShouldersNarrow": 0,
+          "ShouldersBroad": 0,
+          "JawNarrow": 0,
+          "JawBroad": 0,
+          "NoseNarrow": 0,
+          "NoseBroad": 0,
+          "EyesSmall": 0,
+          "EyesLarge": 0,
+          "PoseTpose": 0,
+          "PoseWave": 0,
+          "PoseStride": 0
+        },
+        "primitives": [
+          {
+            "mode": 4,
+            "material": "Outfit",
+            "indices": {
+              "type": "SCALAR",
+              "componentType": 5123,
+              "count": 5928,
+              "normalized": false,
+              "sha256": "30a1eb92877a591a95ebf156fd0016f8186f519ae8b9b76d75c3017c4beab154"
+            },
+            "attributes": {
+              "POSITION": {
+                "type": "VEC3",
+                "componentType": 5126,
+                "count": 1097,
+                "normalized": false,
+                "sha256": "e73629aabf87bee9f0acfdfca3a1f8c566b8a698c23ed3446cbbad168aad3e3e"
+              },
+              "NORMAL": {
+                "type": "VEC3",
+                "componentType": 5126,
+                "count": 1097,
+                "normalized": false,
+                "sha256": "7b7260bba5ca0f17772cfac9e0db4f846caaa66ac63e7e0df87c620e09340d4e"
+              },
+              "TEXCOORD_0": {
+                "type": "VEC2",
+                "componentType": 5126,
+                "count": 1097,
+                "normalized": false,
+                "sha256": "19df92abce5413f32abc4bb15518822241a5cac2a8734f7fd9c4e67da9dc88ac"
+              },
+              "JOINTS_0": {
+                "type": "VEC4",
+                "componentType": 5121,
+                "count": 1097,
+                "normalized": false,
+                "sha256": "9546cfc65d895025bf5253b906a2e629e241208cb178edc69e89ff2fa7689257"
+              },
+              "WEIGHTS_0": {
+                "type": "VEC4",
+                "componentType": 5126,
+                "count": 1097,
+                "normalized": false,
+                "sha256": "90b4b7d20235e36d1a3127d8342541146445a04d550c6782fff725178ab6748a"
+              }
+            },
+            "targets": {
+              "BuildNarrow": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1097,
+                  "normalized": false,
+                  "sha256": "5cf0c53cb3c7f11a3d716ed7b22b45c9b729f2e355143b47cee141e489d7b6d3"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1097,
+                  "normalized": false,
+                  "sha256": "f273b4b07467638612efcc3843ef93670af6baf4940ee071a41bd8f71dd38e95"
+                }
+              },
+              "BuildBroad": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1097,
+                  "normalized": false,
+                  "sha256": "a8ddd024464e5354c703a71bb0c17be58647dec235be2902341ff4b62c808118"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1097,
+                  "normalized": false,
+                  "sha256": "5d3432fa55f365016051147d88b623a3ed79eb844faf9177db27fc3a2ada02aa"
+                }
+              },
+              "ShouldersNarrow": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1097,
+                  "normalized": false,
+                  "sha256": "4c56401adb5227204bf6db420a3bc99b4699fbb7d93aea7defde466f569655b1"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1097,
+                  "normalized": false,
+                  "sha256": "54ccd820b838457cd829cb49f40b55fa54da6f01b9a7afc2e90d88cf6045deb6"
+                }
+              },
+              "ShouldersBroad": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1097,
+                  "normalized": false,
+                  "sha256": "79c19244647d27782c933b9e09a7e5e66ec2fffd7f5686a56e36bb3dd933f1d6"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1097,
+                  "normalized": false,
+                  "sha256": "2bb4add8b368515fc08f3e1c06d6e1f67d50ac6816a804ac1281dabc46e9c9e6"
+                }
+              },
+              "JawNarrow": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1097,
+                  "normalized": false,
+                  "sha256": "2cb19f9dfb70b1861431add283a5d2d06cc7166d6b1b2e8f41cbf5db8c9ab246"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1097,
+                  "normalized": false,
+                  "sha256": "4772693ac76e21720c2bf0bd08cfa802243be26df4abb7150681e5b40ea81e73"
+                }
+              },
+              "JawBroad": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1097,
+                  "normalized": false,
+                  "sha256": "2cb19f9dfb70b1861431add283a5d2d06cc7166d6b1b2e8f41cbf5db8c9ab246"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1097,
+                  "normalized": false,
+                  "sha256": "4772693ac76e21720c2bf0bd08cfa802243be26df4abb7150681e5b40ea81e73"
+                }
+              },
+              "NoseNarrow": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1097,
+                  "normalized": false,
+                  "sha256": "2cb19f9dfb70b1861431add283a5d2d06cc7166d6b1b2e8f41cbf5db8c9ab246"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1097,
+                  "normalized": false,
+                  "sha256": "4772693ac76e21720c2bf0bd08cfa802243be26df4abb7150681e5b40ea81e73"
+                }
+              },
+              "NoseBroad": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1097,
+                  "normalized": false,
+                  "sha256": "2cb19f9dfb70b1861431add283a5d2d06cc7166d6b1b2e8f41cbf5db8c9ab246"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1097,
+                  "normalized": false,
+                  "sha256": "4772693ac76e21720c2bf0bd08cfa802243be26df4abb7150681e5b40ea81e73"
+                }
+              },
+              "EyesSmall": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1097,
+                  "normalized": false,
+                  "sha256": "2cb19f9dfb70b1861431add283a5d2d06cc7166d6b1b2e8f41cbf5db8c9ab246"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1097,
+                  "normalized": false,
+                  "sha256": "4772693ac76e21720c2bf0bd08cfa802243be26df4abb7150681e5b40ea81e73"
+                }
+              },
+              "EyesLarge": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1097,
+                  "normalized": false,
+                  "sha256": "2cb19f9dfb70b1861431add283a5d2d06cc7166d6b1b2e8f41cbf5db8c9ab246"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1097,
+                  "normalized": false,
+                  "sha256": "4772693ac76e21720c2bf0bd08cfa802243be26df4abb7150681e5b40ea81e73"
+                }
+              },
+              "PoseTpose": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1097,
+                  "normalized": false,
+                  "sha256": "4c18daeed87c5132878b0489e485723c3ffee2bb03b41e267680ea11527dbaef"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1097,
+                  "normalized": false,
+                  "sha256": "600c13f6c62869f49d208d96cc87fcd2e07d93fc75921fd26f123fa97c67e0e8"
+                }
+              },
+              "PoseWave": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1097,
+                  "normalized": false,
+                  "sha256": "5159834eb7c00aa820802933a9ec4f1924baa63066bb451a849b3528d04522b5"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1097,
+                  "normalized": false,
+                  "sha256": "0b297ae1a166ea979afb2cc2eef11a15d8842c928a5cb6c55a7a6f45af93c6bb"
+                }
+              },
+              "PoseStride": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1097,
+                  "normalized": false,
+                  "sha256": "df13b1981742c5f177ae5efd7bf8787f2f1e46b26c492b69d8b6a85fd73f5d9e"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1097,
+                  "normalized": false,
+                  "sha256": "d03e81770f07e357253f642fe497b07898707f47e890c5001a3e67b580993f77"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "Pants": {
+        "weights": {
+          "BuildNarrow": 0,
+          "BuildBroad": 0,
+          "ShouldersNarrow": 0,
+          "ShouldersBroad": 0,
+          "JawNarrow": 0,
+          "JawBroad": 0,
+          "NoseNarrow": 0,
+          "NoseBroad": 0,
+          "EyesSmall": 0,
+          "EyesLarge": 0,
+          "PoseTpose": 0,
+          "PoseWave": 0,
+          "PoseStride": 0
+        },
+        "primitives": [
+          {
+            "mode": 4,
+            "material": "Pants",
+            "indices": {
+              "type": "SCALAR",
+              "componentType": 5123,
+              "count": 5904,
+              "normalized": false,
+              "sha256": "2a6ac99325897aff5cbcf680a61841c96f57107f9079445e13d2719d0ee3f97b"
+            },
+            "attributes": {
+              "POSITION": {
+                "type": "VEC3",
+                "componentType": 5126,
+                "count": 1077,
+                "normalized": false,
+                "sha256": "318e2bb321b90571db50ed4a351a074cd8df8d6280a3998131bc0a392392c4bb"
+              },
+              "NORMAL": {
+                "type": "VEC3",
+                "componentType": 5126,
+                "count": 1077,
+                "normalized": false,
+                "sha256": "4d17c5ee4546c32bdb86facd135cbd6952cc0d8d6897ade8537fc66429cc94dd"
+              },
+              "TEXCOORD_0": {
+                "type": "VEC2",
+                "componentType": 5126,
+                "count": 1077,
+                "normalized": false,
+                "sha256": "eb0ef973afd71ee870bf1a51f13078fb78f169bd474ea550ab3b0675de49434d"
+              },
+              "JOINTS_0": {
+                "type": "VEC4",
+                "componentType": 5121,
+                "count": 1077,
+                "normalized": false,
+                "sha256": "8177ec929541164671d9280ed9326bc93d7350ddd05517738f0e3861c8336fda"
+              },
+              "WEIGHTS_0": {
+                "type": "VEC4",
+                "componentType": 5126,
+                "count": 1077,
+                "normalized": false,
+                "sha256": "f74eeb0d6b6341e6c77937900d289981e4851031815ccfe8631340d4cac2c3a1"
+              }
+            },
+            "targets": {
+              "BuildNarrow": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1077,
+                  "normalized": false,
+                  "sha256": "1cfdbcbe6e1cf7375b7781a066df2ee0433123c873175db484cf56a1fc735ac3"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1077,
+                  "normalized": false,
+                  "sha256": "d0a2f7953e2f865c9663153040bd6d2e60f8cef8020ed7f33caf94b82952d520"
+                }
+              },
+              "BuildBroad": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1077,
+                  "normalized": false,
+                  "sha256": "4bc0bbaf93099d05aeb80d67a79e5d5d06f670bb3106074171be50dd4aeb7bc7"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1077,
+                  "normalized": false,
+                  "sha256": "e62a6808f5430ace83b1d9fa5c5e404bdc27d47a667369b4ea36320a7f3e485f"
+                }
+              },
+              "ShouldersNarrow": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1077,
+                  "normalized": false,
+                  "sha256": "63202b794fb9b32682c6dcd6d2227baeaddb3ef0176c6ca244dc6beaacb74ff6"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1077,
+                  "normalized": false,
+                  "sha256": "5460577b299341dd45a11da6acd831c9de573757cb608b76b5218266ace977fb"
+                }
+              },
+              "ShouldersBroad": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1077,
+                  "normalized": false,
+                  "sha256": "63202b794fb9b32682c6dcd6d2227baeaddb3ef0176c6ca244dc6beaacb74ff6"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1077,
+                  "normalized": false,
+                  "sha256": "5460577b299341dd45a11da6acd831c9de573757cb608b76b5218266ace977fb"
+                }
+              },
+              "JawNarrow": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1077,
+                  "normalized": false,
+                  "sha256": "63202b794fb9b32682c6dcd6d2227baeaddb3ef0176c6ca244dc6beaacb74ff6"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1077,
+                  "normalized": false,
+                  "sha256": "5460577b299341dd45a11da6acd831c9de573757cb608b76b5218266ace977fb"
+                }
+              },
+              "JawBroad": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1077,
+                  "normalized": false,
+                  "sha256": "63202b794fb9b32682c6dcd6d2227baeaddb3ef0176c6ca244dc6beaacb74ff6"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1077,
+                  "normalized": false,
+                  "sha256": "5460577b299341dd45a11da6acd831c9de573757cb608b76b5218266ace977fb"
+                }
+              },
+              "NoseNarrow": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1077,
+                  "normalized": false,
+                  "sha256": "63202b794fb9b32682c6dcd6d2227baeaddb3ef0176c6ca244dc6beaacb74ff6"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1077,
+                  "normalized": false,
+                  "sha256": "5460577b299341dd45a11da6acd831c9de573757cb608b76b5218266ace977fb"
+                }
+              },
+              "NoseBroad": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1077,
+                  "normalized": false,
+                  "sha256": "63202b794fb9b32682c6dcd6d2227baeaddb3ef0176c6ca244dc6beaacb74ff6"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1077,
+                  "normalized": false,
+                  "sha256": "5460577b299341dd45a11da6acd831c9de573757cb608b76b5218266ace977fb"
+                }
+              },
+              "EyesSmall": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1077,
+                  "normalized": false,
+                  "sha256": "63202b794fb9b32682c6dcd6d2227baeaddb3ef0176c6ca244dc6beaacb74ff6"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1077,
+                  "normalized": false,
+                  "sha256": "5460577b299341dd45a11da6acd831c9de573757cb608b76b5218266ace977fb"
+                }
+              },
+              "EyesLarge": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1077,
+                  "normalized": false,
+                  "sha256": "63202b794fb9b32682c6dcd6d2227baeaddb3ef0176c6ca244dc6beaacb74ff6"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1077,
+                  "normalized": false,
+                  "sha256": "5460577b299341dd45a11da6acd831c9de573757cb608b76b5218266ace977fb"
+                }
+              },
+              "PoseTpose": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1077,
+                  "normalized": false,
+                  "sha256": "7a705c4caa6cc3fb3f2573bf342c065c59b4dbb18f0704e73a8ac08cce79bf83"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1077,
+                  "normalized": false,
+                  "sha256": "d61cbca0cbc4a05488cd722e58678f0aad3520a13284d8ee9a2749d57ed01b32"
+                }
+              },
+              "PoseWave": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1077,
+                  "normalized": false,
+                  "sha256": "7a705c4caa6cc3fb3f2573bf342c065c59b4dbb18f0704e73a8ac08cce79bf83"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1077,
+                  "normalized": false,
+                  "sha256": "d61cbca0cbc4a05488cd722e58678f0aad3520a13284d8ee9a2749d57ed01b32"
+                }
+              },
+              "PoseStride": {
+                "POSITION": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1077,
+                  "normalized": false,
+                  "sha256": "2c7bcdd5925ddc27c238ecd722f98394ae9cc9915f5698fe9885717627f364f0"
+                },
+                "NORMAL": {
+                  "type": "VEC3",
+                  "componentType": 5126,
+                  "count": 1077,
+                  "normalized": false,
+                  "sha256": "68440ce2d6779e465a300832adc4e87ff6aba4412fe1f0b312d30d6cf02898d1"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "materials": {
+      "Brows": {
+        "doubleSided": true,
+        "name": "Brows",
+        "pbrMetallicRoughness": {
+          "baseColorTexture": {
+            "index": {
+              "image": {
+                "mimeType": "image/png",
+                "name": "portrait_brow",
+                "bytes": 341952,
+                "sha256": "e409753c20af3052dd746a942873cf3cc927e254a3bdb1b61f7f3bd9d98fa8d2"
+              },
+              "sampler": {
+                "magFilter": 9729,
+                "minFilter": 9987
+              }
+            }
+          },
+          "metallicFactor": 0,
+          "roughnessFactor": 0.8500000238418579
+        }
+      },
+      "Cornea": {
+        "alphaMode": "BLEND",
+        "doubleSided": true,
+        "extensions": {
+          "KHR_materials_clearcoat": {
+            "clearcoatFactor": 1,
+            "clearcoatRoughnessFactor": 0.02500000037252903
+          }
+        },
+        "name": "Cornea",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            1,
+            1,
+            1,
+            0.12999999523162842
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.03500000014901161
+        }
+      },
+      "Eyes": {
+        "doubleSided": true,
+        "name": "Eyes",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.7200000286102295,
+            0.699999988079071,
+            0.6600000262260437,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.30000001192092896
+        }
+      },
+      "Hair": {
+        "alphaMode": "MASK",
+        "doubleSided": true,
+        "name": "Hair",
+        "pbrMetallicRoughness": {
+          "baseColorTexture": {
+            "index": {
+              "image": {
+                "mimeType": "image/png",
+                "name": "portrait_hair_cap",
+                "bytes": 368697,
+                "sha256": "1316b2c33b31d895c42d59a259dfcef35be61d61335370e05d4aaadf495ec0e1"
+              },
+              "sampler": {
+                "magFilter": 9729,
+                "minFilter": 9987
+              }
+            }
+          },
+          "metallicFactor": 0,
+          "metallicRoughnessTexture": {
+            "index": {
+              "image": {
+                "mimeType": "image/png",
+                "name": "portrait_hair_roughness",
+                "bytes": 214924,
+                "sha256": "415f1f04cf18e1aa19b4eb3609a537a114507428f1ef28c0e4e1987fc911fc06"
+              },
+              "sampler": {
+                "magFilter": 9729,
+                "minFilter": 9987
+              }
+            }
+          }
+        },
+        "alphaCutoff": 0.5
+      },
+      "HairStrands": {
+        "doubleSided": true,
+        "name": "HairStrands",
+        "pbrMetallicRoughness": {
+          "baseColorTexture": {
+            "index": {
+              "image": {
+                "mimeType": "image/png",
+                "name": "portrait_hair",
+                "bytes": 351800,
+                "sha256": "5b882d3b8d8d3c7e8c4425aece494b77730a0eeb87099dbba7ee343c081f999d"
+              },
+              "sampler": {
+                "magFilter": 9729,
+                "minFilter": 9987
+              }
+            }
+          },
+          "metallicFactor": 0,
+          "roughnessFactor": 0.6700000166893005
+        }
+      },
+      "Skin": {
+        "doubleSided": true,
+        "name": "Skin",
+        "normalTexture": {
+          "index": {
+            "image": {
+              "mimeType": "image/png",
+              "name": "portrait_skin_normal",
+              "bytes": 1877652,
+              "sha256": "490d4f3c580c1202a9a8f3378d05f365f2b409a8201b7b03733925ed9a7c12ca"
+            },
+            "sampler": {
+              "magFilter": 9729,
+              "minFilter": 9987
+            }
+          },
+          "scale": 0.3199999928474426
+        },
+        "pbrMetallicRoughness": {
+          "baseColorTexture": {
+            "index": {
+              "image": {
+                "mimeType": "image/png",
+                "name": "skin",
+                "bytes": 3693828,
+                "sha256": "862a26e335e958b70534cb5f0d7c47ef30ab148a56c42b3e9da969cf76f12963"
+              },
+              "sampler": {
+                "magFilter": 9729,
+                "minFilter": 9987
+              }
+            }
+          },
+          "metallicFactor": 0,
+          "metallicRoughnessTexture": {
+            "index": {
+              "image": {
+                "mimeType": "image/png",
+                "name": "portrait_skin_roughness",
+                "bytes": 1099893,
+                "sha256": "5f62e5db67caaeed4146b2d3875cee609bd37461f13976df2f145961860776bb"
+              },
+              "sampler": {
+                "magFilter": 9729,
+                "minFilter": 9987
+              }
+            }
+          }
+        }
+      },
+      "Iris": {
+        "doubleSided": true,
+        "name": "Iris",
+        "pbrMetallicRoughness": {
+          "baseColorTexture": {
+            "index": {
+              "image": {
+                "mimeType": "image/png",
+                "name": "portrait_iris",
+                "bytes": 316093,
+                "sha256": "8774d4995f2e5734172c4b6d0eabe5d00674a30c7ca0b494944652f984283d99"
+              },
+              "sampler": {
+                "magFilter": 9729,
+                "minFilter": 9987
+              }
+            }
+          },
+          "metallicFactor": 0,
+          "roughnessFactor": 0.41999998688697815
+        }
+      },
+      "Lashes": {
+        "doubleSided": true,
+        "name": "Lashes",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.02500000037252903,
+            0.017999999225139618,
+            0.014000000432133675,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.699999988079071
+        }
+      },
+      "Outfit": {
+        "doubleSided": true,
+        "name": "Outfit",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.04500000178813934,
+            0.17000000178813934,
+            0.18000000715255737,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.8500000238418579
+        }
+      },
+      "Pants": {
+        "doubleSided": true,
+        "name": "Pants",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0.03500000014901161,
+            0.04500000178813934,
+            0.06499999761581421,
+            1
+          ],
+          "metallicFactor": 0,
+          "roughnessFactor": 0.8999999761581421
+        }
+      }
+    },
+    "images": {
+      "portrait_brow": {
+        "mimeType": "image/png",
+        "name": "portrait_brow",
+        "bytes": 341952,
+        "sha256": "e409753c20af3052dd746a942873cf3cc927e254a3bdb1b61f7f3bd9d98fa8d2"
+      },
+      "portrait_hair_cap": {
+        "mimeType": "image/png",
+        "name": "portrait_hair_cap",
+        "bytes": 368697,
+        "sha256": "1316b2c33b31d895c42d59a259dfcef35be61d61335370e05d4aaadf495ec0e1"
+      },
+      "portrait_hair_roughness": {
+        "mimeType": "image/png",
+        "name": "portrait_hair_roughness",
+        "bytes": 214924,
+        "sha256": "415f1f04cf18e1aa19b4eb3609a537a114507428f1ef28c0e4e1987fc911fc06"
+      },
+      "portrait_hair": {
+        "mimeType": "image/png",
+        "name": "portrait_hair",
+        "bytes": 351800,
+        "sha256": "5b882d3b8d8d3c7e8c4425aece494b77730a0eeb87099dbba7ee343c081f999d"
+      },
+      "portrait_skin_normal": {
+        "mimeType": "image/png",
+        "name": "portrait_skin_normal",
+        "bytes": 1877652,
+        "sha256": "490d4f3c580c1202a9a8f3378d05f365f2b409a8201b7b03733925ed9a7c12ca"
+      },
+      "skin": {
+        "mimeType": "image/png",
+        "name": "skin",
+        "bytes": 3693828,
+        "sha256": "862a26e335e958b70534cb5f0d7c47ef30ab148a56c42b3e9da969cf76f12963"
+      },
+      "portrait_skin_roughness": {
+        "mimeType": "image/png",
+        "name": "portrait_skin_roughness",
+        "bytes": 1099893,
+        "sha256": "5f62e5db67caaeed4146b2d3875cee609bd37461f13976df2f145961860776bb"
+      },
+      "portrait_iris": {
+        "mimeType": "image/png",
+        "name": "portrait_iris",
+        "bytes": 316093,
+        "sha256": "8774d4995f2e5734172c4b6d0eabe5d00674a30c7ca0b494944652f984283d99"
+      }
+    }
+  }
+}

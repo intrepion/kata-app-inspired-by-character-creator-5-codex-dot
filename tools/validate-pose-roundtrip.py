@@ -78,7 +78,7 @@ for name,ob in meshes.items():
     report['baseErrorMeters'][name] = max(distance for _,_,distance in matches)
 for pose in POSES:
     rig.animation_data_create()
-    rig.animation_data.action = bpy.data.actions[pose+'_FoundationRig']
+    rig.animation_data.action = bpy.data.actions.get(pose+'_FoundationRig') or bpy.data.actions[pose]
     bpy.context.scene.frame_set(0)
     for build,shoulders in SHAPES:
         for name,ob in meshes.items():

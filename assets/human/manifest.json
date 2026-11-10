@@ -23,6 +23,42 @@
     "eyes": [
       "EyesSmall",
       "EyesLarge"
+    ],
+    "headWidth": [
+      "HeadNarrow",
+      "HeadWide"
+    ],
+    "headHeight": [
+      "HeadShort",
+      "HeadLong"
+    ],
+    "cheeks": [
+      "CheeksLean",
+      "CheeksFull"
+    ],
+    "chin": [
+      "ChinShort",
+      "ChinLong"
+    ],
+    "noseWidth": [
+      "NoseWingsNarrow",
+      "NoseWingsWide"
+    ],
+    "noseProjection": [
+      "NoseRetracted",
+      "NoseProjected"
+    ],
+    "eyeSpacing": [
+      "EyesClose",
+      "EyesWide"
+    ],
+    "browHeight": [
+      "BrowsLow",
+      "BrowsHigh"
+    ],
+    "lips": [
+      "LipsThin",
+      "LipsFull"
     ]
   },
   "materials": {
@@ -68,5 +104,21 @@
     ],
     "license": "MIT (generated original detail); existing foundation CC0"
   },
-  "faceTargetZ": 0.045
+  "faceTargetZ": 0.045,
+  "distinctFaces": {
+    "version": 1,
+    "controls": [
+      "headWidth",
+      "headHeight",
+      "cheeks",
+      "chin",
+      "noseWidth",
+      "noseProjection",
+      "eyeSpacing",
+      "browHeight",
+      "lips"
+    ],
+    "license": "MIT original shared-space deformation fields; retained anatomy CC0",
+    "neutral": 0.5
+  }
 }
