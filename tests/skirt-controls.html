@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skirt controls browser checks</title>
+<style>
+body{font:14px/1.5 system-ui;margin:20px;color:#293d36;background:#f8f7f0}h1{font-size:24px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#fff;padding:16px;border:1px solid #ccd3c6}iframe{display:block;width:min(1100px,100%);height:850px;border:1px solid #ccd3c6}button{padding:8px 12px;margin:0 0 15px}body[data-result="fail"] pre{border-color:#ad493a}body[data-result="pass"] pre{border-color:#53794a}
+</style>
+<h1>Skirt controls browser checks</h1>
+<p>Localhost-only UI regression checks. This page temporarily uses the QA autosave key and restores its previous contents when finished. It never reads a local file or opens a file dialog.</p>
+<pre id="results" role="status">Running…</pre>
+<button id="download-report" disabled>Download test report</button>
+<iframe id="app" title="Persona Forge skirt controls test application"></iframe>
+<script type="module">
+import {defaults,presets,parseProject} from '../src/project.js';
+
+const output=document.querySelector('#results'),frame=document.querySelector('#app');
+const key='kata-persona-v2-qa',started=performance.now(),checks=[];
+let doc,win,prior,storageChanged=false;
+const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+const report={suite:'skirt-controls',url:location.href,checks,passed:false};
+window.skirtControlsReport=report;
+function check(value,label){checks.push({passed:!!value,label});output.textContent=checks.map(item=>(item.passed?'PASS ':'FAIL ')+item.label).join('\n');if(!value)throw Error(label);}
+async function ready(){
+  doc=frame.contentDocument;win=frame.contentWindow;
+  for(let n=0;n<160&&doc.querySelector('#export')?.disabled;n++){
+    if(doc.querySelector('#load-state')?.classList.contains('error'))throw Error(doc.querySelector('#load-state').textContent);
+    await sleep(125);
+  }
+  check(doc.querySelector('#export')&&!doc.querySelector('#export').disabled,'Human renderer is ready');
+}
+const value=id=>doc.getElementById(id).value;
+const saved=()=>JSON.parse(localStorage.getItem(key));
+function change(id,next){const input=doc.getElementById(id);input.value=String(next);input.dispatchEvent(new win.Event('input',{bubbles:true}));input.dispatchEvent(new win.Event('change',{bubbles:true}));}
+function click(id){doc.getElementById(id).click();}
+function facesMatch(){return Number(value('headWidth'))===.77&&Number(value('chin'))===.82&&Number(value('eyeSpacing'))===.31;}
+function skirtVisible(){return !doc.getElementById('skirt-controls').hidden&&!doc.getElementById('skirtSwing').disabled;}
+function trousersHidden(){return doc.getElementById('skirt-controls').hidden&&doc.getElementById('skirtSwing').disabled;}
+async function saveProject(){
+  const originalURL=win.URL.createObjectURL,originalClick=win.HTMLAnchorElement.prototype.click;
+  let capture,filename;
+  try{
+    win.URL.createObjectURL=function(blob){capture=blob;return originalURL.call(this,blob);};
+    win.HTMLAnchorElement.prototype.click=function(){if(this.download.endsWith('.persona')){filename=this.download;return;}return originalClick.call(this);};
+    click('save');
+  }finally{win.URL.createObjectURL=originalURL;win.HTMLAnchorElement.prototype.click=originalClick;}
+  check(!!capture&&filename.endsWith('.persona'),'Save project produces an editable .persona download');
+  return parseProject(await capture.text()).project;
+}
+async function openGeneratedProject(project,accept){
+  const originalConfirm=win.confirm;
+  let confirmed=false;
+  try{
+    win.confirm=()=>{confirmed=true;return accept;};
+    const transfer=new win.DataTransfer();
+    transfer.items.add(new win.File([JSON.stringify(project)],'generated-test.persona',{type:'application/json'}));
+    doc.getElementById('file').files=transfer.files;
+    await doc.getElementById('file').onchange({target:doc.getElementById('file')});
+    check(doc.getElementById('file').value==='','Import clears its file input for repeated opening');
+    return confirmed;
+  }finally{win.confirm=originalConfirm;}
+}
+
+try{
+  check(['127.0.0.1','localhost','[::1]'].includes(location.hostname)&&location.protocol==='http:','Checks run through a localhost HTTP server');
+  prior=localStorage.getItem(key);
+  const old={...defaults,name:'Skirt UI QA',headWidth:.72,chin:.61,eyeSpacing:.31};delete old.lowerGarment;delete old.skirtSwing;
+  localStorage.setItem(key,JSON.stringify(old));storageChanged=true;
+  const loaded=new Promise(resolve=>frame.onload=resolve);frame.src='../?qa';await loaded;await ready();
+  report.renderMode=doc.querySelector('#stage').dataset.mode;
+  check(value('lowerGarment')==='trousers'&&trousersHidden(),'Older v2 autosave restores trousers and hides/disables sway');
+  check(Number(value('skirtSwing'))===0,'Older v2 autosave restores neutral sway');
+  check(doc.querySelectorAll('#sliders input').length===15,'The fifteen body/face controls stay separate from garment bones');
+  check(Number(value('headWidth'))===.72&&Number(value('eyeSpacing'))===.31,'Older v2 autosave preserves distinct face values');
+  check(doc.querySelector('#lowerGarment').labels[0].textContent.startsWith('Outfit')&&doc.querySelector('#pants').labels[0].textContent==='Lower garment','Outfit selector and shared garment color are labeled');
+  change('headWidth',.77);change('chin',.82);change('lowerGarment','skirt');
+  check(skirtVisible()&&Number(value('skirtSwing'))===0&&facesMatch(),'Selecting skirt reveals neutral sway without changing face controls');
+  check(doc.querySelector('#skirt-note').textContent.includes('not simulated cloth'),'The skirt note discloses bone posing rather than cloth simulation');
+  change('lowerGarment','skirt');change('lowerGarment','skirt');click('undo');
+  check(value('lowerGarment')==='trousers'&&trousersHidden()&&facesMatch(),'Repeated skirt selection does not add duplicate undo states');
+  click('redo');change('skirtSwing',.12);
+  check(value('lowerGarment')==='skirt'&&skirtVisible()&&saved().skirtSwing===.12,'Redo and positive sway endpoint are saved');
+  check(doc.getElementById('skirtSwing-value').textContent==='6.9°','Sway readout uses degrees');
+  change('pants','#795c84');const roundtrip=await saveProject();
+  check(roundtrip.lowerGarment==='skirt'&&roundtrip.skirtSwing===.12&&roundtrip.pants==='#795c84'&&roundtrip.headWidth===.77&&roundtrip.chin===.82&&roundtrip.eyeSpacing===.31,'Saved project parses with skirt, bone pose, shared color and face values');
+  click('undo');check(value('pants')===defaults.pants,'Undo restores the shared lower-garment color');
+  click('undo');check(Number(value('skirtSwing'))===0,'Undo restores neutral sway');
+  click('redo');click('redo');
+  check(Number(value('skirtSwing'))===.12&&value('pants')==='#795c84'&&facesMatch(),'Redo restores sway and color while retaining faces');
+  change('lowerGarment','trousers');change('lowerGarment','trousers');
+  check(trousersHidden()&&saved().skirtSwing===.12,'Trousers hide and disable sway while retaining its last pose');
+  change('lowerGarment','skirt');
+  check(skirtVisible()&&Number(value('skirtSwing'))===.12,'Switching back to skirt restores its previous sway');
+  click('undo');check(value('lowerGarment')==='trousers'&&trousersHidden(),'Undo switches back to trousers');
+  click('redo');check(value('lowerGarment')==='skirt'&&skirtVisible(),'Redo switches back to skirt');
+  const cancelled=await openGeneratedProject({...defaults,name:'Cancelled skirt import'},false);
+  check(cancelled&&value('name')==='Skirt UI QA'&&value('lowerGarment')==='skirt'&&Number(value('skirtSwing'))===.12&&facesMatch(),'Canceling an interrupted import preserves the edited skirt and face');
+  const importedOld={...old,name:'Imported old project',headWidth:.29};
+  await openGeneratedProject(importedOld,true);
+  check(value('name')==='Imported old project'&&value('lowerGarment')==='trousers'&&trousersHidden()&&Number(value('skirtSwing'))===0&&Number(value('headWidth'))===.29,'Opening an old project supplies garment defaults and retains its face values');
+  click('undo');check(value('lowerGarment')==='skirt'&&Number(value('skirtSwing'))===.12&&facesMatch(),'Import undo restores the prior skirt and face');
+  click('redo');check(value('name')==='Imported old project'&&trousersHidden(),'Import redo restores the older project');
+  click('undo');click('randomize');
+  check(value('lowerGarment')==='skirt'&&Number(value('skirtSwing'))===.12,'Randomize preserves garment choice and bone pose');
+  click('undo');check(facesMatch(),'Undo randomize restores distinct face edits');
+  doc.querySelector('[data-preset="angular"]').click();
+  check(value('lowerGarment')==='trousers'&&Number(value('skirtSwing'))===0&&trousersHidden()&&Number(value('chin'))===presets.angular.chin,'A distinct face preset uses trousers and neutral sway');
+  click('undo');check(value('lowerGarment')==='skirt'&&Number(value('skirtSwing'))===.12&&facesMatch(),'Undo preset restores garment and face edits');
+  change('skirtSwing',-.12);check(doc.getElementById('skirtSwing-value').textContent==='-6.9°','Negative sway endpoint is shown in degrees');
+  change('skirtSwing',0);check(doc.getElementById('skirtSwing-value').textContent==='Neutral','Zero sway has a neutral label');
+  change('skirtSwing',-.08);
+  const reloaded=new Promise(resolve=>frame.onload=resolve);win.location.reload();await reloaded;await ready();
+  check(value('lowerGarment')==='skirt'&&skirtVisible()&&Number(value('skirtSwing'))===-.08&&value('pants')==='#795c84'&&facesMatch(),'Reload restores skirt, sway, color and all tested face edits');
+  check(doc.getElementById('undo').disabled&&doc.getElementById('redo').disabled,'Reload starts a clean history without stale undo entries');
+  frame.style.width='375px';await new Promise(resolve=>win.requestAnimationFrame(()=>win.requestAnimationFrame(resolve)));
+  check(doc.documentElement.scrollWidth<=375,'Mobile skirt controls do not cause horizontal overflow');
+  frame.style.width='';
+  report.passed=true;
+}catch(error){report.error=error.message;output.textContent+='\nERROR '+error.message;}
+finally{
+  if(storageChanged){try{if(prior===null)localStorage.removeItem(key);else localStorage.setItem(key,prior);report.qaStorageRestored=true;}catch(error){report.passed=false;report.qaStorageRestored=false;report.error='Could not restore the QA autosave: '+error.message;}}
+  report.elapsedMs=Math.round(performance.now()-started);report.total=checks.length;report.failures=checks.filter(item=>!item.passed).length;
+  document.body.dataset.result=report.passed?'pass':'fail';
+  output.textContent+='\n'+(report.passed?'DONE':'FAILED')+' · '+report.total+' checks · '+report.elapsedMs+' ms';
+  output.textContent+='\nQA autosave '+(report.qaStorageRestored?'restored.':'not restored.');
+  document.querySelector('#download-report').disabled=false;
+}
+if(new URLSearchParams(location.search).has('capture')){const response=await fetch('/__qa/capture/skirt-controls-report.json',{method:'POST',body:new Blob([JSON.stringify(report,null,2)],{type:'application/json'})});output.textContent+='\nReport capture: HTTP '+response.status;}
+document.querySelector('#download-report').onclick=()=>{const link=document.createElement('a');link.href=URL.createObjectURL(new Blob([JSON.stringify(report,null,2)],{type:'application/json'}));link.download='skirt-controls-report.json';link.click();setTimeout(()=>URL.revokeObjectURL(link.href),5000);};
+</script>
+</html>

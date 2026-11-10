@@ -10,6 +10,12 @@
 
 ![Actual Mac hardware WebGL face view](docs/screenshots/persona-portrait-face.jpg)
 
+## Local skirt-rig milestone (unpublished)
+
+The working tree adds an original optional A-line skirt with nine garment-only auxiliary bones, editable fit morphs and a Hem sway control. The original 53-bone human, distinct faces and earlier garment fixes are preserved. Choose **A-line skirt** in Appearance → Outfit, then try Stride or Hem sway. This is bone posing, not cloth simulation. Existing projects still open with trousers. See [construction, verification and limits](docs/QA-SKIRT.md).
+
+![Actual localhost skirt comparison](docs/screenshots/persona-skirt-comparison.png)
+
 ## Run
 
 Node.js 18 or newer. The renderer and human assets are bundled locally; no npm install or runtime CDN request is required.

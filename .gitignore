@@ -55,3 +55,7 @@ playwright-report/
 # Reproducible QA downloads and Blender save backups
 artifacts/
 *.blend1
+
+# Python numerical validation caches
+__pycache__/
+*.py[cod]

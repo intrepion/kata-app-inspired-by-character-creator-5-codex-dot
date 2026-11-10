@@ -47,3 +47,9 @@ Run `blender -b --python-exit-code 1 --python tools/portrait-human.py` to apply 
 `tools/distinct-faces.py` creates nine paired geometric controls using original, deterministic shared-space deformation fields. The same fields deform the body head, sclera, iris, cornea, brows, lashes, scalp and hair fibers. All 18 new targets, three new preset recipes and their generator are MIT. The underlying CC0 anatomy, original MIT portrait textures and attachments retain their existing terms. No new third-party assets, image downloads or likenesses are used.
 
 Neutral source shape weights are explicitly zero. The added controls preserve the original geometry, UVs, skin weights, prior shape targets, materials and embedded image bytes from portrait commit `3a5fb77`; automated snapshot tests cover all ten meshes and eight embedded images. The roughness PNG post-process removes Blender-added color-profile metadata from linear data maps without changing compressed pixels.
+
+## Original auxiliary skirt (local milestone, November 2026)
+
+`src/skirt-rig.js` authors an original parametric A-line surface, UVs, build-fit morphs, auxiliary bone placements and normalized garment-only weights. The fit references the existing CC0 trousers contour without changing it. The new generator, garment topology and auxiliary pose/weight data are MIT under this repository's license. No TailorRig dataset, model, code, output or demo asset is included or used. No new third-party asset, texture, scan or likeness is downloaded. Existing human/portrait asset licenses are unchanged.
+
+The optional skirt is built locally in the runtime and retained in GLB exports; the existing `foundation.glb` and `foundation.blend` are byte-identical to the distinct-face baseline. See `docs/QA-SKIRT.md` for independent body-rig preservation and Blender editing evidence.

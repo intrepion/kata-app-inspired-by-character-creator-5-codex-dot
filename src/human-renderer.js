@@ -1,12 +1,13 @@
 import * as THREE from '../vendor/three.module.min.js';
 import {GLTFLoader} from '../vendor/loaders/GLTFLoader.js';
-import {applyPoseCorrectives,exportPoseClips} from './pose-morphs.js';
+import {applyPoseCorrectives,exportPoseClips,bindPoseClipsToUUID} from './pose-morphs.js';
 import {createHumanSoftwareRenderer} from './human-software-renderer.js';
 import {GLTFExporter} from '../vendor/exporters/GLTFExporter.js';
 import {measureBodyEnvelope,bodyCameraFrame,portraitCameraFrame} from './human-framing.js';
 import {ranges} from './project.js';
+import {createSkirtRig} from './skirt-rig.js';
 
-/** A locally bundled CC0 foundation with original MIT portrait additions. No network/CDN fallback. */
+/** A locally bundled CC0 foundation with original MIT portrait and skirt additions. No network/CDN fallback. */
 export async function createHumanRenderer(canvas) {
   let renderer, rendererMode='webgl';
   try {
@@ -75,7 +76,9 @@ export async function createHumanRenderer(canvas) {
     }
   });
   if(!meshes.some(mesh=>mesh.isSkinnedMesh) || !bones.size){renderer.dispose();throw new Error('The bundled model is missing its editable skin and skeleton.');}
-  const triangleCount=meshes.reduce((count,mesh)=>count+(mesh.geometry.index?.count||mesh.geometry.attributes.position.count)/3,0);
+  const skirt=createSkirtRig({human,pants:human.getObjectByName('Pants'),pelvis:bones.get('pelvis')});
+  meshes.push(skirt.mesh);
+  const visibleTriangleCount=()=>meshes.filter(mesh=>mesh.visible).reduce((count,mesh)=>count+(mesh.geometry.index?.count||mesh.geometry.attributes.position.count)/3,0);
   const mixer=new THREE.AnimationMixer(human);
   const clips=new Map(gltf.animations.map(clip=>[clip.name.toLowerCase(),clip]));
   const bodyEnvelopes=new Map();
@@ -127,6 +130,7 @@ export async function createHumanRenderer(canvas) {
         }
       }
     }
+    skirt.update(project);
     // Cache a reference for this pose, never the current height/body shape.
     if(!bodyEnvelopes.has(project.pose)){
       const savedYaw=orbit.rotation.y;
@@ -161,9 +165,12 @@ export async function createHumanRenderer(canvas) {
   async function exportGLB(name){
     if(!current)throw new Error('The character has not finished loading.');
     orbit.updateMatrixWorld(true);
-    const previous=human.name;human.name=name||previous;
-    try{return await new GLTFExporter().parseAsync(human,{binary:true,onlyVisible:true,trs:true,animations:exportPoseClips(gltf.animations,meshes,manifest.poseCorrectives).sort((a,b)=>Number(b.name===current.pose)-Number(a.name===current.pose)),includeCustomExtensions:false});}
+    const previous=human.name;
+    const poseClips=exportPoseClips(gltf.animations,meshes.filter(mesh=>mesh.visible),manifest.poseCorrectives);
+    const animations=bindPoseClipsToUUID(current.lowerGarment==='skirt'?skirt.extendClips(poseClips,current.skirtSwing):poseClips,human).sort((a,b)=>Number(b.name===current.pose)-Number(a.name===current.pose));
+    human.name=name||previous;
+    try{return await new GLTFExporter().parseAsync(human,{binary:true,onlyVisible:true,trs:true,animations,includeCustomExtensions:false});}
     finally{human.name=previous;}
   }
-  return {update,render,exportGLB,triangleCount,info:{mode:rendererMode,boneCount:bones.size,morphs:manifest.morphs,license:manifest.license||'See asset license manifest',gpu:rendererMode==='webgl'?renderer.getContext().getParameter(renderer.getContext().getExtension('WEBGL_debug_renderer_info')?.UNMASKED_RENDERER_WEBGL||renderer.getContext().RENDERER):'CPU'},dispose(){studioEnvironment?.dispose();mixer.stopAllAction();const textures=new Set(),materials=new Set();meshes.forEach(mesh=>{mesh.geometry.dispose();for(const material of Array.isArray(mesh.material)?mesh.material:[mesh.material]){materials.add(material);for(const value of Object.values(material))if(value?.isTexture)textures.add(value);}});textures.forEach(texture=>texture.dispose());materials.forEach(material=>material.dispose());renderer.dispose();}};
+  return {update,render,exportGLB,get triangleCount(){return visibleTriangleCount();},info:{mode:rendererMode,boneCount:bones.size,get auxiliaryBoneCount(){return current?.lowerGarment==='skirt'?skirt.bones.length:0;},morphs:manifest.morphs,license:manifest.license||'See asset license manifest',gpu:rendererMode==='webgl'?renderer.getContext().getParameter(renderer.getContext().getExtension('WEBGL_debug_renderer_info')?.UNMASKED_RENDERER_WEBGL||renderer.getContext().RENDERER):'CPU'},dispose(){studioEnvironment?.dispose();mixer.stopAllAction();const textures=new Set(),materials=new Set(),skeletons=new Set();meshes.forEach(mesh=>{if(mesh.skeleton)skeletons.add(mesh.skeleton);mesh.geometry.dispose();for(const material of Array.isArray(mesh.material)?mesh.material:[mesh.material]){materials.add(material);for(const value of Object.values(material))if(value?.isTexture)textures.add(value);}});textures.forEach(texture=>texture.dispose());materials.forEach(material=>material.dispose());skeletons.forEach(skeleton=>skeleton.dispose());renderer.dispose();}};
 }

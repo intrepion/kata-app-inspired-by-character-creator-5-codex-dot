@@ -6,3 +6,4 @@
 @media(max-width:420px){.view-top{align-items:flex-start}.view-top>div{flex-wrap:wrap;justify-content:flex-end;max-width:240px}.view-bottom{flex-wrap:wrap}.view-title{bottom:95px}.header-actions{justify-content:space-between}.header-actions button{padding:7px 9px}.presets{grid-template-columns:1fr}.preset{align-items:center;gap:12px}.preset small{font-size:10px}.preset b{font-size:12px}}
 /* Keep the whole character in view when a migration notice or control panel is tall. */
 @media(min-width:781px){.viewport{height:calc(100vh - 116px);min-height:620px;position:sticky;top:0;align-self:start}.view-title{bottom:60px}}
+.garment-selector{margin:0 0 14px}.colors label{display:flex;flex-direction:column;justify-content:space-between}#skirt-controls{margin-top:18px}#skirt-controls[hidden]{display:none}.garment-note{font-size:9px;line-height:1.5;color:#63705e;margin:0}
