@@ -1,6 +1,6 @@
 # Regional skin material pass
 
-Local prototype based on expression milestone `af1477d`. Nothing is published by this work.
+Implementation `7c3970a`, based on expression milestone `af1477d`, was approved for publication on 2026-11-10.
 
 ## What changed
 

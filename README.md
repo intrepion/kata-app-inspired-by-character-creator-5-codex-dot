@@ -12,7 +12,7 @@
 
 ## Regional skin prototype
 
-The local skin pass adds original 2048px region-aware color, pore detail and roughness over the licensed foundation skin. It also adds restrained ear/backlight response in the browser. **GLB retains the PBR textures, but not the browser-only light-scattering approximation.** Geometry, expressions and the editable rig remain intact. This is a step toward realism, not a new skin scan or fully photorealistic character. See [matched comparisons, Blender verification and limits](docs/QA-SKIN.md).
+The skin pass adds original 2048px region-aware color, pore detail and roughness over the licensed foundation skin. It also adds restrained ear/backlight response in the browser. **GLB retains the PBR textures, but not the browser-only light-scattering approximation.** Geometry, expressions and the editable rig remain intact. This is a step toward realism, not a new skin scan or fully photorealistic character. See [matched comparisons, Blender verification and limits](docs/QA-SKIN.md).
 
 ![Matched original and regional skin on Mac hardware WebGL](docs/screenshots/persona-skin-closeup.png)
 
