@@ -3,10 +3,10 @@ import {GLTFLoader} from '../vendor/loaders/GLTFLoader.js';
 import {applyPoseCorrectives,exportPoseClips} from './pose-morphs.js';
 import {createHumanSoftwareRenderer} from './human-software-renderer.js';
 import {GLTFExporter} from '../vendor/exporters/GLTFExporter.js';
-import {measureBodyEnvelope,bodyCameraFrame} from './human-framing.js';
+import {measureBodyEnvelope,bodyCameraFrame,portraitCameraFrame} from './human-framing.js';
 import {ranges} from './project.js';
 
-/** A single, locally bundled CC0 character. No network/CDN fallback. */
+/** A locally bundled CC0 foundation with original MIT portrait additions. No network/CDN fallback. */
 export async function createHumanRenderer(canvas) {
   let renderer, rendererMode='webgl';
   try {
@@ -20,20 +20,31 @@ export async function createHumanRenderer(canvas) {
   renderer.setPixelRatio(Math.min(globalThis.devicePixelRatio || 1, 2));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.15;
+  renderer.toneMappingExposure = 1.0;
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(29, 1, .01, 40);
   const orbit = new THREE.Group();
   scene.add(orbit);
-  scene.add(new THREE.HemisphereLight(0xf7f4ea, 0x6a7263, 2.3));
-  const key = new THREE.DirectionalLight(0xfff2e4, 3.1);
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x777777, .85));
+  const key = new THREE.DirectionalLight(0xffffff, 2.5);
   key.position.set(-2.8, 4.8, 4.2); key.castShadow=true;
   key.shadow.mapSize.set(1024,1024);
   Object.assign(key.shadow.camera,{left:-2,right:2,top:2,bottom:-2,near:.1,far:12});
   key.shadow.bias=-.0002; key.shadow.normalBias=.015; scene.add(key);
-  const fill = new THREE.DirectionalLight(0xd9e8f0, 1.2); fill.position.set(3,2,-2);scene.add(fill);
+  const fill = new THREE.DirectionalLight(0xffffff, .9); fill.position.set(3,2,3);scene.add(fill);
+  // Neutral studio cards provide actual reflected highlights, not painted eye dots.
+  let studioEnvironment;
+  if(rendererMode==='webgl'){
+    const studio=new THREE.Scene();studio.background=new THREE.Color(.18,.18,.18);
+    for(const [x,y,z,w,h,power] of [[-2,3,3,2,3,4],[3,2,2,1,2,2]]){
+      const card=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({color:new THREE.Color(power,power,power),side:THREE.DoubleSide}));
+      card.position.set(x,y,z);card.lookAt(0,1,0);studio.add(card);
+    }
+    const pmrem=new THREE.PMREMGenerator(renderer);studioEnvironment=pmrem.fromScene(studio,.05);scene.environment=studioEnvironment.texture;
+    studio.traverse(o=>{o.geometry?.dispose();o.material?.dispose();});pmrem.dispose();
+  }
   const floor = new THREE.Mesh(new THREE.CircleGeometry(3,64),new THREE.ShadowMaterial({opacity:.13}));
   floor.name='StudioShadow';
   floor.rotation.x=-Math.PI/2; floor.position.y=.002; floor.receiveShadow=true;scene.add(floor);
@@ -57,7 +68,8 @@ export async function createHumanRenderer(canvas) {
     if(object.isBone){bones.set(object.name,object);rest.set(object.name,{quaternion:object.quaternion.clone(),position:object.position.clone(),scale:object.scale.clone()});}
     if(object.isMesh){object.castShadow=true;object.receiveShadow=true;object.frustumCulled=false;meshes.push(object);
       for(const material of Array.isArray(object.material)?object.material:[object.material]){
-        material.userData.baseColor=material.color.clone();
+        material.userData.baseColor=material.color.clone();material.envMapIntensity=.65;
+        if(material.name==='Cornea'){material.depthWrite=false;}
         if(material.map)material.map.anisotropy=Math.min(renderer.capabilities.getMaxAnisotropy(),8);
       }
     }
@@ -137,14 +149,13 @@ export async function createHumanRenderer(canvas) {
     orbit.rotation.y=yaw;
     orbit.updateMatrixWorld(true);
     meshes.forEach(mesh=>mesh.skeleton?.update());
-    let targetY, distance;
+    let targetX=0,targetZ=0,targetY,distance;
     if(focus==='face'){
-      targetY=(manifest.faceTargetY || 1.44)*scale;
-      distance=Math.max(.18/camera.aspect,.25)/Math.tan(THREE.MathUtils.degToRad(camera.fov/2));
+      ({targetX,targetY,targetZ,distance}=portraitCameraFrame(manifest.faceTargetY||1.44,manifest.faceTargetZ??.045,scale,yaw,camera.aspect,camera.fov));
     }else{
       ({targetY,distance}=bodyCameraFrame(bodyEnvelopes.get(current.pose),camera.aspect,camera.fov));
     }
-    camera.position.set(0,targetY+.04,distance);camera.lookAt(0,targetY,0);camera.updateProjectionMatrix();
+    camera.position.set(targetX,targetY+.04*(focus==='face'?scale:1),targetZ+distance);camera.lookAt(targetX,targetY,targetZ);camera.updateProjectionMatrix();
     renderer.render(scene,camera);
   }
   async function exportGLB(name){
@@ -154,5 +165,5 @@ export async function createHumanRenderer(canvas) {
     try{return await new GLTFExporter().parseAsync(human,{binary:true,onlyVisible:true,trs:true,animations:exportPoseClips(gltf.animations,meshes,manifest.poseCorrectives).sort((a,b)=>Number(b.name===current.pose)-Number(a.name===current.pose)),includeCustomExtensions:false});}
     finally{human.name=previous;}
   }
-  return {update,render,exportGLB,triangleCount,info:{mode:rendererMode,boneCount:bones.size,morphs:manifest.morphs,license:manifest.license||'See asset license manifest'},dispose(){mixer.stopAllAction();meshes.forEach(mesh=>{mesh.geometry.dispose();for(const material of Array.isArray(mesh.material)?mesh.material:[mesh.material])material.dispose();});renderer.dispose();}};
+  return {update,render,exportGLB,triangleCount,info:{mode:rendererMode,boneCount:bones.size,morphs:manifest.morphs,license:manifest.license||'See asset license manifest',gpu:rendererMode==='webgl'?renderer.getContext().getParameter(renderer.getContext().getExtension('WEBGL_debug_renderer_info')?.UNMASKED_RENDERER_WEBGL||renderer.getContext().RENDERER):'CPU'},dispose(){studioEnvironment?.dispose();mixer.stopAllAction();const textures=new Set(),materials=new Set();meshes.forEach(mesh=>{mesh.geometry.dispose();for(const material of Array.isArray(mesh.material)?mesh.material:[mesh.material]){materials.add(material);for(const value of Object.values(material))if(value?.isTexture)textures.add(value);}});textures.forEach(texture=>texture.dispose());materials.forEach(material=>material.dispose());renderer.dispose();}};
 }

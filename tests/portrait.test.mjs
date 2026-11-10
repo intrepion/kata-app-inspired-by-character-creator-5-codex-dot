@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {defaults,validate,migrate} from '../src/project.js';
+async function asset(){const b=await readFile(new URL('../assets/human/foundation.glb',import.meta.url));return JSON.parse(b.subarray(20,20+b.readUInt32LE(12)).toString());}
+test('portrait keeps old version 2 projects compatible and validates optional new eye color',()=>{assert.match(defaults.eyeColor,/^#[a-f0-9]{6}$/);const old={...defaults};delete old.eyeColor;assert.equal(validate(old).eyeColor,defaults.eyeColor);assert.equal(migrate(old).project.eyeColor,defaults.eyeColor);assert.equal(validate({...defaults,eyeColor:'#5678ab'}).eyeColor,'#5678ab');assert.throws(()=>validate({...defaults,eyeColor:'blue'}),/eyeColor/);});
+test('portrait embeds original skin detail, roughness and hair textures',async()=>{const gltf=await asset();const skin=gltf.materials.find(m=>m.name==='Skin');assert.ok(skin.normalTexture,'skin normal map');assert.ok(skin.pbrMetallicRoughness.metallicRoughnessTexture,'skin roughness map');const hair=gltf.materials.find(m=>m.name==='Hair');assert.ok(hair.pbrMetallicRoughness.baseColorTexture,'textured hair');assert.ok(gltf.images.every(i=>i.bufferView!==undefined));});
+test('portrait retains fitted brows, lashes, iris and glossy cornea on weighted geometry',async()=>{const gltf=await asset();for(const name of ['Brows','Lashes','Iris','Cornea']){const mesh=gltf.meshes.find(m=>m.name===name);assert.ok(mesh,name);assert.ok(mesh.primitives.every(p=>p.attributes.JOINTS_0!==undefined&&p.attributes.WEIGHTS_0!==undefined),name+' weights');}for(const name of ['Brows','Lashes']){const mesh=gltf.meshes.find(m=>m.name===name);assert.ok(mesh.extras.targetNames.includes('EyesLarge'),name+' follows eye shape');}assert.ok(gltf.materials.find(m=>m.name==='Cornea').extensions?.KHR_materials_clearcoat);});
+
+test('portrait rebuild retains exactly four unique authored pose clips',async()=>{const gltf=await asset();assert.deepEqual(gltf.animations.map(a=>a.name).sort(),['relaxed','stride','tpose','wave']);});

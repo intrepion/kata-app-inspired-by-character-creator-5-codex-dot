@@ -62,3 +62,14 @@ test('pose corrective influences stay fixed in the reference while appearance co
   assert.ok(Math.abs(corrected.maxY-uncorrected.maxY-.2*1.1)<1e-6);
   assert.ok(corrected.radius>uncorrected.radius);
 });
+
+test('portrait framing follows the offset head through profile and keeps its envelope visible',async()=>{
+  const {portraitCameraFrame}=await import('../src/human-framing.js');assert.equal(typeof portraitCameraFrame,'function');
+  for(const aspect of [.45,360/440,1.5])for(const yaw of [0,.55,Math.PI/2,Math.PI])for(const scale of [.9,1.1]){
+    const f=portraitCameraFrame(1.461,.045,scale,yaw,aspect,29);
+    const camera=new THREE.PerspectiveCamera(29,aspect,.01,40);camera.position.set(f.targetX,f.targetY+.04*scale,f.targetZ+f.distance);camera.lookAt(f.targetX,f.targetY,f.targetZ);camera.updateMatrixWorld(true);
+    for(const x of [-.08,.08])for(const z of [-.055,.16])for(const y of [1.37,1.584]){
+      const p=new THREE.Vector3(x,y,z).multiplyScalar(scale).applyAxisAngle(new THREE.Vector3(0,1,0),yaw).project(camera);assert.ok(Math.abs(p.x)<.99&&Math.abs(p.y)<.99,JSON.stringify({aspect,yaw,scale,p}));
+    }
+  }
+});

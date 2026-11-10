@@ -62,3 +62,10 @@ export function bodyCameraFrame(envelope,aspect,fov){
   return {targetY:(envelope.minY+envelope.maxY)/2,
     distance:halfFrame/Math.tan(fov*Math.PI/360)+envelope.radius};
 }
+
+/** The anatomical head sits in front of the rig origin. Orbit its center too,
+ * otherwise a tight profile view clips the nose at narrow viewport widths. */
+export function portraitCameraFrame(faceY,faceZ,scale,yaw,aspect,fov){
+  const halfFrame=Math.max(.15/aspect,.19)*scale;
+  return {targetX:Math.sin(yaw)*faceZ*scale,targetY:faceY*scale,targetZ:Math.cos(yaw)*faceZ*scale,distance:halfFrame/Math.tan(fov*Math.PI/360)};
+}

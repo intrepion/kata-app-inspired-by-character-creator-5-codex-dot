@@ -1,4 +1,11 @@
 {
   "skin.png": "862a26e335e958b70534cb5f0d7c47ef30ab148a56c42b3e9da969cf76f12963",
-  "foundation.blend": "2b2944ce86f047a47417f02c32300e109a04ee65f4607238d24728ccdd94b2c4"
+  "foundation.blend": "6d6335d7f967487a83cc102ec29b8345f9e04bc0ccbb6b2ba00ce44f75f3294d",
+  "portrait_brow.png": "e409753c20af3052dd746a942873cf3cc927e254a3bdb1b61f7f3bd9d98fa8d2",
+  "portrait_hair_roughness.png": "eabf7fb224f418e6601c539236d7646e9160fe7c959b3a25598107ab4debc4a0",
+  "portrait_hair_cap.png": "1316b2c33b31d895c42d59a259dfcef35be61d61335370e05d4aaadf495ec0e1",
+  "portrait_skin_roughness.png": "215ffdb7e29c28388440939bb99ab0b5034b761990d66b6aaaecc4637af68237",
+  "portrait_iris.png": "8774d4995f2e5734172c4b6d0eabe5d00674a30c7ca0b494944652f984283d99",
+  "portrait_hair.png": "5b882d3b8d8d3c7e8c4425aece494b77730a0eeb87099dbba7ee343c081f999d",
+  "portrait_skin_normal.png": "490d4f3c580c1202a9a8f3378d05f365f2b409a8201b7b03733925ed9a7c12ca"
 }

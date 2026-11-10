@@ -17,6 +17,7 @@ fetch makehuman a8bc2d54ff0ac92e78ff71431b1023eda42bf482
 export MPFB_SOURCE="$CACHE/mpfb2" MH_SOURCE="$CACHE/makehuman"
 export XDG_CONFIG_HOME="$CACHE/config" BLENDER_USER_RESOURCES="$CACHE/blender"
 blender -b --python-exit-code 1 --python "$ROOT/tools/build-human.py"
+blender -b --python-exit-code 1 --python "$ROOT/tools/portrait-human.py"
 blender -b --python-exit-code 1 --python "$ROOT/tools/validate-human.py"
 
 # Verify saved corrective keys and the actual portable skinning, not only topology.

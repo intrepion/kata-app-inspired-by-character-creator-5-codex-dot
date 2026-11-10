@@ -7,7 +7,7 @@
 ## Verified sources
 
 - **Base mesh, macro targets, face/body targets, game-engine rig, skinning weights, clothing and scalp helper topology:** [MakeHuman Community MPFB2](https://github.com/makehumancommunity/mpfb2/tree/6ff1eb358f6c1959ced77e79e6dd2406d9a71f49), commit `6ff1eb358f6c1959ced77e79e6dd2406d9a71f49`. Asset license **CC0 1.0**. The repository's `LICENSE.md`, section C, explicitly covers meshes, targets, textures, clothes, rigs, poses, expressions and mesh metadata. The base OBJ also declares its September 2020 CC0 release. The code is GPLv3; it is a build-time dependency, not shipped as application code. Saved/exported output is addressed separately in section D.
-- **Eye geometry, fitting data and brown eye texture:** [MakeHuman](https://github.com/makehumancommunity/makehuman/tree/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/eyes), commit `a8bc2d54ff0ac92e78ff71431b1023eda42bf482`. `high-poly/high-poly.mhclo` and `materials/brown.mhmat` explicitly declare **CC0**. The corresponding OBJ and `brown_eye.png` are the referenced assets.
+- **Eye geometry, fitting data and original foundation brown eye texture (the portrait build replaces its material):** [MakeHuman](https://github.com/makehumancommunity/makehuman/tree/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/eyes), commit `a8bc2d54ff0ac92e78ff71431b1023eda42bf482`. `high-poly/high-poly.mhclo` and `materials/brown.mhmat` explicitly declare **CC0**. The corresponding OBJ and `brown_eye.png` are the referenced assets.
 - **UV skin texture:** `skins/young_caucasian_male/young_lightskinned_male_diffuse.png` from the official [MakeHuman system assets CC0 pack](https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html), downloaded November 2026. The material file explicitly declares the September 2020 **CC0** release and references this exact PNG. The material name internally says `old_caucasian_male_detailed`, but its directory, tags and diffuse reference identify the young adult texture; filename provenance is preserved here rather than rewritten. This is an original MakeHuman texture, not a generated skin approximation.
 
 The explicit copyright holders identified in MakeHuman's asset headers at the time of CC0 release were Data Collection AB, Joel Palmius, and Jonas Hauquier. Attribution is retained as provenance although CC0 does not require it.
@@ -15,10 +15,10 @@ The explicit copyright holders identified in MakeHuman's asset headers at the ti
 ## Authored derivatives
 
 - `Outfit` and `Pants` are new fitted sportswear surfaces extracted and offset from MPFB's CC0 `helper-tights` topology, with preserved UVs, source skinning weights and the same body shape keys. They are separate meshes, not recolored body faces.
-- `HairCrop` is an original cropped scalp shell derived from the continuous CC0 anatomical head surface. It is a simple solid crop, not strand-groom hair.
+- `HairCrop` is an original cropped scalp shell derived from the continuous CC0 anatomical head surface. The portrait revision fits this underlay closer to skin and adds an original dithered fade and tapered ribbon fibers. It is not a production strand groom.
 - Pose actions `relaxed`, `tpose`, `wave`, `stride`, material choices and target combinations are authored for this project. The asset derivatives are provided under CC0 to the extent any rights subsist.
 
-License evidence is retained under `assets/source/licenses/`, including the complete CC0 text, MPFB license explanation, exact skin material header and official pack manifest. Runtime GLB embeds both skin and eye image data. No runtime network request is needed.
+License evidence is retained under `assets/source/licenses/`, including the complete CC0 text, MPFB license explanation, exact skin material header and official pack manifest. The portrait runtime GLB embeds skin, procedural detail, iris and hair images. No runtime network request is needed.
 
 ## Rebuild and validation
 
@@ -29,3 +29,15 @@ Requires Blender 4.3+ and git. Run `tools/rebuild-human.sh` to fetch the pinned 
 ## Known boundaries
 
 This is a foundational neutral adult with a small set of moderate morph ranges, not a full demographic library or production facial animation rig. Skin color tinting does not change anatomical ancestry. The outfit is fitted prototype sportswear, not simulated cloth. Height is whole-character scaling. Face controls use authored MakeHuman targets; body controls also propagate to the clothing. Eye geometry is fitted in the source rest shape, so eye-size adjustments are deliberately modest. Additional extreme/custom shape combinations require collision and rig-fit review.
+
+## Original portrait additions (November 2026)
+
+`tools/portrait-human.py` generates all new portrait maps and attachments from deterministic numeric functions and authored curves. No external image, proprietary Character Creator content, community hair asset, or likeness was downloaded. These new additions and their generator are provided under the repository MIT license. Existing foundation components retain their CC0 terms.
+
+- `portrait_skin_normal.png`, `portrait_skin_roughness.png`: seeded microdetail, layered on the unchanged CC0 diffuse texture. Not a scan or biological skin simulation.
+- `portrait_hair.png`, `portrait_hair_cap.png`, `portrait_hair_roughness.png`, `portrait_brow.png`: original seeded grayscale strand/detail textures and a scalp-boundary fade.
+- `portrait_iris.png`: radial fibers, pupil and limbal ring without a painted catchlight.
+- `HairStrands`, `Brows`, `Lashes`, `Iris`, `Cornea`: original generated geometry, fitted to the licensed foundation and assigned inherited skin weights. Brows/lashes retain facial morphs.
+- Neutral reflection cards are generated in Three.js. No HDR environment photograph is bundled.
+
+Run `blender -b --python-exit-code 1 --python tools/portrait-human.py` to apply the repeatable portrait layer to the retained source. The full rebuild script runs it after regenerating the foundation. Four existing poses and all approved body/garment buffers are preserved.

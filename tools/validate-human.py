@@ -9,6 +9,7 @@ bpy.ops.import_scene.gltf(filepath=str(input_path))
 # Three.js names mesh nodes, while Blender may name their animated mesh data Mesh_N.
 # Materials retain stable semantic names in both the source GLB and browser export.
 def role(o):
+ if o.name.split('.')[0]=='HairStrands':return 'HairStrands'
  return next((name for material,name in [('Skin','HumanBody'),('Outfit','Outfit'),('Pants','Pants'),('Hair','HairCrop')] if any(m and m.name.split('.')[0]==material for m in o.data.materials)),o.data.name)
 rig=next(o for o in bpy.context.scene.objects if o.type=='ARMATURE');body=next(o for o in bpy.context.scene.objects if o.type=='MESH' and role(o)=='HumanBody');meshes=[o for o in bpy.context.scene.objects if o.type=='MESH' and any(m.type=='ARMATURE' for m in o.modifiers)]
 report={'blender':bpy.app.version_string,'source':input_path.name,'bones':len(rig.data.bones),'meshes':{},'animations':[a.name for a in bpy.data.actions]}
@@ -17,7 +18,7 @@ for o in meshes:
  report['meshes'][o.name]={'vertices':len(o.data.vertices),'faces':len(o.data.polygons),'uvLayers':len(o.data.uv_layers),'morphs':[k.name for k in o.data.shape_keys.key_blocks] if o.data.shape_keys else [],'unweightedVertices':sum(x<.98 for x in sums),'materials':[m.name for m in o.data.materials]}
 def vertices():
  bpy.context.view_layer.update();ev=body.evaluated_get(bpy.context.evaluated_depsgraph_get());return [v.co.copy() for v in ev.data.vertices]
-rig.animation_data_clear();base=vertices();body.data.shape_keys.key_blocks['JawBroad'].value=1;changed=vertices();report['morphEditMaxDelta']=max((a-b).length for a,b in zip(base,changed));body.data.shape_keys.key_blocks['JawBroad'].value=0
+rig.animation_data_clear();base=vertices();jaw=body.data.shape_keys.key_blocks['JawBroad'];original_jaw=jaw.value;jaw.value=0 if original_jaw>=.5 else 1;changed=vertices();report['morphEditMaxDelta']=max((a-b).length for a,b in zip(base,changed));jaw.value=original_jaw
 base=vertices();b=rig.pose.bones['lowerarm_l'];b.rotation_mode='XYZ';b.rotation_euler.x+=.5;changed=vertices();report['boneEditMaxDelta']=max((a-b).length for a,b in zip(base,changed));b.rotation_euler.x-=.5
 # glTF UV seam splits are welded by position for connected-surface checks.
 for o in meshes:

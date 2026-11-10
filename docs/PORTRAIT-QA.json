@@ -1,0 +1,37 @@
+{
+  "runtimeAssetSHA256": "cf82a4d2dbc41509d413662829e15246d574c45d7f4d33412ecf7bb053206b0b",
+  "nodeTests": {
+    "passed": 51,
+    "failed": 0
+  },
+  "bodyGarmentBuffersPreserved": 93,
+  "maxSourceGLBPoseErrorMeters": 1.1581759185685542e-06,
+  "mac": {
+    "gpu": "ANGLE Metal Renderer: Apple M1",
+    "hardwareWebGL": true,
+    "browserFlowAssertions": 20,
+    "forcedSoftwareAssertions": 20,
+    "portraitViews": [
+      "front",
+      "three-quarter",
+      "profile",
+      "bald",
+      "small face",
+      "broad face"
+    ],
+    "blender": "5.2.3",
+    "exportBytes": 27902392,
+    "exportSHA256": "7f5085a923169718e675451e837bb4dd2e87cd59d7afab2c91669d55a1f59085",
+    "bones": 53,
+    "uniquePoses": 4,
+    "unweightedVertices": 0,
+    "jawEditDeltaMeters": 0.006547,
+    "armEditDeltaMeters": 0.197016
+  },
+  "limitations": [
+    "Original procedural short hairstyle remains stylized, not photorealistic.",
+    "Skin microdetail is synthetic; skin colors are tints of one diffuse source.",
+    "CPU fallback omits normal-map response and reflection/clearcoat lighting."
+  ],
+  "published": false
+}

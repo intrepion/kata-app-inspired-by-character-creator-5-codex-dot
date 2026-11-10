@@ -3,6 +3,16 @@
   "source": "foundation.glb",
   "bones": 53,
   "meshes": {
+    "Cornea": {
+      "vertices": 770,
+      "faces": 1440,
+      "uvLayers": 1,
+      "morphs": [],
+      "unweightedVertices": 0,
+      "materials": [
+        "Cornea"
+      ]
+    },
     "Eyes": {
       "vertices": 1076,
       "faces": 2040,
@@ -14,7 +24,7 @@
       ]
     },
     "HairCrop": {
-      "vertices": 258,
+      "vertices": 248,
       "faces": 428,
       "uvLayers": 1,
       "morphs": [
@@ -36,6 +46,63 @@
       ],
       "connectedSurfaceSizes": [
         248
+      ]
+    },
+    "HairStrands": {
+      "vertices": 30000,
+      "faces": 24000,
+      "uvLayers": 1,
+      "morphs": [
+        "Basis",
+        "BuildNarrow",
+        "BuildBroad",
+        "ShouldersNarrow",
+        "ShouldersBroad",
+        "JawNarrow",
+        "JawBroad",
+        "NoseNarrow",
+        "NoseBroad",
+        "EyesSmall",
+        "EyesLarge"
+      ],
+      "unweightedVertices": 0,
+      "materials": [
+        "HairStrands"
+      ]
+    },
+    "Iris": {
+      "vertices": 770,
+      "faces": 1440,
+      "uvLayers": 1,
+      "morphs": [],
+      "unweightedVertices": 0,
+      "materials": [
+        "Iris"
+      ]
+    },
+    "Brows.001": {
+      "vertices": 3200,
+      "faces": 2400,
+      "uvLayers": 1,
+      "morphs": [
+        "Basis",
+        "BuildNarrow",
+        "BuildBroad",
+        "ShouldersNarrow",
+        "ShouldersBroad",
+        "JawNarrow",
+        "JawBroad",
+        "NoseNarrow",
+        "NoseBroad",
+        "EyesSmall",
+        "EyesLarge",
+        "PoseTpose",
+        "PoseWave",
+        "PoseStride"
+      ],
+      "unweightedVertices": 0,
+      "materials": [
+        "Brows"
       ]
     },
     "HumanBody.001": {
@@ -61,6 +128,31 @@
       "unweightedVertices": 0,
       "materials": [
         "Skin"
+      ]
+    },
+    "Lashes.001": {
+      "vertices": 880,
+      "faces": 660,
+      "uvLayers": 1,
+      "morphs": [
+        "Basis",
+        "BuildNarrow",
+        "BuildBroad",
+        "ShouldersNarrow",
+        "ShouldersBroad",
+        "JawNarrow",
+        "JawBroad",
+        "NoseNarrow",
+        "NoseBroad",
+        "EyesSmall",
+        "EyesLarge",
+        "PoseTpose",
+        "PoseWave",
+        "PoseStride"
+      ],
+      "unweightedVertices": 0,
+      "materials": [
+        "Lashes"
       ]
     },
     "Outfit.001": {
@@ -121,20 +213,28 @@
     }
   },
   "animations": [
+    "relaxed_Brows.001",
     "relaxed_FoundationRig",
     "relaxed_HumanBody.001",
+    "relaxed_Lashes.001",
     "relaxed_Outfit.001",
     "relaxed_Pants.001",
+    "stride_Brows.001",
     "stride_FoundationRig",
     "stride_HumanBody.001",
+    "stride_Lashes.001",
     "stride_Outfit.001",
     "stride_Pants.001",
+    "tpose_Brows.001",
     "tpose_FoundationRig",
     "tpose_HumanBody.001",
+    "tpose_Lashes.001",
     "tpose_Outfit.001",
     "tpose_Pants.001",
+    "wave_Brows.001",
     "wave_FoundationRig",
     "wave_HumanBody.001",
+    "wave_Lashes.001",
     "wave_Outfit.001",
     "wave_Pants.001"
   ],
@@ -142,7 +242,37 @@
   "boneEditMaxDelta": 0.19701606478321704,
   "embeddedImages": [
     {
-      "name": "brown_eye",
+      "name": "portrait_brow",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "name": "portrait_hair",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "name": "portrait_hair_cap",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "name": "portrait_hair_roughness",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "name": "portrait_iris",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "name": "portrait_skin_normal",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "name": "portrait_skin_roughness",
       "width": 1024,
       "height": 1024
     },

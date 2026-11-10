@@ -29,10 +29,16 @@
     "skin": "Skin",
     "outfit": "Outfit",
     "pants": "Pants",
-    "hairColor": "Hair"
+    "hairColor": [
+      "Hair",
+      "HairStrands",
+      "Brows"
+    ],
+    "eyeColor": "Iris"
   },
   "hairMeshes": [
-    "HairCrop"
+    "HairCrop",
+    "HairStrands"
   ],
   "skinReference": "#b88a6a",
   "faceTargetY": 1.461,
@@ -48,5 +54,19 @@
     "stride": "PoseStride"
   },
   "source": "../source/foundation.blend",
-  "license": "CC0-1.0 (see docs/ASSET-LICENSES.md)"
+  "license": "CC0-1.0 foundation + MIT original portrait additions (see docs/ASSET-LICENSES.md)",
+  "portrait": {
+    "version": 1,
+    "originalDetails": [
+      "normal",
+      "roughness",
+      "hair",
+      "brows",
+      "lashes",
+      "iris",
+      "cornea"
+    ],
+    "license": "MIT (generated original detail); existing foundation CC0"
+  },
+  "faceTargetZ": 0.045
 }
