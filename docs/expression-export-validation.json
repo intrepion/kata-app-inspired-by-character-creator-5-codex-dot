@@ -1,0 +1,629 @@
+{
+  "passed": true,
+  "verified": [
+    {
+      "file": "expression-neutral.glb",
+      "sha256": "d2f06ff68b620a86b76b559d1bb94bc138bdfd6416bad46680e89231b748a89b",
+      "bytes": 56281956,
+      "bodyBones": 53,
+      "auxiliaryBones": 0,
+      "preservedBodyMeshes": [
+        "Brows",
+        "Cornea",
+        "Eyes",
+        "HairCrop",
+        "HairStrands",
+        "HumanBody",
+        "Iris",
+        "Lashes",
+        "Outfit",
+        "Pants"
+      ],
+      "maxOriginalBindMatrixError": 0,
+      "maxBodyWeightRoundingDifference": 1.1920928955078125e-07,
+      "bodyPoseSamplesCompared": 4240,
+      "clips": [
+        "relaxed",
+        "stride",
+        "tpose",
+        "wave"
+      ],
+      "skirt": null,
+      "maxOriginalNormalDifference": 0,
+      "maxOriginalMorphNormalDifference": 0,
+      "eyes": {
+        "HumanBody": {
+          "selectedWeights": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "maximumAbsoluteDeltasMeters": {
+            "BlinkLeft": 0.008829072117805481,
+            "BlinkRight": 0.008829072117805481,
+            "GazeLeft": 0.0,
+            "GazeRight": 0.0,
+            "GazeUp": 0.001799941062927246,
+            "GazeDown": 0.001799941062927246,
+            "BlinkLeftGazeUp": 0.001799941062927246,
+            "BlinkLeftGazeDown": 0.001799941062927246,
+            "BlinkRightGazeUp": 0.001799941062927246,
+            "BlinkRightGazeDown": 0.001799941062927246
+          }
+        },
+        "Lashes": {
+          "selectedWeights": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "maximumAbsoluteDeltasMeters": {
+            "BlinkLeft": 0.006469219923019409,
+            "BlinkRight": 0.006469219923019409,
+            "GazeLeft": 0.0,
+            "GazeRight": 0.0,
+            "GazeUp": 0.001799941062927246,
+            "GazeDown": 0.001799941062927246,
+            "BlinkLeftGazeUp": 0.001799941062927246,
+            "BlinkLeftGazeDown": 0.001799941062927246,
+            "BlinkRightGazeUp": 0.001799941062927246,
+            "BlinkRightGazeDown": 0.001799941062927246
+          }
+        },
+        "Eyes": {
+          "selectedWeights": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "maximumAbsoluteDeltasMeters": {
+            "BlinkLeft": 0.0,
+            "BlinkRight": 0.0,
+            "GazeLeft": 0.003654107451438904,
+            "GazeRight": 0.003654107451438904,
+            "GazeUp": 0.0020901933312416077,
+            "GazeDown": 0.002039298415184021,
+            "BlinkLeftGazeUp": 0.0,
+            "BlinkLeftGazeDown": 0.0,
+            "BlinkRightGazeUp": 0.0,
+            "BlinkRightGazeDown": 0.0
+          }
+        },
+        "Iris": {
+          "selectedWeights": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "maximumAbsoluteDeltasMeters": {
+            "BlinkLeft": 0.0,
+            "BlinkRight": 0.0,
+            "GazeLeft": 0.0026260223239660263,
+            "GazeRight": 0.0026260223239660263,
+            "GazeUp": 0.0017472505569458008,
+            "GazeDown": 0.0017472505569458008,
+            "BlinkLeftGazeUp": 0.0,
+            "BlinkLeftGazeDown": 0.0,
+            "BlinkRightGazeUp": 0.0,
+            "BlinkRightGazeDown": 0.0
+          }
+        },
+        "Cornea": {
+          "selectedWeights": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "maximumAbsoluteDeltasMeters": {
+            "BlinkLeft": 0.0,
+            "BlinkRight": 0.0,
+            "GazeLeft": 0.0026629865169525146,
+            "GazeRight": 0.0026629865169525146,
+            "GazeUp": 0.0017720460891723633,
+            "GazeDown": 0.0017720460891723633,
+            "BlinkLeftGazeUp": 0.0,
+            "BlinkLeftGazeDown": 0.0,
+            "BlinkRightGazeUp": 0.0,
+            "BlinkRightGazeDown": 0.0
+          }
+        }
+      },
+      "expressions": {
+        "HumanBody": {
+          "selectedWeights": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "maximumAbsoluteDeltasMeters": {
+            "Smile": 0.0067996978759765625,
+            "Frown": 0.005299806594848633,
+            "BrowRaise": 0.00799870491027832,
+            "BrowFurrow": 0.004511713981628418
+          }
+        },
+        "Brows": {
+          "selectedWeights": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "maximumAbsoluteDeltasMeters": {
+            "Smile": 0.0,
+            "Frown": 0.0,
+            "BrowRaise": 0.008000016212463379,
+            "BrowFurrow": 0.004599928855895996
+          }
+        }
+      }
+    },
+    {
+      "file": "expression-smile.glb",
+      "sha256": "866b4232d9ff8d41ec1027273c1aa6bb4888491b9ffa0e948d85707258414a1b",
+      "bytes": 56284064,
+      "bodyBones": 53,
+      "auxiliaryBones": 0,
+      "preservedBodyMeshes": [
+        "Brows",
+        "Cornea",
+        "Eyes",
+        "HairCrop",
+        "HairStrands",
+        "HumanBody",
+        "Iris",
+        "Lashes",
+        "Outfit",
+        "Pants"
+      ],
+      "maxOriginalBindMatrixError": 0,
+      "maxBodyWeightRoundingDifference": 1.1920928955078125e-07,
+      "bodyPoseSamplesCompared": 4240,
+      "clips": [
+        "relaxed",
+        "stride",
+        "tpose",
+        "wave"
+      ],
+      "skirt": null,
+      "maxOriginalNormalDifference": 0,
+      "maxOriginalMorphNormalDifference": 0,
+      "eyes": {
+        "HumanBody": {
+          "selectedWeights": [
+            1,
+            0.12,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0.12,
+            0
+          ],
+          "maximumAbsoluteDeltasMeters": {
+            "BlinkLeft": 0.010367177426815033,
+            "BlinkRight": 0.010367177426815033,
+            "GazeLeft": 0.0,
+            "GazeRight": 0.0,
+            "GazeUp": 0.001828312873840332,
+            "GazeDown": 0.0018053054809570312,
+            "BlinkLeftGazeUp": 0.001828312873840332,
+            "BlinkLeftGazeDown": 0.0018053054809570312,
+            "BlinkRightGazeUp": 0.001828312873840332,
+            "BlinkRightGazeDown": 0.0018053054809570312
+          }
+        },
+        "Lashes": {
+          "selectedWeights": [
+            1,
+            0.12,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0.12,
+            0
+          ],
+          "maximumAbsoluteDeltasMeters": {
+            "BlinkLeft": 0.005308061838150024,
+            "BlinkRight": 0.005308076739311218,
+            "GazeLeft": 0.0,
+            "GazeRight": 0.0,
+            "GazeUp": 0.001827239990234375,
+            "GazeDown": 0.0017970800399780273,
+            "BlinkLeftGazeUp": 0.001827239990234375,
+            "BlinkLeftGazeDown": 0.0017970800399780273,
+            "BlinkRightGazeUp": 0.001827239990234375,
+            "BlinkRightGazeDown": 0.0017970800399780273
+          }
+        },
+        "Eyes": {
+          "selectedWeights": [
+            1,
+            0.12,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0.12,
+            0
+          ],
+          "maximumAbsoluteDeltasMeters": {
+            "BlinkLeft": 0.0,
+            "BlinkRight": 0.0,
+            "GazeLeft": 0.004283808171749115,
+            "GazeRight": 0.004283808171749115,
+            "GazeUp": 0.002013586461544037,
+            "GazeDown": 0.0020610690116882324,
+            "BlinkLeftGazeUp": 0.0,
+            "BlinkLeftGazeDown": 0.0,
+            "BlinkRightGazeUp": 0.0,
+            "BlinkRightGazeDown": 0.0
+          }
+        },
+        "Iris": {
+          "selectedWeights": [
+            1,
+            0.12,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0.12,
+            0
+          ],
+          "maximumAbsoluteDeltasMeters": {
+            "BlinkLeft": 0.0,
+            "BlinkRight": 0.0,
+            "GazeLeft": 0.0029664449393749237,
+            "GazeRight": 0.0029664449393749237,
+            "GazeUp": 0.0019218921661376953,
+            "GazeDown": 0.001913905143737793,
+            "BlinkLeftGazeUp": 0.0,
+            "BlinkLeftGazeDown": 0.0,
+            "BlinkRightGazeUp": 0.0,
+            "BlinkRightGazeDown": 0.0
+          }
+        },
+        "Cornea": {
+          "selectedWeights": [
+            1,
+            0.12,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0.12,
+            0
+          ],
+          "maximumAbsoluteDeltasMeters": {
+            "BlinkLeft": 0.0,
+            "BlinkRight": 0.0,
+            "GazeLeft": 0.0030034109950065613,
+            "GazeRight": 0.0030034109950065613,
+            "GazeUp": 0.001946568489074707,
+            "GazeDown": 0.0019387006759643555,
+            "BlinkLeftGazeUp": 0.0,
+            "BlinkLeftGazeDown": 0.0,
+            "BlinkRightGazeUp": 0.0,
+            "BlinkRightGazeDown": 0.0
+          }
+        }
+      },
+      "expressions": {
+        "HumanBody": {
+          "selectedWeights": [
+            1,
+            0,
+            0.75,
+            0
+          ],
+          "maximumAbsoluteDeltasMeters": {
+            "Smile": 0.006248950958251953,
+            "Frown": 0.004870414733886719,
+            "BrowRaise": 0.007350802421569824,
+            "BrowFurrow": 0.004146218299865723
+          }
+        },
+        "Brows": {
+          "selectedWeights": [
+            1,
+            0,
+            0.75,
+            0
+          ],
+          "maximumAbsoluteDeltasMeters": {
+            "Smile": 0.0,
+            "Frown": 0.0,
+            "BrowRaise": 0.007351875305175781,
+            "BrowFurrow": 0.004227280616760254
+          }
+        }
+      }
+    },
+    {
+      "file": "expression-mixed.glb",
+      "sha256": "e635fdf86f7970cabc2bfde6ba7ad42ab5cc65b051bab4c6f07510bf45739bfe",
+      "bytes": 56058528,
+      "bodyBones": 53,
+      "auxiliaryBones": 9,
+      "preservedBodyMeshes": [
+        "Brows",
+        "Cornea",
+        "Eyes",
+        "HairCrop",
+        "HairStrands",
+        "HumanBody",
+        "Iris",
+        "Lashes",
+        "Outfit"
+      ],
+      "maxOriginalBindMatrixError": 0,
+      "maxBodyWeightRoundingDifference": 1.1920928955078125e-07,
+      "bodyPoseSamplesCompared": 4240,
+      "clips": [
+        "stride",
+        "relaxed",
+        "tpose",
+        "wave"
+      ],
+      "skirt": {
+        "maxWeightSumError": 3.3527612686157227e-08,
+        "maxInfluences": 3,
+        "vertices": 1455
+      },
+      "maxOriginalNormalDifference": 0,
+      "maxOriginalMorphNormalDifference": 0,
+      "eyes": {
+        "HumanBody": {
+          "selectedWeights": [
+            0.7418399999999999,
+            0.2163,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0.7418399999999999,
+            0,
+            0.2163
+          ],
+          "maximumAbsoluteDeltasMeters": {
+            "BlinkLeft": 0.011023648083209991,
+            "BlinkRight": 0.011024020612239838,
+            "GazeLeft": 0.0,
+            "GazeRight": 0.0,
+            "GazeUp": 0.0018008947372436523,
+            "GazeDown": 0.0018326044082641602,
+            "BlinkLeftGazeUp": 0.0018008947372436523,
+            "BlinkLeftGazeDown": 0.0018326044082641602,
+            "BlinkRightGazeUp": 0.0018008947372436523,
+            "BlinkRightGazeDown": 0.0018326044082641602
+          }
+        },
+        "Lashes": {
+          "selectedWeights": [
+            0.7418399999999999,
+            0.2163,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0.7418399999999999,
+            0,
+            0.2163
+          ],
+          "maximumAbsoluteDeltasMeters": {
+            "BlinkLeft": 0.009236454963684082,
+            "BlinkRight": 0.00923679769039154,
+            "GazeLeft": 0.0,
+            "GazeRight": 0.0,
+            "GazeUp": 0.0017910003662109375,
+            "GazeDown": 0.0018110275268554688,
+            "BlinkLeftGazeUp": 0.0017910003662109375,
+            "BlinkLeftGazeDown": 0.0018110275268554688,
+            "BlinkRightGazeUp": 0.0017910003662109375,
+            "BlinkRightGazeDown": 0.0018110275268554688
+          }
+        },
+        "Eyes": {
+          "selectedWeights": [
+            0.7418399999999999,
+            0.2163,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0.7418399999999999,
+            0,
+            0.2163
+          ],
+          "maximumAbsoluteDeltasMeters": {
+            "BlinkLeft": 0.0,
+            "BlinkRight": 0.0,
+            "GazeLeft": 0.0031568706035614014,
+            "GazeRight": 0.0031568706035614014,
+            "GazeUp": 0.0020709410309791565,
+            "GazeDown": 0.001996152102947235,
+            "BlinkLeftGazeUp": 0.0,
+            "BlinkLeftGazeDown": 0.0,
+            "BlinkRightGazeUp": 0.0,
+            "BlinkRightGazeDown": 0.0
+          }
+        },
+        "Iris": {
+          "selectedWeights": [
+            0.7418399999999999,
+            0.2163,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0.7418399999999999,
+            0,
+            0.2163
+          ],
+          "maximumAbsoluteDeltasMeters": {
+            "BlinkLeft": 0.0,
+            "BlinkRight": 0.0,
+            "GazeLeft": 0.0030622556805610657,
+            "GazeRight": 0.0030622128397226334,
+            "GazeUp": 0.0020025968551635742,
+            "GazeDown": 0.0019614696502685547,
+            "BlinkLeftGazeUp": 0.0,
+            "BlinkLeftGazeDown": 0.0,
+            "BlinkRightGazeUp": 0.0,
+            "BlinkRightGazeDown": 0.0
+          }
+        },
+        "Cornea": {
+          "selectedWeights": [
+            0.7418399999999999,
+            0.2163,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0.7418399999999999,
+            0,
+            0.2163
+          ],
+          "maximumAbsoluteDeltasMeters": {
+            "BlinkLeft": 0.0,
+            "BlinkRight": 0.0,
+            "GazeLeft": 0.003099219873547554,
+            "GazeRight": 0.0030991770327091217,
+            "GazeUp": 0.0020273923873901367,
+            "GazeDown": 0.001986265182495117,
+            "BlinkLeftGazeUp": 0.0,
+            "BlinkLeftGazeDown": 0.0,
+            "BlinkRightGazeUp": 0.0,
+            "BlinkRightGazeDown": 0.0
+          }
+        }
+      },
+      "expressions": {
+        "HumanBody": {
+          "selectedWeights": [
+            0.65,
+            0,
+            0,
+            0.7
+          ],
+          "maximumAbsoluteDeltasMeters": {
+            "Smile": 0.006908297538757324,
+            "Frown": 0.005384325981140137,
+            "BrowRaise": 0.008126378059387207,
+            "BrowFurrow": 0.00458371639251709
+          }
+        },
+        "Brows": {
+          "selectedWeights": [
+            0.65,
+            0,
+            0,
+            0.7
+          ],
+          "maximumAbsoluteDeltasMeters": {
+            "Smile": 0.0,
+            "Frown": 0.0,
+            "BrowRaise": 0.008127689361572266,
+            "BrowFurrow": 0.004673361778259277
+          }
+        }
+      }
+    }
+  ],
+  "sourceHashesBefore": {
+    "assets/human/foundation.glb": "642dc95643eca689266fce489bc87ac65377529af77c2e522c0326d87a9d79ab",
+    "assets/source/foundation.blend": "504164e65309c940446375fc28d7116baa0f83dfdd5425d50852c2d4ae5e40e5"
+  },
+  "limits": [
+    "Identity-fitted expression endpoints need refitting after external identity edits.",
+    "Four static pose clips retain selected expression weights; no speech, jaw rig, or continuous facial animation is authored.",
+    "Numerical locality checks are not an exhaustive collision proof."
+  ],
+  "negativeControlsRejected": [
+    "missingClip",
+    "badName",
+    "badWeight",
+    "bodyTopology"
+  ],
+  "blender": {
+    "version": "5.2.3 LTS",
+    "uniqueBones": 62,
+    "bodyBones": 53,
+    "skirtBones": 9,
+    "decodedVisibleTexturePixelsAndAlphaUnchanged": true,
+    "rawPixelIdenticalTextures": 7,
+    "totalTextures": 8,
+    "textureSerializationNote": "Hair-cap fully transparent RGB is cleared by browser canvas serialization; every visible texel and alpha value are exact.",
+    "blinkBodyEditMaxDeltaMeters": 0.00827239122101012,
+    "gazeIrisEditMaxDeltaMeters": 0.0031484279501194858,
+    "savedBlend": "artifacts/expression-editable.blend",
+    "savedBlendBytes": 17567877,
+    "savedBlendSha256": "c58df638bb08e2b4ebcb51b18e78a95ca1b049967110aa06b281b4a80948754d",
+    "expressionEditMaximumDeltaMeters": {
+      "HumanBody/Smile": 0.0049183610637424146,
+      "HumanBody/Frown": 0.005430210511276237,
+      "HumanBody/BrowRaise": 0.008141739467422533,
+      "HumanBody/BrowFurrow": 0.0036020225709373884,
+      "Brows/BrowRaise": 0.008143054066251383,
+      "Brows/BrowFurrow": 0.0036735123684526164
+    }
+  },
+  "sourceHashesAfter": {
+    "assets/human/foundation.glb": "642dc95643eca689266fce489bc87ac65377529af77c2e522c0326d87a9d79ab",
+    "assets/source/foundation.blend": "504164e65309c940446375fc28d7116baa0f83dfdd5425d50852c2d4ae5e40e5"
+  }
+}

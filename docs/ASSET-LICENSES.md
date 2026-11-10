@@ -57,3 +57,7 @@ The optional skirt is built locally in the runtime and retained in GLB exports; 
 ## Original blink and gaze controls
 
 `src/eye-rig.js` adds original MIT runtime deformation code and fitted export targets. No new external or Reallusion assets are used. The retained `assets/human/foundation.glb` and `assets/source/foundation.blend` remain byte-identical to the prior milestone; their original licenses above still apply.
+
+## Original expression prototype
+
+The expression deformation fields in `src/expression-rig.js`, tests and interface additions are original MIT application code. No external assets were added. The retained CC0 foundation GLB and packed Blender source are unchanged; only runtime/exported meshes receive new named targets. No proprietary facial poses, textures or topology were copied.

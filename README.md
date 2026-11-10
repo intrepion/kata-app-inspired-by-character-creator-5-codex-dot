@@ -10,9 +10,15 @@
 
 ![Actual Mac hardware WebGL face view](docs/screenshots/persona-portrait-face.jpg)
 
+## Local expression prototype (not published)
+
+The **Expressions** panel adds adjustable Smile, Frown, Raise brows and Furrow brows, a neutral reset, undo/redo and saved-project compatibility. Smile lifts the cheeks and adds a slight eye squeeze while manual blink and gaze remain adjustable. GLB exports retain editable named expression targets. These are closed-mouth expressions; jaw controls, mouth interior and speech are a later milestone. See [expression verification and limits](docs/QA-EXPRESSIONS.md).
+
+![Actual Mac WebGL expression comparison, captured on localhost](docs/screenshots/persona-expressions.png)
+
 ## Blink-and-gaze prototype
 
-This prototype adds independent left/right blinks and bounded horizontal/vertical gaze in a new **Eyes** panel. Neutral eyes reset, undo/redo, project save/open and editable GLB targets are included. Older projects remain neutral. This is eye-only posing, without mouth expressions or lip-sync. See [verification, Blender editing and limits](docs/QA-BLINK-GAZE.md).
+This prototype adds independent left/right blinks and bounded horizontal/vertical gaze in a new **Eyes** panel. Neutral eyes reset, undo/redo, project save/open and editable GLB targets are included. Older projects remain neutral. The earlier eye-only milestone is retained by the local expression prototype above. See [verification, Blender editing and limits](docs/QA-BLINK-GAZE.md).
 
 ![Actual Mac WebGL blink and gaze comparisons](docs/screenshots/persona-blink-gaze.png)
 
@@ -52,7 +58,7 @@ The normal renderer is locally bundled Three.js 0.180.0 with WebGL 2. Where WebG
 
 ## Existing projects
 
-Existing version 2 files without `eyeColor` load with the neutral iris default. Omitted new facial controls load at their unchanged neutral value of 0.5. Omitted garment fields default to trousers and neutral sway. Omitted blink/gaze fields default to zero (open eyes and straight gaze). Invalid supplied values remain errors. New saves retain every face control; older app builds reject these new fields. The version 1 legacy payload is unchanged.
+Existing version 2 files without `eyeColor` load with the neutral iris default. Omitted new facial controls load at their unchanged neutral value of 0.5. Omitted garment fields default to trousers and neutral sway. Omitted blink/gaze fields default to zero (open eyes and straight gaze). Omitted expression fields also default to zero (neutral). Invalid supplied values remain errors. New saves retain every face control; older app builds reject these new fields. The version 1 legacy payload is unchanged.
 
 Version 1 projects migrate explicitly to version 2. The original validated parameters are retained as `legacySource` in the downloaded project, and the old `kata-persona-v1` autosave key is not overwritten. The new key is `kata-persona-v2`.
 
@@ -73,6 +79,8 @@ Controls are labeled, keyboard focus is visible, selection states are exposed an
 - `/tests/deformation.html`: visible height/foot-anchor checks and front/back pose/build comparisons, with a separate corrective export check. Use `?software=1` to force the CPU preview when WebGL is unavailable.
 - `/tests/distinct-faces.html`: matched bald front/profile/three-quarter comparisons, crop and combined extremes, timing/UI/export checks. `?software=1` tests the fallback.
 - `/tests/portrait.html`: front, three-quarter, profile, bald and extreme face/material comparisons, with renderer/GPU reporting.
+- `/tests/expressions.html?auto&capture`: expression comparisons; add `&mode=presets`, `&mode=extremes` or `&software=1`. Capture requires the server’s `--qa-exports` option.
+- `/tests/expression-controls.html?capture`: controls, reset/undo, project compatibility and narrow-layout checks.
 - `/tests/roundtrip.html`: actual renderer GLB export checks and downloadable customized test asset.
 - `/tests/unsupported.html`: explicit unavailable-canvas error path.
 - `/tests/asset-review.html`: genuine Blender reference renders served over HTTP.
@@ -85,7 +93,7 @@ The retained packed source is `assets/source/foundation.blend`. Runtime assets a
 
 ## Scope and licenses
 
-This is a small human foundation, **not Character Creator 5 parity or a photorealistic production character system**. The local blink/gaze prototype adds eye-only morph posing. There is no demographic library, mouth/expression system, lip-sync, facial animation timeline, rig editing UI, external mesh import, clothing simulation, subdivision editing or texture authoring. Skin tint is a multiplicative tint, not a new skin scan. Pose corrections preserve joint volume and exported weights, but remain an approximation at extreme appearance combinations; see [pose deformation](docs/POSE-DEFORMATION.md). Extreme combinations still need collision/rig-fit review. Bare feet and the stylized procedural crop are prototype limits. The crop adds original texture, tapered fibers and a faded edge, but is not a scanned or production strand-groom hairstyle.
+This is a small human foundation, **not Character Creator 5 parity or a photorealistic production character system**. The local expression prototype adds closed-mouth expression posing alongside blink/gaze. There is no demographic library, mouth interior, jaw control, lip-sync, facial animation timeline, rig editing UI, external mesh import, clothing simulation, subdivision editing or texture authoring. Skin tint is a multiplicative tint, not a new skin scan. Pose corrections preserve joint volume and exported weights, but remain an approximation at extreme appearance combinations; see [pose deformation](docs/POSE-DEFORMATION.md). Extreme combinations still need collision/rig-fit review. Bare feet and the stylized procedural crop are prototype limits. The crop adds original texture, tapered fibers and a faded edge, but is not a scanned or production strand-groom hairstyle.
 
 Application code is MIT. Three.js is MIT. The original procedural portrait additions are MIT. The retained foundation human assets are CC0 1.0, with individually verified source/material headers, pinned references and retained evidence in [asset provenance](docs/ASSET-LICENSES.md). MakeHuman/MPFB source code is GPLv3 and is used only as an external build-time dependency; it is not bundled into the browser app. The retained/exported human assets have their own CC0 grant.
 

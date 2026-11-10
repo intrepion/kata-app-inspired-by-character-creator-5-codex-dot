@@ -1,0 +1,388 @@
+{
+  "suite": "blink-controls",
+  "url": "http://127.0.0.1:4193/tests/blink-controls.html?capture",
+  "checks": [
+    {
+      "passed": true,
+      "label": "Checks run through a localhost HTTP server"
+    },
+    {
+      "passed": true,
+      "label": "Human renderer is ready"
+    },
+    {
+      "passed": true,
+      "label": "Older v2 autosave normalizes all omitted eye fields to neutral"
+    },
+    {
+      "passed": true,
+      "label": "Old autosave preserves face identity"
+    },
+    {
+      "passed": true,
+      "label": "Four eye controls remain separate from fifteen shape controls"
+    },
+    {
+      "passed": true,
+      "label": "blinkLeft exposes correct bounds and step"
+    },
+    {
+      "passed": true,
+      "label": "blinkRight exposes correct bounds and step"
+    },
+    {
+      "passed": true,
+      "label": "gazeHorizontal exposes correct bounds and step"
+    },
+    {
+      "passed": true,
+      "label": "gazeVertical exposes correct bounds and step"
+    },
+    {
+      "passed": true,
+      "label": "Blink labels identify anatomical sides"
+    },
+    {
+      "passed": true,
+      "label": "Eye help distinguishes character sides and signed gaze directions"
+    },
+    {
+      "passed": true,
+      "label": "Left blink does not change right blink or gaze"
+    },
+    {
+      "passed": true,
+      "label": "Right blink stays independent"
+    },
+    {
+      "passed": true,
+      "label": "Independent eye edits and gaze endpoints autosave"
+    },
+    {
+      "passed": true,
+      "label": "blinkLeft readout shows signed percentage"
+    },
+    {
+      "passed": true,
+      "label": "blinkRight readout shows signed percentage"
+    },
+    {
+      "passed": true,
+      "label": "gazeHorizontal readout shows signed percentage"
+    },
+    {
+      "passed": true,
+      "label": "gazeVertical readout shows signed percentage"
+    },
+    {
+      "passed": true,
+      "label": "Neutral eyes resets all four controls"
+    },
+    {
+      "passed": true,
+      "label": "Undo neutral reset restores all independent values"
+    },
+    {
+      "passed": true,
+      "label": "Redo restores neutral eyes"
+    },
+    {
+      "passed": true,
+      "label": "Save project produces an editable .persona download"
+    },
+    {
+      "passed": true,
+      "label": "Captured .persona download preserves eyes and identity"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "Opening captured .persona restores all eyes without file dialog"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "blinkLeft rejects null without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "blinkLeft rejects \"0\" without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "blinkLeft rejects false without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "blinkLeft rejects {} without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "blinkLeft rejects [] without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "blinkLeft rejects 2 without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "blinkLeft rejects -2 without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "blinkRight rejects null without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "blinkRight rejects \"0\" without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "blinkRight rejects false without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "blinkRight rejects {} without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "blinkRight rejects [] without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "blinkRight rejects 2 without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "blinkRight rejects -2 without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "gazeHorizontal rejects null without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "gazeHorizontal rejects \"0\" without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "gazeHorizontal rejects false without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "gazeHorizontal rejects {} without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "gazeHorizontal rejects [] without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "gazeHorizontal rejects 2 without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "gazeHorizontal rejects -2 without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "gazeVertical rejects null without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "gazeVertical rejects \"0\" without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "gazeVertical rejects false without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "gazeVertical rejects {} without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "gazeVertical rejects [] without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "gazeVertical rejects 2 without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "gazeVertical rejects -2 without changing state"
+    },
+    {
+      "passed": true,
+      "label": "Import clears its file input for repeated opening"
+    },
+    {
+      "passed": true,
+      "label": "Opening old v2 normalizes omitted eye controls neutral"
+    },
+    {
+      "passed": true,
+      "label": "Undo old import restores independent eye values"
+    },
+    {
+      "passed": true,
+      "label": "Redo old import restores neutral values"
+    },
+    {
+      "passed": true,
+      "label": "Randomize leaves eye expression unchanged"
+    },
+    {
+      "passed": true,
+      "label": "Human renderer is ready"
+    },
+    {
+      "passed": true,
+      "label": "Reload restores independent blink and signed gaze autosave"
+    },
+    {
+      "passed": true,
+      "label": "Reload begins clean undo history"
+    },
+    {
+      "passed": true,
+      "label": "390px mobile layout has no horizontal overflow"
+    },
+    {
+      "passed": true,
+      "label": "blinkLeft fits narrow layout"
+    },
+    {
+      "passed": true,
+      "label": "blinkRight fits narrow layout"
+    },
+    {
+      "passed": true,
+      "label": "gazeHorizontal fits narrow layout"
+    },
+    {
+      "passed": true,
+      "label": "gazeVertical fits narrow layout"
+    }
+  ],
+  "passed": true,
+  "renderMode": "webgl",
+  "qaStorageRestored": true,
+  "elapsedMs": 90005,
+  "total": 94,
+  "failures": 0
+}

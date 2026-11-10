@@ -7,6 +7,7 @@ import {measureBodyEnvelope,bodyCameraFrame,portraitCameraFrame} from './human-f
 import {ranges} from './project.js';
 import {createSkirtRig} from './skirt-rig.js';
 import {createEyeRig} from './eye-rig.js';
+import {createExpressionRig,expressionEyeControls} from './expression-rig.js';
 
 /** A locally bundled CC0 foundation with original MIT portrait and skirt additions. No network/CDN fallback. */
 export async function createHumanRenderer(canvas) {
@@ -80,6 +81,7 @@ export async function createHumanRenderer(canvas) {
   const skirt=createSkirtRig({human,pants:human.getObjectByName('Pants'),pelvis:bones.get('pelvis')});
   meshes.push(skirt.mesh);
   const eyeRig=createEyeRig({human,manifest});
+  const expressionRig=createExpressionRig({human,manifest});
   const visibleTriangleCount=()=>meshes.filter(mesh=>mesh.visible).reduce((count,mesh)=>count+(mesh.geometry.index?.count||mesh.geometry.attributes.position.count)/3,0);
   const mixer=new THREE.AnimationMixer(human);
   const clips=new Map(gltf.animations.map(clip=>[clip.name.toLowerCase(),clip]));
@@ -133,7 +135,8 @@ export async function createHumanRenderer(canvas) {
       }
     }
     skirt.update(project);
-    eyeRig.update(project);
+    eyeRig.update(expressionEyeControls(project));
+    expressionRig.update(project);
     // Cache a reference for this pose, never the current height/body shape.
     if(!bodyEnvelopes.has(project.pose)){
       const savedYaw=orbit.rotation.y;
