@@ -1,6 +1,6 @@
 {
   "name": "kata-app-inspired-by-character-creator-5-codex-dot",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "type": "module",
   "description": "Kata Persona Forge: A character, from the inside out.",
@@ -8,7 +8,7 @@
     "dev": "node server.mjs",
     "start": "node server.mjs",
     "test": "node --test tests/*.test.mjs",
-    "check": "node --check src/app.js && node --check src/model.js && node --check src/renderer.js && npm test",
+    "check": "node --check src/app.js && node --check src/project.js && node --check src/human-renderer.js && node --check src/human-software-renderer.js && node --check src/model.js && node --check src/renderer.js && npm test",
     "build": "node scripts/build.mjs"
   },
   "engines": {

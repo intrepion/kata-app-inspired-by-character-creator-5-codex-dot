@@ -23,6 +23,9 @@ test('HTTP server honors CLI port and serves safe static responses', {timeout: 1
   const script = await fetch(origin + '/src/app.js');
   assert.equal(script.status, 200);
   assert.match(script.headers.get('content-type'), /javascript/);
+  const asset = await fetch(origin + '/assets/human/foundation.glb', {method:'HEAD'});
+  assert.equal(asset.status, 200);
+  assert.match(asset.headers.get('content-type'), /model\/gltf-binary/);
   const head = await fetch(origin + '/', {method:'HEAD'});
   assert.equal(head.status, 200);
   assert.equal(await head.text(), '');

@@ -2,3 +2,7 @@
 
 .view-top button[aria-pressed="true"]{background:#dce5d5;border-color:#8c9e85}.view-top{letter-spacing:.7px}.view-top>span{max-width:120px}.view-title{bottom:73px}.view-title h2{font-size:30px}
 @media(max-width:1050px){.view-top{left:12px;right:12px;gap:10px}.view-top button{padding:6px}.view-top>span{font-size:7px;max-width:86px}.view-top>div{gap:3px}}
+.load-state{position:absolute;z-index:3;top:40%;left:10%;right:10%;padding:20px;text-align:center;background:#f8f7f0;border:1px solid #c9d1c3;border-radius:8px;box-shadow:0 8px 30px #293d3610;pointer-events:none}.load-state.error{color:#813f2f;border-color:#c78f75}.load-state[hidden],.legacy-notice[hidden]{display:none}.legacy-notice{font-size:11px;line-height:1.6;padding:12px;border-left:3px solid #b77845;background:#f0e6d7}.disclaimer{color:#63705e}.view-title p,.view-title small,.view-bottom{color:#526a58}
+@media(max-width:420px){.view-top{align-items:flex-start}.view-top>div{flex-wrap:wrap;justify-content:flex-end;max-width:240px}.view-bottom{flex-wrap:wrap}.view-title{bottom:95px}.header-actions{justify-content:space-between}.header-actions button{padding:7px 9px}.presets{grid-template-columns:1fr}.preset{align-items:center;gap:12px}.preset small{font-size:10px}.preset b{font-size:12px}}
+/* Keep the whole character in view when a migration notice or control panel is tall. */
+@media(min-width:781px){.viewport{height:calc(100vh - 116px);min-height:620px;position:sticky;top:0;align-self:start}.view-title{bottom:60px}}

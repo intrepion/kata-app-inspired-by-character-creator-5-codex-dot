@@ -6,13 +6,13 @@
   "section": "Kata Tool Shed",
   "category": "3D & Animation",
   "tagline": "A character, from the inside out.",
-  "description": "A character, from the inside out.",
+  "description": "A local-first anatomical human foundation with textured skin and eyes, weighted posing, editable morphs and GLB export.",
   "entryPoint": "index.html",
   "status": "live",
   "toolShedUrl": "https://intrepion.github.io/tools/",
   "screenshots": [
-    "docs/screenshots/anatomy-desktop.jpg",
-    "docs/screenshots/anatomy-face.jpg"
+    "docs/screenshots/persona-foundation-desktop.png",
+    "docs/screenshots/persona-foundation-face.png"
   ],
   "inspiration": {
     "name": "Character Creator 5",
@@ -20,18 +20,18 @@
   },
   "license": "MIT",
   "features": [
-    "Adult-proportioned procedural human with shaped face and individual fingers",
-    "Smooth depth-tested rendering with a software fallback",
+    "CC0 MakeHuman anatomical adult with UV skin and eye textures",
+    "53-bone weighted skeleton and four static bone-driven poses",
+    "Ten editable body and face morph targets",
+    "Modest overall height scaling",
+    "Separate fitted outfit, trousers and solid cropped hair",
+    "Locally bundled Three.js and labeled software human preview",
+    "Editable textured rigged GLB export",
     "Body and face inspection views",
-    "Six proportion controls",
-    "Three archetypes and hairstyles",
-    "Four static poses",
-    "Orbit camera",
     "Forty-edit undo and redo",
-    "OBJ vertex-color geometry export",
-    "PNG preview export",
-    "Editable project import and export",
-    "Best-effort browser autosave"
+    "PNG preview and editable project downloads",
+    "Explicit version-1 migration retaining original parameters",
+    "Best-effort local browser autosave"
   ],
   "launchUrl": "https://intrepion.github.io/kata-app-inspired-by-character-creator-5-codex-dot/"
 }

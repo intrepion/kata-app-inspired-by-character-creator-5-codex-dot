@@ -1,0 +1,31 @@
+# Human foundation asset provenance
+
+## Scope
+
+`assets/human/foundation.glb` is a reusable adult human built with MakeHuman/MPFB anatomical topology. `assets/source/foundation.blend` retains the weighted rig, UVs, editable shape keys, separate outfit, trousers, hair and eyes, and four pose actions. The model is a fictional composite, not a scan of an identified person. No third-party community wardrobe or hair was assumed to be free.
+
+## Verified sources
+
+- **Base mesh, macro targets, face/body targets, game-engine rig, skinning weights, clothing and scalp helper topology:** [MakeHuman Community MPFB2](https://github.com/makehumancommunity/mpfb2/tree/6ff1eb358f6c1959ced77e79e6dd2406d9a71f49), commit `6ff1eb358f6c1959ced77e79e6dd2406d9a71f49`. Asset license **CC0 1.0**. The repository's `LICENSE.md`, section C, explicitly covers meshes, targets, textures, clothes, rigs, poses, expressions and mesh metadata. The base OBJ also declares its September 2020 CC0 release. The code is GPLv3; it is a build-time dependency, not shipped as application code. Saved/exported output is addressed separately in section D.
+- **Eye geometry, fitting data and brown eye texture:** [MakeHuman](https://github.com/makehumancommunity/makehuman/tree/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/eyes), commit `a8bc2d54ff0ac92e78ff71431b1023eda42bf482`. `high-poly/high-poly.mhclo` and `materials/brown.mhmat` explicitly declare **CC0**. The corresponding OBJ and `brown_eye.png` are the referenced assets.
+- **UV skin texture:** `skins/young_caucasian_male/young_lightskinned_male_diffuse.png` from the official [MakeHuman system assets CC0 pack](https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html), downloaded November 2026. The material file explicitly declares the September 2020 **CC0** release and references this exact PNG. The material name internally says `old_caucasian_male_detailed`, but its directory, tags and diffuse reference identify the young adult texture; filename provenance is preserved here rather than rewritten. This is an original MakeHuman texture, not a generated skin approximation.
+
+The explicit copyright holders identified in MakeHuman's asset headers at the time of CC0 release were Data Collection AB, Joel Palmius, and Jonas Hauquier. Attribution is retained as provenance although CC0 does not require it.
+
+## Authored derivatives
+
+- `Outfit` and `Pants` are new fitted sportswear surfaces extracted and offset from MPFB's CC0 `helper-tights` topology, with preserved UVs, source skinning weights and the same body shape keys. They are separate meshes, not recolored body faces.
+- `HairCrop` is an original cropped scalp shell derived from the continuous CC0 anatomical head surface. It is a simple solid crop, not strand-groom hair.
+- Pose actions `relaxed`, `tpose`, `wave`, `stride`, material choices and target combinations are authored for this project. The asset derivatives are provided under CC0 to the extent any rights subsist.
+
+License evidence is retained under `assets/source/licenses/`, including the complete CC0 text, MPFB license explanation, exact skin material header and official pack manifest. Runtime GLB embeds both skin and eye image data. No runtime network request is needed.
+
+## Rebuild and validation
+
+Requires Blender 4.3+ and git. Run `tools/rebuild-human.sh` to fetch the pinned upstream source dependencies and rebuild. The skin PNG and license evidence are retained locally; the large system ZIP is not needed for rebuilding. The direct Python build script uses `MPFB_SOURCE` and `MH_SOURCE` if already available. Nothing is published or pushed by these scripts.
+
+`tools/validate-human.py` reimports the GLB into Blender, verifies topology/UVs/weights/morphs/animations/images, edits a jaw morph and forearm bone, and checks evaluated vertex movement. `assets/human/qa.json` is its machine-readable result. `tools/roundtrip-human.py` separately validates the exact UI-downloaded Fern GLB, checks the Botanist preset morphs, hair omission, effective world-space height scaling, active wave pose against source geometry, and editable jaw/forearm deformation; it writes `docs/BLENDER-ROUNDTRIP.json`. Browser visual checks must use a running localhost HTTP server, never `file://`.
+
+## Known boundaries
+
+This is a foundational neutral adult with a small set of moderate morph ranges, not a full demographic library or production facial animation rig. Skin color tinting does not change anatomical ancestry. The outfit is fitted prototype sportswear, not simulated cloth. Height is whole-character scaling. Face controls use authored MakeHuman targets; body controls also propagate to the clothing. Eye geometry is fitted in the source rest shape, so eye-size adjustments are deliberately modest. Additional extreme/custom shape combinations require collision and rig-fit review.

@@ -1,0 +1,132 @@
+{
+  "artifact": "artifacts/Fern-app-export.glb",
+  "sha256": "07b2a696e5949124892b608953e31c92d294a3070ec1294f2d1a7c62a2e9265c",
+  "blender": "4.3.2",
+  "boneCount": 53,
+  "actions": [
+    "relaxed_FoundationRig",
+    "stride_FoundationRig",
+    "tpose_FoundationRig",
+    "wave_FoundationRig"
+  ],
+  "initialActiveAction": "wave_FoundationRig",
+  "hairAbsent": true,
+  "morphValues": {
+    "BuildNarrow": 0.20000000298023224,
+    "BuildBroad": 0.0,
+    "ShouldersNarrow": 0.20000000298023224,
+    "ShouldersBroad": 0.0,
+    "JawNarrow": 0.20000000298023224,
+    "JawBroad": 0.0,
+    "NoseNarrow": 0.0,
+    "NoseBroad": 0.0,
+    "EyesSmall": 0.0,
+    "EyesLarge": 0.20000000298023224
+  },
+  "objectScales": {
+    "Fern": [
+      0.9700000286102295,
+      0.9700000286102295,
+      0.9700000286102295
+    ],
+    "FoundationRig": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "Eyes": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "HumanBody": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "Outfit": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "Pants": [
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  "images": [
+    {
+      "name": "Image_0",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "name": "Image_1",
+      "size": [
+        2048,
+        2048
+      ]
+    }
+  ],
+  "initialBodyBounds": {
+    "min": [
+      -0.47635769844055176,
+      -0.3110237121582031,
+      1.8465813411694398e-07
+    ],
+    "max": [
+      0.40246692299842834,
+      0.08563382178544998,
+      1.703208327293396
+    ]
+  },
+  "leftHandWorldPosition": [
+    0.34269046783447266,
+    -0.01643025316298008,
+    1.538520097732544
+  ],
+  "rightHandWorldPosition": [
+    -0.4148022532463074,
+    -0.17052698135375977,
+    0.9264400005340576
+  ],
+  "waveRaisedHandVerified": true,
+  "jawEditMaxWorldDeltaMeters": 0.00508053261652838,
+  "forearmEditMaxWorldDeltaMeters": 0.13451664999716634,
+  "heightScaleStored": [
+    0.9700000286102295,
+    0.9700000286102295,
+    0.9700000286102295
+  ],
+  "effectiveHeightScale": 0.9700000590654304,
+  "referenceWaveBoundsAt097": {
+    "min": [
+      -0.47635769844055176,
+      -0.3110237121582031,
+      1.8465813411694398e-07
+    ],
+    "max": [
+      0.40246692299842834,
+      0.08563382178544998,
+      1.703208327293396
+    ]
+  },
+  "referenceBoundsMaxErrorMeters": 0.0,
+  "checks": {
+    "waveActionSelectedOnImport": true,
+    "53Bones": true,
+    "hairNone": true,
+    "morphValues": true,
+    "wavePose": true,
+    "heightStored": true,
+    "heightEffective": true,
+    "referenceGeometry": true,
+    "editableJaw": true,
+    "editableForearm": true,
+    "skinAndEyeImages": true
+  },
+  "passed": true
+}

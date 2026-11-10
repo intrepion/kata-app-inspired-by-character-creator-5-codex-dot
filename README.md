@@ -1,84 +1,65 @@
 # Kata Persona Forge
 
-**A character, from the inside out.** An original, local-first character design kata inspired by the adjustable proportions, appearance and posing workflows of Character Creator 5.
+**A character, from the inside out.** A local-first human character workshop inspired by character-creation workflows. This **version 2 human foundation** replaces the procedural mannequin with a licensed MakeHuman/MPFB anatomical adult.
 
-Part of [Kata Tool Shed](https://intrepion.github.io/tools/). Repository: `kata-app-inspired-by-character-creator-5-codex-dot`.
+This revision is local and has not been published. The existing public GitHub Pages app remains the earlier revision until deployment is authorized.
 
-## Screenshots
-
-Genuine browser captures of the running HTTP app, not mockups.
-
-![Persona Forge desktop workspace](docs/screenshots/anatomy-desktop.jpg)
-
-<details><summary>390-pixel narrow layout</summary>
-
-![Persona Forge narrow layout](docs/screenshots/anatomy-narrow.jpg)
-
-</details>
+![Actual localhost browser preview](docs/screenshots/persona-foundation-desktop.png)
 
 ## Run
 
-Node.js 18 or newer. No dependencies to install and no runtime network requests.
+Node.js 18 or newer. The renderer and human assets are bundled locally; no npm install or runtime CDN request is required.
 
 ```sh
 npm run dev
-# Open http://127.0.0.1:4186
+# http://127.0.0.1:4186
 npm run check
 npm run build
 ```
 
-Use `PORT=4300 npm run dev` to choose another port. In PowerShell: `$env:PORT=4300; npm run dev`. Always use the running HTTP server, never a `file://` URL. Static production files are copied to `dist/`; serve that directory over HTTP.
+Always run an HTTP server and visit localhost. Never open a `file://` URL. Production files go into `dist/`; serve that directory over HTTP. Use `PORT=4300 npm run dev` to change the port.
 
-## Create a character
+## Human foundation
 
-- Begin with Explorer, Pilot or Botanist, each made from original procedural geometry.
-- Adjust height, shoulders, torso, head, arms and legs. Appearance includes four color choices and three hairstyles.
-- Choose Relaxed, T-pose, Hello or Stride. Drag the preview to orbit, or use Front, Side and Back.
-- Undo and redo up to 40 character edits. Loading an archetype is also undoable.
-- Save an editable `.persona` JSON project and reopen it later. Browser autosave is best-effort; a downloaded project is the durable backup.
-- Export a real triangulated **OBJ** mesh with RGB vertex colors. Vertex-color support varies between 3D applications. The mesh uses independent triangles and contains no UV coordinates, skeleton, weights or animation.
-- Download a **PNG** of the current character preview.
+- One coherent anatomical adult with a UV-mapped 2048px skin texture and 1024px eye texture.
+- A weighted 53-bone skeleton. Neutral, T-pose, Hello and Stride are bone-driven static poses, not walking animation.
+- Five paired morph controls: body build, shoulders, jaw, nose and eyes. Ten editable shape keys are retained. Overall height scales the whole character from 90–110%.
+- Separate fitted top, trousers and a simple solid cropped scalp, with no-hair option. No simulated cloth or strand hair.
+- Three modest preset variations; they share the same base human.
+- Body/face inspection, front/side/back views and drag/keyboard orbit.
+- Forty-edit undo/redo, best-effort browser autosave, editable `.persona` projects and PNG snapshots.
+- **GLB export** retains the current shape, color, height, selected pose, UV textures, skin weights, bones and pose clips. Hidden hair is omitted. Open and edit it in Blender.
 
-## Keyboard and accessibility
+The normal renderer is locally bundled Three.js 0.180.0 with WebGL 2. Where WebGL is unavailable, the labeled **software preview** rasterizes the same textured, morphed, skinned human, with reduced lighting and resolution. Export remains the full asset. If neither WebGL nor Canvas 2D can be created, the app reports the problem and leaves project saving/editing available. It never substitutes a different mannequin.
 
-All form controls are labeled and have visible keyboard focus. Focus the preview and use Left/Right arrows to orbit. Ctrl/Cmd+S saves the project. Ctrl/Cmd+Z and Ctrl/Cmd+Shift+Z undo and redo when not editing a text/control field. Buttons expose selected states and the footer announces changes. This visual modeling tool does not provide a complete nonvisual geometry editing experience.
+## Existing projects
 
-On narrow screens the interactive preview appears first, followed by presets and the complete editing panel. Mouse, touch and keyboard input are supported; physical pen hardware has not been tested.
+Version 1 projects migrate explicitly to version 2. The original validated parameters are retained as `legacySource` in the downloaded project, and the old `kata-persona-v1` autosave key is not overwritten. The new key is `kata-persona-v2`.
 
-## Scope
+Migration is **approximate**: old height/shoulder ranges are clamped/mapped to the smaller controls; unsupported proportions remain in `legacySource`; rounded bob maps to crop. The original geometry is not preserved. The UI displays this limitation. Future project versions, invalid fields, out-of-range values and files over 100 KB are rejected.
 
-This is a small, functional **stylized character generator**, not a replacement for Character Creator 5. The revised preview uses smooth vertex lighting and depth testing, with WebGL where available and a Canvas 2D software depth-buffer fallback. The default silhouette is 7.525 heads tall, with a shaped jaw, smaller eyes, a scalp-following hairline, tapered limbs, palms, fingers and thumbs. Body and Face views inspect the same editable geometry. The model uses original lofted surfaces and detail meshes. Pose changes directly reposition geometry. It remains visibly stylized, not photorealistic or anatomy-grade.
+## Privacy and accessibility
 
-It does not support production rigging, facial animation, skinning, body scans, clothing simulation, skeletal animation, texture authoring, HD morphs, subdivision, anatomy-grade realism, external mesh import, or Reallusion file formats. Stride is a static pose, not a walking animation.
+No backend, login, telemetry, uploads or external runtime asset requests. Autosave is origin-specific and is not a durable document library. Download projects as backups. Storage failures are reported.
 
-## Files, privacy and safety
+Controls are labeled, keyboard focus is visible, selection states are exposed and status messages are announced. Focus the preview and use Left/Right to orbit. Ctrl/Cmd+S saves, Ctrl/Cmd+Z undoes, and Ctrl/Cmd+Shift+Z redoes outside editable fields. On narrow screens the preview comes first and all editing controls remain available. This visual modeling tool is not a complete nonvisual 3D editor.
 
-There is no backend, sign-in, telemetry, upload or CDN asset dependency. Projects remain in the browser until explicitly downloaded. Autosave uses `kata-persona-v1` in origin-specific local storage; another hostname/port, private browsing, browser cleanup or storage quota can affect it. Storage errors are reported. Undo history is in memory and is not restored after a reload.
+## Verify and rebuild
 
-Project imports are limited to 100 KB and validate schema, parameter ranges, colors, style names and a 60-character character name. Imported strings are inserted as text. Opening a project asks before replacing unsaved edits and remains undoable. Local storage is not a document library.
+- `npm run check`: syntax checks and Node regression tests, including project migration, GLB structure, skinning/morph references, software rendering and HTTP serving. Legacy procedural tests are retained separately as regression history; they do not validate the new anatomy.
+- `/tests/browser-foundation.html`: actual local app loading, migration, undo/redo, focus, pose and narrow layout checks.
+- `/tests/roundtrip.html`: actual renderer GLB export checks and downloadable customized test asset.
+- `/tests/unsupported.html`: explicit unavailable-canvas error path.
+- `/tests/asset-review.html`: genuine Blender reference renders served over HTTP.
+- `tools/rebuild-human.sh`: rebuild the source asset from pinned official upstream sources with Blender 4.3+ and git. This downloads build dependencies only.
+- `blender -b --python tools/validate-human.py -- input.glb report.json`: import the GLB and test editable bones/shape keys.
 
-## Verification
+The retained packed source is `assets/source/foundation.blend`. Runtime assets are in `assets/human/`. The Blender source and build dependencies are not copied into `dist/`. See [verified QA and limits](docs/QA-FOUNDATION.md).
 
-`npm run check` runs syntax checks and 17 Node tests covering validation, anatomy, smooth normals, parameter extremes, camera framing, depth-buffer occlusion, morphs, history, OBJ output and HTTP serving. Open `/tests/browser.html` through the running server for interaction/export/import checks. The browser harness has 19 assertions. These browser test harnesses are excluded from `dist/`. See [QA notes](docs/QA.md) for the actual browser verification and limits.
+## Scope and licenses
 
-## Structure
+This is a small human foundation, **not Character Creator 5 parity or a photorealistic production character system**. There is no demographic library, facial animation, facial rig, rig editing UI, external mesh import, clothing simulation, subdivision editing or texture authoring. Skin tint is a multiplicative tint, not a new skin scan. Extreme combinations need collision/rig-fit review. Bare feet and the solid scalp are intentional prototype limits.
 
-- `src/model.js`: parameters, validation, history, procedural mesh and OBJ serializer.
-- `src/app.js`: rendering, UI, input, persistence and file actions.
-- `docs/INSPIRATION.md`: primary-source research and original implementation scope.
-- `app.json`: Tool Shed metadata and source inspiration.
+Application code is MIT. Three.js is MIT. Human assets are CC0 1.0, with individually verified source/material headers, pinned references and retained evidence in [asset provenance](docs/ASSET-LICENSES.md). MakeHuman/MPFB source code is GPLv3 and is used only as an external build-time dependency; it is not bundled into the browser app. The retained/exported human assets have their own CC0 grant.
 
-## License and attribution
-
-MIT, see [LICENSE](LICENSE). Original code, design and procedural assets. [Character Creator 5](https://www.reallusion.com/character-creator/) is by Reallusion; this project has no affiliation, endorsement or file-format compatibility. No proprietary artwork, logos or code were copied. Combined Windows, macOS and Linux/Unix `.gitignore` also covers editor files, build outputs and local secrets.
-
-This is an independent educational kata. See the QA notes for verification scope and limitations.
-
-
-## Revision status
-
-The anatomy revision shown above improves the procedural human model and preview renderer. Existing version-1 projects and autosave keys are preserved; the same saved parameters now generate the revised anatomy. See [anatomy QA](docs/QA-ANATOMY.md) for current verification and limits.
-
-## Published app
-
-Open [Kata Persona Forge](https://intrepion.github.io/kata-app-inspired-by-character-creator-5-codex-dot/). The public repository uses GitHub Actions to verify and deploy `dist/` from `main`. See [QA notes](docs/QA.md) for local verification and known limits.
+Inspired by [Character Creator 5](https://www.reallusion.com/character-creator/) by Reallusion. No affiliation, endorsement, proprietary assets or file-format compatibility.

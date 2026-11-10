@@ -1,0 +1,47 @@
+{
+  "model": "foundation.glb",
+  "units": "meters",
+  "up": "+Y",
+  "front": "+Z",
+  "morphs": {
+    "build": [
+      "BuildNarrow",
+      "BuildBroad"
+    ],
+    "shoulders": [
+      "ShouldersNarrow",
+      "ShouldersBroad"
+    ],
+    "jaw": [
+      "JawNarrow",
+      "JawBroad"
+    ],
+    "nose": [
+      "NoseNarrow",
+      "NoseBroad"
+    ],
+    "eyes": [
+      "EyesSmall",
+      "EyesLarge"
+    ]
+  },
+  "materials": {
+    "skin": "Skin",
+    "outfit": "Outfit",
+    "pants": "Pants",
+    "hairColor": "Hair"
+  },
+  "hairMeshes": [
+    "HairCrop"
+  ],
+  "skinReference": "#b88a6a",
+  "faceTargetY": 1.461,
+  "poses": [
+    "relaxed",
+    "tpose",
+    "wave",
+    "stride"
+  ],
+  "source": "../source/foundation.blend",
+  "license": "CC0-1.0 (see docs/ASSET-LICENSES.md)"
+}

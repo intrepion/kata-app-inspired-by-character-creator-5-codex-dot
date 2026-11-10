@@ -1,0 +1,140 @@
+{
+  "blender": "4.3.2",
+  "source": "foundation.glb",
+  "bones": 53,
+  "meshes": {
+    "Eyes": {
+      "vertices": 1076,
+      "faces": 2040,
+      "uvLayers": 1,
+      "morphs": [],
+      "unweightedVertices": 0,
+      "materials": [
+        "Eyes"
+      ]
+    },
+    "HairCrop": {
+      "vertices": 258,
+      "faces": 428,
+      "uvLayers": 1,
+      "morphs": [
+        "Basis",
+        "BuildNarrow",
+        "BuildBroad",
+        "ShouldersNarrow",
+        "ShouldersBroad",
+        "JawNarrow",
+        "JawBroad",
+        "NoseNarrow",
+        "NoseBroad",
+        "EyesSmall",
+        "EyesLarge"
+      ],
+      "unweightedVertices": 0,
+      "materials": [
+        "Hair"
+      ],
+      "connectedSurfaceSizes": [
+        248
+      ]
+    },
+    "HumanBody": {
+      "vertices": 14517,
+      "faces": 26756,
+      "uvLayers": 1,
+      "morphs": [
+        "Basis",
+        "BuildNarrow",
+        "BuildBroad",
+        "ShouldersNarrow",
+        "ShouldersBroad",
+        "JawNarrow",
+        "JawBroad",
+        "NoseNarrow",
+        "NoseBroad",
+        "EyesSmall",
+        "EyesLarge"
+      ],
+      "unweightedVertices": 0,
+      "materials": [
+        "Skin"
+      ]
+    },
+    "Outfit": {
+      "vertices": 1097,
+      "faces": 1976,
+      "uvLayers": 1,
+      "morphs": [
+        "Basis",
+        "BuildNarrow",
+        "BuildBroad",
+        "ShouldersNarrow",
+        "ShouldersBroad",
+        "JawNarrow",
+        "JawBroad",
+        "NoseNarrow",
+        "NoseBroad",
+        "EyesSmall",
+        "EyesLarge"
+      ],
+      "unweightedVertices": 0,
+      "materials": [
+        "Outfit"
+      ],
+      "connectedSurfaceSizes": [
+        1040
+      ]
+    },
+    "Pants": {
+      "vertices": 1077,
+      "faces": 1968,
+      "uvLayers": 1,
+      "morphs": [
+        "Basis",
+        "BuildNarrow",
+        "BuildBroad",
+        "ShouldersNarrow",
+        "ShouldersBroad",
+        "JawNarrow",
+        "JawBroad",
+        "NoseNarrow",
+        "NoseBroad",
+        "EyesSmall",
+        "EyesLarge"
+      ],
+      "unweightedVertices": 0,
+      "materials": [
+        "Pants"
+      ],
+      "connectedSurfaceSizes": [
+        1020
+      ]
+    }
+  },
+  "animations": [
+    "relaxed_FoundationRig",
+    "stride_FoundationRig",
+    "tpose_FoundationRig",
+    "wave_FoundationRig"
+  ],
+  "morphEditMaxDelta": 0.00654707892570975,
+  "boneEditMaxDelta": 0.19701606478321704,
+  "embeddedImages": [
+    {
+      "name": "brown_eye",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "name": "skin",
+      "width": 2048,
+      "height": 2048
+    },
+    {
+      "name": "Viewer Node",
+      "width": 256,
+      "height": 256
+    }
+  ],
+  "passed": true
+}
