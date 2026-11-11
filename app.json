@@ -6,11 +6,13 @@
   "section": "Kata Tool Shed",
   "category": "3D & Animation",
   "tagline": "A character, from the inside out.",
-  "description": "A local-first character workshop with regional skin color, pores and roughness, distinct adult faces, adjustable smile, frown and brow expressions, independent blink and gaze, an optional rigged A-line skirt and editable GLB export.",
+  "description": "A local-first character workshop with an original layered Blender hair-card crop, regional skin color, pores and roughness, distinct adult faces, adjustable expressions, blink and gaze, an optional rigged A-line skirt and editable GLB export.",
   "entryPoint": "index.html",
   "status": "live",
   "toolShedUrl": "https://intrepion.github.io/tools/",
   "screenshots": [
+    "docs/screenshots/persona-hair-edges-closeup.png",
+    "docs/screenshots/persona-hair-edges-comparison.png",
     "docs/screenshots/persona-skin-closeup.png",
     "docs/screenshots/persona-skin-comparison.png",
     "docs/screenshots/persona-expressions.png",
@@ -27,6 +29,9 @@
   },
   "license": "MIT",
   "features": [
+    "Original layered Blender hair-card crop with refined temple edges and swept crown",
+    "Editable packed Blender groom, 435 guide curves and a manual card-rebake workflow",
+    "Portable textured mesh cards preserve the rig and 28 identity morph targets",
     "Original 2048px regional skin color, pore-normal and roughness maps",
     "Restrained browser-only thin-tissue backlight, strongest at the ears",
     "Portable PBR skin textures with verified Blender reimport",
@@ -57,7 +62,7 @@
   ],
   "launchUrl": "https://intrepion.github.io/kata-app-inspired-by-character-creator-5-codex-dot/",
   "limitations": [
-    "Stylized procedural hair, not photorealistic or a production groom",
+    "Static layered hair cards, not photorealistic or a production groom; some crown arcs and rear layering remain",
     "No mouth interior, jaw controls, lip-sync, automatic blink timing or cloth simulation; closed-mouth expression posing",
     "Skirt fit is checked across supported static poses; arbitrary bone edits may clip",
     "Eyelids can look heavy or stretched at extreme identity combinations",

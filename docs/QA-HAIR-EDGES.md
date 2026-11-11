@@ -1,6 +1,6 @@
 # Hair perimeter refinement
 
-Local follow-up to the Blender-card experiment at `4fa5234`. The user liked that groom but reported weird parts at the edges. This pass is not published or approved for publication.
+Local follow-up to the Blender-card experiment at `4fa5234`. The user liked that groom but reported weird parts at the edges. The user approved publication after reviewing the matched refinement screenshot. The checks below cover the tested release candidate `dfea992`; release metadata changes do not alter its groom assets.
 
 ## Visual outcome
 
@@ -67,4 +67,4 @@ npm run check
 npm run build
 ```
 
-Capture endpoints remain opt-in, loopback-only, same-origin, size-bounded and restricted to exact filenames. The previous-card fixture and Blender source are excluded from the static build. No third-party assets, purchases, publication or ZIP delivery are included. Licensing is unchanged: original MIT groom over retained CC0 foundation.
+Capture endpoints remain opt-in, loopback-only, same-origin, size-bounded and restricted to exact filenames. The previous-card fixture and Blender source are excluded from the static build. No third-party assets, purchases or ZIP delivery are included. Licensing is unchanged: original MIT groom over retained CC0 foundation.

@@ -12,13 +12,13 @@
 
 ## Hair perimeter refinement
 
-The current local candidate trims the hooked temple overhang and lowers the looping crown strands while keeping the swept shape. It retains the editable Blender groom, rig, morphs and export. Some stepped rear layering and cap-like coverage remain. **Not published or approved for publication.** See [matched screenshots and verification](docs/QA-HAIR-EDGES.md).
+The approved hair release trims the hooked temple overhang and lowers the looping crown strands while keeping the swept shape. It retains the editable Blender groom, rig, morphs and export. Some stepped rear layering and cap-like coverage remain. **A static real-time groom, not photorealistic production hair.** See [matched screenshots and verification](docs/QA-HAIR-EDGES.md).
 
 ![Previous Blender cards versus refined edges, actual matched WebGL views](docs/screenshots/persona-hair-edges-closeup.png)
 
 ## Layered Blender hair-card experiment
 
-The new local experiment replaces the rejected fiber-on-cap version with an original textured scalp and layered swept hair cards, retaining an editable Blender source and rebakeable guide curves. The shape is clearer and loading is quicker, but repeated card tips, the dark backing and limited blond strand depth still make it visibly synthetic. **Not photorealistic, approved for publication or published.** See [actual comparisons, editing workflow and checks](docs/QA-HAIR-CARDS.md).
+This earlier experiment, superseded by the refined release above, replaced the rejected fiber-on-cap version with an original textured scalp and layered swept hair cards, retaining an editable Blender source and rebakeable guide curves. The shape is clearer and loading is quicker, but repeated card tips, the dark backing and limited blond strand depth still make it visibly synthetic. **Historical prototype, not published independently or photorealistic.** See [actual comparisons, editing workflow and checks](docs/QA-HAIR-CARDS.md).
 
 ![Actual rejected prototype versus Blender-card experiment on hardware WebGL](docs/screenshots/persona-hair-cards-closeup.png)
 

@@ -1,7 +1,7 @@
 {
   "passed": true,
   "baseCommit": "4fa523473e83dad36007cf4bf99baf7afbc54318",
-  "publication": "Not published; no approval to publish",
+  "publication": "Approved by user after screenshot review; release deployment verified separately",
   "nodeChecks": 127,
   "staticBuild": true,
   "visualVerdict": "Temple overhang and looping crown silhouette improved. Some back-layer stepping, thin crown arcs and cap-like coverage remain. Not photorealistic.",
@@ -6285,5 +6285,6 @@
     "exportEnabled": true,
     "testFixtureExcluded": true,
     "blenderSourceExcluded": true
-  }
+  },
+  "testedCandidateCommit": "dfea9924a7d988fa7917d480b5f2f4a2cafefb6e"
 }
