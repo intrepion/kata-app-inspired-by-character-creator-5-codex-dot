@@ -1,5 +1,7 @@
 # Layered Blender hair-card experiment
 
+Historical first card pass. The current [perimeter refinement](QA-HAIR-EDGES.md) supersedes its geometry and addresses the edge defects below.
+
 Local experiment based on `ef06f32`, after the published skin release `d689681`. Nothing in this experiment has been published or approved for publication.
 
 ## Honest visual result

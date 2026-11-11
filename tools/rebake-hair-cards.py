@@ -29,7 +29,7 @@ def rebake():
             bary=barycentric_transform(nearest,*(pts[i] for i in ids),Vector((1,0,0)),Vector((0,1,0)),Vector((0,0,1)))
             normal=sum((source.vertices[i].normal*w for i,w in zip(ids,bary)),Vector()).normalized();across=tangent.cross(normal).normalized();tilt=tilts[k]*(1-f)+tilts[k+1]*f;across=(across*math.cos(tilt)+normal*math.sin(tilt)).normalized();w=width[k]*(1-f)+width[k+1]*f
             for c in range(3):
-                s=c-1;vertices.append(center+across*(s*w/2)+normal*((1-s*s)*guide['card_width']*.11));fits.append((ids,bary));uv.append(((tile+.025+c*.475)/8,j/10))
+                s=c-1;vertices.append(center+across*(s*w/2)+normal*((1-s*s)*w*.11));fits.append((ids,bary));uv.append(((tile+.025+c*.475)/8,j/10))
             if j:
                 for c in range(2):a=first+(j-1)*3+c;b=a+3;faces.append((a,a+1,b+1,b))
     me=bpy.data.meshes.new('Rebaked editable guide cards');me.from_pydata(vertices,[],faces);me.update();materials=list(old.data.materials);old.data=me

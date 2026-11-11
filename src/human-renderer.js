@@ -12,7 +12,7 @@ import {createHairCardGroom,HAIR_CARD_LIMIT} from './hair-card-groom.js';
 import {createSkinMaterial,SKIN_TRANSFER_LIMIT} from './skin-material.js';
 
 /** A locally bundled CC0 foundation with original MIT portrait and skirt additions. No network/CDN fallback. */
-export async function createHumanRenderer(canvas,{compareHair=false}={}) {
+export async function createHumanRenderer(canvas,{compareHair=false,hairAssetURL}={}) {
   let renderer, rendererMode='webgl';
   try {
     const context=canvas.getContext('webgl2',{antialias:true,alpha:true,preserveDrawingBuffer:true});
@@ -95,7 +95,7 @@ export async function createHumanRenderer(canvas,{compareHair=false}={}) {
     const [kp,ki,fp,fi,ai]=lights[name];key.position.set(...kp);key.intensity=ki;fill.position.set(...fp);fill.intensity=fi;ambient.intensity=ai;
   }
   let hair;
-  try{hair=await createHairCardGroom({human,compareHair,maxAnisotropy:Math.min(renderer.capabilities.getMaxAnisotropy(),8)});}
+  try{hair=await createHairCardGroom({human,compareHair,assetURL:hairAssetURL,maxAnisotropy:Math.min(renderer.capabilities.getMaxAnisotropy(),8)});}
   catch(error){regionalSkin.dispose();baselineSkin.dispose();studioEnvironment?.dispose();renderer.dispose();throw error;}
   meshes.push(...hair.meshes);
   function setHairPreview(mode){hair.setPreview(mode);if(current)update(current);}

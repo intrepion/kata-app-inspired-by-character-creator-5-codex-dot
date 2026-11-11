@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Hair perimeter refinement acceptance</title>
+<style>
+body{font:15px system-ui;background:#e8e8e4;color:#263b35;margin:20px}
+button{padding:12px}pre{white-space:pre-wrap}
+#sources{position:fixed;left:-2400px;top:0}
+#sources canvas{width:560px;height:700px}
+#views{display:grid;grid-template-columns:repeat(6,280px);gap:0}
+figure{margin:0}#views canvas{display:block;width:280px;height:350px}
+figcaption{padding:8px;font-size:13px}
+</style>
+<h1>Matched hair perimeter comparison</h1>
+<p>Previous Blender cards / refined edges. Each pair uses the same face, camera, light and tint. Static baked geometry and maps, not simulated strands.</p>
+<button id="run">Run comparison</button>
+<button id="export" disabled>Export hair checks</button>
+<pre id="results">Ready</pre><div id="sources"></div><div id="views"></div>
+<script type="module">
+import {defaults} from '../src/project.js';
+import {createHumanRenderer} from '../src/human-renderer.js';
+
+const params=new URLSearchParams(location.search),software=params.has('software');
+const out=document.querySelector('#results'),views=document.querySelector('#views');
+const runButton=document.querySelector('#run'),exportButton=document.querySelector('#export');
+const assets={before:new URL('../tests/fixtures/hair-cards-before-edges.glb',import.meta.url).href,after:new URL('../assets/human/hair-cards/hair-cards.glb',import.meta.url).href};
+const labels={before:'Previous cards',after:'Refined edges'};
+let renderers={},canvases={},busy=false;
+const report={passed:false,exportPassed:false,checks:[],views:[],exports:[],errors:[]};
+window.hairEdgesReport=report;
+const originalError=console.error;
+console.error=(...args)=>{report.errors.push(args.map(String).join(' '));originalError(...args)};
+window.addEventListener('error',e=>report.errors.push(e.message));
+window.addEventListener('unhandledrejection',e=>report.errors.push(String(e.reason)));
+
+function check(ok,label){
+  report.checks.push({passed:!!ok,label});
+  out.textContent=report.checks.map(c=>(c.passed?'PASS ':'FAIL ')+c.label).join('\n');
+  if(!ok)throw Error(label);
+}
+async function capture(name,body,kind='capture'){
+  const response=await fetch('/__qa/'+kind+'/'+name,{method:'POST',body});
+  if(!response.ok)throw Error('Capture '+name+': '+response.status);
+  return response.json();
+}
+async function assetIdentity(url){
+  const response=await fetch(url);
+  if(!response.ok)throw Error('Asset '+response.status);
+  const bytes=await response.arrayBuffer();
+  const sha256=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),n=>n.toString(16).padStart(2,'0')).join('');
+  return{url,bytes:bytes.byteLength,sha256};
+}
+const png=canvas=>new Promise((resolve,reject)=>canvas.toBlob(blob=>blob?resolve(blob):reject(Error('PNG encoding failed'))));
+async function view(label,project,yaw,version,light='studio'){
+  const r=renderers[version],source=canvases[version];
+  r.setLighting(light);r.update(project);r.render(yaw,'face');
+  await new Promise(requestAnimationFrame);r.render(yaw,'face');
+  const figure=document.createElement('figure'),canvas=document.createElement('canvas'),caption=document.createElement('figcaption');
+  canvas.width=source.width;canvas.height=source.height;canvas.getContext('2d').drawImage(source,0,0);
+  caption.textContent=label+' · '+labels[version];figure.append(canvas,caption);views.append(figure);
+  report.views.push({label,project,yaw,version,light,focus:'face',canvasPixels:[source.width,source.height]});
+}
+async function pair(label,project,yaw,light='studio'){
+  for(const version of ['before','after'])await view(label,project,yaw,version,light);
+}
+function mosaic(start,count,columns=6,scale=.5){
+  const tileW=560*scale,tileH=700*scale,canvas=document.createElement('canvas');
+  canvas.width=columns*tileW;canvas.height=Math.ceil(count/columns)*(tileH+32)+40;
+  const ctx=canvas.getContext('2d');ctx.fillStyle='#e8e8e4';ctx.fillRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle='#263b35';ctx.font='18px system-ui';
+  ctx.fillText('Previous cards / Refined edges · '+renderers.after.info.mode+' · '+renderers.after.info.gpu,10,26);
+  const all=views.querySelectorAll('canvas');
+  for(let k=0;k<count;k++){
+    const x=k%columns*tileW,y=Math.floor(k/columns)*(tileH+32)+40,item=report.views[start+k];
+    ctx.drawImage(all[start+k],x,y,tileW,tileH);ctx.font='13px system-ui';
+    ctx.fillText(item.label+' · '+labels[item.version],x+7,y+tileH+21);
+  }
+  return canvas;
+}
+async function timing(version){
+  const r=renderers[version],source=canvases[version];r.setLighting('studio');r.update(defaults);
+  const gl=source.getContext('webgl2'),samples=[];
+  for(let i=0;i<5;i++){r.render(i*.015,'face');gl.finish();}
+  for(let i=0;i<24;i++){
+    const start=performance.now();r.render(i*.015,'face');gl.finish();samples.push(performance.now()-start);
+  }
+  const percentile=(values,p)=>values.slice().sort((a,b)=>a-b)[Math.floor((values.length-1)*p)];
+  return{version,triangles:r.triangleCount,synchronizedDrawMedianMs:percentile(samples,.5),synchronizedDraw95Ms:percentile(samples,.95),samples:samples.length,method:'CPU submission plus gl.finish; not an interactive FPS estimate'};
+}
+async function run(){
+  if(busy)return;busy=true;runButton.disabled=true;exportButton.disabled=true;
+  try{
+    Object.values(renderers).forEach(r=>r.dispose());renderers={};canvases={};
+    views.replaceChildren();document.querySelector('#sources').replaceChildren();
+    Object.assign(report,{passed:false,exportPassed:false,checks:[],views:[],exports:[],errors:[],renderer:{},assets:{},load:{},triangles:{}});
+    delete report.timing;
+    for(const version of ['before','after']){
+      const canvas=document.createElement('canvas');document.querySelector('#sources').append(canvas);canvases[version]=canvas;
+      if(software){const get=canvas.getContext.bind(canvas);canvas.getContext=(type,...args)=>type==='webgl2'?null:get(type,...args)}
+      const start=performance.now();
+      const r=await createHumanRenderer(canvas,{hairAssetURL:assets[version]});renderers[version]=r;
+      report.load[version]={rendererMilliseconds:performance.now()-start,hairMilliseconds:r.info.hair.loadMilliseconds,method:'Sequential renderer initialization, before then after; browser cache is not cleared'};
+      report.assets[version]=await assetIdentity(assets[version]);report.renderer[version]={...r.info};
+      check(r.info.mode===(software?'software':'webgl'),labels[version]+': '+r.info.mode+' / '+r.info.gpu);
+      check(!r.info.hair.comparisonEnabled,labels[version]+': no procedural generator');
+      check(r.info.boneCount===53,labels[version]+': original 53-bone rig');
+    }
+    for(const [color,hairColor]of [['Brown',defaults.hairColor],['Blond','#d4b477'],['Black','#191614']])
+      for(const [angle,yaw]of [['Front',0],['Three-quarter',.65],['Profile',Math.PI/2]])
+        await pair(color+' '+angle,{...defaults,hairColor},yaw);
+    const special=[
+      ['Back',{},Math.PI],['Opposite side',{},-1.1],
+      ['Wide / long',{headWidth:1,headHeight:1,build:1,shoulders:1,smile:.7},.65],
+      ['Narrow / short',{headWidth:0,headHeight:0,build:0,shoulders:0,browFurrow:.6},-.65],
+      ['All identity maxima',Object.fromEntries(Object.keys(renderers.after.info.morphs).map(k=>[k,1])),Math.PI/2],
+      ['Blond rim',{hairColor:'#d4b477'},.65]
+    ];
+    for(const [label,delta,yaw]of special)await pair(label,{...defaults,...delta},yaw,label==='Blond rim'?'rim':'studio');
+    for(let i=0;i<report.views.length;i+=2){
+      const a={...report.views[i]},b={...report.views[i+1]};delete a.version;delete b.version;
+      check(JSON.stringify(a)===JSON.stringify(b),'Matched camera, project and light: '+a.label);
+    }
+    for(const version of ['before','after']){
+      const r=renderers[version];r.update(defaults);const crop=r.triangleCount;
+      r.update({...defaults,hair:'none'});const bald=r.triangleCount;r.update(defaults);
+      check(r.triangleCount===crop&&bald<crop,labels[version]+': repeated crop / bald / crop visibility');
+      report.triangles[version]={crop,bald};
+    }
+    if(!software)report.timing=[await timing('before'),await timing('after')];
+    check(report.errors.length===0,'No renderer/shader console errors');report.passed=true;
+    if(params.has('capture')){
+      report.capture=await capture(software?'hair-edges-software.png':'hair-edges-comparison.png',await png(mosaic(0,18)));
+      if(!software){
+        await capture('hair-edges-closeup.png',await png(mosaic(2,4,2,1)));
+        await capture('hair-edges-extremes.png',await png(mosaic(18,12,6)));
+      }
+      await capture(software?'hair-edges-software-report.json':'hair-edges-report.json',new Blob([JSON.stringify(report,null,2)]));
+    }
+    exportButton.disabled=false;out.textContent+='\nREADY FOR VISUAL REVIEW';
+    if(params.has('exports'))await exportChecks();
+  }catch(error){report.passed=false;out.textContent+='\nFAIL '+error.stack}
+  finally{busy=false;runButton.disabled=false;}
+}
+async function exportChecks(){
+  exportButton.disabled=true;
+  try{
+    report.exports=[];report.exportPassed=false;
+    for(const [name,version,delta]of [
+      ['hair-edges-baseline','before',{}],['hair-edges-neutral','after',{}],
+      ['hair-edges-extreme','after',{headWidth:1,headHeight:1,smile:.7,browRaise:.4,blinkLeft:.6,gazeHorizontal:.4,lowerGarment:'skirt',pose:'stride',hairColor:'#d4b477'}],
+      ['hair-edges-bald','after',{hair:'none',pose:'wave'}]
+    ]){
+      const r=renderers[version],project={...defaults,...delta};r.update(project);r.render(.65,'face');
+      const start=performance.now(),data=await r.exportGLB(name),exportMilliseconds=performance.now()-start;
+      const g=JSON.parse(new TextDecoder().decode(new Uint8Array(data,20,new DataView(data).getUint32(12,true))));
+      const hairNodes=g.nodes.filter(n=>'mesh' in n&&n.name?.startsWith('Hair'));
+      if(name==='hair-edges-bald')check(hairNodes.length===0,'Bald export omits every hair mesh');
+      else{
+        check(hairNodes.map(n=>n.name).sort().join(',')==='HairCardRoot,HairGroom','Only '+labels[version]+' hair meshes exported');
+        for(const node of hairNodes)check(g.meshes[node.mesh].extras.targetNames.includes('HeadWide'),'Editable groom identity targets: '+node.name);
+        check(!!g.materials.find(m=>m.name==='HairGroom')?.extensions?.KHR_materials_anisotropy,'Portable directional highlight extension');
+      }
+      check(g.animations.map(a=>a.name).sort().join(',')==='relaxed,stride,tpose,wave','Four pose clips / '+name);
+      report.exports.push({project,mode:'groom',version,asset:report.assets[version],exportMilliseconds,capture:await capture(name+'.glb',data,'export')});
+    }
+    check(report.errors.length===0,'No console errors during exports');report.exportPassed=true;
+    await capture('hair-edges-export-report.json',new Blob([JSON.stringify(report,null,2)]));
+    out.textContent+='\nEXPORTS COMPLETE';
+  }catch(error){report.exportPassed=false;out.textContent+='\nFAIL '+error.stack;}
+  finally{exportButton.disabled=false;}
+}
+runButton.onclick=run;
+exportButton.onclick=async()=>{if(busy)return;busy=true;runButton.disabled=true;try{await exportChecks()}finally{busy=false;runButton.disabled=false}};
+if(params.has('auto'))run();
+</script>
+</html>

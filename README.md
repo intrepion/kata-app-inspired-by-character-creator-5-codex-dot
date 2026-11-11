@@ -10,6 +10,12 @@
 
 ![Actual Mac hardware WebGL face view](docs/screenshots/persona-portrait-face.jpg)
 
+## Hair perimeter refinement
+
+The current local candidate trims the hooked temple overhang and lowers the looping crown strands while keeping the swept shape. It retains the editable Blender groom, rig, morphs and export. Some stepped rear layering and cap-like coverage remain. **Not published or approved for publication.** See [matched screenshots and verification](docs/QA-HAIR-EDGES.md).
+
+![Previous Blender cards versus refined edges, actual matched WebGL views](docs/screenshots/persona-hair-edges-closeup.png)
+
 ## Layered Blender hair-card experiment
 
 The new local experiment replaces the rejected fiber-on-cap version with an original textured scalp and layered swept hair cards, retaining an editable Blender source and rebakeable guide curves. The shape is clearer and loading is quicker, but repeated card tips, the dark backing and limited blond strand depth still make it visibly synthetic. **Not photorealistic, approved for publication or published.** See [actual comparisons, editing workflow and checks](docs/QA-HAIR-CARDS.md).
@@ -65,7 +71,7 @@ Always run an HTTP server and visit localhost. Never open a `file://` URL. Produ
 - Original pore-normal and roughness maps, neutral studio lighting and reflected eye highlights.
 - A weighted 53-bone skeleton. Neutral, T-pose, Hello and Stride are bone-driven static poses, not walking animation.
 - Fourteen paired morph controls: body build, shoulders, jaw, nose, eyes, head width/height, cheeks, chin, nose width/projection, eye spacing, brow height and lips. Twenty-eight appearance shape keys and three pose correctives stay editable. Overall height scales the whole character from 90–110%.
-- Separate fitted top, a choice of trousers or an original A-line skirt, and a textured short crop with tapered ribbon fibers, with no-hair option. Brows/lashes follow face morphs. No simulated cloth or groom simulation.
+- Separate fitted top, a choice of trousers or an original A-line skirt, and an original layered short hair-card crop, with no-hair option. Brows/lashes follow face morphs. No simulated cloth or groom simulation.
 - Separate iris color keeps the sclera neutral; skin and hair colors remain tints.
 - Original Explorer/Juniper, Pilot/Orion and Botanist/Fern preserved, plus three adult face presets: Angular/Vale, Rounded/Marlowe and Long/Ellis. The new presets use identical styling so their geometry differences are visible. All share one anatomical foundation.
 - Body/face inspection, front/side/back views and drag/keyboard orbit.
@@ -111,7 +117,7 @@ The retained packed source is `assets/source/foundation.blend`. Runtime assets a
 
 ## Scope and licenses
 
-This is a small human foundation, **not Character Creator 5 parity or a photorealistic production character system**. The expression prototype adds closed-mouth expression posing alongside blink/gaze. There is no demographic library, mouth interior, jaw control, lip-sync, facial animation timeline, rig editing UI, external mesh import, clothing simulation, subdivision editing or texture authoring. Skin tint is a multiplicative tint, not a new skin scan. Pose corrections preserve joint volume and exported weights, but remain an approximation at extreme appearance combinations; see [pose deformation](docs/POSE-DEFORMATION.md). Extreme combinations still need collision/rig-fit review. Bare feet and the stylized procedural crop are prototype limits. The crop adds original texture, tapered fibers and a faded edge, but is not a scanned or production strand-groom hairstyle.
+This is a small human foundation, **not Character Creator 5 parity or a photorealistic production character system**. The expression prototype adds closed-mouth expression posing alongside blink/gaze. There is no demographic library, mouth interior, jaw control, lip-sync, facial animation timeline, rig editing UI, external mesh import, clothing simulation, subdivision editing or texture authoring. Skin tint is a multiplicative tint, not a new skin scan. Pose corrections preserve joint volume and exported weights, but remain an approximation at extreme appearance combinations; see [pose deformation](docs/POSE-DEFORMATION.md). Extreme combinations still need collision/rig-fit review. Bare feet and the synthetic-looking crop are prototype limits. The current crop uses original Blender cards, strand textures and a faded edge, but is not a scanned or production strand-groom hairstyle.
 
 Application code is MIT. Three.js is MIT. The original procedural portrait additions are MIT. The retained foundation human assets are CC0 1.0, with individually verified source/material headers, pinned references and retained evidence in [asset provenance](docs/ASSET-LICENSES.md). MakeHuman/MPFB source code is GPLv3 and is used only as an external build-time dependency; it is not bundled into the browser app. The retained/exported human assets have their own CC0 grant.
 

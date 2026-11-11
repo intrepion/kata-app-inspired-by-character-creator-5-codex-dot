@@ -73,7 +73,10 @@ edges={}
 for f in mesh.polygons:
     for a,b in f.edge_keys:
         k=tuple(sorted((tuple(round(v,6) for v in points[a]),tuple(round(v,6) for v in points[b]))));edges[k]=edges.get(k,0)+1
-boundary=[Vector(v) for e,count in edges.items() if count==1 for v in e]
+boundary_segments=[(Vector(e[0]),Vector(e[1])) for e,count in edges.items() if count==1]
+boundary=[p for edge in boundary_segments for p in edge]
+def boundary_distance(p):
+    return min((p-(a+(b-a)*max(0,min(1,(p-a).dot(b-a)/(b-a).length_squared)))).length for a,b in boundary_segments)
 x,y,z=coord.transpose(2,0,1);dist=np.full((S,S),1.,np.float32)
 for p in boundary:dist=np.minimum(dist,np.sqrt((x-p.x)**2+(y-p.y)**2+(z-p.z)**2))
 U,V=np.meshgrid(np.arange(S)/(S-1),np.arange(S)/(S-1));streak=.5+.5*np.sin(U*math.pi*2*790+V*26+np.sin(V*12)*.8)
@@ -106,6 +109,7 @@ for poly in rootcap.data.polygons:
 guides=bpy.data.collections.new('EDITABLE Hair Guide Curves');bpy.context.scene.collection.children.link(guides)
 verts=[];faces=[];uvs=[];fits=[];card_meta=[]
 def make_card(label,rootquery,direction,length,width,lift,layer,tile,tilt=0):
+    requested_length=length
     def surface_at(q,strict=False):
         q=Vector(q)
         if 'side' in label:
@@ -117,19 +121,28 @@ def make_card(label,rootquery,direction,length,width,lift,layer,tile,tilt=0):
     rootfit=surface_at(rootquery,not label.startswith('Fine'))
     if rootfit is None:return
     rp,rn,_,_=rootfit;flow=Vector(direction).normalized();side=flow.cross(rn).normalized();phase=float(rng.uniform(-.5,.5)); samples=[]
+    # Stop before a guide leaves the actual scalp. Previously nearest-point
+    # fallback folded whole card ends onto the boundary, producing teeth/hooks.
+    peripheral='side' in label or 'back' in label
+    for step in range(1,41):
+        f=step/40;target=rp+flow*(length*f)+side*(math.sin(f*math.pi)*.0018*phase)
+        if surface_at(target,True) is None:
+            retreat=.003+(sum(map(ord,label))%17)/17*.002 if peripheral else .0015
+            length=max(0,length*(step-1)/40-retreat);break
+    if length<.0035:return
     steps=10;cols=3;first=len(verts)
     for j in range(steps+1):
         f=j/steps; target=rp+flow*(length*f)+side*(math.sin(f*math.pi)*.0018*phase)
         p,n,ids,w=surface_at(target)
-        excess=target-p;excess-=n*excess.dot(n)
-        if excess.length>.002:excess*=.002/excess.length
-        h=.0008+layer+lift*math.sin(math.pi*f*.86)
-        center=p+excess+n*h
+        # Settle tips into the cut rather than leaving raised, hooked ends.
+        h=.00065+layer*(1-smooth(.60,1,f))+lift*math.sin(math.pi*f)
+        center=p+n*h
         tan=flow-n*flow.dot(n);tan.normalize(); across=tan.cross(n).normalized();across=(across*math.cos(tilt)+n*math.sin(tilt)).normalized()
-        spread=width*(.80+.20*math.sin(f*math.pi))*(1-.94*smooth(.28,1,f))
+        spread=width*(.80+.20*math.sin(f*math.pi))*(1-.97*smooth(.28,1,f))
+        if not label.startswith('Fine'):spread*=max(.05,float(smooth(.001,.009,boundary_distance(p))))
         samples.append((center.copy(),spread))
         for k in range(cols):
-            s=k-1;pos=center+across*(s*spread/2)+n*((1-s*s)*width*.11)
+            s=k-1;pos=center+across*(s*spread/2)+n*((1-s*s)*spread*.11)
             verts.append(tuple(pos));fits.append((ids,w.copy()));uvs.append(((tile+.025+(k/(cols-1))*.95)/8,f))
         if j:
             for k in range(cols-1):
@@ -137,7 +150,7 @@ def make_card(label,rootquery,direction,length,width,lift,layer,tile,tilt=0):
     cu=bpy.data.curves.new(label,'CURVE');cu.dimensions='3D';cu.resolution_u=8;sp=cu.splines.new('BEZIER');sp.bezier_points.add(4)
     for bp,(center,spread) in zip(sp.bezier_points,[samples[i] for i in [0,2,5,8,10]]):bp.co=center;bp.handle_left_type=bp.handle_right_type='AUTO';bp.radius=spread/width;bp.tilt=tilt
     ob=bpy.data.objects.new(label,cu);guides.objects.link(ob);ob.hide_render=True;ob.hide_set(True);ob['card_width']=width;ob['atlas_tile']=tile;ob['layer']=layer
-    card_meta.append({'name':label,'root':list(rp),'direction':list(flow),'length':length,'width':width,'lift':lift,'layer':layer,'atlasTile':tile,'tilt':tilt})
+    card_meta.append({'name':label,'root':list(rp),'direction':list(flow),'length':length,'requestedLength':requested_length,'trimmedAtBoundary':length<requested_length,'tipHeight':.00065,'width':width,'lift':lift,'layer':layer,'atlasTile':tile,'tilt':tilt})
 # Dense staggered foundation, following backward/side-swept top growth.
 for row,y0 in enumerate([-.123,-.108,-.090,-.072,-.054,-.036,-.018,.000]):
     half=.056*math.sqrt(max(.15,1-((y0+.043)/.103)**2))
@@ -158,7 +171,8 @@ for row,z0 in enumerate([1.55,1.529,1.508]):
 for row,y0 in enumerate([-.118,-.098,-.078,-.058,-.038,-.018]):
     for col,x0 in enumerate(np.linspace(-.047,.044,13)):
         x0+=.003*(row%2);length=.043+float(rng.uniform(-.007,.007));lift=(.010 if row<2 else .007)+float(rng.uniform(-.002,.002))
-        make_card(f'Shape swept lock {row}-{col}',(x0,y0,1.62),(.35+float(rng.uniform(-.15,.15)),1,-.14),length,.007+float(rng.uniform(-.001,.001)),lift,.003,3+col%3,float(rng.uniform(-.28,.28)))
+        edge=float(smooth(.025,.052,abs(x0)));lift*=(.72 if row<2 else .42)*(1-.75*edge)
+        make_card(f'Shape swept lock {row}-{col}',(x0,y0,1.62),(.35+float(rng.uniform(-.15,.15)),1,-.14),length,(.007+float(rng.uniform(-.001,.001)))*(1-.35*edge),lift,.0015*(1-.75*edge),3+col%3,float(rng.uniform(-.28,.28)))
 # Secondary side locks bridge the top and taper, removing a sharp cap edge.
 for sign in [-1,1]:
     for row,z0 in enumerate([1.548,1.528]):
@@ -168,7 +182,7 @@ for sign in [-1,1]:
 for col,x0 in enumerate(np.linspace(-.048,.050,17)):
     make_card(f'Fine frontal transition {col}',(x0,-.137,1.52),(.22,1,.22),.019+float(rng.uniform(-.004,.005)),.003,.004,.0002,7,float(rng.uniform(-.2,.2)))
 for i in range(6):
-    x0=float(rng.uniform(-.054,.052));y0=float(rng.uniform(-.075,.012));make_card(f'Silhouette wisp {i}',(x0,y0,1.61),(.45,1,-.12),.036,.002,.011,.002,6,float(rng.uniform(-.45,.45)))
+    x0=float(rng.uniform(-.054,.052));y0=float(rng.uniform(-.075,.012));make_card(f'Silhouette wisp {i}',(x0,y0,1.61),(.45,1,-.12),.018,.0015,.0025,.0006,6,float(rng.uniform(-.45,.45)))
 
 me=bpy.data.meshes.new('Layered card surface');me.from_pydata(verts,[],faces);me.update();obj=bpy.data.objects.new('HairGroom',me);bpy.context.collection.objects.link(obj);obj.parent=rig
 for p in me.polygons:p.use_smooth=True
@@ -208,5 +222,5 @@ glbpath=OUT/'hair-cards.glb';raw=glbpath.read_bytes();jsize=struct.unpack_from('
 for material in doc['materials']:
     material['alphaMode']='MASK';material['alphaCutoff']=.38;material['doubleSided']=True
 encoded=json.dumps(doc,separators=(',',':')).encode();encoded+=b' '*((-len(encoded))%4);glbpath.write_bytes(struct.pack('<III',0x46546c67,2,20+len(encoded)+len(binary))+struct.pack('<II',len(encoded),0x4e4f534a)+encoded+binary)
-manifest={'version':1,'license':'MIT original groom over retained CC0 scalp','seed':141126,'cards':len(card_meta),'vertices':len(verts),'triangles':len(faces)*2,'editableGuides':len(guides.objects),'shapeKeys':len(obj.data.shape_keys.key_blocks)-1,'references':['https://marmoset.co/posts/real-time-character-design-creation-and-presentation-breakdown/','https://marizatorska.artstation.com/blog/vq7Z/create-the-hair-cap-using-maya-and-marmoset-process-video'],'design':'Short asymmetric swept crop. Close coverage, staggered volume locks and sparse breakup. Original strand atlas; no purchased or downloaded hair assets.','guideLayout':card_meta,'files':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in OUT.iterdir() if p.suffix in ['.png','.glb','.blend']}}
+manifest={'version':1,'license':'MIT original groom over retained CC0 scalp','seed':141126,'cards':len(card_meta),'vertices':len(verts),'triangles':len(faces)*2,'editableGuides':len(guides.objects),'shapeKeys':len(obj.data.shape_keys.key_blocks)-1,'references':['https://marmoset.co/posts/real-time-character-design-creation-and-presentation-breakdown/','https://marizatorska.artstation.com/blog/vq7Z/create-the-hair-cap-using-maya-and-marmoset-process-video'],'edgeRevision':'Guides stop inside scalp boundary; widths narrow near perimeter; tips settle to scalp rather than projecting/folding beyond it.','design':'Short asymmetric swept crop. Close coverage, staggered volume locks and sparse breakup. Original strand atlas; no purchased or downloaded hair assets.','guideLayout':card_meta,'files':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in OUT.iterdir() if p.suffix in ['.png','.glb','.blend']}}
 (OUT/'provenance.json').write_text(json.dumps(manifest,indent=2)+'\n');print('HAIR CARDS',json.dumps({k:manifest[k] for k in ['cards','vertices','triangles','editableGuides','shapeKeys']}))

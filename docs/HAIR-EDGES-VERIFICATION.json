@@ -1,0 +1,6289 @@
+{
+  "passed": true,
+  "baseCommit": "4fa523473e83dad36007cf4bf99baf7afbc54318",
+  "publication": "Not published; no approval to publish",
+  "nodeChecks": 127,
+  "staticBuild": true,
+  "visualVerdict": "Temple overhang and looping crown silhouette improved. Some back-layer stepping, thin crown arcs and cap-like coverage remain. Not photorealistic.",
+  "browser": {
+    "passed": true,
+    "exportPassed": true,
+    "checks": [
+      {
+        "passed": true,
+        "label": "Previous cards: webgl / ANGLE (Apple, ANGLE Metal Renderer: Apple M1, Unspecified Version)"
+      },
+      {
+        "passed": true,
+        "label": "Previous cards: no procedural generator"
+      },
+      {
+        "passed": true,
+        "label": "Previous cards: original 53-bone rig"
+      },
+      {
+        "passed": true,
+        "label": "Refined edges: webgl / ANGLE (Apple, ANGLE Metal Renderer: Apple M1, Unspecified Version)"
+      },
+      {
+        "passed": true,
+        "label": "Refined edges: no procedural generator"
+      },
+      {
+        "passed": true,
+        "label": "Refined edges: original 53-bone rig"
+      },
+      {
+        "passed": true,
+        "label": "Matched camera, project and light: Brown Front"
+      },
+      {
+        "passed": true,
+        "label": "Matched camera, project and light: Brown Three-quarter"
+      },
+      {
+        "passed": true,
+        "label": "Matched camera, project and light: Brown Profile"
+      },
+      {
+        "passed": true,
+        "label": "Matched camera, project and light: Blond Front"
+      },
+      {
+        "passed": true,
+        "label": "Matched camera, project and light: Blond Three-quarter"
+      },
+      {
+        "passed": true,
+        "label": "Matched camera, project and light: Blond Profile"
+      },
+      {
+        "passed": true,
+        "label": "Matched camera, project and light: Black Front"
+      },
+      {
+        "passed": true,
+        "label": "Matched camera, project and light: Black Three-quarter"
+      },
+      {
+        "passed": true,
+        "label": "Matched camera, project and light: Black Profile"
+      },
+      {
+        "passed": true,
+        "label": "Matched camera, project and light: Back"
+      },
+      {
+        "passed": true,
+        "label": "Matched camera, project and light: Opposite side"
+      },
+      {
+        "passed": true,
+        "label": "Matched camera, project and light: Wide / long"
+      },
+      {
+        "passed": true,
+        "label": "Matched camera, project and light: Narrow / short"
+      },
+      {
+        "passed": true,
+        "label": "Matched camera, project and light: All identity maxima"
+      },
+      {
+        "passed": true,
+        "label": "Matched camera, project and light: Blond rim"
+      },
+      {
+        "passed": true,
+        "label": "Previous cards: repeated crop / bald / crop visibility"
+      },
+      {
+        "passed": true,
+        "label": "Refined edges: repeated crop / bald / crop visibility"
+      },
+      {
+        "passed": true,
+        "label": "No renderer/shader console errors"
+      },
+      {
+        "passed": true,
+        "label": "Only Previous cards hair meshes exported"
+      },
+      {
+        "passed": true,
+        "label": "Editable groom identity targets: HairGroom"
+      },
+      {
+        "passed": true,
+        "label": "Editable groom identity targets: HairCardRoot"
+      },
+      {
+        "passed": true,
+        "label": "Portable directional highlight extension"
+      },
+      {
+        "passed": true,
+        "label": "Four pose clips / hair-edges-baseline"
+      },
+      {
+        "passed": true,
+        "label": "Only Refined edges hair meshes exported"
+      },
+      {
+        "passed": true,
+        "label": "Editable groom identity targets: HairGroom"
+      },
+      {
+        "passed": true,
+        "label": "Editable groom identity targets: HairCardRoot"
+      },
+      {
+        "passed": true,
+        "label": "Portable directional highlight extension"
+      },
+      {
+        "passed": true,
+        "label": "Four pose clips / hair-edges-neutral"
+      },
+      {
+        "passed": true,
+        "label": "Only Refined edges hair meshes exported"
+      },
+      {
+        "passed": true,
+        "label": "Editable groom identity targets: HairGroom"
+      },
+      {
+        "passed": true,
+        "label": "Editable groom identity targets: HairCardRoot"
+      },
+      {
+        "passed": true,
+        "label": "Portable directional highlight extension"
+      },
+      {
+        "passed": true,
+        "label": "Four pose clips / hair-edges-extreme"
+      },
+      {
+        "passed": true,
+        "label": "Bald export omits every hair mesh"
+      },
+      {
+        "passed": true,
+        "label": "Four pose clips / hair-edges-bald"
+      },
+      {
+        "passed": true,
+        "label": "No console errors during exports"
+      }
+    ],
+    "views": [
+      {
+        "label": "Brown Front",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#493226",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 0,
+        "version": "before",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          1120,
+          1400
+        ]
+      },
+      {
+        "label": "Brown Front",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#493226",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 0,
+        "version": "after",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          1120,
+          1400
+        ]
+      },
+      {
+        "label": "Brown Three-quarter",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#493226",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 0.65,
+        "version": "before",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          1120,
+          1400
+        ]
+      },
+      {
+        "label": "Brown Three-quarter",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#493226",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 0.65,
+        "version": "after",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          1120,
+          1400
+        ]
+      },
+      {
+        "label": "Brown Profile",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#493226",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 1.5707963267948966,
+        "version": "before",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          1120,
+          1400
+        ]
+      },
+      {
+        "label": "Brown Profile",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#493226",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 1.5707963267948966,
+        "version": "after",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          1120,
+          1400
+        ]
+      },
+      {
+        "label": "Blond Front",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#d4b477",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 0,
+        "version": "before",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          1120,
+          1400
+        ]
+      },
+      {
+        "label": "Blond Front",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#d4b477",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 0,
+        "version": "after",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          1120,
+          1400
+        ]
+      },
+      {
+        "label": "Blond Three-quarter",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#d4b477",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 0.65,
+        "version": "before",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          1120,
+          1400
+        ]
+      },
+      {
+        "label": "Blond Three-quarter",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#d4b477",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 0.65,
+        "version": "after",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          1120,
+          1400
+        ]
+      },
+      {
+        "label": "Blond Profile",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#d4b477",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 1.5707963267948966,
+        "version": "before",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          1120,
+          1400
+        ]
+      },
+      {
+        "label": "Blond Profile",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#d4b477",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 1.5707963267948966,
+        "version": "after",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          1120,
+          1400
+        ]
+      },
+      {
+        "label": "Black Front",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#191614",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 0,
+        "version": "before",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          1120,
+          1400
+        ]
+      },
+      {
+        "label": "Black Front",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#191614",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 0,
+        "version": "after",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          1120,
+          1400
+        ]
+      },
+      {
+        "label": "Black Three-quarter",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#191614",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 0.65,
+        "version": "before",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          1120,
+          1400
+        ]
+      },
+      {
+        "label": "Black Three-quarter",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#191614",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 0.65,
+        "version": "after",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          1120,
+          1400
+        ]
+      },
+      {
+        "label": "Black Profile",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#191614",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 1.5707963267948966,
+        "version": "before",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          1120,
+          1400
+        ]
+      },
+      {
+        "label": "Black Profile",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#191614",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 1.5707963267948966,
+        "version": "after",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          1120,
+          1400
+        ]
+      },
+      {
+        "label": "Back",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#493226",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 3.141592653589793,
+        "version": "before",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          1120,
+          1400
+        ]
+      },
+      {
+        "label": "Back",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#493226",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 3.141592653589793,
+        "version": "after",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          1120,
+          1400
+        ]
+      },
+      {
+        "label": "Opposite side",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#493226",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": -1.1,
+        "version": "before",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          1120,
+          1400
+        ]
+      },
+      {
+        "label": "Opposite side",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#493226",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": -1.1,
+        "version": "after",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          1120,
+          1400
+        ]
+      },
+      {
+        "label": "Wide / long",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 1,
+          "shoulders": 1,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 1,
+          "headHeight": 1,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0.7,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#493226",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 0.65,
+        "version": "before",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          1120,
+          1400
+        ]
+      },
+      {
+        "label": "Wide / long",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 1,
+          "shoulders": 1,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 1,
+          "headHeight": 1,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0.7,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#493226",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 0.65,
+        "version": "after",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          1120,
+          1400
+        ]
+      },
+      {
+        "label": "Narrow / short",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0,
+          "shoulders": 0,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0,
+          "headHeight": 0,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0.6,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#493226",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": -0.65,
+        "version": "before",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          1120,
+          1400
+        ]
+      },
+      {
+        "label": "Narrow / short",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0,
+          "shoulders": 0,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0,
+          "headHeight": 0,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0.6,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#493226",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": -0.65,
+        "version": "after",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          1120,
+          1400
+        ]
+      },
+      {
+        "label": "All identity maxima",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 1,
+          "shoulders": 1,
+          "jaw": 1,
+          "nose": 1,
+          "eyes": 1,
+          "headWidth": 1,
+          "headHeight": 1,
+          "cheeks": 1,
+          "chin": 1,
+          "noseWidth": 1,
+          "noseProjection": 1,
+          "eyeSpacing": 1,
+          "browHeight": 1,
+          "lips": 1,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#493226",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 1.5707963267948966,
+        "version": "before",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          1120,
+          1400
+        ]
+      },
+      {
+        "label": "All identity maxima",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 1,
+          "shoulders": 1,
+          "jaw": 1,
+          "nose": 1,
+          "eyes": 1,
+          "headWidth": 1,
+          "headHeight": 1,
+          "cheeks": 1,
+          "chin": 1,
+          "noseWidth": 1,
+          "noseProjection": 1,
+          "eyeSpacing": 1,
+          "browHeight": 1,
+          "lips": 1,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#493226",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 1.5707963267948966,
+        "version": "after",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          1120,
+          1400
+        ]
+      },
+      {
+        "label": "Blond rim",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#d4b477",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 0.65,
+        "version": "before",
+        "light": "rim",
+        "focus": "face",
+        "canvasPixels": [
+          1120,
+          1400
+        ]
+      },
+      {
+        "label": "Blond rim",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#d4b477",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 0.65,
+        "version": "after",
+        "light": "rim",
+        "focus": "face",
+        "canvasPixels": [
+          1120,
+          1400
+        ]
+      }
+    ],
+    "exports": [
+      {
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#493226",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "mode": "groom",
+        "version": "before",
+        "asset": {
+          "url": "http://127.0.0.1:4198/tests/fixtures/hair-cards-before-edges.glb",
+          "bytes": 9382676,
+          "sha256": "53a6966a110eb783f42ab709604cea0d57ed9cb80dcb515ec77b8074daae39c3"
+        },
+        "exportMilliseconds": 2954.899999976158,
+        "capture": {
+          "name": "hair-edges-baseline.glb",
+          "bytes": 52994156,
+          "sha256": "cd761694facfa851f40054c6d2aca8db054e4e62cb9427bdca8edcddd664dbc7"
+        }
+      },
+      {
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#493226",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "mode": "groom",
+        "version": "after",
+        "asset": {
+          "url": "http://127.0.0.1:4198/assets/human/hair-cards/hair-cards.glb",
+          "bytes": 9337076,
+          "sha256": "fc851d4090ac248a055f7840095053401df28f51fe4a0cf07e044a4b94396967"
+        },
+        "exportMilliseconds": 3082.899999976158,
+        "capture": {
+          "name": "hair-edges-neutral.glb",
+          "bytes": 52897140,
+          "sha256": "13a3d9f3dd0e4c15cdae1e09bdc8bf6a0afc59b5f070230adfd0d17bb0e6eb8f"
+        }
+      },
+      {
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 1,
+          "headHeight": 1,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0.6,
+          "blinkRight": 0,
+          "gazeHorizontal": 0.4,
+          "gazeVertical": 0,
+          "smile": 0.7,
+          "frown": 0,
+          "browRaise": 0.4,
+          "browFurrow": 0,
+          "lowerGarment": "skirt",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#d4b477",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "stride",
+          "yaw": 0.32
+        },
+        "mode": "groom",
+        "version": "after",
+        "asset": {
+          "url": "http://127.0.0.1:4198/assets/human/hair-cards/hair-cards.glb",
+          "bytes": 9337076,
+          "sha256": "fc851d4090ac248a055f7840095053401df28f51fe4a0cf07e044a4b94396967"
+        },
+        "exportMilliseconds": 1784.8000000715256,
+        "capture": {
+          "name": "hair-edges-extreme.glb",
+          "bytes": 52671896,
+          "sha256": "36d54753558c80cb42b25f83700a4c0198e42bb22008f1042b6af50cb9503dd2"
+        }
+      },
+      {
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#493226",
+          "eyeColor": "#786448",
+          "hair": "none",
+          "pose": "wave",
+          "yaw": 0.32
+        },
+        "mode": "groom",
+        "version": "after",
+        "asset": {
+          "url": "http://127.0.0.1:4198/assets/human/hair-cards/hair-cards.glb",
+          "bytes": 9337076,
+          "sha256": "fc851d4090ac248a055f7840095053401df28f51fe4a0cf07e044a4b94396967"
+        },
+        "exportMilliseconds": 1644.2999999523163,
+        "capture": {
+          "name": "hair-edges-bald.glb",
+          "bytes": 34600128,
+          "sha256": "59503d024000ed11f00262bfdce2591ad4a025c92e8be01fdbd72c1cb2ee92c4"
+        }
+      }
+    ],
+    "errors": [],
+    "renderer": {
+      "before": {
+        "hair": {
+          "asset": "http://127.0.0.1:4198/tests/fixtures/hair-cards-before-edges.glb",
+          "source": "Blender-authored baked cards",
+          "previewLimit": "Fine hair cards do not cast or receive studio shadows in this preview, avoiding coarse shadow-map artifacts. The scalp cap still casts shadows; exported geometry and materials are unchanged, and other viewers choose their own shadow settings.",
+          "meshCount": 2,
+          "vertices": 14745,
+          "triangles": 17988,
+          "morphCount": 28,
+          "loadMilliseconds": 459.7000000476837,
+          "comparisonEnabled": false,
+          "transferLimit": "Original Blender-authored static mesh cards with baked alpha textures and ordinary PBR materials. Not strand simulation; alpha-tested edges depend on the receiving renderer."
+        },
+        "skinTransferLimit": "Base color, normal and roughness export as glTF PBR textures. The browser thin-tissue backlight approximation is not exported and is not volumetric subsurface scattering.",
+        "mode": "webgl",
+        "boneCount": 53,
+        "auxiliaryBoneCount": 0,
+        "morphs": {
+          "build": [
+            "BuildNarrow",
+            "BuildBroad"
+          ],
+          "shoulders": [
+            "ShouldersNarrow",
+            "ShouldersBroad"
+          ],
+          "jaw": [
+            "JawNarrow",
+            "JawBroad"
+          ],
+          "nose": [
+            "NoseNarrow",
+            "NoseBroad"
+          ],
+          "eyes": [
+            "EyesSmall",
+            "EyesLarge"
+          ],
+          "headWidth": [
+            "HeadNarrow",
+            "HeadWide"
+          ],
+          "headHeight": [
+            "HeadShort",
+            "HeadLong"
+          ],
+          "cheeks": [
+            "CheeksLean",
+            "CheeksFull"
+          ],
+          "chin": [
+            "ChinShort",
+            "ChinLong"
+          ],
+          "noseWidth": [
+            "NoseWingsNarrow",
+            "NoseWingsWide"
+          ],
+          "noseProjection": [
+            "NoseRetracted",
+            "NoseProjected"
+          ],
+          "eyeSpacing": [
+            "EyesClose",
+            "EyesWide"
+          ],
+          "browHeight": [
+            "BrowsLow",
+            "BrowsHigh"
+          ],
+          "lips": [
+            "LipsThin",
+            "LipsFull"
+          ]
+        },
+        "license": "CC0-1.0 foundation + MIT original portrait additions (see docs/ASSET-LICENSES.md)",
+        "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1, Unspecified Version)"
+      },
+      "after": {
+        "hair": {
+          "asset": "http://127.0.0.1:4198/assets/human/hair-cards/hair-cards.glb",
+          "source": "Blender-authored baked cards",
+          "previewLimit": "Fine hair cards do not cast or receive studio shadows in this preview, avoiding coarse shadow-map artifacts. The scalp cap still casts shadows; exported geometry and materials are unchanged, and other viewers choose their own shadow settings.",
+          "meshCount": 2,
+          "vertices": 14613,
+          "triangles": 17828,
+          "morphCount": 28,
+          "loadMilliseconds": 373.6999999284744,
+          "comparisonEnabled": false,
+          "transferLimit": "Original Blender-authored static mesh cards with baked alpha textures and ordinary PBR materials. Not strand simulation; alpha-tested edges depend on the receiving renderer."
+        },
+        "skinTransferLimit": "Base color, normal and roughness export as glTF PBR textures. The browser thin-tissue backlight approximation is not exported and is not volumetric subsurface scattering.",
+        "mode": "webgl",
+        "boneCount": 53,
+        "auxiliaryBoneCount": 0,
+        "morphs": {
+          "build": [
+            "BuildNarrow",
+            "BuildBroad"
+          ],
+          "shoulders": [
+            "ShouldersNarrow",
+            "ShouldersBroad"
+          ],
+          "jaw": [
+            "JawNarrow",
+            "JawBroad"
+          ],
+          "nose": [
+            "NoseNarrow",
+            "NoseBroad"
+          ],
+          "eyes": [
+            "EyesSmall",
+            "EyesLarge"
+          ],
+          "headWidth": [
+            "HeadNarrow",
+            "HeadWide"
+          ],
+          "headHeight": [
+            "HeadShort",
+            "HeadLong"
+          ],
+          "cheeks": [
+            "CheeksLean",
+            "CheeksFull"
+          ],
+          "chin": [
+            "ChinShort",
+            "ChinLong"
+          ],
+          "noseWidth": [
+            "NoseWingsNarrow",
+            "NoseWingsWide"
+          ],
+          "noseProjection": [
+            "NoseRetracted",
+            "NoseProjected"
+          ],
+          "eyeSpacing": [
+            "EyesClose",
+            "EyesWide"
+          ],
+          "browHeight": [
+            "BrowsLow",
+            "BrowsHigh"
+          ],
+          "lips": [
+            "LipsThin",
+            "LipsFull"
+          ]
+        },
+        "license": "CC0-1.0 foundation + MIT original portrait additions (see docs/ASSET-LICENSES.md)",
+        "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1, Unspecified Version)"
+      }
+    },
+    "assets": {
+      "before": {
+        "url": "http://127.0.0.1:4198/tests/fixtures/hair-cards-before-edges.glb",
+        "bytes": 9382676,
+        "sha256": "53a6966a110eb783f42ab709604cea0d57ed9cb80dcb515ec77b8074daae39c3"
+      },
+      "after": {
+        "url": "http://127.0.0.1:4198/assets/human/hair-cards/hair-cards.glb",
+        "bytes": 9337076,
+        "sha256": "fc851d4090ac248a055f7840095053401df28f51fe4a0cf07e044a4b94396967"
+      }
+    },
+    "load": {
+      "before": {
+        "rendererMilliseconds": 922,
+        "hairMilliseconds": 459.7000000476837,
+        "method": "Sequential renderer initialization, before then after; browser cache is not cleared"
+      },
+      "after": {
+        "rendererMilliseconds": 731.8000000715256,
+        "hairMilliseconds": 373.6999999284744,
+        "method": "Sequential renderer initialization, before then after; browser cache is not cleared"
+      }
+    },
+    "triangles": {
+      "before": {
+        "crop": 56668,
+        "bald": 38680
+      },
+      "after": {
+        "crop": 56508,
+        "bald": 38680
+      }
+    },
+    "timing": [
+      {
+        "version": "before",
+        "triangles": 56668,
+        "synchronizedDrawMedianMs": 1.5999999046325684,
+        "synchronizedDraw95Ms": 2.399999976158142,
+        "samples": 24,
+        "method": "CPU submission plus gl.finish; not an interactive FPS estimate"
+      },
+      {
+        "version": "after",
+        "triangles": 56508,
+        "synchronizedDrawMedianMs": 1.6999999284744263,
+        "synchronizedDraw95Ms": 3.899999976158142,
+        "samples": 24,
+        "method": "CPU submission plus gl.finish; not an interactive FPS estimate"
+      }
+    ],
+    "capture": {
+      "name": "hair-edges-comparison.png",
+      "bytes": 1149986,
+      "sha256": "c0b6f44e9b702f3e5c0fff91be42ec6c9f15406b757fa382c8b9378366141783"
+    }
+  },
+  "software": {
+    "passed": true,
+    "exportPassed": false,
+    "checks": [
+      {
+        "passed": true,
+        "label": "Previous cards: software / CPU"
+      },
+      {
+        "passed": true,
+        "label": "Previous cards: no procedural generator"
+      },
+      {
+        "passed": true,
+        "label": "Previous cards: original 53-bone rig"
+      },
+      {
+        "passed": true,
+        "label": "Refined edges: software / CPU"
+      },
+      {
+        "passed": true,
+        "label": "Refined edges: no procedural generator"
+      },
+      {
+        "passed": true,
+        "label": "Refined edges: original 53-bone rig"
+      },
+      {
+        "passed": true,
+        "label": "Matched camera, project and light: Brown Front"
+      },
+      {
+        "passed": true,
+        "label": "Matched camera, project and light: Brown Three-quarter"
+      },
+      {
+        "passed": true,
+        "label": "Matched camera, project and light: Brown Profile"
+      },
+      {
+        "passed": true,
+        "label": "Matched camera, project and light: Blond Front"
+      },
+      {
+        "passed": true,
+        "label": "Matched camera, project and light: Blond Three-quarter"
+      },
+      {
+        "passed": true,
+        "label": "Matched camera, project and light: Blond Profile"
+      },
+      {
+        "passed": true,
+        "label": "Matched camera, project and light: Black Front"
+      },
+      {
+        "passed": true,
+        "label": "Matched camera, project and light: Black Three-quarter"
+      },
+      {
+        "passed": true,
+        "label": "Matched camera, project and light: Black Profile"
+      },
+      {
+        "passed": true,
+        "label": "Matched camera, project and light: Back"
+      },
+      {
+        "passed": true,
+        "label": "Matched camera, project and light: Opposite side"
+      },
+      {
+        "passed": true,
+        "label": "Matched camera, project and light: Wide / long"
+      },
+      {
+        "passed": true,
+        "label": "Matched camera, project and light: Narrow / short"
+      },
+      {
+        "passed": true,
+        "label": "Matched camera, project and light: All identity maxima"
+      },
+      {
+        "passed": true,
+        "label": "Matched camera, project and light: Blond rim"
+      },
+      {
+        "passed": true,
+        "label": "Previous cards: repeated crop / bald / crop visibility"
+      },
+      {
+        "passed": true,
+        "label": "Refined edges: repeated crop / bald / crop visibility"
+      },
+      {
+        "passed": true,
+        "label": "No renderer/shader console errors"
+      }
+    ],
+    "views": [
+      {
+        "label": "Brown Front",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#493226",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 0,
+        "version": "before",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          560,
+          700
+        ]
+      },
+      {
+        "label": "Brown Front",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#493226",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 0,
+        "version": "after",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          560,
+          700
+        ]
+      },
+      {
+        "label": "Brown Three-quarter",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#493226",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 0.65,
+        "version": "before",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          560,
+          700
+        ]
+      },
+      {
+        "label": "Brown Three-quarter",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#493226",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 0.65,
+        "version": "after",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          560,
+          700
+        ]
+      },
+      {
+        "label": "Brown Profile",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#493226",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 1.5707963267948966,
+        "version": "before",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          560,
+          700
+        ]
+      },
+      {
+        "label": "Brown Profile",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#493226",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 1.5707963267948966,
+        "version": "after",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          560,
+          700
+        ]
+      },
+      {
+        "label": "Blond Front",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#d4b477",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 0,
+        "version": "before",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          560,
+          700
+        ]
+      },
+      {
+        "label": "Blond Front",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#d4b477",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 0,
+        "version": "after",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          560,
+          700
+        ]
+      },
+      {
+        "label": "Blond Three-quarter",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#d4b477",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 0.65,
+        "version": "before",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          560,
+          700
+        ]
+      },
+      {
+        "label": "Blond Three-quarter",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#d4b477",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 0.65,
+        "version": "after",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          560,
+          700
+        ]
+      },
+      {
+        "label": "Blond Profile",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#d4b477",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 1.5707963267948966,
+        "version": "before",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          560,
+          700
+        ]
+      },
+      {
+        "label": "Blond Profile",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#d4b477",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 1.5707963267948966,
+        "version": "after",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          560,
+          700
+        ]
+      },
+      {
+        "label": "Black Front",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#191614",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 0,
+        "version": "before",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          560,
+          700
+        ]
+      },
+      {
+        "label": "Black Front",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#191614",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 0,
+        "version": "after",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          560,
+          700
+        ]
+      },
+      {
+        "label": "Black Three-quarter",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#191614",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 0.65,
+        "version": "before",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          560,
+          700
+        ]
+      },
+      {
+        "label": "Black Three-quarter",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#191614",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 0.65,
+        "version": "after",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          560,
+          700
+        ]
+      },
+      {
+        "label": "Black Profile",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#191614",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 1.5707963267948966,
+        "version": "before",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          560,
+          700
+        ]
+      },
+      {
+        "label": "Black Profile",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#191614",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 1.5707963267948966,
+        "version": "after",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          560,
+          700
+        ]
+      },
+      {
+        "label": "Back",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#493226",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 3.141592653589793,
+        "version": "before",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          560,
+          700
+        ]
+      },
+      {
+        "label": "Back",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#493226",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 3.141592653589793,
+        "version": "after",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          560,
+          700
+        ]
+      },
+      {
+        "label": "Opposite side",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#493226",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": -1.1,
+        "version": "before",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          560,
+          700
+        ]
+      },
+      {
+        "label": "Opposite side",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#493226",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": -1.1,
+        "version": "after",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          560,
+          700
+        ]
+      },
+      {
+        "label": "Wide / long",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 1,
+          "shoulders": 1,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 1,
+          "headHeight": 1,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0.7,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#493226",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 0.65,
+        "version": "before",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          560,
+          700
+        ]
+      },
+      {
+        "label": "Wide / long",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 1,
+          "shoulders": 1,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 1,
+          "headHeight": 1,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0.7,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#493226",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 0.65,
+        "version": "after",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          560,
+          700
+        ]
+      },
+      {
+        "label": "Narrow / short",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0,
+          "shoulders": 0,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0,
+          "headHeight": 0,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0.6,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#493226",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": -0.65,
+        "version": "before",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          560,
+          700
+        ]
+      },
+      {
+        "label": "Narrow / short",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0,
+          "shoulders": 0,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0,
+          "headHeight": 0,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0.6,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#493226",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": -0.65,
+        "version": "after",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          560,
+          700
+        ]
+      },
+      {
+        "label": "All identity maxima",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 1,
+          "shoulders": 1,
+          "jaw": 1,
+          "nose": 1,
+          "eyes": 1,
+          "headWidth": 1,
+          "headHeight": 1,
+          "cheeks": 1,
+          "chin": 1,
+          "noseWidth": 1,
+          "noseProjection": 1,
+          "eyeSpacing": 1,
+          "browHeight": 1,
+          "lips": 1,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#493226",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 1.5707963267948966,
+        "version": "before",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          560,
+          700
+        ]
+      },
+      {
+        "label": "All identity maxima",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 1,
+          "shoulders": 1,
+          "jaw": 1,
+          "nose": 1,
+          "eyes": 1,
+          "headWidth": 1,
+          "headHeight": 1,
+          "cheeks": 1,
+          "chin": 1,
+          "noseWidth": 1,
+          "noseProjection": 1,
+          "eyeSpacing": 1,
+          "browHeight": 1,
+          "lips": 1,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#493226",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 1.5707963267948966,
+        "version": "after",
+        "light": "studio",
+        "focus": "face",
+        "canvasPixels": [
+          560,
+          700
+        ]
+      },
+      {
+        "label": "Blond rim",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#d4b477",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 0.65,
+        "version": "before",
+        "light": "rim",
+        "focus": "face",
+        "canvasPixels": [
+          560,
+          700
+        ]
+      },
+      {
+        "label": "Blond rim",
+        "project": {
+          "version": 2,
+          "name": "Juniper",
+          "height": 1,
+          "build": 0.5,
+          "shoulders": 0.5,
+          "jaw": 0.5,
+          "nose": 0.5,
+          "eyes": 0.5,
+          "headWidth": 0.5,
+          "headHeight": 0.5,
+          "cheeks": 0.5,
+          "chin": 0.5,
+          "noseWidth": 0.5,
+          "noseProjection": 0.5,
+          "eyeSpacing": 0.5,
+          "browHeight": 0.5,
+          "lips": 0.5,
+          "blinkLeft": 0,
+          "blinkRight": 0,
+          "gazeHorizontal": 0,
+          "gazeVertical": 0,
+          "smile": 0,
+          "frown": 0,
+          "browRaise": 0,
+          "browFurrow": 0,
+          "lowerGarment": "trousers",
+          "skirtSwing": 0,
+          "skin": "#ba805e",
+          "outfit": "#d97842",
+          "pants": "#3b5550",
+          "hairColor": "#d4b477",
+          "eyeColor": "#786448",
+          "hair": "crop",
+          "pose": "relaxed",
+          "yaw": 0.32
+        },
+        "yaw": 0.65,
+        "version": "after",
+        "light": "rim",
+        "focus": "face",
+        "canvasPixels": [
+          560,
+          700
+        ]
+      }
+    ],
+    "exports": [],
+    "errors": [],
+    "renderer": {
+      "before": {
+        "hair": {
+          "asset": "http://127.0.0.1:4198/tests/fixtures/hair-cards-before-edges.glb",
+          "source": "Blender-authored baked cards",
+          "previewLimit": "Fine hair cards do not cast or receive studio shadows in this preview, avoiding coarse shadow-map artifacts. The scalp cap still casts shadows; exported geometry and materials are unchanged, and other viewers choose their own shadow settings.",
+          "meshCount": 2,
+          "vertices": 14745,
+          "triangles": 17988,
+          "morphCount": 28,
+          "loadMilliseconds": 342,
+          "comparisonEnabled": false,
+          "transferLimit": "Original Blender-authored static mesh cards with baked alpha textures and ordinary PBR materials. Not strand simulation; alpha-tested edges depend on the receiving renderer."
+        },
+        "skinTransferLimit": "Base color, normal and roughness export as glTF PBR textures. The browser thin-tissue backlight approximation is not exported and is not volumetric subsurface scattering.",
+        "mode": "software",
+        "boneCount": 53,
+        "auxiliaryBoneCount": 0,
+        "morphs": {
+          "build": [
+            "BuildNarrow",
+            "BuildBroad"
+          ],
+          "shoulders": [
+            "ShouldersNarrow",
+            "ShouldersBroad"
+          ],
+          "jaw": [
+            "JawNarrow",
+            "JawBroad"
+          ],
+          "nose": [
+            "NoseNarrow",
+            "NoseBroad"
+          ],
+          "eyes": [
+            "EyesSmall",
+            "EyesLarge"
+          ],
+          "headWidth": [
+            "HeadNarrow",
+            "HeadWide"
+          ],
+          "headHeight": [
+            "HeadShort",
+            "HeadLong"
+          ],
+          "cheeks": [
+            "CheeksLean",
+            "CheeksFull"
+          ],
+          "chin": [
+            "ChinShort",
+            "ChinLong"
+          ],
+          "noseWidth": [
+            "NoseWingsNarrow",
+            "NoseWingsWide"
+          ],
+          "noseProjection": [
+            "NoseRetracted",
+            "NoseProjected"
+          ],
+          "eyeSpacing": [
+            "EyesClose",
+            "EyesWide"
+          ],
+          "browHeight": [
+            "BrowsLow",
+            "BrowsHigh"
+          ],
+          "lips": [
+            "LipsThin",
+            "LipsFull"
+          ]
+        },
+        "license": "CC0-1.0 foundation + MIT original portrait additions (see docs/ASSET-LICENSES.md)",
+        "gpu": "CPU"
+      },
+      "after": {
+        "hair": {
+          "asset": "http://127.0.0.1:4198/assets/human/hair-cards/hair-cards.glb",
+          "source": "Blender-authored baked cards",
+          "previewLimit": "Fine hair cards do not cast or receive studio shadows in this preview, avoiding coarse shadow-map artifacts. The scalp cap still casts shadows; exported geometry and materials are unchanged, and other viewers choose their own shadow settings.",
+          "meshCount": 2,
+          "vertices": 14613,
+          "triangles": 17828,
+          "morphCount": 28,
+          "loadMilliseconds": 259.6999999284744,
+          "comparisonEnabled": false,
+          "transferLimit": "Original Blender-authored static mesh cards with baked alpha textures and ordinary PBR materials. Not strand simulation; alpha-tested edges depend on the receiving renderer."
+        },
+        "skinTransferLimit": "Base color, normal and roughness export as glTF PBR textures. The browser thin-tissue backlight approximation is not exported and is not volumetric subsurface scattering.",
+        "mode": "software",
+        "boneCount": 53,
+        "auxiliaryBoneCount": 0,
+        "morphs": {
+          "build": [
+            "BuildNarrow",
+            "BuildBroad"
+          ],
+          "shoulders": [
+            "ShouldersNarrow",
+            "ShouldersBroad"
+          ],
+          "jaw": [
+            "JawNarrow",
+            "JawBroad"
+          ],
+          "nose": [
+            "NoseNarrow",
+            "NoseBroad"
+          ],
+          "eyes": [
+            "EyesSmall",
+            "EyesLarge"
+          ],
+          "headWidth": [
+            "HeadNarrow",
+            "HeadWide"
+          ],
+          "headHeight": [
+            "HeadShort",
+            "HeadLong"
+          ],
+          "cheeks": [
+            "CheeksLean",
+            "CheeksFull"
+          ],
+          "chin": [
+            "ChinShort",
+            "ChinLong"
+          ],
+          "noseWidth": [
+            "NoseWingsNarrow",
+            "NoseWingsWide"
+          ],
+          "noseProjection": [
+            "NoseRetracted",
+            "NoseProjected"
+          ],
+          "eyeSpacing": [
+            "EyesClose",
+            "EyesWide"
+          ],
+          "browHeight": [
+            "BrowsLow",
+            "BrowsHigh"
+          ],
+          "lips": [
+            "LipsThin",
+            "LipsFull"
+          ]
+        },
+        "license": "CC0-1.0 foundation + MIT original portrait additions (see docs/ASSET-LICENSES.md)",
+        "gpu": "CPU"
+      }
+    },
+    "assets": {
+      "before": {
+        "url": "http://127.0.0.1:4198/tests/fixtures/hair-cards-before-edges.glb",
+        "bytes": 9382676,
+        "sha256": "53a6966a110eb783f42ab709604cea0d57ed9cb80dcb515ec77b8074daae39c3"
+      },
+      "after": {
+        "url": "http://127.0.0.1:4198/assets/human/hair-cards/hair-cards.glb",
+        "bytes": 9337076,
+        "sha256": "fc851d4090ac248a055f7840095053401df28f51fe4a0cf07e044a4b94396967"
+      }
+    },
+    "load": {
+      "before": {
+        "rendererMilliseconds": 734,
+        "hairMilliseconds": 342,
+        "method": "Sequential renderer initialization, before then after; browser cache is not cleared"
+      },
+      "after": {
+        "rendererMilliseconds": 587.6000000238419,
+        "hairMilliseconds": 259.6999999284744,
+        "method": "Sequential renderer initialization, before then after; browser cache is not cleared"
+      }
+    },
+    "triangles": {
+      "before": {
+        "crop": 56668,
+        "bald": 38680
+      },
+      "after": {
+        "crop": 56508,
+        "bald": 38680
+      }
+    },
+    "capture": {
+      "name": "hair-edges-software.png",
+      "bytes": 1087806,
+      "sha256": "ab59e2585711371475b9092331566d36d52d70a47ba298b803a04ba745b54eef"
+    }
+  },
+  "ui": {
+    "suite": "expression-controls",
+    "url": "http://127.0.0.1:4198/tests/expression-controls.html?capture",
+    "checks": [
+      {
+        "passed": true,
+        "label": "Checks run through a localhost HTTP server"
+      },
+      {
+        "passed": true,
+        "label": "Human renderer is ready"
+      },
+      {
+        "passed": true,
+        "label": "No-hair edit autosaves"
+      },
+      {
+        "passed": true,
+        "label": "Repeated no-hair changes add no duplicate undo state"
+      },
+      {
+        "passed": true,
+        "label": "Redo restores no hair"
+      },
+      {
+        "passed": true,
+        "label": "Hair tint autosaves"
+      },
+      {
+        "passed": true,
+        "label": "Undo restores hair tint"
+      },
+      {
+        "passed": true,
+        "label": "Redo restores hair tint"
+      },
+      {
+        "passed": true,
+        "label": "Older v2 autosave normalizes all omitted expression fields to neutral"
+      },
+      {
+        "passed": true,
+        "label": "Old autosave preserves face identity"
+      },
+      {
+        "passed": true,
+        "label": "Four expression controls remain separate from fifteen shape controls"
+      },
+      {
+        "passed": true,
+        "label": "smile exposes correct bounds and step"
+      },
+      {
+        "passed": true,
+        "label": "frown exposes correct bounds and step"
+      },
+      {
+        "passed": true,
+        "label": "browRaise exposes correct bounds and step"
+      },
+      {
+        "passed": true,
+        "label": "browFurrow exposes correct bounds and step"
+      },
+      {
+        "passed": true,
+        "label": "Help explains opposing expression blend"
+      },
+      {
+        "passed": true,
+        "label": "Smile stays independent of other expression sliders"
+      },
+      {
+        "passed": true,
+        "label": "All expression intensities autosave"
+      },
+      {
+        "passed": true,
+        "label": "Expressions preserve manual blink and gaze values"
+      },
+      {
+        "passed": true,
+        "label": "smile readout shows percentage"
+      },
+      {
+        "passed": true,
+        "label": "frown readout shows percentage"
+      },
+      {
+        "passed": true,
+        "label": "browRaise readout shows percentage"
+      },
+      {
+        "passed": true,
+        "label": "browFurrow readout shows percentage"
+      },
+      {
+        "passed": true,
+        "label": "Neutral expressions resets all four controls"
+      },
+      {
+        "passed": true,
+        "label": "Reset expressions preserves manual eyes and gaze"
+      },
+      {
+        "passed": true,
+        "label": "Undo neutral reset restores all independent values"
+      },
+      {
+        "passed": true,
+        "label": "Redo restores neutral expressions"
+      },
+      {
+        "passed": true,
+        "label": "Neutral eyes keeps the expression sliders unchanged"
+      },
+      {
+        "passed": true,
+        "label": "Repeated neutral clicks add no duplicate undo state"
+      },
+      {
+        "passed": true,
+        "label": "Import clears its file input for repeated opening"
+      },
+      {
+        "passed": true,
+        "label": "Dirty import asks before replacing project"
+      },
+      {
+        "passed": true,
+        "label": "Cancelling project replacement leaves expressions and saved state unchanged"
+      },
+      {
+        "passed": true,
+        "label": "Save project produces an editable .persona download"
+      },
+      {
+        "passed": true,
+        "label": "Saved project retains the current crop and light tint"
+      },
+      {
+        "passed": true,
+        "label": "Captured .persona download preserves expressions and identity"
+      },
+      {
+        "passed": true,
+        "label": "Import clears its file input for repeated opening"
+      },
+      {
+        "passed": true,
+        "label": "Opening captured .persona restores all expressions without file dialog"
+      },
+      {
+        "passed": true,
+        "label": "Import clears its file input for repeated opening"
+      },
+      {
+        "passed": true,
+        "label": "smile rejects null without changing state"
+      },
+      {
+        "passed": true,
+        "label": "Import clears its file input for repeated opening"
+      },
+      {
+        "passed": true,
+        "label": "smile rejects \"0\" without changing state"
+      },
+      {
+        "passed": true,
+        "label": "Import clears its file input for repeated opening"
+      },
+      {
+        "passed": true,
+        "label": "smile rejects false without changing state"
+      },
+      {
+        "passed": true,
+        "label": "Import clears its file input for repeated opening"
+      },
+      {
+        "passed": true,
+        "label": "smile rejects {} without changing state"
+      },
+      {
+        "passed": true,
+        "label": "Import clears its file input for repeated opening"
+      },
+      {
+        "passed": true,
+        "label": "smile rejects [] without changing state"
+      },
+      {
+        "passed": true,
+        "label": "Import clears its file input for repeated opening"
+      },
+      {
+        "passed": true,
+        "label": "smile rejects 2 without changing state"
+      },
+      {
+        "passed": true,
+        "label": "Import clears its file input for repeated opening"
+      },
+      {
+        "passed": true,
+        "label": "smile rejects -2 without changing state"
+      },
+      {
+        "passed": true,
+        "label": "Import clears its file input for repeated opening"
+      },
+      {
+        "passed": true,
+        "label": "frown rejects null without changing state"
+      },
+      {
+        "passed": true,
+        "label": "Import clears its file input for repeated opening"
+      },
+      {
+        "passed": true,
+        "label": "frown rejects \"0\" without changing state"
+      },
+      {
+        "passed": true,
+        "label": "Import clears its file input for repeated opening"
+      },
+      {
+        "passed": true,
+        "label": "frown rejects false without changing state"
+      },
+      {
+        "passed": true,
+        "label": "Import clears its file input for repeated opening"
+      },
+      {
+        "passed": true,
+        "label": "frown rejects {} without changing state"
+      },
+      {
+        "passed": true,
+        "label": "Import clears its file input for repeated opening"
+      },
+      {
+        "passed": true,
+        "label": "frown rejects [] without changing state"
+      },
+      {
+        "passed": true,
+        "label": "Import clears its file input for repeated opening"
+      },
+      {
+        "passed": true,
+        "label": "frown rejects 2 without changing state"
+      },
+      {
+        "passed": true,
+        "label": "Import clears its file input for repeated opening"
+      },
+      {
+        "passed": true,
+        "label": "frown rejects -2 without changing state"
+      },
+      {
+        "passed": true,
+        "label": "Import clears its file input for repeated opening"
+      },
+      {
+        "passed": true,
+        "label": "browRaise rejects null without changing state"
+      },
+      {
+        "passed": true,
+        "label": "Import clears its file input for repeated opening"
+      },
+      {
+        "passed": true,
+        "label": "browRaise rejects \"0\" without changing state"
+      },
+      {
+        "passed": true,
+        "label": "Import clears its file input for repeated opening"
+      },
+      {
+        "passed": true,
+        "label": "browRaise rejects false without changing state"
+      },
+      {
+        "passed": true,
+        "label": "Import clears its file input for repeated opening"
+      },
+      {
+        "passed": true,
+        "label": "browRaise rejects {} without changing state"
+      },
+      {
+        "passed": true,
+        "label": "Import clears its file input for repeated opening"
+      },
+      {
+        "passed": true,
+        "label": "browRaise rejects [] without changing state"
+      },
+      {
+        "passed": true,
+        "label": "Import clears its file input for repeated opening"
+      },
+      {
+        "passed": true,
+        "label": "browRaise rejects 2 without changing state"
+      },
+      {
+        "passed": true,
+        "label": "Import clears its file input for repeated opening"
+      },
+      {
+        "passed": true,
+        "label": "browRaise rejects -2 without changing state"
+      },
+      {
+        "passed": true,
+        "label": "Import clears its file input for repeated opening"
+      },
+      {
+        "passed": true,
+        "label": "browFurrow rejects null without changing state"
+      },
+      {
+        "passed": true,
+        "label": "Import clears its file input for repeated opening"
+      },
+      {
+        "passed": true,
+        "label": "browFurrow rejects \"0\" without changing state"
+      },
+      {
+        "passed": true,
+        "label": "Import clears its file input for repeated opening"
+      },
+      {
+        "passed": true,
+        "label": "browFurrow rejects false without changing state"
+      },
+      {
+        "passed": true,
+        "label": "Import clears its file input for repeated opening"
+      },
+      {
+        "passed": true,
+        "label": "browFurrow rejects {} without changing state"
+      },
+      {
+        "passed": true,
+        "label": "Import clears its file input for repeated opening"
+      },
+      {
+        "passed": true,
+        "label": "browFurrow rejects [] without changing state"
+      },
+      {
+        "passed": true,
+        "label": "Import clears its file input for repeated opening"
+      },
+      {
+        "passed": true,
+        "label": "browFurrow rejects 2 without changing state"
+      },
+      {
+        "passed": true,
+        "label": "Import clears its file input for repeated opening"
+      },
+      {
+        "passed": true,
+        "label": "browFurrow rejects -2 without changing state"
+      },
+      {
+        "passed": true,
+        "label": "Import clears its file input for repeated opening"
+      },
+      {
+        "passed": true,
+        "label": "Opening old v2 normalizes omitted expression controls neutral"
+      },
+      {
+        "passed": true,
+        "label": "Undo old import restores independent expression values"
+      },
+      {
+        "passed": true,
+        "label": "Redo old import restores neutral values"
+      },
+      {
+        "passed": true,
+        "label": "Randomize leaves expression state unchanged"
+      },
+      {
+        "passed": true,
+        "label": "Human renderer is ready"
+      },
+      {
+        "passed": true,
+        "label": "Reload restores expression autosave"
+      },
+      {
+        "passed": true,
+        "label": "Reload restores crop and light tint"
+      },
+      {
+        "passed": true,
+        "label": "Reload begins clean undo history"
+      },
+      {
+        "passed": true,
+        "label": "390px mobile layout has no horizontal overflow"
+      },
+      {
+        "passed": true,
+        "label": "smile fits narrow layout"
+      },
+      {
+        "passed": true,
+        "label": "frown fits narrow layout"
+      },
+      {
+        "passed": true,
+        "label": "browRaise fits narrow layout"
+      },
+      {
+        "passed": true,
+        "label": "browFurrow fits narrow layout"
+      }
+    ],
+    "passed": true,
+    "renderMode": "webgl",
+    "qaStorageRestored": true,
+    "elapsedMs": 32635,
+    "total": 107,
+    "failures": 0
+  },
+  "shape": {
+    "passed": true,
+    "cards": 435,
+    "vertices": 14355,
+    "maxTipDistanceMeters": 0.0006746256840415299,
+    "tipLimitMeters": 0.0015,
+    "boundaryTrimmedGuides": 31,
+    "negativeFloatingTipRejected": true,
+    "identityKeys": 28,
+    "sourceUnchanged": true
+  },
+  "editability": {
+    "passed": true,
+    "editedGuide": "Base top 00-00",
+    "controlPointEditMeters": 0.006,
+    "rebakedMaxVertexMovementMeters": 0.005196839104678242,
+    "retainedShapeKeys": 28,
+    "vertices": 14355,
+    "sourceSaved": false
+  },
+  "export": {
+    "passed": true,
+    "structure": [
+      {
+        "file": "hair-edges-baseline.glb",
+        "sha256": "cd761694facfa851f40054c6d2aca8db054e4e62cb9427bdca8edcddd664dbc7",
+        "bytes": 52994156,
+        "bodyBones": 53,
+        "auxiliaryBones": 0,
+        "preservedBodyMeshes": [
+          "Brows",
+          "Cornea",
+          "Eyes",
+          "HumanBody",
+          "Iris",
+          "Lashes",
+          "Outfit",
+          "Pants"
+        ],
+        "maxOriginalBindMatrixError": 0,
+        "maxBodyWeightRoundingDifference": 1.1920928955078125e-07,
+        "bodyPoseSamplesCompared": 4240,
+        "clips": [
+          "relaxed",
+          "stride",
+          "tpose",
+          "wave"
+        ],
+        "skirt": null,
+        "expressions": {
+          "HumanBody": {
+            "selectedWeights": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "maximumAbsoluteDeltasMeters": {
+              "Smile": 0.0067996978759765625,
+              "Frown": 0.005299806594848633,
+              "BrowRaise": 0.00799870491027832,
+              "BrowFurrow": 0.004511713981628418
+            },
+            "clipWeightSamplesCompared": 32
+          },
+          "Brows": {
+            "selectedWeights": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "maximumAbsoluteDeltasMeters": {
+              "Smile": 0.0,
+              "Frown": 0.0,
+              "BrowRaise": 0.008000016212463379,
+              "BrowFurrow": 0.004599928855895996
+            },
+            "clipWeightSamplesCompared": 32
+          }
+        },
+        "eyes": {
+          "HumanBody": {
+            "selectedWeights": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "maximumAbsoluteDeltasMeters": {
+              "BlinkLeft": 0.008829072117805481,
+              "BlinkRight": 0.008829072117805481,
+              "GazeLeft": 0.0,
+              "GazeRight": 0.0,
+              "GazeUp": 0.001799941062927246,
+              "GazeDown": 0.001799941062927246,
+              "BlinkLeftGazeUp": 0.001799941062927246,
+              "BlinkLeftGazeDown": 0.001799941062927246,
+              "BlinkRightGazeUp": 0.001799941062927246,
+              "BlinkRightGazeDown": 0.001799941062927246
+            },
+            "clipWeightSamplesCompared": 80
+          },
+          "Lashes": {
+            "selectedWeights": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "maximumAbsoluteDeltasMeters": {
+              "BlinkLeft": 0.006469219923019409,
+              "BlinkRight": 0.006469219923019409,
+              "GazeLeft": 0.0,
+              "GazeRight": 0.0,
+              "GazeUp": 0.001799941062927246,
+              "GazeDown": 0.001799941062927246,
+              "BlinkLeftGazeUp": 0.001799941062927246,
+              "BlinkLeftGazeDown": 0.001799941062927246,
+              "BlinkRightGazeUp": 0.001799941062927246,
+              "BlinkRightGazeDown": 0.001799941062927246
+            },
+            "clipWeightSamplesCompared": 80
+          },
+          "Eyes": {
+            "selectedWeights": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "maximumAbsoluteDeltasMeters": {
+              "BlinkLeft": 0.0,
+              "BlinkRight": 0.0,
+              "GazeLeft": 0.003654107451438904,
+              "GazeRight": 0.003654107451438904,
+              "GazeUp": 0.0020901933312416077,
+              "GazeDown": 0.002039298415184021,
+              "BlinkLeftGazeUp": 0.0,
+              "BlinkLeftGazeDown": 0.0,
+              "BlinkRightGazeUp": 0.0,
+              "BlinkRightGazeDown": 0.0
+            },
+            "clipWeightSamplesCompared": 80
+          },
+          "Iris": {
+            "selectedWeights": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "maximumAbsoluteDeltasMeters": {
+              "BlinkLeft": 0.0,
+              "BlinkRight": 0.0,
+              "GazeLeft": 0.0026260223239660263,
+              "GazeRight": 0.0026260223239660263,
+              "GazeUp": 0.0017472505569458008,
+              "GazeDown": 0.0017472505569458008,
+              "BlinkLeftGazeUp": 0.0,
+              "BlinkLeftGazeDown": 0.0,
+              "BlinkRightGazeUp": 0.0,
+              "BlinkRightGazeDown": 0.0
+            },
+            "clipWeightSamplesCompared": 80
+          },
+          "Cornea": {
+            "selectedWeights": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "maximumAbsoluteDeltasMeters": {
+              "BlinkLeft": 0.0,
+              "BlinkRight": 0.0,
+              "GazeLeft": 0.0026629865169525146,
+              "GazeRight": 0.0026629865169525146,
+              "GazeUp": 0.0017720460891723633,
+              "GazeDown": 0.0017720460891723633,
+              "BlinkLeftGazeUp": 0.0,
+              "BlinkLeftGazeDown": 0.0,
+              "BlinkRightGazeUp": 0.0,
+              "BlinkRightGazeDown": 0.0
+            },
+            "clipWeightSamplesCompared": 80
+          }
+        },
+        "hair": {
+          "HairGroom": {
+            "targets": [
+              "BuildNarrow",
+              "BuildBroad",
+              "ShouldersNarrow",
+              "ShouldersBroad",
+              "JawNarrow",
+              "JawBroad",
+              "NoseNarrow",
+              "NoseBroad",
+              "EyesSmall",
+              "EyesLarge",
+              "HeadNarrow",
+              "HeadWide",
+              "HeadShort",
+              "HeadLong",
+              "CheeksLean",
+              "CheeksFull",
+              "ChinShort",
+              "ChinLong",
+              "NoseWingsNarrow",
+              "NoseWingsWide",
+              "NoseRetracted",
+              "NoseProjected",
+              "EyesClose",
+              "EyesWide",
+              "BrowsLow",
+              "BrowsHigh",
+              "LipsThin",
+              "LipsFull"
+            ],
+            "selectedWeights": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "clipWeightSamplesCompared": 224,
+            "primitives": [
+              {
+                "maxWeightSumError": 2.8870999813079834e-08,
+                "maxInfluences": 2,
+                "vertices": 14487,
+                "maximumMorphDeltaMeters": {
+                  "BuildNarrow": 0.0,
+                  "BuildBroad": 0.0,
+                  "ShouldersNarrow": 0.0,
+                  "ShouldersBroad": 0.0,
+                  "JawNarrow": 0.0,
+                  "JawBroad": 0.0,
+                  "NoseNarrow": 0.0,
+                  "NoseBroad": 0.0,
+                  "EyesSmall": 0.0,
+                  "EyesLarge": 0.0,
+                  "HeadNarrow": 0.01134367287158966,
+                  "HeadWide": 0.011343665421009064,
+                  "HeadShort": 0.019609928131103516,
+                  "HeadLong": 0.019609928131103516,
+                  "CheeksLean": 1.2256205081939697e-05,
+                  "CheeksFull": 1.2256205081939697e-05,
+                  "ChinShort": 0.0,
+                  "ChinLong": 0.0,
+                  "NoseWingsNarrow": 1.1175870895385742e-08,
+                  "NoseWingsWide": 1.1175870895385742e-08,
+                  "NoseRetracted": 0.0,
+                  "NoseProjected": 0.0,
+                  "EyesClose": 0.00029818713665008545,
+                  "EyesWide": 0.00029818713665008545,
+                  "BrowsLow": 0.0015698671340942383,
+                  "BrowsHigh": 0.0015698671340942383,
+                  "LipsThin": 0.0,
+                  "LipsFull": 0.0
+                },
+                "material": {
+                  "anisotropy": {
+                    "anisotropyStrength": 0.5,
+                    "anisotropyRotation": 1.5707963267948966
+                  },
+                  "alphaMode": "MASK",
+                  "alphaCutoff": 0.38,
+                  "atlas": {
+                    "image": "5",
+                    "width": 2048,
+                    "height": 2048,
+                    "bytes": 3997864,
+                    "sha256": "8f7a0f3c5169a4b54b6eb229be500000d5795668f3eb7f187ac49c6aa01ffbd4",
+                    "pngColorType": 6
+                  },
+                  "normal": {
+                    "image": "6",
+                    "width": 2048,
+                    "height": 2048,
+                    "bytes": 3182756,
+                    "sha256": "57bd73c91442ccf055d3404361bb2ad6a4333f683217f984db5c4f6e2091b062",
+                    "pngColorType": 6
+                  }
+                }
+              }
+            ],
+            "vertices": 14487,
+            "triangles": 17560,
+            "authoredGeometryCompared": true,
+            "authoredHairSha256": "53a6966a110eb783f42ab709604cea0d57ed9cb80dcb515ec77b8074daae39c3"
+          },
+          "HairCardRoot": {
+            "targets": [
+              "BuildNarrow",
+              "BuildBroad",
+              "ShouldersNarrow",
+              "ShouldersBroad",
+              "JawNarrow",
+              "JawBroad",
+              "NoseNarrow",
+              "NoseBroad",
+              "EyesSmall",
+              "EyesLarge",
+              "HeadNarrow",
+              "HeadWide",
+              "HeadShort",
+              "HeadLong",
+              "CheeksLean",
+              "CheeksFull",
+              "ChinShort",
+              "ChinLong",
+              "NoseWingsNarrow",
+              "NoseWingsWide",
+              "NoseRetracted",
+              "NoseProjected",
+              "EyesClose",
+              "EyesWide",
+              "BrowsLow",
+              "BrowsHigh",
+              "LipsThin",
+              "LipsFull"
+            ],
+            "selectedWeights": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "clipWeightSamplesCompared": 224,
+            "primitives": [
+              {
+                "maxWeightSumError": 2.60770320892334e-08,
+                "maxInfluences": 2,
+                "vertices": 258,
+                "maximumMorphDeltaMeters": {
+                  "BuildNarrow": 0.0,
+                  "BuildBroad": 0.0,
+                  "ShouldersNarrow": 0.0,
+                  "ShouldersBroad": 0.0,
+                  "JawNarrow": 0.0,
+                  "JawBroad": 0.0,
+                  "NoseNarrow": 0.0,
+                  "NoseBroad": 0.0,
+                  "EyesSmall": 0.0,
+                  "EyesLarge": 0.0,
+                  "HeadNarrow": 0.011391595005989075,
+                  "HeadWide": 0.011391595005989075,
+                  "HeadShort": 0.01962435245513916,
+                  "HeadLong": 0.01962435245513916,
+                  "CheeksLean": 1.2304633855819702e-05,
+                  "CheeksFull": 1.2304633855819702e-05,
+                  "ChinShort": 0.0,
+                  "ChinLong": 0.0,
+                  "NoseWingsNarrow": 1.1175870895385742e-08,
+                  "NoseWingsWide": 1.1175870895385742e-08,
+                  "NoseRetracted": 0.0,
+                  "NoseProjected": 0.0,
+                  "EyesClose": 0.0003005117177963257,
+                  "EyesWide": 0.0003005117177963257,
+                  "BrowsLow": 0.001577138900756836,
+                  "BrowsHigh": 0.001577138900756836,
+                  "LipsThin": 0.0,
+                  "LipsFull": 0.0
+                },
+                "material": {
+                  "anisotropy": {
+                    "anisotropyStrength": 0.5,
+                    "anisotropyRotation": 1.5707963267948966
+                  },
+                  "alphaMode": "MASK",
+                  "alphaCutoff": 0.38,
+                  "atlas": {
+                    "image": "7",
+                    "width": 1024,
+                    "height": 1024,
+                    "bytes": 320408,
+                    "sha256": "bd361d4809f6cabb98d3fc7f00e3742a254c5de7e6c1e427536a94b5ce7836ab",
+                    "pngColorType": 6
+                  }
+                }
+              }
+            ],
+            "vertices": 258,
+            "triangles": 428,
+            "authoredGeometryCompared": true,
+            "authoredHairSha256": "53a6966a110eb783f42ab709604cea0d57ed9cb80dcb515ec77b8074daae39c3"
+          }
+        },
+        "hairAssetVersion": "before",
+        "filename": "hair-edges-baseline.glb",
+        "captureSha256": "cd761694facfa851f40054c6d2aca8db054e4e62cb9427bdca8edcddd664dbc7",
+        "authoredHairSha256": "53a6966a110eb783f42ab709604cea0d57ed9cb80dcb515ec77b8074daae39c3"
+      },
+      {
+        "file": "hair-edges-neutral.glb",
+        "sha256": "13a3d9f3dd0e4c15cdae1e09bdc8bf6a0afc59b5f070230adfd0d17bb0e6eb8f",
+        "bytes": 52897140,
+        "bodyBones": 53,
+        "auxiliaryBones": 0,
+        "preservedBodyMeshes": [
+          "Brows",
+          "Cornea",
+          "Eyes",
+          "HumanBody",
+          "Iris",
+          "Lashes",
+          "Outfit",
+          "Pants"
+        ],
+        "maxOriginalBindMatrixError": 0,
+        "maxBodyWeightRoundingDifference": 1.1920928955078125e-07,
+        "bodyPoseSamplesCompared": 4240,
+        "clips": [
+          "relaxed",
+          "stride",
+          "tpose",
+          "wave"
+        ],
+        "skirt": null,
+        "expressions": {
+          "HumanBody": {
+            "selectedWeights": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "maximumAbsoluteDeltasMeters": {
+              "Smile": 0.0067996978759765625,
+              "Frown": 0.005299806594848633,
+              "BrowRaise": 0.00799870491027832,
+              "BrowFurrow": 0.004511713981628418
+            },
+            "clipWeightSamplesCompared": 32
+          },
+          "Brows": {
+            "selectedWeights": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "maximumAbsoluteDeltasMeters": {
+              "Smile": 0.0,
+              "Frown": 0.0,
+              "BrowRaise": 0.008000016212463379,
+              "BrowFurrow": 0.004599928855895996
+            },
+            "clipWeightSamplesCompared": 32
+          }
+        },
+        "eyes": {
+          "HumanBody": {
+            "selectedWeights": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "maximumAbsoluteDeltasMeters": {
+              "BlinkLeft": 0.008829072117805481,
+              "BlinkRight": 0.008829072117805481,
+              "GazeLeft": 0.0,
+              "GazeRight": 0.0,
+              "GazeUp": 0.001799941062927246,
+              "GazeDown": 0.001799941062927246,
+              "BlinkLeftGazeUp": 0.001799941062927246,
+              "BlinkLeftGazeDown": 0.001799941062927246,
+              "BlinkRightGazeUp": 0.001799941062927246,
+              "BlinkRightGazeDown": 0.001799941062927246
+            },
+            "clipWeightSamplesCompared": 80
+          },
+          "Lashes": {
+            "selectedWeights": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "maximumAbsoluteDeltasMeters": {
+              "BlinkLeft": 0.006469219923019409,
+              "BlinkRight": 0.006469219923019409,
+              "GazeLeft": 0.0,
+              "GazeRight": 0.0,
+              "GazeUp": 0.001799941062927246,
+              "GazeDown": 0.001799941062927246,
+              "BlinkLeftGazeUp": 0.001799941062927246,
+              "BlinkLeftGazeDown": 0.001799941062927246,
+              "BlinkRightGazeUp": 0.001799941062927246,
+              "BlinkRightGazeDown": 0.001799941062927246
+            },
+            "clipWeightSamplesCompared": 80
+          },
+          "Eyes": {
+            "selectedWeights": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "maximumAbsoluteDeltasMeters": {
+              "BlinkLeft": 0.0,
+              "BlinkRight": 0.0,
+              "GazeLeft": 0.003654107451438904,
+              "GazeRight": 0.003654107451438904,
+              "GazeUp": 0.0020901933312416077,
+              "GazeDown": 0.002039298415184021,
+              "BlinkLeftGazeUp": 0.0,
+              "BlinkLeftGazeDown": 0.0,
+              "BlinkRightGazeUp": 0.0,
+              "BlinkRightGazeDown": 0.0
+            },
+            "clipWeightSamplesCompared": 80
+          },
+          "Iris": {
+            "selectedWeights": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "maximumAbsoluteDeltasMeters": {
+              "BlinkLeft": 0.0,
+              "BlinkRight": 0.0,
+              "GazeLeft": 0.0026260223239660263,
+              "GazeRight": 0.0026260223239660263,
+              "GazeUp": 0.0017472505569458008,
+              "GazeDown": 0.0017472505569458008,
+              "BlinkLeftGazeUp": 0.0,
+              "BlinkLeftGazeDown": 0.0,
+              "BlinkRightGazeUp": 0.0,
+              "BlinkRightGazeDown": 0.0
+            },
+            "clipWeightSamplesCompared": 80
+          },
+          "Cornea": {
+            "selectedWeights": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "maximumAbsoluteDeltasMeters": {
+              "BlinkLeft": 0.0,
+              "BlinkRight": 0.0,
+              "GazeLeft": 0.0026629865169525146,
+              "GazeRight": 0.0026629865169525146,
+              "GazeUp": 0.0017720460891723633,
+              "GazeDown": 0.0017720460891723633,
+              "BlinkLeftGazeUp": 0.0,
+              "BlinkLeftGazeDown": 0.0,
+              "BlinkRightGazeUp": 0.0,
+              "BlinkRightGazeDown": 0.0
+            },
+            "clipWeightSamplesCompared": 80
+          }
+        },
+        "hair": {
+          "HairGroom": {
+            "targets": [
+              "BuildNarrow",
+              "BuildBroad",
+              "ShouldersNarrow",
+              "ShouldersBroad",
+              "JawNarrow",
+              "JawBroad",
+              "NoseNarrow",
+              "NoseBroad",
+              "EyesSmall",
+              "EyesLarge",
+              "HeadNarrow",
+              "HeadWide",
+              "HeadShort",
+              "HeadLong",
+              "CheeksLean",
+              "CheeksFull",
+              "ChinShort",
+              "ChinLong",
+              "NoseWingsNarrow",
+              "NoseWingsWide",
+              "NoseRetracted",
+              "NoseProjected",
+              "EyesClose",
+              "EyesWide",
+              "BrowsLow",
+              "BrowsHigh",
+              "LipsThin",
+              "LipsFull"
+            ],
+            "selectedWeights": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "clipWeightSamplesCompared": 224,
+            "primitives": [
+              {
+                "maxWeightSumError": 2.8870999813079834e-08,
+                "maxInfluences": 2,
+                "vertices": 14355,
+                "maximumMorphDeltaMeters": {
+                  "BuildNarrow": 0.0,
+                  "BuildBroad": 0.0,
+                  "ShouldersNarrow": 0.0,
+                  "ShouldersBroad": 0.0,
+                  "JawNarrow": 0.0,
+                  "JawBroad": 0.0,
+                  "NoseNarrow": 0.0,
+                  "NoseBroad": 0.0,
+                  "EyesSmall": 0.0,
+                  "EyesLarge": 0.0,
+                  "HeadNarrow": 0.011270411312580109,
+                  "HeadWide": 0.011270411312580109,
+                  "HeadShort": 0.019609928131103516,
+                  "HeadLong": 0.019609928131103516,
+                  "CheeksLean": 1.0773539543151855e-05,
+                  "CheeksFull": 1.0773539543151855e-05,
+                  "ChinShort": 0.0,
+                  "ChinLong": 0.0,
+                  "NoseWingsNarrow": 1.1175870895385742e-08,
+                  "NoseWingsWide": 1.1175870895385742e-08,
+                  "NoseRetracted": 0.0,
+                  "NoseProjected": 0.0,
+                  "EyesClose": 0.0002562403678894043,
+                  "EyesWide": 0.0002562403678894043,
+                  "BrowsLow": 0.0013686418533325195,
+                  "BrowsHigh": 0.0013686418533325195,
+                  "LipsThin": 0.0,
+                  "LipsFull": 0.0
+                },
+                "material": {
+                  "anisotropy": {
+                    "anisotropyStrength": 0.5,
+                    "anisotropyRotation": 1.5707963267948966
+                  },
+                  "alphaMode": "MASK",
+                  "alphaCutoff": 0.38,
+                  "atlas": {
+                    "image": "5",
+                    "width": 2048,
+                    "height": 2048,
+                    "bytes": 3997864,
+                    "sha256": "8f7a0f3c5169a4b54b6eb229be500000d5795668f3eb7f187ac49c6aa01ffbd4",
+                    "pngColorType": 6
+                  },
+                  "normal": {
+                    "image": "6",
+                    "width": 2048,
+                    "height": 2048,
+                    "bytes": 3182756,
+                    "sha256": "57bd73c91442ccf055d3404361bb2ad6a4333f683217f984db5c4f6e2091b062",
+                    "pngColorType": 6
+                  }
+                }
+              }
+            ],
+            "vertices": 14355,
+            "triangles": 17400,
+            "authoredGeometryCompared": true,
+            "authoredHairSha256": "fc851d4090ac248a055f7840095053401df28f51fe4a0cf07e044a4b94396967"
+          },
+          "HairCardRoot": {
+            "targets": [
+              "BuildNarrow",
+              "BuildBroad",
+              "ShouldersNarrow",
+              "ShouldersBroad",
+              "JawNarrow",
+              "JawBroad",
+              "NoseNarrow",
+              "NoseBroad",
+              "EyesSmall",
+              "EyesLarge",
+              "HeadNarrow",
+              "HeadWide",
+              "HeadShort",
+              "HeadLong",
+              "CheeksLean",
+              "CheeksFull",
+              "ChinShort",
+              "ChinLong",
+              "NoseWingsNarrow",
+              "NoseWingsWide",
+              "NoseRetracted",
+              "NoseProjected",
+              "EyesClose",
+              "EyesWide",
+              "BrowsLow",
+              "BrowsHigh",
+              "LipsThin",
+              "LipsFull"
+            ],
+            "selectedWeights": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "clipWeightSamplesCompared": 224,
+            "primitives": [
+              {
+                "maxWeightSumError": 2.60770320892334e-08,
+                "maxInfluences": 2,
+                "vertices": 258,
+                "maximumMorphDeltaMeters": {
+                  "BuildNarrow": 0.0,
+                  "BuildBroad": 0.0,
+                  "ShouldersNarrow": 0.0,
+                  "ShouldersBroad": 0.0,
+                  "JawNarrow": 0.0,
+                  "JawBroad": 0.0,
+                  "NoseNarrow": 0.0,
+                  "NoseBroad": 0.0,
+                  "EyesSmall": 0.0,
+                  "EyesLarge": 0.0,
+                  "HeadNarrow": 0.011391595005989075,
+                  "HeadWide": 0.011391595005989075,
+                  "HeadShort": 0.01962435245513916,
+                  "HeadLong": 0.01962435245513916,
+                  "CheeksLean": 1.2304633855819702e-05,
+                  "CheeksFull": 1.2304633855819702e-05,
+                  "ChinShort": 0.0,
+                  "ChinLong": 0.0,
+                  "NoseWingsNarrow": 1.1175870895385742e-08,
+                  "NoseWingsWide": 1.1175870895385742e-08,
+                  "NoseRetracted": 0.0,
+                  "NoseProjected": 0.0,
+                  "EyesClose": 0.0003005117177963257,
+                  "EyesWide": 0.0003005117177963257,
+                  "BrowsLow": 0.001577138900756836,
+                  "BrowsHigh": 0.001577138900756836,
+                  "LipsThin": 0.0,
+                  "LipsFull": 0.0
+                },
+                "material": {
+                  "anisotropy": {
+                    "anisotropyStrength": 0.5,
+                    "anisotropyRotation": 1.5707963267948966
+                  },
+                  "alphaMode": "MASK",
+                  "alphaCutoff": 0.38,
+                  "atlas": {
+                    "image": "7",
+                    "width": 1024,
+                    "height": 1024,
+                    "bytes": 320408,
+                    "sha256": "bd361d4809f6cabb98d3fc7f00e3742a254c5de7e6c1e427536a94b5ce7836ab",
+                    "pngColorType": 6
+                  }
+                }
+              }
+            ],
+            "vertices": 258,
+            "triangles": 428,
+            "authoredGeometryCompared": true,
+            "authoredHairSha256": "fc851d4090ac248a055f7840095053401df28f51fe4a0cf07e044a4b94396967"
+          }
+        },
+        "hairAssetVersion": "after",
+        "filename": "hair-edges-neutral.glb",
+        "captureSha256": "13a3d9f3dd0e4c15cdae1e09bdc8bf6a0afc59b5f070230adfd0d17bb0e6eb8f",
+        "authoredHairSha256": "fc851d4090ac248a055f7840095053401df28f51fe4a0cf07e044a4b94396967"
+      },
+      {
+        "file": "hair-edges-extreme.glb",
+        "sha256": "36d54753558c80cb42b25f83700a4c0198e42bb22008f1042b6af50cb9503dd2",
+        "bytes": 52671896,
+        "bodyBones": 53,
+        "auxiliaryBones": 9,
+        "preservedBodyMeshes": [
+          "Brows",
+          "Cornea",
+          "Eyes",
+          "HumanBody",
+          "Iris",
+          "Lashes",
+          "Outfit"
+        ],
+        "maxOriginalBindMatrixError": 0,
+        "maxBodyWeightRoundingDifference": 1.1920928955078125e-07,
+        "bodyPoseSamplesCompared": 4240,
+        "clips": [
+          "stride",
+          "relaxed",
+          "tpose",
+          "wave"
+        ],
+        "skirt": {
+          "maxWeightSumError": 3.3527612686157227e-08,
+          "maxInfluences": 3,
+          "vertices": 1455
+        },
+        "expressions": {
+          "HumanBody": {
+            "selectedWeights": [
+              0.7,
+              0,
+              0.4,
+              0
+            ],
+            "maximumAbsoluteDeltasMeters": {
+              "Smile": 0.007817625999450684,
+              "Frown": 0.006093144416809082,
+              "BrowRaise": 0.009196043014526367,
+              "BrowFurrow": 0.0051871538162231445
+            },
+            "clipWeightSamplesCompared": 32
+          },
+          "Brows": {
+            "selectedWeights": [
+              0.7,
+              0,
+              0.4,
+              0
+            ],
+            "maximumAbsoluteDeltasMeters": {
+              "Smile": 0.0,
+              "Frown": 0.0,
+              "BrowRaise": 0.009197473526000977,
+              "BrowFurrow": 0.005288600921630859
+            },
+            "clipWeightSamplesCompared": 32
+          }
+        },
+        "eyes": {
+          "HumanBody": {
+            "selectedWeights": [
+              0.6335999999999999,
+              0.08399999999999999,
+              0,
+              0.4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "maximumAbsoluteDeltasMeters": {
+              "BlinkLeft": 0.008773863315582275,
+              "BlinkRight": 0.008773863315582275,
+              "GazeLeft": 0.0,
+              "GazeRight": 0.0,
+              "GazeUp": 0.0021599531173706055,
+              "GazeDown": 0.002217411994934082,
+              "BlinkLeftGazeUp": 0.0021599531173706055,
+              "BlinkLeftGazeDown": 0.002217411994934082,
+              "BlinkRightGazeUp": 0.0021599531173706055,
+              "BlinkRightGazeDown": 0.002217411994934082
+            },
+            "clipWeightSamplesCompared": 80
+          },
+          "Lashes": {
+            "selectedWeights": [
+              0.6335999999999999,
+              0.08399999999999999,
+              0,
+              0.4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "maximumAbsoluteDeltasMeters": {
+              "BlinkLeft": 0.006391197443008423,
+              "BlinkRight": 0.006391197443008423,
+              "GazeLeft": 0.0,
+              "GazeRight": 0.0,
+              "GazeUp": 0.0023190975189208984,
+              "GazeDown": 0.0021680593490600586,
+              "BlinkLeftGazeUp": 0.0023190975189208984,
+              "BlinkLeftGazeDown": 0.0021680593490600586,
+              "BlinkRightGazeUp": 0.0023190975189208984,
+              "BlinkRightGazeDown": 0.0021680593490600586
+            },
+            "clipWeightSamplesCompared": 80
+          },
+          "Eyes": {
+            "selectedWeights": [
+              0.6335999999999999,
+              0.08399999999999999,
+              0,
+              0.4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "maximumAbsoluteDeltasMeters": {
+              "BlinkLeft": 0.0,
+              "BlinkRight": 0.0,
+              "GazeLeft": 0.004215903580188751,
+              "GazeRight": 0.004215903580188751,
+              "GazeUp": 0.002416551113128662,
+              "GazeDown": 0.0023580417037010193,
+              "BlinkLeftGazeUp": 0.0,
+              "BlinkLeftGazeDown": 0.0,
+              "BlinkRightGazeUp": 0.0,
+              "BlinkRightGazeDown": 0.0
+            },
+            "clipWeightSamplesCompared": 80
+          },
+          "Iris": {
+            "selectedWeights": [
+              0.6335999999999999,
+              0.08399999999999999,
+              0,
+              0.4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "maximumAbsoluteDeltasMeters": {
+              "BlinkLeft": 0.0,
+              "BlinkRight": 0.0,
+              "GazeLeft": 0.002635739743709564,
+              "GazeRight": 0.002635739743709564,
+              "GazeUp": 0.001750349998474121,
+              "GazeDown": 0.001750349998474121,
+              "BlinkLeftGazeUp": 0.0,
+              "BlinkLeftGazeDown": 0.0,
+              "BlinkRightGazeUp": 0.0,
+              "BlinkRightGazeDown": 0.0
+            },
+            "clipWeightSamplesCompared": 80
+          },
+          "Cornea": {
+            "selectedWeights": [
+              0.6335999999999999,
+              0.08399999999999999,
+              0,
+              0.4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "maximumAbsoluteDeltasMeters": {
+              "BlinkLeft": 0.0,
+              "BlinkRight": 0.0,
+              "GazeLeft": 0.0026727020740509033,
+              "GazeRight": 0.0026727020740509033,
+              "GazeUp": 0.0017750263214111328,
+              "GazeDown": 0.0017750263214111328,
+              "BlinkLeftGazeUp": 0.0,
+              "BlinkLeftGazeDown": 0.0,
+              "BlinkRightGazeUp": 0.0,
+              "BlinkRightGazeDown": 0.0
+            },
+            "clipWeightSamplesCompared": 80
+          }
+        },
+        "hair": {
+          "HairGroom": {
+            "targets": [
+              "BuildNarrow",
+              "BuildBroad",
+              "ShouldersNarrow",
+              "ShouldersBroad",
+              "JawNarrow",
+              "JawBroad",
+              "NoseNarrow",
+              "NoseBroad",
+              "EyesSmall",
+              "EyesLarge",
+              "HeadNarrow",
+              "HeadWide",
+              "HeadShort",
+              "HeadLong",
+              "CheeksLean",
+              "CheeksFull",
+              "ChinShort",
+              "ChinLong",
+              "NoseWingsNarrow",
+              "NoseWingsWide",
+              "NoseRetracted",
+              "NoseProjected",
+              "EyesClose",
+              "EyesWide",
+              "BrowsLow",
+              "BrowsHigh",
+              "LipsThin",
+              "LipsFull"
+            ],
+            "selectedWeights": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "clipWeightSamplesCompared": 224,
+            "primitives": [
+              {
+                "maxWeightSumError": 2.8870999813079834e-08,
+                "maxInfluences": 2,
+                "vertices": 14355,
+                "maximumMorphDeltaMeters": {
+                  "BuildNarrow": 0.0,
+                  "BuildBroad": 0.0,
+                  "ShouldersNarrow": 0.0,
+                  "ShouldersBroad": 0.0,
+                  "JawNarrow": 0.0,
+                  "JawBroad": 0.0,
+                  "NoseNarrow": 0.0,
+                  "NoseBroad": 0.0,
+                  "EyesSmall": 0.0,
+                  "EyesLarge": 0.0,
+                  "HeadNarrow": 0.011270411312580109,
+                  "HeadWide": 0.011270411312580109,
+                  "HeadShort": 0.019609928131103516,
+                  "HeadLong": 0.019609928131103516,
+                  "CheeksLean": 1.0773539543151855e-05,
+                  "CheeksFull": 1.0773539543151855e-05,
+                  "ChinShort": 0.0,
+                  "ChinLong": 0.0,
+                  "NoseWingsNarrow": 1.1175870895385742e-08,
+                  "NoseWingsWide": 1.1175870895385742e-08,
+                  "NoseRetracted": 0.0,
+                  "NoseProjected": 0.0,
+                  "EyesClose": 0.0002562403678894043,
+                  "EyesWide": 0.0002562403678894043,
+                  "BrowsLow": 0.0013686418533325195,
+                  "BrowsHigh": 0.0013686418533325195,
+                  "LipsThin": 0.0,
+                  "LipsFull": 0.0
+                },
+                "material": {
+                  "anisotropy": {
+                    "anisotropyStrength": 0.5,
+                    "anisotropyRotation": 1.5707963267948966
+                  },
+                  "alphaMode": "MASK",
+                  "alphaCutoff": 0.38,
+                  "atlas": {
+                    "image": "5",
+                    "width": 2048,
+                    "height": 2048,
+                    "bytes": 3997864,
+                    "sha256": "8f7a0f3c5169a4b54b6eb229be500000d5795668f3eb7f187ac49c6aa01ffbd4",
+                    "pngColorType": 6
+                  },
+                  "normal": {
+                    "image": "6",
+                    "width": 2048,
+                    "height": 2048,
+                    "bytes": 3182756,
+                    "sha256": "57bd73c91442ccf055d3404361bb2ad6a4333f683217f984db5c4f6e2091b062",
+                    "pngColorType": 6
+                  }
+                }
+              }
+            ],
+            "vertices": 14355,
+            "triangles": 17400,
+            "authoredGeometryCompared": true,
+            "authoredHairSha256": "fc851d4090ac248a055f7840095053401df28f51fe4a0cf07e044a4b94396967"
+          },
+          "HairCardRoot": {
+            "targets": [
+              "BuildNarrow",
+              "BuildBroad",
+              "ShouldersNarrow",
+              "ShouldersBroad",
+              "JawNarrow",
+              "JawBroad",
+              "NoseNarrow",
+              "NoseBroad",
+              "EyesSmall",
+              "EyesLarge",
+              "HeadNarrow",
+              "HeadWide",
+              "HeadShort",
+              "HeadLong",
+              "CheeksLean",
+              "CheeksFull",
+              "ChinShort",
+              "ChinLong",
+              "NoseWingsNarrow",
+              "NoseWingsWide",
+              "NoseRetracted",
+              "NoseProjected",
+              "EyesClose",
+              "EyesWide",
+              "BrowsLow",
+              "BrowsHigh",
+              "LipsThin",
+              "LipsFull"
+            ],
+            "selectedWeights": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "clipWeightSamplesCompared": 224,
+            "primitives": [
+              {
+                "maxWeightSumError": 2.60770320892334e-08,
+                "maxInfluences": 2,
+                "vertices": 258,
+                "maximumMorphDeltaMeters": {
+                  "BuildNarrow": 0.0,
+                  "BuildBroad": 0.0,
+                  "ShouldersNarrow": 0.0,
+                  "ShouldersBroad": 0.0,
+                  "JawNarrow": 0.0,
+                  "JawBroad": 0.0,
+                  "NoseNarrow": 0.0,
+                  "NoseBroad": 0.0,
+                  "EyesSmall": 0.0,
+                  "EyesLarge": 0.0,
+                  "HeadNarrow": 0.011391595005989075,
+                  "HeadWide": 0.011391595005989075,
+                  "HeadShort": 0.01962435245513916,
+                  "HeadLong": 0.01962435245513916,
+                  "CheeksLean": 1.2304633855819702e-05,
+                  "CheeksFull": 1.2304633855819702e-05,
+                  "ChinShort": 0.0,
+                  "ChinLong": 0.0,
+                  "NoseWingsNarrow": 1.1175870895385742e-08,
+                  "NoseWingsWide": 1.1175870895385742e-08,
+                  "NoseRetracted": 0.0,
+                  "NoseProjected": 0.0,
+                  "EyesClose": 0.0003005117177963257,
+                  "EyesWide": 0.0003005117177963257,
+                  "BrowsLow": 0.001577138900756836,
+                  "BrowsHigh": 0.001577138900756836,
+                  "LipsThin": 0.0,
+                  "LipsFull": 0.0
+                },
+                "material": {
+                  "anisotropy": {
+                    "anisotropyStrength": 0.5,
+                    "anisotropyRotation": 1.5707963267948966
+                  },
+                  "alphaMode": "MASK",
+                  "alphaCutoff": 0.38,
+                  "atlas": {
+                    "image": "7",
+                    "width": 1024,
+                    "height": 1024,
+                    "bytes": 320408,
+                    "sha256": "bd361d4809f6cabb98d3fc7f00e3742a254c5de7e6c1e427536a94b5ce7836ab",
+                    "pngColorType": 6
+                  }
+                }
+              }
+            ],
+            "vertices": 258,
+            "triangles": 428,
+            "authoredGeometryCompared": true,
+            "authoredHairSha256": "fc851d4090ac248a055f7840095053401df28f51fe4a0cf07e044a4b94396967"
+          }
+        },
+        "hairAssetVersion": "after",
+        "filename": "hair-edges-extreme.glb",
+        "captureSha256": "36d54753558c80cb42b25f83700a4c0198e42bb22008f1042b6af50cb9503dd2",
+        "authoredHairSha256": "fc851d4090ac248a055f7840095053401df28f51fe4a0cf07e044a4b94396967"
+      },
+      {
+        "file": "hair-edges-bald.glb",
+        "sha256": "59503d024000ed11f00262bfdce2591ad4a025c92e8be01fdbd72c1cb2ee92c4",
+        "bytes": 34600128,
+        "bodyBones": 53,
+        "auxiliaryBones": 0,
+        "preservedBodyMeshes": [
+          "Brows",
+          "Cornea",
+          "Eyes",
+          "HumanBody",
+          "Iris",
+          "Lashes",
+          "Outfit",
+          "Pants"
+        ],
+        "maxOriginalBindMatrixError": 0,
+        "maxBodyWeightRoundingDifference": 1.1920928955078125e-07,
+        "bodyPoseSamplesCompared": 4240,
+        "clips": [
+          "wave",
+          "relaxed",
+          "stride",
+          "tpose"
+        ],
+        "skirt": null,
+        "expressions": {
+          "HumanBody": {
+            "selectedWeights": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "maximumAbsoluteDeltasMeters": {
+              "Smile": 0.0067996978759765625,
+              "Frown": 0.005299806594848633,
+              "BrowRaise": 0.00799870491027832,
+              "BrowFurrow": 0.004511713981628418
+            },
+            "clipWeightSamplesCompared": 32
+          },
+          "Brows": {
+            "selectedWeights": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "maximumAbsoluteDeltasMeters": {
+              "Smile": 0.0,
+              "Frown": 0.0,
+              "BrowRaise": 0.008000016212463379,
+              "BrowFurrow": 0.004599928855895996
+            },
+            "clipWeightSamplesCompared": 32
+          }
+        },
+        "eyes": {
+          "HumanBody": {
+            "selectedWeights": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "maximumAbsoluteDeltasMeters": {
+              "BlinkLeft": 0.008829072117805481,
+              "BlinkRight": 0.008829072117805481,
+              "GazeLeft": 0.0,
+              "GazeRight": 0.0,
+              "GazeUp": 0.001799941062927246,
+              "GazeDown": 0.001799941062927246,
+              "BlinkLeftGazeUp": 0.001799941062927246,
+              "BlinkLeftGazeDown": 0.001799941062927246,
+              "BlinkRightGazeUp": 0.001799941062927246,
+              "BlinkRightGazeDown": 0.001799941062927246
+            },
+            "clipWeightSamplesCompared": 80
+          },
+          "Lashes": {
+            "selectedWeights": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "maximumAbsoluteDeltasMeters": {
+              "BlinkLeft": 0.006469219923019409,
+              "BlinkRight": 0.006469219923019409,
+              "GazeLeft": 0.0,
+              "GazeRight": 0.0,
+              "GazeUp": 0.001799941062927246,
+              "GazeDown": 0.001799941062927246,
+              "BlinkLeftGazeUp": 0.001799941062927246,
+              "BlinkLeftGazeDown": 0.001799941062927246,
+              "BlinkRightGazeUp": 0.001799941062927246,
+              "BlinkRightGazeDown": 0.001799941062927246
+            },
+            "clipWeightSamplesCompared": 80
+          },
+          "Eyes": {
+            "selectedWeights": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "maximumAbsoluteDeltasMeters": {
+              "BlinkLeft": 0.0,
+              "BlinkRight": 0.0,
+              "GazeLeft": 0.003654107451438904,
+              "GazeRight": 0.003654107451438904,
+              "GazeUp": 0.0020901933312416077,
+              "GazeDown": 0.002039298415184021,
+              "BlinkLeftGazeUp": 0.0,
+              "BlinkLeftGazeDown": 0.0,
+              "BlinkRightGazeUp": 0.0,
+              "BlinkRightGazeDown": 0.0
+            },
+            "clipWeightSamplesCompared": 80
+          },
+          "Iris": {
+            "selectedWeights": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "maximumAbsoluteDeltasMeters": {
+              "BlinkLeft": 0.0,
+              "BlinkRight": 0.0,
+              "GazeLeft": 0.0026260223239660263,
+              "GazeRight": 0.0026260223239660263,
+              "GazeUp": 0.0017472505569458008,
+              "GazeDown": 0.0017472505569458008,
+              "BlinkLeftGazeUp": 0.0,
+              "BlinkLeftGazeDown": 0.0,
+              "BlinkRightGazeUp": 0.0,
+              "BlinkRightGazeDown": 0.0
+            },
+            "clipWeightSamplesCompared": 80
+          },
+          "Cornea": {
+            "selectedWeights": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "maximumAbsoluteDeltasMeters": {
+              "BlinkLeft": 0.0,
+              "BlinkRight": 0.0,
+              "GazeLeft": 0.0026629865169525146,
+              "GazeRight": 0.0026629865169525146,
+              "GazeUp": 0.0017720460891723633,
+              "GazeDown": 0.0017720460891723633,
+              "BlinkLeftGazeUp": 0.0,
+              "BlinkLeftGazeDown": 0.0,
+              "BlinkRightGazeUp": 0.0,
+              "BlinkRightGazeDown": 0.0
+            },
+            "clipWeightSamplesCompared": 80
+          }
+        },
+        "hair": {
+          "bald": true,
+          "meshes": []
+        },
+        "hairAssetVersion": "after",
+        "filename": "hair-edges-bald.glb",
+        "captureSha256": "59503d024000ed11f00262bfdce2591ad4a025c92e8be01fdbd72c1cb2ee92c4",
+        "authoredHairSha256": "fc851d4090ac248a055f7840095053401df28f51fe4a0cf07e044a4b94396967"
+      }
+    ],
+    "limits": [
+      "Four browser static pose clips are checked numerically against the source; no continuous or arbitrary animation is claimed.",
+      "Animation creation is disabled during the focused Blender import/export. The saved editable .blend and Blender roundtrip GLB do not contain the four browser pose clips.",
+      "The alpha-tested static cards are not simulated strands. These checks do not prove all possible collisions or receiving-renderer visual equivalence.",
+      "Expression and eye targets are identity-fitted in the app; later external identity editing may require refitting them."
+    ],
+    "sourceHashesBefore": {
+      "assets/human/foundation.glb": "642dc95643eca689266fce489bc87ac65377529af77c2e522c0326d87a9d79ab",
+      "assets/source/foundation.blend": "504164e65309c940446375fc28d7116baa0f83dfdd5425d50852c2d4ae5e40e5",
+      "tests/fixtures/hair-cards-before-edges.glb": "53a6966a110eb783f42ab709604cea0d57ed9cb80dcb515ec77b8074daae39c3",
+      "assets/human/hair-cards/hair-cards.glb": "fc851d4090ac248a055f7840095053401df28f51fe4a0cf07e044a4b94396967",
+      "assets/human/hair-cards/original-scalp-roots.png": "6517805a5cd4bc32a2daf7df48fb002070b5acd5ff1d9661481d75734a8a94f3",
+      "assets/human/hair-cards/original-short-groom.blend": "40e5ebab67ecca513495e642039a7b7057762973b429ed49e8a24d1c2efaf22d",
+      "assets/human/hair-cards/original-strand-atlas.png": "a6f6eee6dee13f268d3806cbf9da6b9f3842c61b168a1fa8f5cddae6aa8bcecb",
+      "assets/human/hair-cards/original-strand-normal.png": "3ae9fa1d0c19b256c717904791c56e578888565afce00bcecc73d782d60f5319",
+      "assets/human/hair-cards/provenance.json": "e44d90d75f4cb568caf32e980b52d462bcbcc4aa148a77bb657d9219d82cd676",
+      "assets/human/skin/skin-color.png": "010806a6bf9b3f34d50d4b9b4ca271fadf94e1750aaefa62e0988faf2aed05ac",
+      "assets/human/skin/skin-normal.png": "8b31b36a42a7ee528f6e88da952111c981b467fc739c3079af22d67da576341f",
+      "assets/human/skin/skin-roughness.png": "570eadcb3ca30e1b8e1ac3bb261cb32e0f64cff9cf140bbacfd94e1fc66e06a7",
+      "assets/human/skin/skin-thin.png": "b3eade71479359aeb2abef4f8fb31b42f450aebec9e22bb7674282119bc5223d"
+    },
+    "negativeControlsRejected": [
+      {
+        "mutation": "missingClip",
+        "rejectedBecause": "Four static pose clips required"
+      },
+      {
+        "mutation": "wrongHairName",
+        "rejectedBecause": "Hair lost original 28 named identity keys: HairGroom"
+      },
+      {
+        "mutation": "wrongHairWeight",
+        "rejectedBecause": "Wrong selected hair identity weights: HairGroom"
+      },
+      {
+        "mutation": "wrongBoneBind",
+        "rejectedBecause": "Original inverse bind/rest matrices changed"
+      },
+      {
+        "mutation": "missingNormalMap",
+        "rejectedBecause": "Missing texture: HairGroom/normal"
+      },
+      {
+        "mutation": "wrongAlphaCutoff",
+        "rejectedBecause": "Hair alpha cutoff changed: HairGroom"
+      },
+      {
+        "mutation": "bodyTopology",
+        "rejectedBecause": "Original topology changed: HumanBody"
+      },
+      {
+        "mutation": "wrongExpressionWeight",
+        "rejectedBecause": "Selected face weights changed: expressions/HumanBody"
+      },
+      {
+        "mutation": "hairPosition",
+        "rejectedBecause": "Authored hair POSITION changed: after/HairGroom"
+      },
+      {
+        "mutation": "hairNormal",
+        "rejectedBecause": "Authored hair NORMAL changed: after/HairGroom"
+      },
+      {
+        "mutation": "hairTopology",
+        "rejectedBecause": "Authored hair topology changed: after/HairGroom"
+      },
+      {
+        "mutation": "hairUV",
+        "rejectedBecause": "Authored hair TEXCOORD_0 changed: after/HairGroom"
+      },
+      {
+        "mutation": "hairMorph",
+        "rejectedBecause": "Authored hair morph changed: after/HairGroom/HeadWide/POSITION"
+      },
+      {
+        "mutation": "hairRoughness",
+        "rejectedBecause": "Hair roughness changed: HairGroom"
+      },
+      {
+        "mutation": "hairNormalScale",
+        "rejectedBecause": "Hair normal strength changed: HairGroom"
+      }
+    ],
+    "blender": {
+      "version": "5.2.3 LTS",
+      "importedExactCaptureSha256": "36d54753558c80cb42b25f83700a4c0198e42bb22008f1042b6af50cb9503dd2",
+      "animationImportDisabled": true,
+      "animationExportDisabled": true,
+      "boneCount": 62,
+      "hair": {
+        "HairGroom": {
+          "vertices": 14355,
+          "shapeKeys": [
+            "Basis",
+            "BuildNarrow",
+            "BuildBroad",
+            "ShouldersNarrow",
+            "ShouldersBroad",
+            "JawNarrow",
+            "JawBroad",
+            "NoseNarrow",
+            "NoseBroad",
+            "EyesSmall",
+            "EyesLarge",
+            "HeadNarrow",
+            "HeadWide",
+            "HeadShort",
+            "HeadLong",
+            "CheeksLean",
+            "CheeksFull",
+            "ChinShort",
+            "ChinLong",
+            "NoseWingsNarrow",
+            "NoseWingsWide",
+            "NoseRetracted",
+            "NoseProjected",
+            "EyesClose",
+            "EyesWide",
+            "BrowsLow",
+            "BrowsHigh",
+            "LipsThin",
+            "LipsFull"
+          ],
+          "anisotropyInput": "Anisotropic",
+          "anisotropyValue": 0.5,
+          "images": [
+            {
+              "name": "Image_5",
+              "size": [
+                2048,
+                2048
+              ],
+              "visiblePixelSha256": "fce32efd66cceb35cc8d745ea32d279e0fcd79506724ac2680b9ee78b8a3519e",
+              "transparentPixels": 1556847,
+              "opaquePixels": 128519,
+              "rgbVaries": true
+            },
+            {
+              "name": "Image_6",
+              "size": [
+                2048,
+                2048
+              ],
+              "visiblePixelSha256": "bc18d71f15a87db6194d92afe7c2deabbd30a9f6688ef2c9551cebf93510d8c1",
+              "transparentPixels": 0,
+              "opaquePixels": 4194304,
+              "rgbVaries": true
+            }
+          ]
+        },
+        "HairCardRoot": {
+          "vertices": 258,
+          "shapeKeys": [
+            "Basis",
+            "BuildNarrow",
+            "BuildBroad",
+            "ShouldersNarrow",
+            "ShouldersBroad",
+            "JawNarrow",
+            "JawBroad",
+            "NoseNarrow",
+            "NoseBroad",
+            "EyesSmall",
+            "EyesLarge",
+            "HeadNarrow",
+            "HeadWide",
+            "HeadShort",
+            "HeadLong",
+            "CheeksLean",
+            "CheeksFull",
+            "ChinShort",
+            "ChinLong",
+            "NoseWingsNarrow",
+            "NoseWingsWide",
+            "NoseRetracted",
+            "NoseProjected",
+            "EyesClose",
+            "EyesWide",
+            "BrowsLow",
+            "BrowsHigh",
+            "LipsThin",
+            "LipsFull"
+          ],
+          "anisotropyInput": "Anisotropic",
+          "anisotropyValue": 0.5,
+          "images": [
+            {
+              "name": "Image_7",
+              "size": [
+                1024,
+                1024
+              ],
+              "visiblePixelSha256": "c91cf8b7260739c974177aafb220fe4907058bfc09ed2f21ef52c8f87db27ce2",
+              "transparentPixels": 474261,
+              "opaquePixels": 574315,
+              "rgbVaries": true
+            }
+          ]
+        }
+      },
+      "editableMovementMeters": {
+        "HairGroom/HeadWide": 0.011270411225023945,
+        "HairGroom/HeadLong": 0.019609928357202593,
+        "HairCardRoot/HeadWide": 0.011391594959744381,
+        "HairCardRoot/HeadLong": 0.019624352579329835,
+        "HumanBody/Smile": 0.006091798272249154,
+        "HumanBody/BlinkLeft": 0.005879580312853846,
+        "Brows/BrowRaise": 0.005526584345526257,
+        "Iris/GazeRight": 0.001697689731922711,
+        "HairGroom/headBone": 0.020350006281353184,
+        "HairCardRoot/headBone": 0.019629995956966045
+      },
+      "originalNonSkinTexturePixelsAndAlphaUnchanged": true,
+      "regionalSkinTextureChecks": {
+        "skin-color.png": {
+          "exactPixels": true,
+          "channel": "RGBA"
+        },
+        "skin-normal.png": {
+          "exactPixels": true,
+          "channel": "RGBA"
+        },
+        "skin-roughness.png": {
+          "exactPixels": true,
+          "channel": "roughness G"
+        }
+      },
+      "authoredHairTextureChecks": {
+        "HairGroom/atlas": {
+          "exactRgbaPixels": false,
+          "alphaExact": true,
+          "opaqueRgbExact": true,
+          "maxPremultipliedRgbDifference8Bit": 0.996078431372549
+        },
+        "HairGroom/normal": {
+          "exactRgbaPixels": true,
+          "alphaExact": true,
+          "opaqueRgbExact": true,
+          "maxPremultipliedRgbDifference8Bit": 0.0
+        },
+        "HairCardRoot/atlas": {
+          "exactRgbaPixels": false,
+          "alphaExact": true,
+          "opaqueRgbExact": true,
+          "maxPremultipliedRgbDifference8Bit": 0.0
+        }
+      },
+      "previousHairTextureChecks": {
+        "HairGroom/atlas": {
+          "exactRgbaPixels": false,
+          "alphaExact": true,
+          "opaqueRgbExact": true,
+          "maxPremultipliedRgbDifference8Bit": 0.996078431372549
+        },
+        "HairGroom/normal": {
+          "exactRgbaPixels": true,
+          "alphaExact": true,
+          "opaqueRgbExact": true,
+          "maxPremultipliedRgbDifference8Bit": 0.0
+        },
+        "HairCardRoot/atlas": {
+          "exactRgbaPixels": false,
+          "alphaExact": true,
+          "opaqueRgbExact": true,
+          "maxPremultipliedRgbDifference8Bit": 0.0
+        }
+      },
+      "reexportReimportPassed": true,
+      "roundtripMeshNodesByHairMaterial": {
+        "HairGroom": "Mesh_7",
+        "HairCardRoot": "Mesh_8"
+      },
+      "savedBlend": "artifacts/hair-edges-editable.blend",
+      "editableBlendSha256": "3af5a948fcfe3f4ebcbf17a6e9ca0db50d1fc420d8533870f33313f42629eb92",
+      "roundtrip": "artifacts/hair-edges-blender-roundtrip.glb",
+      "roundtripSha256": "97da9b87a9dee8538837d1c8e158afe2b4e99fcf4585382c6119384a12f455c7"
+    },
+    "sourceHashesAfter": {
+      "assets/human/foundation.glb": "642dc95643eca689266fce489bc87ac65377529af77c2e522c0326d87a9d79ab",
+      "assets/source/foundation.blend": "504164e65309c940446375fc28d7116baa0f83dfdd5425d50852c2d4ae5e40e5",
+      "tests/fixtures/hair-cards-before-edges.glb": "53a6966a110eb783f42ab709604cea0d57ed9cb80dcb515ec77b8074daae39c3",
+      "assets/human/hair-cards/hair-cards.glb": "fc851d4090ac248a055f7840095053401df28f51fe4a0cf07e044a4b94396967",
+      "assets/human/hair-cards/original-scalp-roots.png": "6517805a5cd4bc32a2daf7df48fb002070b5acd5ff1d9661481d75734a8a94f3",
+      "assets/human/hair-cards/original-short-groom.blend": "40e5ebab67ecca513495e642039a7b7057762973b429ed49e8a24d1c2efaf22d",
+      "assets/human/hair-cards/original-strand-atlas.png": "a6f6eee6dee13f268d3806cbf9da6b9f3842c61b168a1fa8f5cddae6aa8bcecb",
+      "assets/human/hair-cards/original-strand-normal.png": "3ae9fa1d0c19b256c717904791c56e578888565afce00bcecc73d782d60f5319",
+      "assets/human/hair-cards/provenance.json": "e44d90d75f4cb568caf32e980b52d462bcbcc4aa148a77bb657d9219d82cd676",
+      "assets/human/skin/skin-color.png": "010806a6bf9b3f34d50d4b9b4ca271fadf94e1750aaefa62e0988faf2aed05ac",
+      "assets/human/skin/skin-normal.png": "8b31b36a42a7ee528f6e88da952111c981b467fc739c3079af22d67da576341f",
+      "assets/human/skin/skin-roughness.png": "570eadcb3ca30e1b8e1ac3bb261cb32e0f64cff9cf140bbacfd94e1fc66e06a7",
+      "assets/human/skin/skin-thin.png": "b3eade71479359aeb2abef4f8fb31b42f450aebec9e22bb7674282119bc5223d"
+    }
+  },
+  "textures": {
+    "regionalSkin": {
+      "skin-color.png": {
+        "exactPixels": true,
+        "channel": "RGBA"
+      },
+      "skin-normal.png": {
+        "exactPixels": true,
+        "channel": "RGBA"
+      },
+      "skin-roughness.png": {
+        "exactPixels": true,
+        "channel": "roughness G"
+      }
+    },
+    "previousHair": {
+      "HairGroom/atlas": {
+        "exactRgbaPixels": false,
+        "alphaExact": true,
+        "opaqueRgbExact": true,
+        "maxPremultipliedRgbDifference8Bit": 0.996078431372549
+      },
+      "HairGroom/normal": {
+        "exactRgbaPixels": true,
+        "alphaExact": true,
+        "opaqueRgbExact": true,
+        "maxPremultipliedRgbDifference8Bit": 0.0
+      },
+      "HairCardRoot/atlas": {
+        "exactRgbaPixels": false,
+        "alphaExact": true,
+        "opaqueRgbExact": true,
+        "maxPremultipliedRgbDifference8Bit": 0.0
+      }
+    },
+    "hair": {
+      "HairGroom/atlas": {
+        "exactRgbaPixels": false,
+        "alphaExact": true,
+        "opaqueRgbExact": true,
+        "maxPremultipliedRgbDifference8Bit": 0.996078431372549
+      },
+      "HairGroom/normal": {
+        "exactRgbaPixels": true,
+        "alphaExact": true,
+        "opaqueRgbExact": true,
+        "maxPremultipliedRgbDifference8Bit": 0.0
+      },
+      "HairCardRoot/atlas": {
+        "exactRgbaPixels": false,
+        "alphaExact": true,
+        "opaqueRgbExact": true,
+        "maxPremultipliedRgbDifference8Bit": 0.0
+      }
+    },
+    "importedMaterialImages": {
+      "Brows": [
+        {
+          "name": "Image_0",
+          "size": [
+            512,
+            512
+          ],
+          "visiblePixelSha256": "91a40abbeff5e79437e8dc4911737656ee70292883b671fbe19614997429f021",
+          "transparentPixels": 0,
+          "opaquePixels": 262144,
+          "rgbVaries": true
+        }
+      ],
+      "Cornea": [],
+      "Eyes": [],
+      "HairCardRoot": [
+        {
+          "name": "Image_7",
+          "size": [
+            1024,
+            1024
+          ],
+          "visiblePixelSha256": "c91cf8b7260739c974177aafb220fe4907058bfc09ed2f21ef52c8f87db27ce2",
+          "transparentPixels": 474261,
+          "opaquePixels": 574315,
+          "rgbVaries": true
+        }
+      ],
+      "HairGroom": [
+        {
+          "name": "Image_5",
+          "size": [
+            2048,
+            2048
+          ],
+          "visiblePixelSha256": "fce32efd66cceb35cc8d745ea32d279e0fcd79506724ac2680b9ee78b8a3519e",
+          "transparentPixels": 1556847,
+          "opaquePixels": 128519,
+          "rgbVaries": true
+        },
+        {
+          "name": "Image_6",
+          "size": [
+            2048,
+            2048
+          ],
+          "visiblePixelSha256": "bc18d71f15a87db6194d92afe7c2deabbd30a9f6688ef2c9551cebf93510d8c1",
+          "transparentPixels": 0,
+          "opaquePixels": 4194304,
+          "rgbVaries": true
+        }
+      ],
+      "Iris": [
+        {
+          "name": "Image_4",
+          "size": [
+            512,
+            512
+          ],
+          "visiblePixelSha256": "733a424a405199e34b07545cc0eb56862cf8c83ed02fbf1b09e0bda352807996",
+          "transparentPixels": 0,
+          "opaquePixels": 262144,
+          "rgbVaries": true
+        }
+      ],
+      "Lashes": [],
+      "Outfit": [],
+      "Skin": [
+        {
+          "name": "Image_2",
+          "size": [
+            2048,
+            2048
+          ],
+          "visiblePixelSha256": "9e035ee243a76b3ebe7b8df921375606841f25b1c418afb45343641d685dc117",
+          "transparentPixels": 0,
+          "opaquePixels": 4194304,
+          "rgbVaries": true
+        },
+        {
+          "name": "Image_1",
+          "size": [
+            2048,
+            2048
+          ],
+          "visiblePixelSha256": "1d9b39d955b3994b21cc57553522bb8c7833537512120287e476f82881681639",
+          "transparentPixels": 0,
+          "opaquePixels": 4194304,
+          "rgbVaries": true
+        },
+        {
+          "name": "Image_3",
+          "size": [
+            2048,
+            2048
+          ],
+          "visiblePixelSha256": "ee154d9b181cfa37d391ca893036278beed114a3105b29ceda4629c2b9dd8beb",
+          "transparentPixels": 0,
+          "opaquePixels": 4194304,
+          "rgbVaries": true
+        }
+      ],
+      "Skirt": []
+    }
+  },
+  "screenshots": {
+    "persona-hair-edges-blender-neutral-front.png": "d35633e5b8b0146936884e6e4b5ba26c936a5842094c8b5e93c2c1a1005902f2",
+    "persona-hair-edges-blender-neutral-back.png": "138f0fbb06c7bde5c3f424e56a1ceb07d662bcd03c7a876e060703c9c6ee6eae",
+    "persona-hair-edges-blender-baseline-three-quarter.png": "cc284a544dafc49513e3041c0ae89d7dc6befcf4ab6f45765b04a6d5678703d6",
+    "persona-hair-edges-comparison.png": "c0b6f44e9b702f3e5c0fff91be42ec6c9f15406b757fa382c8b9378366141783",
+    "persona-hair-edges-blender-baseline-front.png": "64dfbe0f09060a16b9f4388cca21658fbbceb89348312ec9b271ddff245abe7a",
+    "persona-hair-edges-closeup.png": "343aaf72ab54abe282fd2744ef03be7d7f45fb80749627c71e19ad672ad46bc4",
+    "persona-hair-edges-blender-neutral-three-quarter.png": "6ad937c75e4490c390358f02fd26c9bdf295455cb39d5d7de274fbd00b5cdef7",
+    "persona-hair-edges-extremes.png": "68edf1abf4953acfadd770b7dbff9517a87c52688180977cd1da66d13d25bba8",
+    "persona-hair-edges-blender-baseline-back.png": "41a6d011fd674da9e0e9f07866532d7bfc3cac0f9f343ae0297a36599e12716c",
+    "persona-hair-edges-software.png": "ab59e2585711371475b9092331566d36d52d70a47ba298b803a04ba745b54eef"
+  },
+  "staticAppReview": {
+    "url": "http://127.0.0.1:4198/dist/",
+    "hardwareMode": "WEBGL",
+    "triangles": 56508,
+    "faceSelected": true,
+    "exportEnabled": true,
+    "testFixtureExcluded": true,
+    "blenderSourceExcluded": true
+  }
+}

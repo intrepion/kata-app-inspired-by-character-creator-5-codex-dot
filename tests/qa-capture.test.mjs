@@ -61,3 +61,25 @@ test('QA GLB capture bounds expanded morph exports at 96 MiB before reading body
   const accepted=await fetch(origin+'/__qa/export/portrait-extreme.glb',{method:'POST',headers:{Origin:origin},body:expanded});
   assert.equal(accepted.status,201);assert.equal((await accepted.json()).bytes,expanded.length);
 });
+
+test('hair-edge evidence and GLBs use exact opt-in same-origin capture names',async t=>{
+  const {origin,temp,post}=await start(t,true);
+  for(const name of ['hair-edges-report.json','hair-edges-export-report.json','hair-edges-software-report.json']){
+    assert.equal((await post(name,'{}',{})).status,403);
+    assert.equal((await post(name,'{}')).status,201);
+    assert.equal(await readFile(join(temp,'artifacts',name),'utf8'),'{}');
+  }
+  const png=Buffer.from('89504e470d0a1a0a00000000','hex');
+  for(const name of ['hair-edges-comparison.png','hair-edges-closeup.png','hair-edges-extremes.png','hair-edges-software.png'])assert.equal((await post(name,png)).status,201,name);
+  const glb=Buffer.alloc(20);glb.writeUInt32LE(0x46546c67,0);glb.writeUInt32LE(2,4);glb.writeUInt32LE(glb.length,8);
+  for(const name of ['baseline','neutral','extreme','bald']){
+    const path='/__qa/export/hair-edges-'+name+'.glb';
+    assert.equal((await fetch(origin+path,{method:'POST',body:glb})).status,403);
+    const response=await fetch(origin+path,{method:'POST',headers:{Origin:origin},body:glb});
+    assert.equal(response.status,201);assert.equal((await response.json()).sha256,createHash('sha256').update(glb).digest('hex'));
+  }
+  for(const name of ['hair-edges-extra.png','hair-edges-report.json?x=1','nested/hair-edges-report.json'])assert.equal((await post(name,'{}')).status,405,name);
+  const disabled=await start(t,false);
+  assert.equal((await disabled.post('hair-edges-report.json','{}')).status,405);
+  assert.equal((await fetch(disabled.origin+'/__qa/export/hair-edges-neutral.glb',{method:'POST',headers:{Origin:disabled.origin},body:glb})).status,405);
+});

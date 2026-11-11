@@ -90,6 +90,13 @@ test('asset errors are actionable and leave the baseline untouched',async()=>{
   assert.equal(f.cap.geometry,original);assert.equal(f.cap.visible,true);assert.equal(f.human.getObjectByName('HairGroom'),undefined);
 });
 
+test('an explicit QA asset URL loads previous cards without enabling procedural generation',async()=>{
+  const f=fixture(),url=new URL('../tests/fixtures/hair-cards-before-edges.glb',import.meta.url);let requested;
+  const hair=await createHairCardGroom({human:f.human,assetURL:url,loader:{loadAsync:async value=>{requested=value;return{scene:f.scene}}}});
+  assert.equal(requested,String(url));assert.equal(hair.stats.asset,String(url));assert.equal(hair.stats.comparisonEnabled,false);
+  assert.equal(hair.meshes.length,2);hair.dispose();
+});
+
 test('real Blender asset binds to all retained morphs and keeps world coordinates through head pose and height',async()=>{
   const original=await asset('../assets/human/foundation.glb'),authored=await asset('../assets/human/hair-cards/hair-cards.glb'),human=original.scene,cap=human.getObjectByName('HairCrop');
   const reference=authored.scene.getObjectByName('HairGroom'),before=reference.geometry.attributes.position.array.slice();
@@ -133,5 +140,6 @@ test('cards export only the active geometry with named morphs, skin and standard
 test('the app default imports the baked loader rather than evaluating the rejected generator',()=>{
   const renderer=readFileSync(new URL('../src/human-renderer.js',import.meta.url),'utf8'),module=readFileSync(new URL('../src/hair-card-groom.js',import.meta.url),'utf8');
   assert.match(renderer,/imported\.traverse[\s\S]*?o\.castShadow=o\.name!=='HairGroom'/);
-  assert.match(renderer,/createHumanRenderer\(canvas,\{compareHair=false\}/);assert.doesNotMatch(renderer,/from ['"]\.\/hair-groom\.js/);assert.match(module,/if\(compareHair\)\{[\s\S]*?await import\('\.\/hair-groom\.js'\)/);
+  assert.match(renderer,/createHumanRenderer\(canvas,\{compareHair=false,hairAssetURL\}/);assert.doesNotMatch(renderer,/from ['"]\.\/hair-groom\.js/);assert.match(module,/if\(compareHair\)\{[\s\S]*?await import\('\.\/hair-groom\.js'\)/);
+  assert.match(renderer,/createHairCardGroom\(\{human,compareHair,assetURL:hairAssetURL,/);
 });
