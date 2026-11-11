@@ -8,11 +8,11 @@ import {ranges} from './project.js';
 import {createSkirtRig} from './skirt-rig.js';
 import {createEyeRig} from './eye-rig.js';
 import {createExpressionRig,expressionEyeControls} from './expression-rig.js';
-import {createHairGroom,HAIR_LIMIT} from './hair-groom.js';
+import {createHairCardGroom,HAIR_CARD_LIMIT} from './hair-card-groom.js';
 import {createSkinMaterial,SKIN_TRANSFER_LIMIT} from './skin-material.js';
 
 /** A locally bundled CC0 foundation with original MIT portrait and skirt additions. No network/CDN fallback. */
-export async function createHumanRenderer(canvas) {
+export async function createHumanRenderer(canvas,{compareHair=false}={}) {
   let renderer, rendererMode='webgl';
   try {
     const context=canvas.getContext('webgl2',{antialias:true,alpha:true,preserveDrawingBuffer:true});
@@ -94,7 +94,10 @@ export async function createHumanRenderer(canvas) {
     if(!lights[name])throw Error('Unknown lighting rig');
     const [kp,ki,fp,fi,ai]=lights[name];key.position.set(...kp);key.intensity=ki;fill.position.set(...fp);fill.intensity=fi;ambient.intensity=ai;
   }
-  const hair=createHairGroom({human});meshes.push(hair.mesh);
+  let hair;
+  try{hair=await createHairCardGroom({human,compareHair,maxAnisotropy:Math.min(renderer.capabilities.getMaxAnisotropy(),8)});}
+  catch(error){regionalSkin.dispose();baselineSkin.dispose();studioEnvironment?.dispose();renderer.dispose();throw error;}
+  meshes.push(...hair.meshes);
   function setHairPreview(mode){hair.setPreview(mode);if(current)update(current);}
   const skirt=createSkirtRig({human,pants:human.getObjectByName('Pants'),pelvis:bones.get('pelvis')});
   meshes.push(skirt.mesh);
@@ -118,6 +121,7 @@ export async function createHumanRenderer(canvas) {
     }
   }
   function roleFor(material){
+    if(material.userData.role)return material.userData.role;
     for(const[role,names]of Object.entries(manifest.materials || {}))if((Array.isArray(names)?names:[names]).includes(material.name))return role;
     return ({skin:'skin',outfit:'outfit',pants:'pants',hair:'hairColor'})[material.name.toLowerCase()];
   }
@@ -202,7 +206,7 @@ export async function createHumanRenderer(canvas) {
     const imported=(await new GLTFLoader().parseAsync(data,'')).scene;
     const wasVisible=human.visible;human.visible=false;orbit.add(imported);
     try{
-      imported.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true;o.frustumCulled=false;for(const m of Array.isArray(o.material)?o.material:[o.material]){m.envMapIntensity=m.name==='Skin'?.5:.65;if(m.name==='Cornea')m.depthWrite=false;for(const t of Object.values(m))if(t?.isTexture)t.anisotropy=Math.min(renderer.capabilities.getMaxAnisotropy(),8);}}});
+      imported.traverse(o=>{if(o.isMesh){o.castShadow=o.name!=='HairGroom';o.receiveShadow=!['HairGroom','HairProceduralGroom'].includes(o.name);o.frustumCulled=false;for(const m of Array.isArray(o.material)?o.material:[o.material]){m.envMapIntensity=m.name==='Skin'?.5:.65;if(o.userData.role==='hair'&&m.alphaTest>0)m.alphaToCoverage=true;if(m.name==='Cornea')m.depthWrite=false;for(const t of Object.values(m))if(t?.isTexture)t.anisotropy=Math.min(renderer.capabilities.getMaxAnisotropy(),8);}}});
       orbit.updateMatrixWorld(true);imported.traverse(o=>o.skeleton?.update());render(yaw,focus);
     }finally{
       orbit.remove(imported);human.visible=wasVisible;
@@ -211,5 +215,5 @@ export async function createHumanRenderer(canvas) {
       textures.forEach(t=>t.dispose());materials.forEach(m=>m.dispose());skeletons.forEach(s=>s.dispose());
     }
   }
-  return {update,render,exportGLB,setSkinPreview,setHairPreview,setLighting,renderExportPreview,get triangleCount(){return visibleTriangleCount();},info:{hair:{...hair.stats,transferLimit:HAIR_LIMIT},skinTransferLimit:SKIN_TRANSFER_LIMIT,mode:rendererMode,boneCount:bones.size,get auxiliaryBoneCount(){return current?.lowerGarment==='skirt'?skirt.bones.length:0;},morphs:manifest.morphs,license:manifest.license||'See asset license manifest',gpu:rendererMode==='webgl'?renderer.getContext().getParameter(renderer.getContext().getExtension('WEBGL_debug_renderer_info')?.UNMASKED_RENDERER_WEBGL||renderer.getContext().RENDERER):'CPU'},dispose(){hair.dispose();regionalSkin.dispose();baselineSkin.dispose();studioEnvironment?.dispose();mixer.stopAllAction();const textures=new Set(Object.values(baselineSkin).filter(t=>t?.isTexture)),materials=new Set(),skeletons=new Set();meshes.forEach(mesh=>{if(mesh.skeleton)skeletons.add(mesh.skeleton);mesh.geometry.dispose();for(const material of Array.isArray(mesh.material)?mesh.material:[mesh.material]){materials.add(material);for(const value of Object.values(material))if(value?.isTexture)textures.add(value);}});textures.forEach(texture=>texture.dispose());materials.forEach(material=>material.dispose());skeletons.forEach(skeleton=>skeleton.dispose());renderer.dispose();}};
+  return {update,render,exportGLB,setSkinPreview,setHairPreview,setLighting,renderExportPreview,get triangleCount(){return visibleTriangleCount();},info:{hair:{...hair.stats,transferLimit:HAIR_CARD_LIMIT},skinTransferLimit:SKIN_TRANSFER_LIMIT,mode:rendererMode,boneCount:bones.size,get auxiliaryBoneCount(){return current?.lowerGarment==='skirt'?skirt.bones.length:0;},morphs:manifest.morphs,license:manifest.license||'See asset license manifest',gpu:rendererMode==='webgl'?renderer.getContext().getParameter(renderer.getContext().getExtension('WEBGL_debug_renderer_info')?.UNMASKED_RENDERER_WEBGL||renderer.getContext().RENDERER):'CPU'},dispose(){hair.dispose();regionalSkin.dispose();baselineSkin.dispose();studioEnvironment?.dispose();mixer.stopAllAction();const textures=new Set(Object.values(baselineSkin).filter(t=>t?.isTexture)),materials=new Set(),skeletons=new Set();meshes.forEach(mesh=>{if(mesh.skeleton)skeletons.add(mesh.skeleton);mesh.geometry.dispose();for(const material of Array.isArray(mesh.material)?mesh.material:[mesh.material]){materials.add(material);for(const value of Object.values(material))if(value?.isTexture)textures.add(value);}});textures.forEach(texture=>texture.dispose());materials.forEach(material=>material.dispose());skeletons.forEach(skeleton=>skeleton.dispose());renderer.dispose();}};
 }

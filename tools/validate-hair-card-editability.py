@@ -1,0 +1,5 @@
+import bpy,importlib.util,json,pathlib
+root=pathlib.Path(__file__).resolve().parents[1];bpy.ops.wm.open_mainfile(filepath=str(root/'assets/human/hair-cards/original-short-groom.blend'))
+spec=importlib.util.spec_from_file_location('rebake',root/'tools/rebake-hair-cards.py');mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod)
+base=mod.rebake();before=[v.co.copy() for v in base.data.vertices];guide=bpy.data.collections['EDITABLE Hair Guide Curves'].objects[0];guide.data.splines[0].bezier_points[2].co.z+=.006;bpy.context.view_layer.update();after=mod.rebake();movement=max((v.co-p).length for v,p in zip(after.data.vertices,before));assert movement>.003;assert len(after.data.shape_keys.key_blocks)==29;assert len(after.vertex_groups)==len(bpy.data.objects['HairCrop'].vertex_groups)
+r={'passed':True,'editedGuide':guide.name,'controlPointEditMeters':.006,'rebakedMaxVertexMovementMeters':movement,'retainedShapeKeys':28,'vertices':len(after.data.vertices),'sourceSaved':False};(root/'artifacts/hair-card-editability.json').write_text(json.dumps(r,indent=2));print(r)

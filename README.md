@@ -10,7 +10,13 @@
 
 ![Actual Mac hardware WebGL face view](docs/screenshots/persona-portrait-face.jpg)
 
-## Static short crop prototype
+## Layered Blender hair-card experiment
+
+The new local experiment replaces the rejected fiber-on-cap version with an original textured scalp and layered swept hair cards, retaining an editable Blender source and rebakeable guide curves. The shape is clearer and loading is quicker, but repeated card tips, the dark backing and limited blond strand depth still make it visibly synthetic. **Not photorealistic, approved for publication or published.** See [actual comparisons, editing workflow and checks](docs/QA-HAIR-CARDS.md).
+
+![Actual rejected prototype versus Blender-card experiment on hardware WebGL](docs/screenshots/persona-hair-cards-closeup.png)
+
+## Earlier static fiber prototype (superseded)
 
 The local hair pass groups fine fibers into small clumps, varies growth around the head, refines the hairline and adds sparse flyaways with portable directional highlights. It remains a static procedural crop, not a production groom. Existing projects and editable GLB export are preserved. This prototype has **not been published**. See [hardware views, Blender round trip and limits](docs/QA-HAIR.md).
 
